@@ -1,0 +1,3378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Search the site</title>
+  <meta name="description" content="        ">
+
+  <link rel="canonical" href="https://www.inferentialthinking.com/search">
+  <link rel="alternate" type="application/rss+xml" title="" href="https://www.inferentialthinking.com/feed.xml">
+
+  <meta property="og:url"         content="https://www.inferentialthinking.com/search" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Search the site" />
+<meta property="og:description" content="        " />
+<meta property="og:image"       content="https://www.inferentialthinking.com/favicon.png" />
+
+<meta name="twitter:card" content="summary">
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": "https://www.inferentialthinking.com/search",
+  "headline": "Search the site",
+  "datePublished": "2019-09-30T18:18:00+00:00",
+  "dateModified": "2019-09-30T18:18:00+00:00",
+  "description": "        ",
+  "author": {
+    "@type": "Person",
+    "name": "Berkeley DSEP"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.inferentialthinking.com",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://www.inferentialthinking.com",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    }
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
+
+
+  <!-- DOM updating function -->
+  <script src="/assets/js/page/dom-update.js"></script>
+
+  <!-- Selectors for elements on the page -->
+  <script src="/assets/js/page/documentSelectors.js"></script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
+  <script src="/assets/js/page/anchors.js" async></script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+
+  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js" async></script>
+  <script src="/assets/js/page/tocbot.js"></script>
+
+  <!-- Google analytics -->
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148221575-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148221575-1');
+</script>
+
+
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+<script>
+/**
+  * To auto-embed hub URLs in interact links if given in a RESTful fashion
+ */
+
+function getJsonFromUrl(url) {
+  var query = url.split('?');
+  if (query.length < 2) {
+    // No queries so just return false
+    return false;
+  }
+  query = query[1];
+  // Collect REST params into a dictionary
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
+}
+    
+function dict2param(dict) {
+    params = Object.keys(dict).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
+    });
+    return params.join('&')
+}
+
+// Parse a Binder URL, converting it to the string needed for JupyterHub
+function binder2Jupyterhub(url) {
+  newUrl = {};
+  parts = url.split('v2/gh/')[1];
+  // Grab the base repo information
+  repoinfo = parts.split('?')[0];
+  var [org, repo, ref] = repoinfo.split('/');
+  newUrl['repo'] = ['https://github.com', org, repo].join('/');
+  newUrl['branch'] = ref
+  // Grab extra parameters passed
+  params = getJsonFromUrl(url);
+  if (params['filepath'] !== undefined) {
+    newUrl['subPath'] = params['filepath']
+  }
+  return dict2param(newUrl);
+}
+
+// Filter out potentially unsafe characters to prevent xss
+function safeUrl(url)
+{
+   return String(encodeURIComponent(url))
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
+function addParamToInternalLinks(hub) {
+  var links = document.querySelectorAll("a").forEach(function(link) {
+    var href = link.href;
+    // If the link is an internal link...
+    if (href.search("https://www.inferentialthinking.com") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+      // Assume we're an internal link, add the hub param to it
+      var params = getJsonFromUrl(href);
+      if (params !== false) {
+        // We have REST params, so append a new one
+        params['jupyterhub'] = hub;
+      } else {
+        // Create the REST params
+        params = {'jupyterhub': hub};
+      }
+      // Update the link
+      var newHref = href.split('?')[0] + '?' + dict2param(params);
+      link.setAttribute('href', decodeURIComponent(newHref));
+    }
+  });
+  return false;
+}
+
+
+// Update interact links
+function updateInteractLink() {
+    // hack to make this work since it expects a ? in the URL
+    rest = getJsonFromUrl("?" + location.search.substr(1));
+    jupyterHubUrl = rest['jupyterhub'];
+    var hubType = null;
+    var hubUrl = null;
+    if (jupyterHubUrl !== undefined) {
+      hubType = 'jupyterhub';
+      hubUrl = jupyterHubUrl;
+    }
+
+    if (hubType !== null) {
+      // Sanitize the hubUrl
+      hubUrl = safeUrl(hubUrl);
+
+      // Add HTTP text if omitted
+      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
+      var interactButtons = document.querySelectorAll("button.interact-button")
+      var lastButton = interactButtons[interactButtons.length-1];
+      var link = lastButton.parentElement;
+
+      // If we've already run this, skip the link updating
+      if (link.nextElementSibling !== null) {
+        return;
+      }
+
+      // Update the link and add context div
+      var href = link.getAttribute('href');
+      if (lastButton.id === 'interact-button-binder') {
+        // If binder links exist, we need to re-work them for jupyterhub
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
+          first = [hubUrl, 'git-sync'].join('/')
+        } else {
+          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
+        }
+        href = first + '?' + binder2Jupyterhub(href);
+      } else {
+        // If interact button isn't binderhub, assume it's jupyterhub
+        // If JupyterHub links, we only need to replace the hub url
+        href = href.replace("", hubUrl);
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // Assume we're working from a local Jupyter server and remove `/hub`
+          href = href.replace("/hub/user-redirect", "");
+        }
+      }
+      link.setAttribute('href', decodeURIComponent(href));
+
+      // Add text after interact link saying where we're launching
+      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
+      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
+
+      // Update internal links so we retain the hub url
+      addParamToInternalLinks(hubUrl);
+    }
+}
+
+runWhenDOMLoaded(updateInteractLink)
+document.addEventListener('turbolinks:load', updateInteractLink)
+</script>
+
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+
+  <!-- Load JS that depends on site variables -->
+  <script src="/assets/js/page/copy-button.js" async></script>
+
+  <!-- Hide cell code -->
+  <script src="/assets/js/page/hide-cell.js" async></script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/assets/css/styles.css",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
+</head>
+
+  <body>
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="https://inferentialthinking.org"><img src="/favicon.png" class="textbook_logo" id="sidebar-logo" alt="textbook logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title"></h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/intro.html"
+        >
+          
+          Introduction
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/01/what-is-data-science.html"
+        >
+          
+            1.
+          
+          Data Science
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/01/1/intro.html"
+                >
+                  
+                    1.1
+                  
+                  Introduction
+                </a>
+
+                
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/chapters/01/1/1/computational-tools.html"
+                    >
+                      
+                        1.1.1
+                        
+                      
+                      Computational Tools
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/chapters/01/1/2/statistical-techniques.html"
+                    >
+                      
+                        1.1.2
+                        
+                      
+                      Statistical Techniques
+                    </a>
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/01/2/why-data-science.html"
+                >
+                  
+                    1.2
+                  
+                  Why Data Science?
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/01/3/Plotting_the_Classics.html"
+                >
+                  
+                    1.3
+                  
+                  Plotting the Classics
+                </a>
+
+                
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/chapters/01/3/1/Literary_Characters.html"
+                    >
+                      
+                        1.3.1
+                        
+                      
+                      Literary Characters
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/chapters/01/3/2/Another_Kind_Of_Character.html"
+                    >
+                      
+                        1.3.2
+                        
+                      
+                      Another Kind of Character
+                    </a>
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/02/causality-and-experiments.html"
+        >
+          
+            2.
+          
+          Causality and Experiments
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/02/1/observation-and-visualization-john-snow-and-the-broad-street-pump.html"
+                >
+                  
+                    2.1
+                  
+                  John Snow and the Broad Street Pump
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/02/2/snow-s-grand-experiment.html"
+                >
+                  
+                    2.2
+                  
+                  Snow’s “Grand Experiment”
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/02/3/establishing-causality.html"
+                >
+                  
+                    2.3
+                  
+                  Establishing Causality
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/02/4/randomization.html"
+                >
+                  
+                    2.4
+                  
+                  Randomization
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/02/5/endnote.html"
+                >
+                  
+                    2.5
+                  
+                  Endnote
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/03/programming-in-python.html"
+        >
+          
+            3.
+          
+          Programming in Python
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/03/1/Expressions.html"
+                >
+                  
+                    3.1
+                  
+                  Expressions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/03/2/Names.html"
+                >
+                  
+                    3.2
+                  
+                  Names
+                </a>
+
+                
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/chapters/03/2/1/Growth.html"
+                    >
+                      
+                        3.2.1
+                        
+                      
+                      Example: Growth Rates
+                    </a>
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/03/3/Calls.html"
+                >
+                  
+                    3.3
+                  
+                  Call Expressions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/03/4/Introduction_to_Tables.html"
+                >
+                  
+                    3.4
+                  
+                  Introduction to Tables
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/04/Data_Types.html"
+        >
+          
+            4.
+          
+          Data Types
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/04/1/Numbers.html"
+                >
+                  
+                    4.1
+                  
+                  Numbers
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/04/2/Strings.html"
+                >
+                  
+                    4.2
+                  
+                  Strings
+                </a>
+
+                
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/chapters/04/2/1/String_Methods.html"
+                    >
+                      
+                        4.2.1
+                        
+                      
+                      String Methods
+                    </a>
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/04/3/Comparison.html"
+                >
+                  
+                    4.3
+                  
+                  Comparisons
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/05/Sequences.html"
+        >
+          
+            5.
+          
+          Sequences
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/05/1/Arrays.html"
+                >
+                  
+                    5.1
+                  
+                  Arrays
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/05/2/Ranges.html"
+                >
+                  
+                    5.2
+                  
+                  Ranges
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/05/3/More_on_Arrays.html"
+                >
+                  
+                    5.3
+                  
+                  More on Arrays
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/06/Tables.html"
+        >
+          
+            6.
+          
+          Tables
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/06/1/Sorting_Rows.html"
+                >
+                  
+                    6.1
+                  
+                  Sorting Rows
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/06/2/Selecting_Rows.html"
+                >
+                  
+                    6.2
+                  
+                  Selecting Rows
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/06/3/Example_Trends_in_the_Population_of_the_United_States.html"
+                >
+                  
+                    6.3
+                  
+                  Example: Population Trends
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/06/4/Example_Gender_Ratio_in_the_US_Population.html"
+                >
+                  
+                    6.4
+                  
+                  Example: Trends in Gender
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/07/Visualization.html"
+        >
+          
+            7.
+          
+          Visualization
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/07/1/Visualizing_Categorical_Distributions.html"
+                >
+                  
+                    7.1
+                  
+                  Categorical Distributions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/07/2/Visualizing_Numerical_Distributions.html"
+                >
+                  
+                    7.2
+                  
+                  Numerical Distributions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/07/3/Overlaid_Graphs.html"
+                >
+                  
+                    7.3
+                  
+                  Overlaid Graphs
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/08/Functions_and_Tables.html"
+        >
+          
+            8.
+          
+          Functions and Tables
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/08/1/Applying_a_Function_to_a_Column.html"
+                >
+                  
+                    8.1
+                  
+                  Applying Functions to Columns
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/08/2/Classifying_by_One_Variable.html"
+                >
+                  
+                    8.2
+                  
+                  Classifying by One Variable
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/08/3/Cross-Classifying_by_More_than_One_Variable.html"
+                >
+                  
+                    8.3
+                  
+                  Cross-Classifying
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/08/4/Joining_Tables_by_Columns.html"
+                >
+                  
+                    8.4
+                  
+                  Joining Tables by Columns
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/08/5/Bike_Sharing_in_the_Bay_Area.html"
+                >
+                  
+                    8.5
+                  
+                  Bike Sharing in the Bay Area
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/09/Randomness.html"
+        >
+          
+            9.
+          
+          Randomness
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/09/1/Conditional_Statements.html"
+                >
+                  
+                    9.1
+                  
+                  Conditional Statements
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/09/2/Iteration.html"
+                >
+                  
+                    9.2
+                  
+                  Iteration
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/09/3/Simulation.html"
+                >
+                  
+                    9.3
+                  
+                  Simulation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/09/4/Monty_Hall_Problem.html"
+                >
+                  
+                    9.4
+                  
+                  The Monty Hall Problem
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/09/5/Finding_Probabilities.html"
+                >
+                  
+                    9.5
+                  
+                  Finding Probabilities
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/10/Sampling_and_Empirical_Distributions.html"
+        >
+          
+            10.
+          
+          Sampling and Empirical Distributions
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/10/1/Empirical_Distributions.html"
+                >
+                  
+                    10.1
+                  
+                  Empirical Distributions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/10/2/Sampling_from_a_Population.html"
+                >
+                  
+                    10.2
+                  
+                  Sampling from a Population
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/10/3/Empirical_Distribution_of_a_Statistic.html"
+                >
+                  
+                    10.3
+                  
+                  Empirical Distibution of a Statistic
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/11/Testing_Hypotheses.html"
+        >
+          
+            11.
+          
+          Testing Hypotheses
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/11/1/Assessing_Models.html"
+                >
+                  
+                    11.1
+                  
+                  Assessing Models
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/11/2/Multiple_Categories.html"
+                >
+                  
+                    11.2
+                  
+                  Multiple Categories
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/11/3/Decisions_and_Uncertainty.html"
+                >
+                  
+                    11.3
+                  
+                  Decisions and Uncertainty
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/11/4/Error_Probabilities.html"
+                >
+                  
+                    11.4
+                  
+                  Error Probabilities
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/12/Comparing_Two_Samples.html"
+        >
+          
+            12.
+          
+          Comparing Two Samples
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/12/1/AB_Testing.html"
+                >
+                  
+                    12.1
+                  
+                  A/B Testing
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/12/2/Deflategate.html"
+                >
+                  
+                    12.2
+                  
+                  Deflategate
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/12/3/Causality.html"
+                >
+                  
+                    12.3
+                  
+                  Causality
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/13/Estimation.html"
+        >
+          
+            13.
+          
+          Estimation
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/13/1/Percentiles.html"
+                >
+                  
+                    13.1
+                  
+                  Percentiles
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/13/2/Bootstrap.html"
+                >
+                  
+                    13.2
+                  
+                  The Bootstrap
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/13/3/Confidence_Intervals.html"
+                >
+                  
+                    13.3
+                  
+                  Confidence Intervals
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/13/4/Using_Confidence_Intervals.html"
+                >
+                  
+                    13.4
+                  
+                  Using Confidence Intervals
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/14/Why_the_Mean_Matters.html"
+        >
+          
+            14.
+          
+          Why the Mean Matters
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/14/1/Properties_of_the_Mean.html"
+                >
+                  
+                    14.1
+                  
+                  Properties of the Mean
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/14/2/Variability.html"
+                >
+                  
+                    14.2
+                  
+                  Variability
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/14/3/SD_and_the_Normal_Curve.html"
+                >
+                  
+                    14.3
+                  
+                  The SD and the Normal Curve
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/14/4/Central_Limit_Theorem.html"
+                >
+                  
+                    14.4
+                  
+                  The Central Limit Theorem
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/14/5/Variability_of_the_Sample_Mean.html"
+                >
+                  
+                    14.5
+                  
+                  The Variability of the Sample Mean
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/14/6/Choosing_a_Sample_Size.html"
+                >
+                  
+                    14.6
+                  
+                  Choosing a Sample Size
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/15/Prediction.html"
+        >
+          
+            15.
+          
+          Prediction
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/15/1/Correlation.html"
+                >
+                  
+                    15.1
+                  
+                  Correlation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/15/2/Regression_Line.html"
+                >
+                  
+                    15.2
+                  
+                  The Regression Line
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/15/3/Method_of_Least_Squares.html"
+                >
+                  
+                    15.3
+                  
+                  The Method of Least Squares
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/15/4/Least_Squares_Regression.html"
+                >
+                  
+                    15.4
+                  
+                  Least Squares Regression
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/15/5/Visual_Diagnostics.html"
+                >
+                  
+                    15.5
+                  
+                  Visual Diagnostics
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/15/6/Numerical_Diagnostics.html"
+                >
+                  
+                    15.6
+                  
+                  Numerical Diagnostics
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/16/Inference_for_Regression.html"
+        >
+          
+            16.
+          
+          Inference for Regression
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/16/1/Regression_Model.html"
+                >
+                  
+                    16.1
+                  
+                  A Regression Model
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/16/2/Inference_for_the_True_Slope.html"
+                >
+                  
+                    16.2
+                  
+                  Inference for the True Slope
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/16/3/Prediction_Intervals.html"
+                >
+                  
+                    16.3
+                  
+                  Prediction Intervals
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/17/Classification.html"
+        >
+          
+            17.
+          
+          Classification
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/17/1/Nearest_Neighbors.html"
+                >
+                  
+                    17.1
+                  
+                  Nearest Neighbors
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/17/2/Training_and_Testing.html"
+                >
+                  
+                    17.2
+                  
+                  Training and Testing
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/17/3/Rows_of_Tables.html"
+                >
+                  
+                    17.3
+                  
+                  Rows of Tables
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/17/4/Implementing_the_Classifier.html"
+                >
+                  
+                    17.4
+                  
+                  Implementing the Classifier
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/17/5/Accuracy_of_the_Classifier.html"
+                >
+                  
+                    17.5
+                  
+                  The Accuracy of the Classifier
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/17/6/Multiple_Regression.html"
+                >
+                  
+                    17.6
+                  
+                  Multiple Regression
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/18/Updating_Predictions.html"
+        >
+          
+            18.
+          
+          Updating Predictions
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/18/1/More_Likely_than_Not_Binary_Classifier.html"
+                >
+                  
+                    18.1
+                  
+                  A "More Likely Than Not" Binary Classifier
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/18/2/Making_Decisions.html"
+                >
+                  
+                    18.2
+                  
+                  Making Decisions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+  </ul>
+  <p class="sidebar_footer">Powered by <a href="https://github.com/choldgraf/jupyter-book">Jupyter Book</a></p>
+</nav>
+
+      
+      <div class="c-topbar" id="top-navbar">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <div class="c-topbar__buttons">
+    <button
+      id="js-sidebar-toggle"
+      class="hamburger hamburger--arrowalt is-active"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="buttons">
+<div class="download-buttons-dropdown">
+    <button id="dropdown-button-trigger" class="interact-button"><img src="/assets/images/download-solid.svg" alt="Download" /></button>
+    <div class="download-buttons">
+        
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
+    </div>
+</div>
+
+</div>
+
+  </div>
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="sidebar__right">
+    <header><h4 class="nav__title"><img src="/assets/images/list-solid.svg" alt="Search" />   On this page</h4></header>
+    <nav class="onthispage">
+    </nav>
+  </aside>
+  <a href="/search.html" class="topbar-right-button" id="search-button">
+    <img src="/assets/images/search-solid.svg" alt="Search" />
+  </a>
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+              <div class="search-content__inner-wrap">
+    <input type="text" id="lunr_search" class="search-input" tabindex="-1" placeholder="'Enter your search term...''" />
+    <div id="results" class="results"></div>
+</div>
+
+<script>
+    // Add the lunr store since we will now search it
+    var store = [{
+        "title": "Computational Tools",
+        
+        "excerpt":
+            "Computational Tools This text uses the Python 3 programming language, along with a standard set of numerical and data visualization tools that are used widely in commercial applications, scientific experiments, and open-source projects. Python has recruited enthusiasts from many professions that use data to draw conclusions. By learning the Python language, you will join a million-person-strong community of software developers and data scientists. Getting Started. The easiest and recommended way to start writing programs in Python is to log into the companion site for this text, datahub.berkeley.edu. If you have a @berkeley.edu email address, you already have full access to...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/01/1/1/computational-tools.html",
+        "teaser":null},{
+        "title": "Statistical Techniques",
+        
+        "excerpt":
+            "Statistical Techniques The discipline of statistics has long addressed the same fundamental challenge as data science: how to draw robust conclusions about the world using incomplete information. One of the most important contributions of statistics is a consistent and precise vocabulary for describing the relationship between observations and conclusions. This text continues in the same tradition, focusing on a set of core inferential problems from statistics: testing hypotheses, estimating confidence, and predicting unknown quantities. Data science extends the field of statistics by taking full advantage of computing, data visualization, machine learning, optimization, and access to information. The combination of fast...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/01/1/2/statistical-techniques.html",
+        "teaser":null},{
+        "title": "Introduction",
+        
+        "excerpt":
+            "Chapter 1: Introduction Data are descriptions of the world around us, collected through observation and stored on computers. Computers enable us to infer properties of the world from these descriptions. Data science is the discipline of drawing conclusions from data using computation. There are three core aspects of effective data analysis: exploration, prediction, and inference. This text develops a consistent approach to all three, introducing statistical ideas and fundamental ideas in computer science concurrently. We focus on a minimal set of core techniques that can be applied to a vast range of real-world applications. A foundation in data science requires...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/01/1/intro.html",
+        "teaser":null},{
+        "title": "Why Data Science?",
+        
+        "excerpt":
+            "Why Data Science? Most important decisions are made with only partial information and uncertain outcomes. However, the degree of uncertainty for many decisions can be reduced sharply by access to large data sets and the computational tools required to analyze them effectively. Data-driven decision making has already transformed a tremendous breadth of industries, including finance, advertising, manufacturing, and real estate. At the same time, a wide range of academic disciplines are evolving rapidly to incorporate large-scale data analysis into their theory and practice. Studying data science enables individuals to bring these techniques to bear on their work, their scientific endeavors,...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/01/2/why-data-science.html",
+        "teaser":null},{
+        "title": "Literary Characters",
+        
+        "excerpt":
+            "Literary Characters The Adventures of Huckleberry Finn describes a journey that Huck and Jim take along the Mississippi River. Tom Sawyer joins them towards the end as the action heats up. Having loaded the text, we can quickly visualize how many times these characters have each been mentioned at any point in the book. # Count how many times the names Jim, Tom, and Huck appear in each chapter. counts = Table().with_columns([ &#39;Jim&#39;, np.char.count(huck_finn_chapters, &#39;Jim&#39;), &#39;Tom&#39;, np.char.count(huck_finn_chapters, &#39;Tom&#39;), &#39;Huck&#39;, np.char.count(huck_finn_chapters, &#39;Huck&#39;) ]) # Plot the cumulative counts: # how many times in Chapter 1, how many times in Chapters 1...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/01/3/1/Literary_Characters.html",
+        "teaser":null},{
+        "title": "Another Kind of Character",
+        
+        "excerpt":
+            "Another Kind of Character In some situations, the relationships between quantities allow us to make predictions. This text will explore how to make accurate predictions based on incomplete information and develop methods for combining multiple sources of uncertain information to make decisions. As an example of visualizing information derived from multiple sources, let us first use the computer to get some information that would be tedious to acquire by hand. In the context of novels, the word \"character\" has a second meaning: a printed symbol such as a letter or number or punctuation symbol. Here, we ask the computer to...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/01/3/2/Another_Kind_Of_Character.html",
+        "teaser":null},{
+        "title": "Plotting the Classics",
+        
+        "excerpt":
+            "Plotting the classics In this example, we will explore statistics for two classic novels: The Adventures of Huckleberry Finn by Mark Twain, and Little Women by Louisa May Alcott. The text of any book can be read by a computer at great speed. Books published before 1923 are currently in the public domain, meaning that everyone has the right to copy or use the text in any way. Project Gutenberg is a website that publishes public domain books online. Using Python, we can load the text of these books directly from the web. This example is meant to illustrate some...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/01/3/Plotting_the_Classics.html",
+        "teaser":null},{
+        "title": "Data Science",
+        
+        "excerpt":
+            "What is Data Science? Data Science is about drawing useful conclusions from large and diverse data sets through exploration, prediction, and inference. Exploration involves identifying patterns in information. Prediction involves using information we know to make informed guesses about values we wish we knew. Inference involves quantifying our degree of certainty: will the patterns that we found in our data also appear in new observations? How accurate are our predictions? Our primary tools for exploration are visualizations and descriptive statistics, for prediction are machine learning and optimization, and for inference are statistical tests and models. Statistics is a central component...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/01/what-is-data-science.html",
+        "teaser":null},{
+        "title": "John Snow and the Broad Street Pump",
+        
+        "excerpt":
+            "Observation and Visualization: John Snow and the Broad Street Pump One of the most powerful examples of astute observation eventually leading to the establishment of causality dates back more than 150 years. To get your mind into the right timeframe, try to imagine London in the 1850’s. It was the world’s wealthiest city but many of its people were desperately poor. Charles Dickens, then at the height of his fame, was writing about their plight. Disease was rife in the poorer parts of the city, and cholera was among the most feared. It was not yet known that germs cause...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/02/1/observation-and-visualization-john-snow-and-the-broad-street-pump.html",
+        "teaser":null},{
+        "title": "Snow’s “Grand Experiment”",
+        
+        "excerpt":
+            "Snow&#8217;s &#8220;Grand Experiment&#8221; Encouraged by what he had learned in Soho, Snow completed a more thorough analysis. For some time, he had been gathering data on cholera deaths in an area of London that was served by two water companies. The Lambeth water company drew its water upriver from where sewage was discharged into the River Thames. Its water was relatively clean. But the Southwark and Vauxhall (S&amp;V) company drew its water below the sewage discharge, and thus its supply was contaminated. The map below shows the areas served by the two companies. Snow honed in on the region where...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/02/2/snow-s-grand-experiment.html",
+        "teaser":null},{
+        "title": "Establishing Causality",
+        
+        "excerpt":
+            "Establishing Causality In the language developed earlier in the section, you can think of the people in the S&amp;V houses as the treatment group, and those in the Lambeth houses at the control group. A crucial element in Snow’s analysis was that the people in the two groups were comparable to each other, apart from the treatment. In order to establish whether it was the water supply that was causing cholera, Snow had to compare two groups that were similar to each other in all but one aspect—their water supply. Only then would he be able to ascribe the differences...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/02/3/establishing-causality.html",
+        "teaser":null},{
+        "title": "Randomization",
+        
+        "excerpt":
+            "Randomization An excellent way to avoid confounding is to assign individuals to the treatment and control groups at random, and then administer the treatment to those who were assigned to the treatment group. Randomization keeps the two groups similar apart from the treatment. If you are able to randomize individuals into the treatment and control groups, you are running a randomized controlled experiment, also known as a randomized controlled trial (RCT). Sometimes, people’s responses in an experiment are influenced by their knowing which group they are in. So you might want to run a blind experiment in which individuals do...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/02/4/randomization.html",
+        "teaser":null},{
+        "title": "Endnote",
+        
+        "excerpt":
+            "Endnote In the terminology that we have developed, John Snow conducted an observational study, not a randomized experiment. But he called his study a “grand experiment” because, as he wrote, “No fewer than three hundred thousand people … were divided into two groups without their choice, and in most cases, without their knowledge …” Studies such as Snow’s are sometimes called “natural experiments.” However, true randomization does not simply mean that the treatment and control groups are selected “without their choice.” The method of randomization can be as simple as tossing a coin. It may also be quite a bit...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/02/5/endnote.html",
+        "teaser":null},{
+        "title": "Causality and Experiments",
+        
+        "excerpt":
+            "Causality and Experiments \"These problems are, and will probably ever remain, among the inscrutable secrets of nature. They belong to a class of questions radically inaccessible to the human intelligence.\" —The Times of London, September 1849, on how cholera is contracted and spread Does the death penalty have a deterrent effect? Is chocolate good for you? What causes breast cancer? All of these questions attempt to assign a cause to an effect. A careful examination of data can help shed light on questions like these. In this section you will learn some of the fundamental concepts involved in establishing causality....",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/02/causality-and-experiments.html",
+        "teaser":null},{
+        "title": "Expressions",
+        
+        "excerpt":
+            "Expressions Programming languages are much simpler than human languages. Nonetheless, there are some rules of grammar to learn in any language, and that is where we will begin. In this text, we will use the Python programming language. Learning the grammar rules is essential, and the same rules used in the most basic programs are also central to more sophisticated programs. Programs are made up of expressions, which describe to the computer how to combine pieces of data. For example, a multiplication expression consists of a * symbol between two numerical expressions. Expressions, such as 3 * 4, are evaluated...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/03/1/Expressions.html",
+        "teaser":null},{
+        "title": "Example: Growth Rates",
+        
+        "excerpt":
+            "Example: Growth Rates The relationship between two measurements of the same quantity taken at different times is often expressed as a growth rate. For example, the United States federal government employed 2,766,000 people in 2002 and 2,814,000 people in 2012. To compute a growth rate, we must first decide which value to treat as the initial amount. For values over time, the earlier value is a natural choice. Then, we divide the difference between the changed and initial amount by the initial amount. initial = 2766000 changed = 2814000 (changed - initial) / initial 0.01735357917570499 It is also typical to...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/03/2/1/Growth.html",
+        "teaser":null},{
+        "title": "Names",
+        
+        "excerpt":
+            "Names Names are given to values in Python using an assignment statement. In an assignment, a name is followed by =, which is followed by any expression. The value of the expression to the right of = is assigned to the name. Once a name has a value assigned to it, the value will be substituted for that name in future expressions. a = 10 b = 20 a + b 30 A previously assigned name can be used in the expression to the right of =. quarter = 1/4 half = 2 * quarter half 0.5 However, only the...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/03/2/Names.html",
+        "teaser":null},{
+        "title": "Call Expressions",
+        
+        "excerpt":
+            "Call Expressions Call expressions invoke functions, which are named operations. The name of the function appears first, followed by expressions in parentheses. abs(-12) 12 round(5 - 1.3) 4 max(2, 2 + 3, 4) 5 In this last example, the max function is called on three arguments: 2, 5, and 4. The value of each expression within parentheses is passed to the function, and the function returns the final value of the full call expression. The max function can take any number of arguments and returns the maximum. A few functions are available by default, such as abs and round, but...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/03/3/Calls.html",
+        "teaser":null},{
+        "title": "Introduction to Tables",
+        
+        "excerpt":
+            "Introduction to Tables We can now apply Python to analyze data. We will work with data stored in Table structures. Tables are a fundamental way of representing data sets. A table can be viewed in two ways: a sequence of named columns that each describe a single attribute of all entries in a data set, or a sequence of rows that each contain all information about a single individual in a data set. We will study tables in great detail in the next several chapters. For now, we will just introduce a few methods without going into technical details. The...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/03/4/Introduction_to_Tables.html",
+        "teaser":null},{
+        "title": "Programming in Python",
+        
+        "excerpt":
+            "             Programming in Python  Programming can dramatically improve our ability to collect and analyze information about the world, which in turn can lead to discoveries through the kind of careful reasoning demonstrated in the previous section. In data science, the purpose of writing a program is to instruct a computer to carry out the steps of an analysis. Computers cannot study the world on their own. People must describe precisely what steps the computer should take in order to collect and analyze data, and those steps are expressed through programs.                     ",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/03/programming-in-python.html",
+        "teaser":null},{
+        "title": "Numbers",
+        
+        "excerpt":
+            "Numbers Computers are designed to perform numerical calculations, but there are some important details about working with numbers that every programmer working with quantitative data should know. Python (and most other programming languages) distinguishes between two different types of numbers: Integers are called int values in the Python language. They can only represent whole numbers (negative, zero, or positive) that don't have a fractional component Real numbers are called float values (or floating point values) in the Python language. They can represent whole or fractional numbers but have some limitations. The type of a number is evident from the way...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/04/1/Numbers.html",
+        "teaser":null},{
+        "title": "String Methods",
+        
+        "excerpt":
+            "String Methods From an existing string, related strings can be constructed using string methods, which are functions that operate on strings. These methods are called by placing a dot after the string, then calling the function. For example, the following method generates an uppercased version of a string. &quot;loud&quot;.upper() &#39;LOUD&#39; Perhaps the most important method is replace, which replaces all instances of a substring within the string. The replace method takes two arguments, the text to be replaced and its replacement. &#39;hitchhiker&#39;.replace(&#39;hi&#39;, &#39;ma&#39;) &#39;matchmaker&#39; String methods can also be invoked using variable names, as long as those names are bound...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/04/2/1/String_Methods.html",
+        "teaser":null},{
+        "title": "Strings",
+        
+        "excerpt":
+            "Strings Much of the world's data is text, and a piece of text represented in a computer is called a string. A string can represent a word, a sentence, or even the contents of every book in a library. Since text can include numbers (like this: 5) or truth values (True), a string can also describe those things. The meaning of an expression depends both upon its structure and the types of values that are being combined. So, for instance, adding two strings together produces another string. This expression is still an addition expression, but it is combining a different...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/04/2/Strings.html",
+        "teaser":null},{
+        "title": "Comparisons",
+        
+        "excerpt":
+            "Comparisons Boolean values most often arise from comparison operators. Python includes a variety of operators that compare values. For example, 3 is larger than 1 + 1. 3 &gt; 1 + 1 True The value True indicates that the comparison is valid; Python has confirmed this simple fact about the relationship between 3 and 1+1. The full set of common comparison operators are listed below. Comparison Operator True example False Example Less than &lt; 2 &lt; 3 2 &lt; 2 Greater than &gt; 3&gt;2 3&gt;3 Less than or equal &lt;= 2 &lt;= 2 3 &lt;= 2 Greater or equal &gt;=...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/04/3/Comparison.html",
+        "teaser":null},{
+        "title": "Data Types",
+        
+        "excerpt":
+            "             Data Types  Every value has a type, and the built-in type function returns the type of the result of any expression.            One type we have encountered already is a built-in function. Python indicates that the type is a builtin_function_or_method; the distinction between a function and a method is not important at this stage.                   type(abs)                    builtin_function_or_method               This chapter will explore many useful types of data.                     ",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/04/Data_Types.html",
+        "teaser":null},{
+        "title": "Arrays",
+        
+        "excerpt":
+            "Arrays While there are many kinds of collections in Python, we will work primarily with arrays in this class. We've already seen that the make_array function can be used to create arrays of numbers. Arrays can also contain strings or other types of values, but a single array can only contain a single kind of data. (It usually doesn't make sense to group together unlike data anyway.) For example: english_parts_of_speech = make_array(&quot;noun&quot;, &quot;pronoun&quot;, &quot;verb&quot;, &quot;adverb&quot;, &quot;adjective&quot;, &quot;conjunction&quot;, &quot;preposition&quot;, &quot;interjection&quot;) english_parts_of_speech array([&#39;noun&#39;, &#39;pronoun&#39;, &#39;verb&#39;, &#39;adverb&#39;, &#39;adjective&#39;, &#39;conjunction&#39;, &#39;preposition&#39;, &#39;interjection&#39;], dtype=&#39;&lt;U12&#39;) Returning to the temperature data, we create arrays of average daily...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/05/1/Arrays.html",
+        "teaser":null},{
+        "title": "Ranges",
+        
+        "excerpt":
+            "Ranges A range is an array of numbers in increasing or decreasing order, each separated by a regular interval. Ranges are useful in a surprisingly large number of situations, so it's worthwhile to learn about them. Ranges are defined using the np.arange function, which takes either one, two, or three arguments: a start, and end, and a 'step'. If you pass one argument to np.arange, this becomes the end value, with start=0, step=1 assumed. Two arguments give the start and end with step=1 assumed. Three arguments give the start, end and step explicitly. A range always includes its start value,...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/05/2/Ranges.html",
+        "teaser":null},{
+        "title": "More on Arrays",
+        
+        "excerpt":
+            "More on Arrays It's often necessary to compute something that involves data from more than one array. If two arrays are of the same size, Python makes it easy to do calculations involving both arrays. For our first example, we return once more to the temperature data. This time, we create arrays of average daily high and low temperatures for the decades surrounding 1850, 1900, 1950, and 2000. baseline_high = 14.48 highs = make_array(baseline_high - 0.880, baseline_high - 0.093, baseline_high + 0.105, baseline_high + 0.684) highs array([ 13.6 , 14.387, 14.585, 15.164]) baseline_low = 3.00 lows = make_array(baseline_low - 0.872,...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/05/3/More_on_Arrays.html",
+        "teaser":null},{
+        "title": "Sequences",
+        
+        "excerpt":
+            "Sequences Values can be grouped together into collections, which allows programmers to organize those values and refer to all of them with a single name. By grouping values together, we can write code that performs a computation on many pieces of data at once. Calling the function make_array on several values places them into an array, which is a kind of sequential collection. Below, we collect four different temperatures into an array called highs. These are the estimated average daily high temperatures over all land on Earth (in degrees Celsius) for the decades surrounding 1850, 1900, 1950, and 2000, respectively,...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/05/Sequences.html",
+        "teaser":null},{
+        "title": "Sorting Rows",
+        
+        "excerpt":
+            "Sorting Rows \"The NBA is the highest paying professional sports league in the world,\" reported CNN in March 2016. The table nba_salaries contains the salaries of all National Basketball Association players in 2015-2016. Each row represents one player. The columns are: Column Label Description PLAYER Player's name POSITION Player's position on team TEAM Team name '15-'16 SALARY Player's salary in 2015-2016, in millions of dollars The code for the positions is PG (Point Guard), SG (Shooting Guard), PF (Power Forward), SF (Small Forward), and C (Center). But what follows doesn't involve details about how basketball is played. The first row...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/06/1/Sorting_Rows.html",
+        "teaser":null},{
+        "title": "Selecting Rows",
+        
+        "excerpt":
+            "Selecting Rows Often, we would like to extract just those rows that correspond to entries with a particular feature. For example, we might want only the rows corresponding to the Warriors, or to players who earned more than $\\$10$ million. Or we might just want the top five earners. Specified Rows The Table method take does just that – it takes a specified set of rows. Its argument is a row index or array of indices, and it creates a new table consisting of only those rows. For example, if we wanted just the first row of nba, we could...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/06/2/Selecting_Rows.html",
+        "teaser":null},{
+        "title": "Example: Population Trends",
+        
+        "excerpt":
+            "Example: Population Trends We are now ready to work with large tables of data. The file below contains \"Annual Estimates of the Resident Population by Single Year of Age and Sex for the United States.\" Notice that read_table can read data directly from a URL. # As of Jan 2017, this census file is online here: data = &#39;http://www2.census.gov/programs-surveys/popest/datasets/2010-2015/national/asrh/nc-est2015-agesex-res.csv&#39; # A local copy can be accessed here in case census.gov moves the file: # data = path_data + &#39;nc-est2015-agesex-res.csv&#39; full_census_table = Table.read_table(data) full_census_table SEX AGE CENSUS2010POP ESTIMATESBASE2010 POPESTIMATE2010 POPESTIMATE2011 POPESTIMATE2012 POPESTIMATE2013 POPESTIMATE2014 POPESTIMATE2015 0 0 3944153 3944160 3951330 3963087 3926540...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/06/3/Example_Trends_in_the_Population_of_the_United_States.html",
+        "teaser":null},{
+        "title": "Example: Trends in Gender",
+        
+        "excerpt":
+            "Example: Trends in Gender We are now equipped with enough coding skills to examine features and trends in subgroups of the U.S. population. In this example, we will look at the distribution of males and females across age groups. We will continue using the us_pop table from the previous section. us_pop SEX AGE 2010 2014 0 0 3951330 3949775 0 1 3957888 3949776 0 2 4090862 3959664 0 3 4111920 4007079 0 4 4077551 4005716 0 5 4064653 4006900 0 6 4073013 4135930 0 7 4043046 4155326 0 8 4025604 4120903 0 9 4125415 4108349 ... (296 rows omitted) As...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/06/4/Example_Gender_Ratio_in_the_US_Population.html",
+        "teaser":null},{
+        "title": "Tables",
+        
+        "excerpt":
+            "Tables Tables are a fundamental object type for representing data sets. A table can be viewed in two ways: a sequence of named columns that each describe a single aspect of all entries in a data set, or a sequence of rows that each contain all information about a single entry in a data set. In order to use tables, import all of the module called datascience, a module created for this text. from datascience import * Empty tables can be created using the Table function. An empty table is usefuly because it can be extended to contain new rows...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/06/Tables.html",
+        "teaser":null},{
+        "title": "Categorical Distributions",
+        
+        "excerpt":
+            "Visualizing Categorical Distributions Data come in many forms that are not numerical. Data can be pieces of music, or places on a map. They can also be categories into which you can place individuals. Here are some examples of categorical variables. The individuals are cartons of ice-cream, and the variable is the flavor in the carton. The individuals are professional basketball players, and the variable is the player's team. The individuals are years, and the variable is the genre of the highest grossing movie of the year. The individuals are survey respondents, and the variable is the response they choose...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/07/1/Visualizing_Categorical_Distributions.html",
+        "teaser":null},{
+        "title": "Numerical Distributions",
+        
+        "excerpt":
+            "Visualizing Numerical Distributions Many of the variables that data scientists study are quantitative or numerical. Their values are numbers on which you can perform arithmetic. Examples that we have seen include the number of periods in chapters of a book, the amount of money made by movies, and the age of people in the United States. The values of a categorical variable can be given numerical codes, but that doesn't make the variable quantitative. In the example in which we studied Census data broken down by age group, the categorial variable SEX had the numerical codes 1 for 'Male,' 2...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/07/2/Visualizing_Numerical_Distributions.html",
+        "teaser":null},{
+        "title": "Overlaid Graphs",
+        
+        "excerpt":
+            "Overlaid Graphs In this chapter, we have learned how to visualize data by drawing graphs. A common use of such visualizations is to compare two datasets. In this section, we will see how to overlay plots, that is, draw them in a single graphic on a common pair of axes. For the overlay to make sense, the graphs that are being overlaid must represent the same variables and be measured in the same units. To draw overlaid graphs, the methods scatter, plot, and barh can all be called in the same way. For scatter and plot, one column must serve...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/07/3/Overlaid_Graphs.html",
+        "teaser":null},{
+        "title": "Visualization",
+        
+        "excerpt":
+            "Visualization Tables are a powerful way of organizing and visualizing data. However, large tables of numbers can be difficult to interpret, no matter how organized they are. Sometimes it is much easier to interpret graphs than numbers. In this chapter we will develop some of the fundamental graphical methods of data analysis. Our source of data is the Internet Movie Database, an online database that contains information about movies, television shows, video games, and so on. The site Box Office Mojo provides many summaries of IMDB data, some of which we have adapted. We have also used data summaries from...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/07/Visualization.html",
+        "teaser":null},{
+        "title": "Applying Functions to Columns",
+        
+        "excerpt":
+            "Applying a Function to a Column We have seen many examples of creating new columns of tables by applying functions to existing columns or to other arrays. All of those functions took arrays as their arguments. But frequently we will want to convert the entries in a column by a function that doesn't take an array as its argument. For example, it might take just one number as its argument, as in the function cut_off_at_100 defined below. def cut_off_at_100(x): &quot;&quot;&quot;The smaller of x and 100&quot;&quot;&quot; return min(x, 100) cut_off_at_100(17) 17 cut_off_at_100(117) 100 cut_off_at_100(100) 100 The function cut_off_at_100 simply returns its...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/08/1/Applying_a_Function_to_a_Column.html",
+        "teaser":null},{
+        "title": "Classifying by One Variable",
+        
+        "excerpt":
+            "Classifying by One Variable Data scientists often need to classify individuals into groups according to shared features, and then identify some characteristics of the groups. For example, in the example using Galton's data on heights, we saw that it was useful to classify families according to the parents' midparent heights, and then find the average height of the children in each group. This section is about classifying individuals into categories that are not numerical. We begin by recalling the basic use of group. Counting the Number in Each Category The group method with a single argument counts the number of...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/08/2/Classifying_by_One_Variable.html",
+        "teaser":null},{
+        "title": "Cross-Classifying",
+        
+        "excerpt":
+            "Cross-Classifying by More than One Variable When individuals have multiple features, there are many different ways to classify them. For example, if we have a population of college students for each of whom we have recorded a major and the number of years in college, then the students could be classified by major, or by year, or by a combination of major and year. The group method also allows us to classify individuals according to multiple variables. This is called cross-classifying. Two Variables: Counting the Number in Each Paired Category The table more_cones records the flavor, color, and price of...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/08/3/Cross-Classifying_by_More_than_One_Variable.html",
+        "teaser":null},{
+        "title": "Joining Tables by Columns",
+        
+        "excerpt":
+            "Joining Tables by Columns Often, data about the same individuals is maintained in more than one table. For example, one university office might have data about each student's time to completion of degree, while another has data about the student's tuition and financial aid. To understand the students' experience, it may be helpful to put the two datasets together. If the data are in two tables, each with one row per student, then we would want to put the columns together, making sure to match the rows so that each student's information remains on a single row. Let us do...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/08/4/Joining_Tables_by_Columns.html",
+        "teaser":null},{
+        "title": "Bike Sharing in the Bay Area",
+        
+        "excerpt":
+            "Bike Sharing in the Bay Area We end this chapter by using all the methods we have learned to examine a new and large dataset. We will also introduce map_table, a powerful visualization tool. The Bay Area Bike Share service published a dataset describing every bicycle rental from September 2014 to August 2015 in their system. There were 354,152 rentals in all. The columns are: An ID for the rental Duration of the rental, in seconds Start date Name of the Start Station and code for Start Terminal Name of the End Station and code for End Terminal A serial...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/08/5/Bike_Sharing_in_the_Bay_Area.html",
+        "teaser":null},{
+        "title": "Functions and Tables",
+        
+        "excerpt":
+            "Functions and Tables We are building up a useful inventory of techniques for identifying patterns and themes in a data set by using functions already available in Python. We will now explore a core feature of the Python programming language: function definition. We have used functions extensively already in this text, but never defined a function of our own. The purpose of defining a function is to give a name to a computational process that may be applied multiple times. There are many situations in computing that require repeated computation. For example, it is often the case that we want...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/08/Functions_and_Tables.html",
+        "teaser":null},{
+        "title": "Conditional Statements",
+        
+        "excerpt":
+            "Conditional Statements In many situations, actions and results depends on a specific set of conditions being satisfied. For example, individuals in randomized controlled trials receive the treatment if they have been assigned to the treatment group. A gambler makes money if she wins her bet. In this section we will learn how to describe such situations using code. A conditional statement is a multi-line statement that allows Python to choose among different alternatives based on the truth value of an expression. While conditional statements can appear anywhere, they appear most often within the body of a function in order to...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/09/1/Conditional_Statements.html",
+        "teaser":null},{
+        "title": "Iteration",
+        
+        "excerpt":
+            "Iteration It is often the case in programming – especially when dealing with randomness – that we want to repeat a process multiple times. For example, recall the game of betting on one roll of a die with the following rules: If the die shows 1 or 2 spots, my net gain is -1 dollar. If the die shows 3 or 4 spots, my net gain is 0 dollars. If the die shows 5 or 6 spots, my net gain is 1 dollar. The function bet_on_one_roll takes no argument. Each time it is called, it simulates one roll of a...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/09/2/Iteration.html",
+        "teaser":null},{
+        "title": "Simulation",
+        
+        "excerpt":
+            "Simulation Simulation is the process of using a computer to mimic a physical experiment. In this class, those experiments will almost invariably involve chance. We have seen how to simulate the results of tosses of a coin. The steps in that simulation were examples of the steps that will constitute every simulation we do in this course. In this section we will set out those steps and follow them in examples. Step 1: What to Simulate Specify the quantity you want to simulate. For example, you might decide that you want to simulate the outcomes of tosses of a coin....",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/09/3/Simulation.html",
+        "teaser":null},{
+        "title": "The Monty Hall Problem",
+        
+        "excerpt":
+            "The Monty Hall Problem This problem has flummoxed many people over the years, mathematicians included. Let's see if we can work it out by simulation. The setting is derived from a television game show called \"Let's Make a Deal\". Monty Hall hosted this show in the 1960's, and it has since led to a number of spin-offs. An exciting part of the show was that while the contestants had the chance to win great prizes, they might instead end up with \"zonks\" that were less desirable. This is the basis for what is now known as the Monty Hall problem....",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/09/4/Monty_Hall_Problem.html",
+        "teaser":null},{
+        "title": "Finding Probabilities",
+        
+        "excerpt":
+            "Finding Probabilities Over the centuries, there has been considerable philosophical debate about what probabilities are. Some people think that probabilities are relative frequencies; others think they are long run relative frequencies; still others think that probabilities are a subjective measure of their own personal degree of uncertainty. In this course, most probabilities will be relative frequencies, though many will have subjective interpretations. Regardless, the ways in which probabilities are calculated and combined are consistent across the different interpretations. By convention, probabilities are numbers between 0 and 1, or, equivalently, 0% and 100%. Impossible events have probability 0. Events that are...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/09/5/Finding_Probabilities.html",
+        "teaser":null},{
+        "title": "Randomness",
+        
+        "excerpt":
+            "Randomness In the previous chapters we developed skills needed to make insightful descriptions of data. Data scientists also have to be able to understand randomness. For example, they have to be able to assign individuals to treatment and control groups at random, and then try to say whether any observed differences in the outcomes of the two groups are simply due to the random assignment or genuinely due to the treatment. In this chapter, we begin our analysis of randomness. To start off, we will use Python to make choices at random. In numpy there is a sub-module called random...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/09/Randomness.html",
+        "teaser":null},{
+        "title": "Empirical Distributions",
+        
+        "excerpt":
+            "Empirical Distributions In data science, the word \"empirical\" means \"observed\". Empirical distributions are distributions of observed data, such as data in random samples. In this section we will generate data and see what the empirical distribution looks like. Our setting is a simple experiment: rolling a die multiple times and keeping track of which face appears. The table die contains the numbers of spots on the faces of a die. All the numbers appear exactly once, as we are assuming that the die is fair. die = Table().with_column(&#39;Face&#39;, np.arange(1, 7, 1)) die Face 1 2 3 4 5 6 A...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/10/1/Empirical_Distributions.html",
+        "teaser":null},{
+        "title": "Sampling from a Population",
+        
+        "excerpt":
+            "Sampling from a Population The law of averages also holds when the random sample is drawn from individuals in a large population. As an example, we will study a population of flight delay times. The table united contains data for United Airlines domestic flights departing from San Francisco in the summer of 2015. The data are made publicly available by the Bureau of Transportation Statistics in the United States Department of Transportation. There are 13,825 rows, each corresponding to a flight. The columns are the date of the flight, the flight number, the destination airport code, and the departure delay...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/10/2/Sampling_from_a_Population.html",
+        "teaser":null},{
+        "title": "Empirical Distibution of a Statistic",
+        
+        "excerpt":
+            "Empirical Distribution of a Statistic The Law of Averages implies that with high probability, the empirical distribution of a large random sample will resemble the distribution of the population from which the sample was drawn. The resemblance is visible in two histograms: the empirical histogram of a large random sample is likely to resemble the histogram of the population. As a reminder, here is the histogram of the delays of all the flights in united, and an empirical histogram of the delays of a random sample of 1,000 of these flights. united = Table.read_table(path_data + &#39;united_summer2015.csv&#39;) delay_bins = np.arange(-20, 201,...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/10/3/Empirical_Distribution_of_a_Statistic.html",
+        "teaser":null},{
+        "title": "Sampling and Empirical Distributions",
+        
+        "excerpt":
+            "Sampling and Empirical Distributions An important part of data science consists of making conclusions based on the data in random samples. In order to correctly interpret their results, data scientists have to first understand exactly what random samples are. In this chapter we will take a more careful look at sampling, with special attention to the properties of large random samples. Let's start by drawing some samples. Our examples are based on the top_movies.csv data set. top1 = Table.read_table(path_data + &#39;top_movies.csv&#39;) top2 = top1.with_column(&#39;Row Index&#39;, np.arange(top1.num_rows)) top = top2.move_to_start(&#39;Row Index&#39;) top.set_format(make_array(3, 4), NumberFormatter) Row Index Title Studio Gross Gross (Adjusted)...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/10/Sampling_and_Empirical_Distributions.html",
+        "teaser":null},{
+        "title": "Assessing Models",
+        
+        "excerpt":
+            "Assessing Models In data science, a \"model\" is a set of assumptions about data. Often, models include assumptions about chance processes used to generate data. Sometimes, data scientists have to decide whether or not their models are good. In this section we will discuss two examples of making such decisions. In later sections we will use the methods developed here as the building blocks of a general framework for testing hypotheses. U.S. Supreme Court, 1965: Swain vs. Alabama In the early 1960's, in Talladega County in Alabama, a black man called Robert Swain was convicted of raping a white woman...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/11/1/Assessing_Models.html",
+        "teaser":null},{
+        "title": "Multiple Categories",
+        
+        "excerpt":
+            "Multiple Categories We have developed a way of assessing models about chance processes that generate data in two categories. The method extends to models involving data in multiple categories. The process of assessment is the same as before, the only difference being that we have to come up with a new statistic to simulate. Let's do this in an example that addresses the same kind of question that was raised in the case of Robert Swain's jury panel. This time, the data are more recent. Jury Selection in Alameda County In 2010, the American Civil Liberties Union (ACLU) of Northern...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/11/2/Multiple_Categories.html",
+        "teaser":null},{
+        "title": "Decisions and Uncertainty",
+        
+        "excerpt":
+            "Decisions and Uncertainty We have seen several examples of assessing models that involve chance, by comparing observed data to the predictions made by the models. In all of our examples, there has been no doubt about whether the data were consistent with the model's predictions. The data were either very far away from the predictions, or very close to them. But outcomes are not always so clear cut. How far is \"far\"? Exactly what does \"close\" mean? While these questions don't have universal answers, there are guidelines and conventions that you can follow. In this section we will describe some...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/11/3/Decisions_and_Uncertainty.html",
+        "teaser":null},{
+        "title": "Error Probabilities",
+        
+        "excerpt":
+            "Error Probabilities In the process by which we decide which of two hypotheses is better supported by our data, the final step involves a judgment about the consistency of the data and the null hypothesis. While this step results in a good decision a vast majority of the time, it can sometimes lead us astray. The reason is chance variation. For example, even when the null hypothesis is true, chance variation might cause the sample to look quite different from what the null hypothesis predicts. Wrong Conclusions If you are testing a null hypothesis against the alternative that the null...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/11/4/Error_Probabilities.html",
+        "teaser":null},{
+        "title": "Testing Hypotheses",
+        
+        "excerpt":
+            "Testing Hypotheses Data scientists are often faced with yes-no questions about the world. You have seen some examples of such questions in this course: Is chocolate good for you? Did water from the Broad Street pump cause cholera? Have the demographics in California changed over the past decade? Whether we answer questions like these depends on the data we have. Census data about California can settle questions about demographics with hardly any uncertainty about the answer. We know that Broad Street pump water was contaminated by waste from cholera victims, so we can make a pretty good guess about whether...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/11/Testing_Hypotheses.html",
+        "teaser":null},{
+        "title": "A/B Testing",
+        
+        "excerpt":
+            "A/B Testing In modern data analytics, deciding whether two numerical samples come from the same underlying distribution is called A/B testing. The name refers to the labels of the two samples, A and B. We will develop the method in the context of an example. The data come from a sample of newborns in a large hospital system. We will treat it as if it were a simple random sample though the sampling was done in multiple stages. Stat Labs by Deborah Nolan and Terry Speed has details about a larger dataset from which this set is drawn. Smokers and...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/12/1/AB_Testing.html",
+        "teaser":null},{
+        "title": "Deflategate",
+        
+        "excerpt":
+            "Deflategate On January 18, 2015, the Indianapolis Colts and the New England Patriots played the American Football Conference (AFC) championship game to determine which of those teams would play in the Super Bowl. After the game, there were allegations that the Patriots' footballs had not been inflated as much as the regulations required; they were softer. This could be an advantage, as softer balls might be easier to catch. For several weeks, the world of American football was consumed by accusations, denials, theories, and suspicions: the press labeled the topic Deflategate, after the Watergate political scandal of the 1970's. The...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/12/2/Deflategate.html",
+        "teaser":null},{
+        "title": "Causality",
+        
+        "excerpt":
+            "Causality Our methods for comparing two samples have a powerful use in the analysis of randomized controlled experiments. Since the treatment and control groups are assigned randomly in such experiements, differences in their outcomes can be compared to what would happen just due to chance if the treatment had no effect at all. If the observed differences are more marked than what we would predict as purely due to chance, we will have evidence of causation. Because of the unbiased assignment of individuals to the treatment and control groups, differences in the outcomes of the two groups can be ascribed...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/12/3/Causality.html",
+        "teaser":null},{
+        "title": "Comparing Two Samples",
+        
+        "excerpt":
+            "Comparing Two Samples We have seen several examples of assessing whether a single sample looks like random draws from a specified chance model. Did the Alameda County jury panels look like a random sample from the population of eligible jurors? Did the pea plants that Mendel grew have colors that were consistent with the chances he specified in his model? In all of these cases there was just one random sample, and we were trying to decide how it had been generated. But often, data scientists have to compare two random samples with each other. For example, they might have...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/12/Comparing_Two_Samples.html",
+        "teaser":null},{
+        "title": "Percentiles",
+        
+        "excerpt":
+            "Percentiles Numerical data can be sorted in increasing or decreasing order. Thus the values of a numerical data set have a rank order. A percentile is the value at a particular rank. For example, if your score on a test is on the 95th percentile, a common interpretation is that only 5% of the scores were higher than yours. The median is the 50th percentile; it is commonly assumed that 50% the values in a data set are above the median. But some care is required in giving percentiles a precise definition that works for all ranks and all lists....",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/13/1/Percentiles.html",
+        "teaser":null},{
+        "title": "The Bootstrap",
+        
+        "excerpt":
+            "The Bootstrap A data scientist is using the data in a random sample to estimate an unknown parameter. She uses the sample to calculate the value of a statistic that she will use as her estimate. Once she has calculated the observed value of her statistic, she could just present it as her estimate and go on her merry way. But she's a data scientist. She knows that her random sample is just one of numerous possible random samples, and thus her estimate is just one of numerous plausible estimates. By how much could those estimates vary? To answer this,...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/13/2/Bootstrap.html",
+        "teaser":null},{
+        "title": "Confidence Intervals",
+        
+        "excerpt":
+            "Confidence Intervals We have developed a method for estimating a parameter by using random sampling and the bootstrap. Our method produces an interval of estimates, to account for chance variability in the random sample. By providing an interval of estimates instead of just one estimate, we give ourselves some wiggle room. In the previous example we saw that our process of estimation produced a good interval about 95% of the time, a \"good\" interval being one that contains the parameter. We say that we are 95% confident that the process results in a good interval. Our interval of estimates is...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/13/3/Confidence_Intervals.html",
+        "teaser":null},{
+        "title": "Using Confidence Intervals",
+        
+        "excerpt":
+            "def bootstrap_median(original_sample, label, replications): &quot;&quot;&quot;Returns an array of bootstrapped sample medians: original_sample: table containing the original sample label: label of column containing the variable replications: number of bootstrap samples &quot;&quot;&quot; just_one_column = original_sample.select(label) medians = make_array() for i in np.arange(replications): bootstrap_sample = just_one_column.sample() resampled_median = percentile(50, bootstrap_sample.column(0)) medians = np.append(medians, resampled_median) return medians def bootstrap_mean(original_sample, label, replications): &quot;&quot;&quot;Returns an array of bootstrapped sample means: original_sample: table containing the original sample label: label of column containing the variable replications: number of bootstrap samples &quot;&quot;&quot; just_one_column = original_sample.select(label) means = make_array() for i in np.arange(replications): bootstrap_sample = just_one_column.sample() resampled_mean = np.mean(bootstrap_sample.column(0)) means...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/13/4/Using_Confidence_Intervals.html",
+        "teaser":null},{
+        "title": "Estimation",
+        
+        "excerpt":
+            "Estimation In the previous chapter we began to develop ways of inferential thinking. In particular, we learned how to use data to decide between two hypotheses about the world. But often we just want to know how big something is. For example, in an earlier chapter we investigated how many warplanes the enemy might have. In an election year, we might want to know what percent of voters favor a particular candidate. To assess the current economy, we might be interested in the median annual income of households in the United States. In this chapter, we will develop a way...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/13/Estimation.html",
+        "teaser":null},{
+        "title": "Properties of the Mean",
+        
+        "excerpt":
+            "Properties of the Mean In this course, we have used the words \"average\" and \"mean\" interchangeably, and will continue to do so. The definition of the mean will be familiar to you from your high school days or even earlier. Definition. The average or mean of a collection of numbers is the sum of all the elements of the collection, divided by the number of elements in the collection. The methods np.average and np.mean return the mean of an array. not_symmetric = make_array(2, 3, 3, 9) np.average(not_symmetric) 4.25 np.mean(not_symmetric) 4.25 Basic Properties The definition and the example above point to...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/14/1/Properties_of_the_Mean.html",
+        "teaser":null},{
+        "title": "Variability",
+        
+        "excerpt":
+            "Variability The mean tells us where a histogram balances. But in almost every histogram we have seen, the values spread out on both sides of the mean. How far from the mean can they be? To answer this question, we will develop a measure of variability about the mean. We will start by describing how to calculate the measure. Then we will see why it is a good measure to calcualte. The Rough Size of Deviations from Average For simplicity, we will begin our calcuations in the context of a simple array any_numbers consisting of just four values. As you...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/14/2/Variability.html",
+        "teaser":null},{
+        "title": "The SD and the Normal Curve",
+        
+        "excerpt":
+            "The SD and the Normal Curve We know that the mean is the balance point of the histogram. Unlike the mean, the SD is usually not easy to identify by looking at the histogram. However, there is one shape of distribution for which the SD is almost as clearly identifiable as the mean. That is the bell-shaped disribution. This section examines that shape, as it appears frequently in probability histograms and also in some histograms of data. A Roughly Bell-Shaped Histogram of Data Let us look at the distribution of heights of mothers in our familiar sample of 1,174 mother-newborn...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/14/3/SD_and_the_Normal_Curve.html",
+        "teaser":null},{
+        "title": "The Central Limit Theorem",
+        
+        "excerpt":
+            "The Central Limit Theorem Very few of the data histograms that we have seen in this course have been bell shaped. When we have come across a bell shaped distribution, it has almost invariably been an empirical histogram of a statistic based on a random sample. The examples below show two very different situations in which an approximate bell shape appears in such histograms. Net Gain in Roulette In an earlier section, the bell appeared as the rough shape of the total amount of money we would make if we placed the same bet repeatedly on different spins of a...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/14/4/Central_Limit_Theorem.html",
+        "teaser":null},{
+        "title": "The Variability of the Sample Mean",
+        
+        "excerpt":
+            "The Variability of the Sample Mean By the Central Limit Theorem, the probability distribution of the mean of a large random sample is roughly normal. The bell curve is centered at the population mean. Some of the sample means are higher, and some lower, but the deviations from the population mean are roughly symmetric on either side, as we have seen repeatedly. Formally, probability theory shows that the sample mean is an unbiased estimate of the population mean. In our simulations, we also noticed that the means of larger samples tend to be more tightly clustered around the population mean...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/14/5/Variability_of_the_Sample_Mean.html",
+        "teaser":null},{
+        "title": "Choosing a Sample Size",
+        
+        "excerpt":
+            "Choosing a Sample Size Candidate A is contesting an election. A polling organization wants to estimate the proportion of voters who will vote for her. Let's suppose that they plan to take a simple random sample of voters, though in reality their method of sampling would be more complex. How can they decide how large their sample should be, to get a desired level of accuracy? We are now in a position to answer this question, after making a few assumptions: The population of voters is very large and that therefore we can just as well assume that the random...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/14/6/Choosing_a_Sample_Size.html",
+        "teaser":null},{
+        "title": "Why the Mean Matters",
+        
+        "excerpt":
+            "Why the Mean Matters In this course we have studied several different statistics, including total variation distance, the maximum, the median, and also the mean. Under clear assumptions about randomness, we have drawn empirical distributions of all of these statistics. Some, like the maximum and the total variation distance, have distributions that are clearly skewed in one direction or the other. But the empirical distribution of the sample mean has almost always turned out close to bell-shaped, regardless of the population being studied. If a property of random samples is true regardless of the population, it becomes a powerful tool...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/14/Why_the_Mean_Matters.html",
+        "teaser":null},{
+        "title": "Correlation",
+        
+        "excerpt":
+            "Correlation In this section we will develop a measure of how tightly clustered a scatter diagram is about a straight line. Formally, this is called measuring linear association. The table hybrid contains data on hybrid passenger cars sold in the United States from 1997 to 2013. The data were adapted from the online data archive of Prof. Larry Winner of the University of Florida. The columns: vehicle: model of the car year: year of manufacture msrp: manufacturer's suggested retail price in 2013 dollars acceleration: acceleration rate in km per hour per second mpg: fuel econonmy in miles per gallon class:...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/15/1/Correlation.html",
+        "teaser":null},{
+        "title": "The Regression Line",
+        
+        "excerpt":
+            "The Regression Line The correlation coefficient $r$ doesn't just measure how clustered the points in a scatter plot are about a straight line. It also helps identify the straight line about which the points are clustered. In this section we will retrace the path that Galton and Pearson took to discover that line. Galton's data on the heights of parents and their adult children showed a linear association. The linearity was confirmed when our predictions of the children's heights based on the midparent heights roughly followed a straight line. galton = Table.read_table(path_data + &#39;galton.csv&#39;) heights = Table().with_columns( &#39;MidParent&#39;, galton.column(&#39;midparentHeight&#39;), &#39;Child&#39;,...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/15/2/Regression_Line.html",
+        "teaser":null},{
+        "title": "The Method of Least Squares",
+        
+        "excerpt":
+            "The Method of Least Squares We have retraced the steps that Galton and Pearson took to develop the equation of the regression line that runs through a football shaped scatter plot. But not all scatter plots are football shaped, not even linear ones. Does every scatter plot have a \"best\" line that goes through it? If so, can we still use the formulas for the slope and intercept developed in the previous section, or do we need new ones? To address these questions, we need a reasonable definition of \"best\". Recall that the purpose of the line is to predict...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/15/3/Method_of_Least_Squares.html",
+        "teaser":null},{
+        "title": "Least Squares Regression",
+        
+        "excerpt":
+            "Least Squares Regression In an earlier section, we developed formulas for the slope and intercept of the regression line through a football shaped scatter diagram. It turns out that the slope and intercept of the least squares line have the same formulas as those we developed, regardless of the shape of the scatter plot. We saw this in the example about Little Women, but let's confirm it in an example where the scatter plot clearly isn't football shaped. For the data, we are once again indebted to the rich data archive of Prof. Larry Winner of the University of Florida....",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/15/4/Least_Squares_Regression.html",
+        "teaser":null},{
+        "title": "Visual Diagnostics",
+        
+        "excerpt":
+            "# HIDDEN galton = Table.read_table(path_data + &#39;galton.csv&#39;) heights = galton.select(&#39;midparentHeight&#39;, &#39;childHeight&#39;) heights = heights.relabel(0, &#39;MidParent&#39;).relabel(1, &#39;Child&#39;) hybrid = Table.read_table(path_data + &#39;hybrid.csv&#39;) Visual Diagnostics Suppose a data scientist has decided to use linear regression to estimate values of one variable (called the response variable) based on another variable (called the predictor). To see how well this method of estimation performs, the data scientist must measure how far off the estimates are from the actual values. These differences are called residuals. $$ \\mbox{residual} ~=~ \\mbox{observed value} ~-~ \\mbox{regression estimate} $$A residual is what's left over – the residue – after estimation. Residuals...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/15/5/Visual_Diagnostics.html",
+        "teaser":null},{
+        "title": "Numerical Diagnostics",
+        
+        "excerpt":
+            "# HIDDEN galton = Table.read_table(path_data + &#39;galton.csv&#39;) heights = galton.select(&#39;midparentHeight&#39;, &#39;childHeight&#39;) heights = heights.relabel(0, &#39;MidParent&#39;).relabel(1, &#39;Child&#39;) dugong = Table.read_table(path_data + &#39;dugongs.csv&#39;) dugong = dugong.move_to_start(&#39;Length&#39;) hybrid = Table.read_table(path_data + &#39;hybrid.csv&#39;) Numerical Diagnostics In addition to visualization, we can use numerical properties of residuals to assess the quality of regression. We will not prove these properties mathematically. Rather, we will observe them by computation and see what they tell us about the regression. All of the facts listed below hold for all shapes of scatter plots, whether or not they are linear. Residual Plots Show No Trend For every linear regression, whether...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/15/6/Numerical_Diagnostics.html",
+        "teaser":null},{
+        "title": "Prediction",
+        
+        "excerpt":
+            "Prediction An important aspect of data science is to find out what data can tell us about the future. What do data about climate and pollution say about temperatures a few decades from now? Based on a person's internet profile, which websites are likely to interest them? How can a patient's medical history be used to judge how well he or she will respond to a treatment? To answer such questions, data scientists have developed methods for making predictions. In this chapter we will study one of the most commonly used ways of predicting the value of one variable based...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/15/Prediction.html",
+        "teaser":null},{
+        "title": "A Regression Model",
+        
+        "excerpt":
+            "A Regression Model In brief, such models say that the underlying relation between the two variables is perfectly linear; this straight line is the signal that we would like to identify. However, we are not able to see the line clearly. What we see are points that are scattered around the line. In each of the points, the signal has been contaminated by random noise. Our inferential goal, therefore, is to separate the signal from the noise. In greater detail, the regression model specifies that the points in the scatter plot are generated at random as follows. The relation between...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/16/1/Regression_Model.html",
+        "teaser":null},{
+        "title": "Inference for the True Slope",
+        
+        "excerpt":
+            "Inference for the True Slope Our simulations show that if the regression model holds and the sample size is large, then the regression line is likely to be close to the true line. This allows us to estimate the slope of the true line. We will use our familiar sample of mothers and their newborn babies to develop a method of estimating the slope of the true line. First, let's see if we believe that the regression model is an appropriate set of assumptions for describing the relation between birth weight and the number of gestational days. scatter_fit(baby, &#39;Gestational Days&#39;,...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/16/2/Inference_for_the_True_Slope.html",
+        "teaser":null},{
+        "title": "Prediction Intervals",
+        
+        "excerpt":
+            "Prediction Intervals One of the primary uses of regression is to make predictions for a new individual who was not part of our original sample but is similar to the sampled individuals. In the language of the model, we want to estimate $y$ for a new value of $x$. Our estimate is the height of the true line at $x$. Of course, we don't know the true line. What we have as a substitute is the regression line through our sample of points. The fitted value at a given value of $x$ is the regression estimate of $y$ based on...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/16/3/Prediction_Intervals.html",
+        "teaser":null},{
+        "title": "Inference for Regression",
+        
+        "excerpt":
+            "Inference for Regression Thus far, our analysis of the relation between variables has been purely descriptive. We know how to find the best straight line to draw through a scatter plot. The line is the best in the sense that it has the smallest mean squared error of estimation among all straight lines. But what if our data were only a sample from a larger population? If in the sample we found a linear relation between the two variables, would the same be true for the population? Would it be exactly the same linear relation? Could we predict the response...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/16/Inference_for_Regression.html",
+        "teaser":null},{
+        "title": "Nearest Neighbors",
+        
+        "excerpt":
+            "Nearest Neighbors In this section we'll develop the nearest neighbor method of classification. Just focus on the ideas for now and don't worry if some of the code is mysterious. Later in the chapter we'll see how to organize our ideas into code that performs the classification. Chronic kidney disease Let's work through an example. We're going to work with a data set that was collected to help doctors diagnose chronic kidney disease (CKD). Each row in the data set represents a single patient who was treated in the past and whose diagnosis is known. For each patient, we have...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/17/1/Nearest_Neighbors.html",
+        "teaser":null},{
+        "title": "Training and Testing",
+        
+        "excerpt":
+            "# HIDDEN ckd = Table.read_table(path_data + &#39;ckd.csv&#39;).relabeled(&#39;Blood Glucose Random&#39;, &#39;Glucose&#39;) ckd = Table().with_columns( &#39;Hemoglobin&#39;, standard_units(ckd.column(&#39;Hemoglobin&#39;)), &#39;Glucose&#39;, standard_units(ckd.column(&#39;Glucose&#39;)), &#39;White Blood Cell Count&#39;, standard_units(ckd.column(&#39;White Blood Cell Count&#39;)), &#39;Class&#39;, ckd.column(&#39;Class&#39;) ) color_table = Table().with_columns( &#39;Class&#39;, make_array(1, 0), &#39;Color&#39;, make_array(&#39;darkblue&#39;, &#39;gold&#39;) ) ckd = ckd.join(&#39;Class&#39;, color_table) Training and Testing How good is our nearest neighbor classifier? To answer this we'll need to find out how frequently our classifications are correct. If a patient has chronic kidney disease, how likely is our classifier to pick that up? If the patient is in our training set, we can find out immediately. We already know what class...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/17/2/Training_and_Testing.html",
+        "teaser":null},{
+        "title": "Rows of Tables",
+        
+        "excerpt":
+            "Rows of Tables Now that we have a qualitative understanding of nearest neighbor classification, it's time to implement our classifier. Until this chapter, we have worked mostly with single columns of tables. But now we have to see whether one individual is \"close\" to another. Data for individuals are contained in rows of tables. So let's start by taking a closer look at rows. Here is the original table ckd containing data on patients who were tested for chronic kidney disease. ckd = Table.read_table(path_data + &#39;ckd.csv&#39;).relabeled(&#39;Blood Glucose Random&#39;, &#39;Glucose&#39;) The data corresponding to the first patient is in row 0...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/17/3/Rows_of_Tables.html",
+        "teaser":null},{
+        "title": "Implementing the Classifier",
+        
+        "excerpt":
+            "Implementing the Classifier We are now ready to implement a $k$-nearest neighbor classifier based on multiple attributes. We have used only two attributes so far, for ease of visualization. But usually predictions will be based on many attributes. Here is an example that shows how multiple attributes can be better than pairs. Banknote authentication This time we'll look at predicting whether a banknote (e.g., a \\$20 bill) is counterfeit or legitimate. Researchers have put together a data set for us, based on photographs of many individual banknotes: some counterfeit, some legitimate. They computed a few numbers from each image, using...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/17/4/Implementing_the_Classifier.html",
+        "teaser":null},{
+        "title": "The Accuracy of the Classifier",
+        
+        "excerpt":
+            "The Accuracy of the Classifier To see how well our classifier does, we might put 50% of the data into the training set and the other 50% into the test set. Basically, we are setting aside some data for later use, so we can use it to measure the accuracy of our classifier. We've been calling that the test set. Sometimes people will call the data that you set aside for testing a hold-out set, and they'll call this strategy for estimating accuracy the hold-out method. Note that this approach requires great discipline. Before you start applying machine learning methods,...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/17/5/Accuracy_of_the_Classifier.html",
+        "teaser":null},{
+        "title": "Multiple Regression",
+        
+        "excerpt":
+            "Now that we have explored ways to use multiple attributes to predict a categorical variable, let us return to predicting a quantitative variable. Predicting a numerical quantity is called regression, and a commonly used method to use multiple attributes for regression is called multiple linear regression. Home Prices The following dataset of house prices and attributes was collected over several years for the city of Ames, Iowa. A description of the dataset appears online. We will focus only a subset of the columns. We will try to predict the sale price column from the other columns. all_sales = Table.read_table(path_data +...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/17/6/Multiple_Regression.html",
+        "teaser":null},{
+        "title": "Classification",
+        
+        "excerpt":
+            "Classification David Wagner is the primary author of this chapter. Machine learning is a class of techniques for automatically finding patterns in data and using it to draw inferences or make predictions. You have already seen linear regression, which is one kind of machine learning. This chapter introduces a new one: classification. Classification is about learning how to make predictions from past examples. We are given some examples where we have been told what the correct prediction was, and we want to learn from those examples how to make good predictions in the future. Here are a few applications where...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/17/Classification.html",
+        "teaser":null},{
+        "title": "A \"More Likely Than Not\" Binary Classifier",
+        
+        "excerpt":
+            "A \"More Likely Than Not\" Binary Classifier Let's try to use data to classify a point into one of two categories, choosing the category that we think is more likely than not. To do this, we not only need the data but also a clear description of how chances are involved. We will start out in a simple artifical setting just to develop the main technique, and then move to a more intriguing example. Suppose there is a university class with the following composition: 60% of the students are Second Years and the remaining 40% are Third Years 50% of...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/18/1/More_Likely_than_Not_Binary_Classifier.html",
+        "teaser":null},{
+        "title": "Making Decisions",
+        
+        "excerpt":
+            "Making Decisions A primary use of Bayes' Rule is to make decisions based on incomplete information, incorporating new information as it comes in. This section points out the importance of keeping your assumptions in mind as you make decisions. Many medical tests for diseases return Positive or Negative results. A Positive result means that according to the test, the patient has the disease. A Negative result means the test concludes that the patient doesn't have the disease. Medical tests are carefully designed to be very accurate. But few tests are accurate 100% of the time. Almost all tests make errors...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/18/2/Making_Decisions.html",
+        "teaser":null},{
+        "title": "Updating Predictions",
+        
+        "excerpt":
+            "Updating Predictions We know how to use training data to classify a point into one of two categories. Our classification is just a prediction of the class, based on the most common class among the training points that are nearest our new point. Suppose that we eventually find out the true class of our new point. Then we will know whether we got the classification right. Also, we will have a new point that we can add to our training set, because we know its class. This updates our training set. So, naturally, we will want to update our classifier...",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/18/Updating_Predictions.html",
+        "teaser":null},{
+        "title": "Introduction",
+        
+        "excerpt":
+            "             Computational and Inferential Thinking  The Foundations of Data Science  By Ani Adhikari and John DeNero  Contributions by David Wagner and Henry Milner  This is the textbook for the Foundations of Data Science class at UC Berkeley.  View this textbook online on GitHub Pages.  The contents of this book are licensed for free consumption under the following license: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0).                     ",
+        "categories": [],
+        "tags": [],
+        "url": "https://www.inferentialthinking.com/chapters/intro.html",
+        "teaser":null},]
+</script>
+            </div>
+            <nav class="c-page__nav">
+  
+
+  
+</nav>
+
+            <footer>
+  <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
+</footer>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,3745 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Cross-Classifying</title>
+  <meta name="description" content="        Cross-Classifying by More than One Variable When individuals have multiple features, there are many different ways to classify them. For example, if ...">
+
+  <link rel="canonical" href="https://www.inferentialthinking.com/chapters/08/3/Cross-Classifying_by_More_than_One_Variable.html">
+  <link rel="alternate" type="application/rss+xml" title="" href="https://www.inferentialthinking.com/feed.xml">
+
+  <meta property="og:url"         content="https://www.inferentialthinking.com/chapters/08/3/Cross-Classifying_by_More_than_One_Variable.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Cross-Classifying" />
+<meta property="og:description" content="        Cross-Classifying by More than One Variable When individuals have multiple features, there are many different ways to classify them. For example, if ..." />
+<meta property="og:image"       content="https://www.inferentialthinking.com/favicon.png" />
+
+<meta name="twitter:card" content="summary">
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": "https://www.inferentialthinking.com/chapters/08/3/Cross-Classifying_by_More_than_One_Variable.html",
+  "headline": "Cross-Classifying",
+  "datePublished": "2019-09-30T18:18:00+00:00",
+  "dateModified": "2019-09-30T18:18:00+00:00",
+  "description": "        Cross-Classifying by More than One Variable When individuals have multiple features, there are many different ways to classify them. For example, if ...",
+  "author": {
+    "@type": "Person",
+    "name": "Berkeley DSEP"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.inferentialthinking.com",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://www.inferentialthinking.com",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    }
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
+
+
+  <!-- DOM updating function -->
+  <script src="/assets/js/page/dom-update.js"></script>
+
+  <!-- Selectors for elements on the page -->
+  <script src="/assets/js/page/documentSelectors.js"></script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
+  <script src="/assets/js/page/anchors.js" async></script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+
+  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js" async></script>
+  <script src="/assets/js/page/tocbot.js"></script>
+
+  <!-- Google analytics -->
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148221575-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148221575-1');
+</script>
+
+
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+<script>
+/**
+  * To auto-embed hub URLs in interact links if given in a RESTful fashion
+ */
+
+function getJsonFromUrl(url) {
+  var query = url.split('?');
+  if (query.length < 2) {
+    // No queries so just return false
+    return false;
+  }
+  query = query[1];
+  // Collect REST params into a dictionary
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
+}
+    
+function dict2param(dict) {
+    params = Object.keys(dict).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
+    });
+    return params.join('&')
+}
+
+// Parse a Binder URL, converting it to the string needed for JupyterHub
+function binder2Jupyterhub(url) {
+  newUrl = {};
+  parts = url.split('v2/gh/')[1];
+  // Grab the base repo information
+  repoinfo = parts.split('?')[0];
+  var [org, repo, ref] = repoinfo.split('/');
+  newUrl['repo'] = ['https://github.com', org, repo].join('/');
+  newUrl['branch'] = ref
+  // Grab extra parameters passed
+  params = getJsonFromUrl(url);
+  if (params['filepath'] !== undefined) {
+    newUrl['subPath'] = params['filepath']
+  }
+  return dict2param(newUrl);
+}
+
+// Filter out potentially unsafe characters to prevent xss
+function safeUrl(url)
+{
+   return String(encodeURIComponent(url))
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
+function addParamToInternalLinks(hub) {
+  var links = document.querySelectorAll("a").forEach(function(link) {
+    var href = link.href;
+    // If the link is an internal link...
+    if (href.search("https://www.inferentialthinking.com") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+      // Assume we're an internal link, add the hub param to it
+      var params = getJsonFromUrl(href);
+      if (params !== false) {
+        // We have REST params, so append a new one
+        params['jupyterhub'] = hub;
+      } else {
+        // Create the REST params
+        params = {'jupyterhub': hub};
+      }
+      // Update the link
+      var newHref = href.split('?')[0] + '?' + dict2param(params);
+      link.setAttribute('href', decodeURIComponent(newHref));
+    }
+  });
+  return false;
+}
+
+
+// Update interact links
+function updateInteractLink() {
+    // hack to make this work since it expects a ? in the URL
+    rest = getJsonFromUrl("?" + location.search.substr(1));
+    jupyterHubUrl = rest['jupyterhub'];
+    var hubType = null;
+    var hubUrl = null;
+    if (jupyterHubUrl !== undefined) {
+      hubType = 'jupyterhub';
+      hubUrl = jupyterHubUrl;
+    }
+
+    if (hubType !== null) {
+      // Sanitize the hubUrl
+      hubUrl = safeUrl(hubUrl);
+
+      // Add HTTP text if omitted
+      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
+      var interactButtons = document.querySelectorAll("button.interact-button")
+      var lastButton = interactButtons[interactButtons.length-1];
+      var link = lastButton.parentElement;
+
+      // If we've already run this, skip the link updating
+      if (link.nextElementSibling !== null) {
+        return;
+      }
+
+      // Update the link and add context div
+      var href = link.getAttribute('href');
+      if (lastButton.id === 'interact-button-binder') {
+        // If binder links exist, we need to re-work them for jupyterhub
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
+          first = [hubUrl, 'git-sync'].join('/')
+        } else {
+          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
+        }
+        href = first + '?' + binder2Jupyterhub(href);
+      } else {
+        // If interact button isn't binderhub, assume it's jupyterhub
+        // If JupyterHub links, we only need to replace the hub url
+        href = href.replace("", hubUrl);
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // Assume we're working from a local Jupyter server and remove `/hub`
+          href = href.replace("/hub/user-redirect", "");
+        }
+      }
+      link.setAttribute('href', decodeURIComponent(href));
+
+      // Add text after interact link saying where we're launching
+      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
+      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
+
+      // Update internal links so we retain the hub url
+      addParamToInternalLinks(hubUrl);
+    }
+}
+
+runWhenDOMLoaded(updateInteractLink)
+document.addEventListener('turbolinks:load', updateInteractLink)
+</script>
+
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+
+  <!-- Load JS that depends on site variables -->
+  <script src="/assets/js/page/copy-button.js" async></script>
+
+  <!-- Hide cell code -->
+  <script src="/assets/js/page/hide-cell.js" async></script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/assets/css/styles.css",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
+</head>
+
+  <body>
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="https://inferentialthinking.org"><img src="/favicon.png" class="textbook_logo" id="sidebar-logo" alt="textbook logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title"></h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/intro.html"
+        >
+          
+          Introduction
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/01/what-is-data-science.html"
+        >
+          
+            1.
+          
+          Data Science
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/01/1/intro.html"
+                >
+                  
+                    1.1
+                  
+                  Introduction
+                </a>
+
+                
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/chapters/01/1/1/computational-tools.html"
+                    >
+                      
+                        1.1.1
+                        
+                      
+                      Computational Tools
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/chapters/01/1/2/statistical-techniques.html"
+                    >
+                      
+                        1.1.2
+                        
+                      
+                      Statistical Techniques
+                    </a>
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/01/2/why-data-science.html"
+                >
+                  
+                    1.2
+                  
+                  Why Data Science?
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/01/3/Plotting_the_Classics.html"
+                >
+                  
+                    1.3
+                  
+                  Plotting the Classics
+                </a>
+
+                
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/chapters/01/3/1/Literary_Characters.html"
+                    >
+                      
+                        1.3.1
+                        
+                      
+                      Literary Characters
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/chapters/01/3/2/Another_Kind_Of_Character.html"
+                    >
+                      
+                        1.3.2
+                        
+                      
+                      Another Kind of Character
+                    </a>
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/02/causality-and-experiments.html"
+        >
+          
+            2.
+          
+          Causality and Experiments
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/02/1/observation-and-visualization-john-snow-and-the-broad-street-pump.html"
+                >
+                  
+                    2.1
+                  
+                  John Snow and the Broad Street Pump
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/02/2/snow-s-grand-experiment.html"
+                >
+                  
+                    2.2
+                  
+                  Snow’s “Grand Experiment”
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/02/3/establishing-causality.html"
+                >
+                  
+                    2.3
+                  
+                  Establishing Causality
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/02/4/randomization.html"
+                >
+                  
+                    2.4
+                  
+                  Randomization
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/02/5/endnote.html"
+                >
+                  
+                    2.5
+                  
+                  Endnote
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/03/programming-in-python.html"
+        >
+          
+            3.
+          
+          Programming in Python
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/03/1/Expressions.html"
+                >
+                  
+                    3.1
+                  
+                  Expressions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/03/2/Names.html"
+                >
+                  
+                    3.2
+                  
+                  Names
+                </a>
+
+                
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/chapters/03/2/1/Growth.html"
+                    >
+                      
+                        3.2.1
+                        
+                      
+                      Example: Growth Rates
+                    </a>
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/03/3/Calls.html"
+                >
+                  
+                    3.3
+                  
+                  Call Expressions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/03/4/Introduction_to_Tables.html"
+                >
+                  
+                    3.4
+                  
+                  Introduction to Tables
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/04/Data_Types.html"
+        >
+          
+            4.
+          
+          Data Types
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/04/1/Numbers.html"
+                >
+                  
+                    4.1
+                  
+                  Numbers
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/04/2/Strings.html"
+                >
+                  
+                    4.2
+                  
+                  Strings
+                </a>
+
+                
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/chapters/04/2/1/String_Methods.html"
+                    >
+                      
+                        4.2.1
+                        
+                      
+                      String Methods
+                    </a>
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/04/3/Comparison.html"
+                >
+                  
+                    4.3
+                  
+                  Comparisons
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/05/Sequences.html"
+        >
+          
+            5.
+          
+          Sequences
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/05/1/Arrays.html"
+                >
+                  
+                    5.1
+                  
+                  Arrays
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/05/2/Ranges.html"
+                >
+                  
+                    5.2
+                  
+                  Ranges
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/05/3/More_on_Arrays.html"
+                >
+                  
+                    5.3
+                  
+                  More on Arrays
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/06/Tables.html"
+        >
+          
+            6.
+          
+          Tables
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/06/1/Sorting_Rows.html"
+                >
+                  
+                    6.1
+                  
+                  Sorting Rows
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/06/2/Selecting_Rows.html"
+                >
+                  
+                    6.2
+                  
+                  Selecting Rows
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/06/3/Example_Trends_in_the_Population_of_the_United_States.html"
+                >
+                  
+                    6.3
+                  
+                  Example: Population Trends
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/06/4/Example_Gender_Ratio_in_the_US_Population.html"
+                >
+                  
+                    6.4
+                  
+                  Example: Trends in Gender
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/07/Visualization.html"
+        >
+          
+            7.
+          
+          Visualization
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/07/1/Visualizing_Categorical_Distributions.html"
+                >
+                  
+                    7.1
+                  
+                  Categorical Distributions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/07/2/Visualizing_Numerical_Distributions.html"
+                >
+                  
+                    7.2
+                  
+                  Numerical Distributions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/07/3/Overlaid_Graphs.html"
+                >
+                  
+                    7.3
+                  
+                  Overlaid Graphs
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/08/Functions_and_Tables.html"
+        >
+          
+            8.
+          
+          Functions and Tables
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/08/1/Applying_a_Function_to_a_Column.html"
+                >
+                  
+                    8.1
+                  
+                  Applying Functions to Columns
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/08/2/Classifying_by_One_Variable.html"
+                >
+                  
+                    8.2
+                  
+                  Classifying by One Variable
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry c-sidebar__entry--active"
+                  href="/chapters/08/3/Cross-Classifying_by_More_than_One_Variable.html"
+                >
+                  
+                    8.3
+                  
+                  Cross-Classifying
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/08/4/Joining_Tables_by_Columns.html"
+                >
+                  
+                    8.4
+                  
+                  Joining Tables by Columns
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/08/5/Bike_Sharing_in_the_Bay_Area.html"
+                >
+                  
+                    8.5
+                  
+                  Bike Sharing in the Bay Area
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/09/Randomness.html"
+        >
+          
+            9.
+          
+          Randomness
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/09/1/Conditional_Statements.html"
+                >
+                  
+                    9.1
+                  
+                  Conditional Statements
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/09/2/Iteration.html"
+                >
+                  
+                    9.2
+                  
+                  Iteration
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/09/3/Simulation.html"
+                >
+                  
+                    9.3
+                  
+                  Simulation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/09/4/Monty_Hall_Problem.html"
+                >
+                  
+                    9.4
+                  
+                  The Monty Hall Problem
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/09/5/Finding_Probabilities.html"
+                >
+                  
+                    9.5
+                  
+                  Finding Probabilities
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/10/Sampling_and_Empirical_Distributions.html"
+        >
+          
+            10.
+          
+          Sampling and Empirical Distributions
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/10/1/Empirical_Distributions.html"
+                >
+                  
+                    10.1
+                  
+                  Empirical Distributions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/10/2/Sampling_from_a_Population.html"
+                >
+                  
+                    10.2
+                  
+                  Sampling from a Population
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/10/3/Empirical_Distribution_of_a_Statistic.html"
+                >
+                  
+                    10.3
+                  
+                  Empirical Distibution of a Statistic
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/11/Testing_Hypotheses.html"
+        >
+          
+            11.
+          
+          Testing Hypotheses
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/11/1/Assessing_Models.html"
+                >
+                  
+                    11.1
+                  
+                  Assessing Models
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/11/2/Multiple_Categories.html"
+                >
+                  
+                    11.2
+                  
+                  Multiple Categories
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/11/3/Decisions_and_Uncertainty.html"
+                >
+                  
+                    11.3
+                  
+                  Decisions and Uncertainty
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/11/4/Error_Probabilities.html"
+                >
+                  
+                    11.4
+                  
+                  Error Probabilities
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/12/Comparing_Two_Samples.html"
+        >
+          
+            12.
+          
+          Comparing Two Samples
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/12/1/AB_Testing.html"
+                >
+                  
+                    12.1
+                  
+                  A/B Testing
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/12/2/Deflategate.html"
+                >
+                  
+                    12.2
+                  
+                  Deflategate
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/12/3/Causality.html"
+                >
+                  
+                    12.3
+                  
+                  Causality
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/13/Estimation.html"
+        >
+          
+            13.
+          
+          Estimation
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/13/1/Percentiles.html"
+                >
+                  
+                    13.1
+                  
+                  Percentiles
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/13/2/Bootstrap.html"
+                >
+                  
+                    13.2
+                  
+                  The Bootstrap
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/13/3/Confidence_Intervals.html"
+                >
+                  
+                    13.3
+                  
+                  Confidence Intervals
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/13/4/Using_Confidence_Intervals.html"
+                >
+                  
+                    13.4
+                  
+                  Using Confidence Intervals
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/14/Why_the_Mean_Matters.html"
+        >
+          
+            14.
+          
+          Why the Mean Matters
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/14/1/Properties_of_the_Mean.html"
+                >
+                  
+                    14.1
+                  
+                  Properties of the Mean
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/14/2/Variability.html"
+                >
+                  
+                    14.2
+                  
+                  Variability
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/14/3/SD_and_the_Normal_Curve.html"
+                >
+                  
+                    14.3
+                  
+                  The SD and the Normal Curve
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/14/4/Central_Limit_Theorem.html"
+                >
+                  
+                    14.4
+                  
+                  The Central Limit Theorem
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/14/5/Variability_of_the_Sample_Mean.html"
+                >
+                  
+                    14.5
+                  
+                  The Variability of the Sample Mean
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/14/6/Choosing_a_Sample_Size.html"
+                >
+                  
+                    14.6
+                  
+                  Choosing a Sample Size
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/15/Prediction.html"
+        >
+          
+            15.
+          
+          Prediction
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/15/1/Correlation.html"
+                >
+                  
+                    15.1
+                  
+                  Correlation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/15/2/Regression_Line.html"
+                >
+                  
+                    15.2
+                  
+                  The Regression Line
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/15/3/Method_of_Least_Squares.html"
+                >
+                  
+                    15.3
+                  
+                  The Method of Least Squares
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/15/4/Least_Squares_Regression.html"
+                >
+                  
+                    15.4
+                  
+                  Least Squares Regression
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/15/5/Visual_Diagnostics.html"
+                >
+                  
+                    15.5
+                  
+                  Visual Diagnostics
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/15/6/Numerical_Diagnostics.html"
+                >
+                  
+                    15.6
+                  
+                  Numerical Diagnostics
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/16/Inference_for_Regression.html"
+        >
+          
+            16.
+          
+          Inference for Regression
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/16/1/Regression_Model.html"
+                >
+                  
+                    16.1
+                  
+                  A Regression Model
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/16/2/Inference_for_the_True_Slope.html"
+                >
+                  
+                    16.2
+                  
+                  Inference for the True Slope
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/16/3/Prediction_Intervals.html"
+                >
+                  
+                    16.3
+                  
+                  Prediction Intervals
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/17/Classification.html"
+        >
+          
+            17.
+          
+          Classification
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/17/1/Nearest_Neighbors.html"
+                >
+                  
+                    17.1
+                  
+                  Nearest Neighbors
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/17/2/Training_and_Testing.html"
+                >
+                  
+                    17.2
+                  
+                  Training and Testing
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/17/3/Rows_of_Tables.html"
+                >
+                  
+                    17.3
+                  
+                  Rows of Tables
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/17/4/Implementing_the_Classifier.html"
+                >
+                  
+                    17.4
+                  
+                  Implementing the Classifier
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/17/5/Accuracy_of_the_Classifier.html"
+                >
+                  
+                    17.5
+                  
+                  The Accuracy of the Classifier
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/17/6/Multiple_Regression.html"
+                >
+                  
+                    17.6
+                  
+                  Multiple Regression
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/chapters/18/Updating_Predictions.html"
+        >
+          
+            18.
+          
+          Updating Predictions
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/18/1/More_Likely_than_Not_Binary_Classifier.html"
+                >
+                  
+                    18.1
+                  
+                  A "More Likely Than Not" Binary Classifier
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/chapters/18/2/Making_Decisions.html"
+                >
+                  
+                    18.2
+                  
+                  Making Decisions
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+  </ul>
+  <p class="sidebar_footer">Powered by <a href="https://github.com/choldgraf/jupyter-book">Jupyter Book</a></p>
+</nav>
+
+      
+      <div class="c-topbar" id="top-navbar">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <div class="c-topbar__buttons">
+    <button
+      id="js-sidebar-toggle"
+      class="hamburger hamburger--arrowalt is-active"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="buttons">
+<div class="download-buttons-dropdown">
+    <button id="dropdown-button-trigger" class="interact-button"><img src="/assets/images/download-solid.svg" alt="Download" /></button>
+    <div class="download-buttons">
+        
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
+    </div>
+</div>
+
+  
+  
+  
+
+
+
+
+
+
+<a href="https://mybinder.org/v2/gh/data-8/textbook/gh-pages?filepath=content%2Fchapters%2F08%2F3%2FCross-Classifying_by_More_than_One_Variable.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+  
+
+
+</div>
+
+  </div>
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="sidebar__right">
+    <header><h4 class="nav__title"><img src="/assets/images/list-solid.svg" alt="Search" />   On this page</h4></header>
+    <nav class="onthispage">
+    </nav>
+  </aside>
+  <a href="/search.html" class="topbar-right-button" id="search-button">
+    <img src="/assets/images/search-solid.svg" alt="Search" />
+  </a>
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+                  <main class="jupyter-page">
+    <div class="jb_cell tag_remove_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Cross-Classifying-by-More-than-One-Variable">Cross-Classifying by More than One Variable<a class="anchor-link" href="#Cross-Classifying-by-More-than-One-Variable"> </a></h3><p>When individuals have multiple features, there are many different ways to classify them. For example, if we have a population of college students for each of whom we have recorded a major and the number of years in college, then the students could be classified by major, or by year, or by a combination of major and year.</p>
+<p>The <code>group</code> method also allows us to classify individuals according to multiple variables. This is called <em>cross-classifying</em>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Two-Variables:-Counting-the-Number-in-Each-Paired-Category">Two Variables: Counting the Number in Each Paired Category<a class="anchor-link" href="#Two-Variables:-Counting-the-Number-in-Each-Paired-Category"> </a></h3><p>The table <code>more_cones</code> records the flavor, color, and price of six ice cream cones.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">more_cones</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="s1">&#39;Flavor&#39;</span><span class="p">,</span> <span class="n">make_array</span><span class="p">(</span><span class="s1">&#39;strawberry&#39;</span><span class="p">,</span> <span class="s1">&#39;chocolate&#39;</span><span class="p">,</span> <span class="s1">&#39;chocolate&#39;</span><span class="p">,</span> <span class="s1">&#39;strawberry&#39;</span><span class="p">,</span> <span class="s1">&#39;chocolate&#39;</span><span class="p">,</span> <span class="s1">&#39;bubblegum&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;Color&#39;</span><span class="p">,</span> <span class="n">make_array</span><span class="p">(</span><span class="s1">&#39;pink&#39;</span><span class="p">,</span> <span class="s1">&#39;light brown&#39;</span><span class="p">,</span> <span class="s1">&#39;dark brown&#39;</span><span class="p">,</span> <span class="s1">&#39;pink&#39;</span><span class="p">,</span> <span class="s1">&#39;dark brown&#39;</span><span class="p">,</span> <span class="s1">&#39;pink&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;Price&#39;</span><span class="p">,</span> <span class="n">make_array</span><span class="p">(</span><span class="mf">3.55</span><span class="p">,</span> <span class="mf">4.75</span><span class="p">,</span> <span class="mf">5.25</span><span class="p">,</span> <span class="mf">5.25</span><span class="p">,</span> <span class="mf">5.25</span><span class="p">,</span> <span class="mf">4.75</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">more_cones</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Flavor</th> <th>Color</th> <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>strawberry</td> <td>pink       </td> <td>3.55 </td>
+        </tr>
+        <tr>
+            <td>chocolate </td> <td>light brown</td> <td>4.75 </td>
+        </tr>
+        <tr>
+            <td>chocolate </td> <td>dark brown </td> <td>5.25 </td>
+        </tr>
+        <tr>
+            <td>strawberry</td> <td>pink       </td> <td>5.25 </td>
+        </tr>
+        <tr>
+            <td>chocolate </td> <td>dark brown </td> <td>5.25 </td>
+        </tr>
+        <tr>
+            <td>bubblegum </td> <td>pink       </td> <td>4.75 </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We know how to use <code>group</code> to count the number of cones of each flavor:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">more_cones</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;Flavor&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Flavor</th> <th>count</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>bubblegum </td> <td>1    </td>
+        </tr>
+        <tr>
+            <td>chocolate </td> <td>3    </td>
+        </tr>
+        <tr>
+            <td>strawberry</td> <td>2    </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>But now each cone has a color as well. To classify the cones by both flavor and color, we will pass a list of labels as an argument to <code>group</code>. The resulting table has one row for every <em>unique combination</em> of values that appear together in the grouped columns. As before, a single argument (a list, in this case, but an array would work too) gives row counts.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Although there are six cones, there are only four unique combinations of flavor and color. Two of the cones were dark brown chocolate, and two pink strawberry.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">more_cones</span><span class="o">.</span><span class="n">group</span><span class="p">([</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Flavor</th> <th>Color</th> <th>count</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>bubblegum </td> <td>pink       </td> <td>1    </td>
+        </tr>
+        <tr>
+            <td>chocolate </td> <td>dark brown </td> <td>2    </td>
+        </tr>
+        <tr>
+            <td>chocolate </td> <td>light brown</td> <td>1    </td>
+        </tr>
+        <tr>
+            <td>strawberry</td> <td>pink       </td> <td>2    </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Two-Variables:-Finding-a-Characteristic-of-Each-Paired-Category">Two Variables: Finding a Characteristic of Each Paired Category<a class="anchor-link" href="#Two-Variables:-Finding-a-Characteristic-of-Each-Paired-Category"> </a></h3><p>A second argument aggregates all other columns that are not in the list of grouped columns.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">more_cones</span><span class="o">.</span><span class="n">group</span><span class="p">([</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">],</span> <span class="nb">sum</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Flavor</th> <th>Color</th> <th>Price sum</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>bubblegum </td> <td>pink       </td> <td>4.75     </td>
+        </tr>
+        <tr>
+            <td>chocolate </td> <td>dark brown </td> <td>10.5     </td>
+        </tr>
+        <tr>
+            <td>chocolate </td> <td>light brown</td> <td>4.75     </td>
+        </tr>
+        <tr>
+            <td>strawberry</td> <td>pink       </td> <td>8.8      </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Three or More Variables.</strong> You can use <code>group</code> to classify rows by three or more categorical variables. Just include them all in the list that is the first argument. But cross-classifying by multiple variables can become complex, as the number of distinct combinations of categories can be quite large.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Pivot-Tables:-Rearranging-the-Output-of-group">Pivot Tables: Rearranging the Output of <code>group</code><a class="anchor-link" href="#Pivot-Tables:-Rearranging-the-Output-of-group"> </a></h3><p>Many uses of cross-classification involve just two categorical variables, like <code>Flavor</code> and <code>Color</code> in the example above. In these cases it is possible to display the results of the classification in a different kind of table, called a <em>pivot table</em>. Pivot tables, also known as <em>contingency tables</em>, make it easier to work with data that have been classified according to two variables.</p>
+<p>Recall the use of <code>group</code> to count the number of cones in each paired category of flavor and color:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">more_cones</span><span class="o">.</span><span class="n">group</span><span class="p">([</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Flavor</th> <th>Color</th> <th>count</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>bubblegum </td> <td>pink       </td> <td>1    </td>
+        </tr>
+        <tr>
+            <td>chocolate </td> <td>dark brown </td> <td>2    </td>
+        </tr>
+        <tr>
+            <td>chocolate </td> <td>light brown</td> <td>1    </td>
+        </tr>
+        <tr>
+            <td>strawberry</td> <td>pink       </td> <td>2    </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The same data can be displayed differenly using the Table method <code>pivot</code>. Ignore the code for a moment, and just examine the table of outcomes.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">more_cones</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Color</th> <th>bubblegum</th> <th>chocolate</th> <th>strawberry</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>dark brown </td> <td>0        </td> <td>2        </td> <td>0         </td>
+        </tr>
+        <tr>
+            <td>light brown</td> <td>0        </td> <td>1        </td> <td>0         </td>
+        </tr>
+        <tr>
+            <td>pink       </td> <td>1        </td> <td>0        </td> <td>2         </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Notice how this table displays all nine possible pairs of flavor and color, including pairs like "dark brown bubblegum" that don't exist in our data. Notice also that the count in each pair appears in the body of the table: to find the number of light brown chocolate cones, run your eye along the row <code>light brown</code> until it meets the column <code>chocolate</code>.</p>
+<p>The <code>group</code> method takes a list of two labels because it is flexible: it could take one or three or more. On the other hand, <code>pivot</code> always takes two column labels, one to determine the columns and one to determine the rows.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><code>pivot</code></strong></p>
+<p>The <code>pivot</code> method is closely related to the <code>group</code> method: it groups together rows that share a combination of values. It differs from <code>group</code> because it organizes the resulting values in a grid. The first argument to <code>pivot</code> is the label of a column that contains the values that will be used to form new columns in the result. The second argument is the label of a column used for the rows. The result gives the count of all rows of the original table that share the combination of column and row values.</p>
+<p>Like <code>group</code>, <code>pivot</code> can be used with additional arguments to find characteristics of each paired category. An optional third argument called <code>values</code> indicates a column of values that will replace the counts in each cell of the grid. All of these values will not be displayed, however; the fourth argument <code>collect</code> indicates how to collect them all into one aggregated value to be displayed in the cell.</p>
+<p>An example will help clarify this. Here is <code>pivot</code> being used to find the total price of the cones in each cell.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">more_cones</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Price&#39;</span><span class="p">,</span> <span class="n">collect</span><span class="o">=</span><span class="nb">sum</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Color</th> <th>bubblegum</th> <th>chocolate</th> <th>strawberry</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>dark brown </td> <td>0        </td> <td>10.5     </td> <td>0         </td>
+        </tr>
+        <tr>
+            <td>light brown</td> <td>0        </td> <td>4.75     </td> <td>0         </td>
+        </tr>
+        <tr>
+            <td>pink       </td> <td>4.75     </td> <td>0        </td> <td>8.8       </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And here is <code>group</code> doing the same thing.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">more_cones</span><span class="o">.</span><span class="n">group</span><span class="p">([</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">],</span> <span class="nb">sum</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Flavor</th> <th>Color</th> <th>Price sum</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>bubblegum </td> <td>pink       </td> <td>4.75     </td>
+        </tr>
+        <tr>
+            <td>chocolate </td> <td>dark brown </td> <td>10.5     </td>
+        </tr>
+        <tr>
+            <td>chocolate </td> <td>light brown</td> <td>4.75     </td>
+        </tr>
+        <tr>
+            <td>strawberry</td> <td>pink       </td> <td>8.8      </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Though the numbers in both tables are the same, table produced by <code>pivot</code> is easier to read and lends itself more easily to analysis. The advantage of <code>pivot</code> is that it places grouped values into adjacent columns, so that they can be combined and compared.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example:-Education-and-Income-of-Californian-Adults">Example: Education and Income of Californian Adults<a class="anchor-link" href="#Example:-Education-and-Income-of-Californian-Adults"> </a></h3><p>The State of California's Open Data Portal is a rich source of information about the lives of Californians. It is our source of a <a href="http://data.ca.gov/dataset/ca-educational-attainment-personal-income">dataset</a> on educational attainment and personal income among Californians over the years 2008 to 2014. The data are derived from the U.S. Census Current Population Survey.</p>
+<p>For each year, the table records the <code>Population Count</code> of Californians in many different combinations of age, gender, educational attainment, and personal income. We will study only the data for the year 2014.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">full_table</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;educ_inc.csv&#39;</span><span class="p">)</span>
+<span class="n">ca_2014</span> <span class="o">=</span> <span class="n">full_table</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">equal_to</span><span class="p">(</span><span class="s1">&#39;1/1/14 0:00&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">not_equal_to</span><span class="p">(</span><span class="s1">&#39;00 to 17&#39;</span><span class="p">))</span>
+<span class="n">ca_2014</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Year</th> <th>Age</th> <th>Gender</th> <th>Educational Attainment</th> <th>Personal Income</th> <th>Population Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1/1/14 0:00</td> <td>18 to 64 </td> <td>Female</td> <td>No high school diploma        </td> <td>H: 75,000 and over </td> <td>2058            </td>
+        </tr>
+        <tr>
+            <td>1/1/14 0:00</td> <td>65 to 80+</td> <td>Male  </td> <td>No high school diploma        </td> <td>H: 75,000 and over </td> <td>2153            </td>
+        </tr>
+        <tr>
+            <td>1/1/14 0:00</td> <td>65 to 80+</td> <td>Female</td> <td>No high school diploma        </td> <td>G: 50,000 to 74,999</td> <td>4666            </td>
+        </tr>
+        <tr>
+            <td>1/1/14 0:00</td> <td>65 to 80+</td> <td>Female</td> <td>High school or equivalent     </td> <td>H: 75,000 and over </td> <td>7122            </td>
+        </tr>
+        <tr>
+            <td>1/1/14 0:00</td> <td>65 to 80+</td> <td>Female</td> <td>No high school diploma        </td> <td>F: 35,000 to 49,999</td> <td>7261            </td>
+        </tr>
+        <tr>
+            <td>1/1/14 0:00</td> <td>65 to 80+</td> <td>Male  </td> <td>No high school diploma        </td> <td>G: 50,000 to 74,999</td> <td>8569            </td>
+        </tr>
+        <tr>
+            <td>1/1/14 0:00</td> <td>18 to 64 </td> <td>Female</td> <td>No high school diploma        </td> <td>G: 50,000 to 74,999</td> <td>14635           </td>
+        </tr>
+        <tr>
+            <td>1/1/14 0:00</td> <td>65 to 80+</td> <td>Male  </td> <td>No high school diploma        </td> <td>F: 35,000 to 49,999</td> <td>15212           </td>
+        </tr>
+        <tr>
+            <td>1/1/14 0:00</td> <td>65 to 80+</td> <td>Male  </td> <td>College, less than 4-yr degree</td> <td>B: 5,000 to 9,999  </td> <td>15423           </td>
+        </tr>
+        <tr>
+            <td>1/1/14 0:00</td> <td>65 to 80+</td> <td>Female</td> <td>Bachelor's degree or higher   </td> <td>A: 0 to 4,999      </td> <td>15459           </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (117 rows omitted)</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Each row of the table corresponds to a combination of age, gender, educational level, and income. There are 127 such combinations in all!</p>
+<p>As a first step it is a good idea to start with just one or two variables. We will focus on just one pair: educational attainment and personal income.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">educ_inc</span> <span class="o">=</span> <span class="n">ca_2014</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Educational Attainment&#39;</span><span class="p">,</span> <span class="s1">&#39;Personal Income&#39;</span><span class="p">,</span> <span class="s1">&#39;Population Count&#39;</span><span class="p">)</span>
+<span class="n">educ_inc</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Educational Attainment</th> <th>Personal Income</th> <th>Population Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>No high school diploma        </td> <td>H: 75,000 and over </td> <td>2058            </td>
+        </tr>
+        <tr>
+            <td>No high school diploma        </td> <td>H: 75,000 and over </td> <td>2153            </td>
+        </tr>
+        <tr>
+            <td>No high school diploma        </td> <td>G: 50,000 to 74,999</td> <td>4666            </td>
+        </tr>
+        <tr>
+            <td>High school or equivalent     </td> <td>H: 75,000 and over </td> <td>7122            </td>
+        </tr>
+        <tr>
+            <td>No high school diploma        </td> <td>F: 35,000 to 49,999</td> <td>7261            </td>
+        </tr>
+        <tr>
+            <td>No high school diploma        </td> <td>G: 50,000 to 74,999</td> <td>8569            </td>
+        </tr>
+        <tr>
+            <td>No high school diploma        </td> <td>G: 50,000 to 74,999</td> <td>14635           </td>
+        </tr>
+        <tr>
+            <td>No high school diploma        </td> <td>F: 35,000 to 49,999</td> <td>15212           </td>
+        </tr>
+        <tr>
+            <td>College, less than 4-yr degree</td> <td>B: 5,000 to 9,999  </td> <td>15423           </td>
+        </tr>
+        <tr>
+            <td>Bachelor's degree or higher   </td> <td>A: 0 to 4,999      </td> <td>15459           </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (117 rows omitted)</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's start by looking at educational level alone. The categories of this variable have been subdivided by the different levels of income. So we will group the table by <code>Educational Attainment</code> and <code>sum</code> the <code>Population Count</code> in each category.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">education</span> <span class="o">=</span> <span class="n">educ_inc</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Educational Attainment&#39;</span><span class="p">,</span> <span class="s1">&#39;Population Count&#39;</span><span class="p">)</span>
+<span class="n">educ_totals</span> <span class="o">=</span> <span class="n">education</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;Educational Attainment&#39;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">)</span>
+<span class="n">educ_totals</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Educational Attainment</th> <th>Population Count sum</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Bachelor's degree or higher   </td> <td>8525698             </td>
+        </tr>
+        <tr>
+            <td>College, less than 4-yr degree</td> <td>7775497             </td>
+        </tr>
+        <tr>
+            <td>High school or equivalent     </td> <td>6294141             </td>
+        </tr>
+        <tr>
+            <td>No high school diploma        </td> <td>4258277             </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are only four categories of educational attainment. The counts are so large that is is more helpful to look at percents. For this, we will use the function <code>percents</code> that we defined in an earlier section. It converts an array of numbers to an array of percents out of the total in the input array.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">percents</span><span class="p">(</span><span class="n">array_x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span> <span class="p">(</span><span class="n">array_x</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">array_x</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We now have the distribution of educational attainment among adult Californians. More than 30% have a Bachelor's degree or higher, while almost 16% lack a high school diploma.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">educ_distribution</span> <span class="o">=</span> <span class="n">educ_totals</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
+    <span class="s1">&#39;Population Percent&#39;</span><span class="p">,</span> <span class="n">percents</span><span class="p">(</span><span class="n">educ_totals</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="p">)</span>
+<span class="n">educ_distribution</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Educational Attainment</th> <th>Population Count sum</th> <th>Population Percent</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Bachelor's degree or higher   </td> <td>8525698             </td> <td>31.75             </td>
+        </tr>
+        <tr>
+            <td>College, less than 4-yr degree</td> <td>7775497             </td> <td>28.96             </td>
+        </tr>
+        <tr>
+            <td>High school or equivalent     </td> <td>6294141             </td> <td>23.44             </td>
+        </tr>
+        <tr>
+            <td>No high school diploma        </td> <td>4258277             </td> <td>15.86             </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>By using <code>pivot</code>, we can get a contingency table (a table of counts) of adult Californians cross-classified by <code>Educational Attainment</code> and <code>Personal Income</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">totals</span> <span class="o">=</span> <span class="n">educ_inc</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="s1">&#39;Educational Attainment&#39;</span><span class="p">,</span> <span class="s1">&#39;Personal Income&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Population Count&#39;</span><span class="p">,</span> <span class="n">collect</span><span class="o">=</span><span class="nb">sum</span><span class="p">)</span>
+<span class="n">totals</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Personal Income</th> <th>Bachelor's degree or higher</th> <th>College, less than 4-yr degree</th> <th>High school or equivalent</th> <th>No high school diploma</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>A: 0 to 4,999      </td> <td>575491                     </td> <td>985011                        </td> <td>1161873                  </td> <td>1204529               </td>
+        </tr>
+        <tr>
+            <td>B: 5,000 to 9,999  </td> <td>326020                     </td> <td>810641                        </td> <td>626499                   </td> <td>597039                </td>
+        </tr>
+        <tr>
+            <td>C: 10,000 to 14,999</td> <td>452449                     </td> <td>798596                        </td> <td>692661                   </td> <td>664607                </td>
+        </tr>
+        <tr>
+            <td>D: 15,000 to 24,999</td> <td>773684                     </td> <td>1345257                       </td> <td>1252377                  </td> <td>875498                </td>
+        </tr>
+        <tr>
+            <td>E: 25,000 to 34,999</td> <td>693884                     </td> <td>1091642                       </td> <td>929218                   </td> <td>464564                </td>
+        </tr>
+        <tr>
+            <td>F: 35,000 to 49,999</td> <td>1122791                    </td> <td>1112421                       </td> <td>782804                   </td> <td>260579                </td>
+        </tr>
+        <tr>
+            <td>G: 50,000 to 74,999</td> <td>1594681                    </td> <td>883826                        </td> <td>525517                   </td> <td>132516                </td>
+        </tr>
+        <tr>
+            <td>H: 75,000 and over </td> <td>2986698                    </td> <td>748103                        </td> <td>323192                   </td> <td>58945                 </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here you see the power of <code>pivot</code> over other cross-classification methods. Each column of counts is a distribution of personal income at a specific level of educational attainment. Converting the counts to percents allows us to compare the four distributions.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">distributions</span> <span class="o">=</span> <span class="n">totals</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="s2">&quot;Bachelor&#39;s degree or higher&quot;</span><span class="p">,</span> <span class="n">percents</span><span class="p">(</span><span class="n">totals</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span>
+    <span class="s1">&#39;College, less than 4-yr degree&#39;</span><span class="p">,</span> <span class="n">percents</span><span class="p">(</span><span class="n">totals</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">2</span><span class="p">)),</span>
+    <span class="s1">&#39;High school or equivalent&#39;</span><span class="p">,</span> <span class="n">percents</span><span class="p">(</span><span class="n">totals</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">3</span><span class="p">)),</span>
+    <span class="s1">&#39;No high school diploma&#39;</span><span class="p">,</span> <span class="n">percents</span><span class="p">(</span><span class="n">totals</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>   
+    <span class="p">)</span>
+
+<span class="n">distributions</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Personal Income</th> <th>Bachelor's degree or higher</th> <th>College, less than 4-yr degree</th> <th>High school or equivalent</th> <th>No high school diploma</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>A: 0 to 4,999      </td> <td>6.75                       </td> <td>12.67                         </td> <td>18.46                    </td> <td>28.29                 </td>
+        </tr>
+        <tr>
+            <td>B: 5,000 to 9,999  </td> <td>3.82                       </td> <td>10.43                         </td> <td>9.95                     </td> <td>14.02                 </td>
+        </tr>
+        <tr>
+            <td>C: 10,000 to 14,999</td> <td>5.31                       </td> <td>10.27                         </td> <td>11                       </td> <td>15.61                 </td>
+        </tr>
+        <tr>
+            <td>D: 15,000 to 24,999</td> <td>9.07                       </td> <td>17.3                          </td> <td>19.9                     </td> <td>20.56                 </td>
+        </tr>
+        <tr>
+            <td>E: 25,000 to 34,999</td> <td>8.14                       </td> <td>14.04                         </td> <td>14.76                    </td> <td>10.91                 </td>
+        </tr>
+        <tr>
+            <td>F: 35,000 to 49,999</td> <td>13.17                      </td> <td>14.31                         </td> <td>12.44                    </td> <td>6.12                  </td>
+        </tr>
+        <tr>
+            <td>G: 50,000 to 74,999</td> <td>18.7                       </td> <td>11.37                         </td> <td>8.35                     </td> <td>3.11                  </td>
+        </tr>
+        <tr>
+            <td>H: 75,000 and over </td> <td>35.03                      </td> <td>9.62                          </td> <td>5.13                     </td> <td>1.38                  </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>At a glance, you can see that over 35% of those with Bachelor's degrees or higher had incomes of $\$75,000$ and over, whereas fewer than 10% of the people in the other education categories had that level of income.</p>
+<p>The bar chart below compares the personal income distributions of adult Californians who have no high diploma with those who have completed a Bachelor's degree or higher. The difference in the distributions is striking. There is a clear positive association between educational attainment and personal income.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">distributions</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../../images/chapters/08/3/Cross-Classifying_by_More_than_One_Variable_37_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
+
+    </main>
+    
+            </div>
+            <nav class="c-page__nav">
+  
+    
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/chapters/08/2/Classifying_by_One_Variable.html">
+      〈 <span class="u-margin-right-tiny"></span> Classifying by One Variable
+    </a>
+  
+
+  
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/chapters/08/4/Joining_Tables_by_Columns.html">
+      Joining Tables by Columns <span class="u-margin-right-tiny"></span> 〉
+    </a>
+  
+</nav>
+
+            <footer>
+  <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
+</footer>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

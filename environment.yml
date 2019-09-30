@@ -1,0 +1,8 @@
+name: textbook
+
+channels:
+  - conda-forge
+
+dependencies:
+  - pip:
+    -r requirements.txt
