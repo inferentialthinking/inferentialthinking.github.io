@@ -1,0 +1,1506 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12.3. Causality &#8212; Computational and Inferential Thinking</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/book.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://inferentialthinking.org/chapters/12/3/Causality.html" />
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="13. Estimation" href="../../13/Estimation.html" />
+    <link rel="prev" title="12.2. Deflategate" href="../2/Deflategate.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://inferentialthinking.org/chapters/12/3/Causality.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Causality" />
+<meta property="og:description" content="Causality  Our methods for comparing two samples have a powerful use in the analysis of randomized controlled experiments. Since the treatment and control group" />
+<meta property="og:image"       content="https://inferentialthinking.org/_static/favicon.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/favicon.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Computational and Inferential Thinking</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../01/what-is-data-science.html">
+   1. Data Science
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../01/1/intro.html">
+     1.1. Introduction
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../01/1/1/computational-tools.html">
+       1.1.1. Computational Tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../01/1/2/statistical-techniques.html">
+       1.1.2. Statistical Techniques
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../01/2/why-data-science.html">
+     1.2. Why Data Science?
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../01/3/Plotting_the_Classics.html">
+     1.3. Plotting the Classics
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../01/3/1/Literary_Characters.html">
+       1.3.1. Literary Characters
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../01/3/2/Another_Kind_Of_Character.html">
+       1.3.2. Another Kind of Character
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../02/causality-and-experiments.html">
+   2. Causality and Experiments
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02/1/observation-and-visualization-john-snow-and-the-broad-street-pump.html">
+     2.1. John Snow and the Broad Street Pump
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02/2/snow-s-grand-experiment.html">
+     2.2. Snow’s “Grand Experiment”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02/3/establishing-causality.html">
+     2.3. Establishing Causality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02/4/randomization.html">
+     2.4. Randomization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02/5/endnote.html">
+     2.5. Endnote
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../03/programming-in-python.html">
+   3. Programming in Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03/1/Expressions.html">
+     3.1. Expressions
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../03/2/Names.html">
+     3.2. Names
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../03/2/1/Growth.html">
+       3.2.1. Example: Growth Rates
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03/3/Calls.html">
+     3.3. Call Expressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03/4/Introduction_to_Tables.html">
+     3.4. Introduction to Tables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03/4/Introduction_to_Tables.html#choosing-sets-of-columns">
+     3.5. Choosing Sets of Columns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03/4/Introduction_to_Tables.html#sorting-rows">
+     3.6. Sorting Rows
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../04/Data_Types.html">
+   4. Data Types
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04/1/Numbers.html">
+     4.1. Numbers
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../04/2/Strings.html">
+     4.2. Strings
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04/2/1/String_Methods.html">
+       4.2.1. String Methods
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04/3/Comparison.html">
+     4.3. Comparisons
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../05/Sequences.html">
+   5. Sequences
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05/1/Arrays.html">
+     5.1. Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05/2/Ranges.html">
+     5.2. Ranges
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05/3/More_on_Arrays.html">
+     5.3. More on Arrays
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../06/Tables.html">
+   6. Tables
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06/1/Sorting_Rows.html">
+     6.1. Sorting Rows
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06/2/Selecting_Rows.html">
+     6.2. Selecting Rows
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06/3/Example_Trends_in_the_Population_of_the_United_States.html">
+     6.3. Example: Population Trends
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06/4/Example_Gender_Ratio_in_the_US_Population.html">
+     6.4. Example: Trends in Gender
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../07/Visualization.html">
+   7. Visualization
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07/1/Visualizing_Categorical_Distributions.html">
+     7.1. Categorical Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07/2/Visualizing_Numerical_Distributions.html">
+     7.2. Numerical Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07/3/Overlaid_Graphs.html">
+     7.3. Overlaid Graphs
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../08/Functions_and_Tables.html">
+   8. Functions and Tables
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08/1/Applying_a_Function_to_a_Column.html">
+     8.1. Applying Functions to Columns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08/2/Classifying_by_One_Variable.html">
+     8.2. Classifying by One Variable
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08/3/Cross-Classifying_by_More_than_One_Variable.html">
+     8.3. Cross-Classifying
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08/4/Joining_Tables_by_Columns.html">
+     8.4. Joining Tables by Columns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08/5/Bike_Sharing_in_the_Bay_Area.html">
+     8.5. Bike Sharing in the Bay Area
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../09/Randomness.html">
+   9. Randomness
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09/1/Conditional_Statements.html">
+     9.1. Conditional Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09/2/Iteration.html">
+     9.2. Iteration
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09/3/Simulation.html">
+     9.3. Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09/4/Monty_Hall_Problem.html">
+     9.4. The Monty Hall Problem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09/5/Finding_Probabilities.html">
+     9.5. Finding Probabilities
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../10/Sampling_and_Empirical_Distributions.html">
+   10. Sampling and Empirical Distributions
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../10/1/Empirical_Distributions.html">
+     10.1. Empirical Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../10/2/Sampling_from_a_Population.html">
+     10.2. Sampling from a Population
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../10/3/Empirical_Distribution_of_a_Statistic.html">
+     10.3. Empirical Distibution of a Statistic
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../11/Testing_Hypotheses.html">
+   11. Testing Hypotheses
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../11/1/Assessing_Models.html">
+     11.1. Assessing Models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../11/2/Multiple_Categories.html">
+     11.2. Multiple Categories
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../11/3/Decisions_and_Uncertainty.html">
+     11.3. Decisions and Uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../11/4/Error_Probabilities.html">
+     11.4. Error Probabilities
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../Comparing_Two_Samples.html">
+   12. Comparing Two Samples
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1/AB_Testing.html">
+     12.1. A/B Testing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2/Deflategate.html">
+     12.2. Deflategate
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     12.3. Causality
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../13/Estimation.html">
+   13. Estimation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../13/1/Percentiles.html">
+     13.1. Percentiles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../13/2/Bootstrap.html">
+     13.2. The Bootstrap
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../13/3/Confidence_Intervals.html">
+     13.3. Confidence Intervals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../13/4/Using_Confidence_Intervals.html">
+     13.4. Using Confidence Intervals
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../14/Why_the_Mean_Matters.html">
+   14. Why the Mean Matters
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../14/1/Properties_of_the_Mean.html">
+     14.1. Properties of the Mean
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../14/2/Variability.html">
+     14.2. Variability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../14/3/SD_and_the_Normal_Curve.html">
+     14.3. The SD and the Normal Curve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../14/4/Central_Limit_Theorem.html">
+     14.4. The Central Limit Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../14/5/Variability_of_the_Sample_Mean.html">
+     14.5. The Variability of the Sample Mean
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../14/6/Choosing_a_Sample_Size.html">
+     14.6. Choosing a Sample Size
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../15/Prediction.html">
+   15. Prediction
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../15/1/Correlation.html">
+     15.1. Correlation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../15/2/Regression_Line.html">
+     15.2. The Regression Line
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../15/3/Method_of_Least_Squares.html">
+     15.3. The Method of Least Squares
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../15/4/Least_Squares_Regression.html">
+     15.4. Least Squares Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../15/5/Visual_Diagnostics.html">
+     15.5. Visual Diagnostics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../15/6/Numerical_Diagnostics.html">
+     15.6. Numerical Diagnostics
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../16/Inference_for_Regression.html">
+   16. Inference for Regression
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../16/1/Regression_Model.html">
+     16.1. A Regression Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../16/2/Inference_for_the_True_Slope.html">
+     16.2. Inference for the True Slope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../16/3/Prediction_Intervals.html">
+     16.3. Prediction Intervals
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../17/Classification.html">
+   17. Classification
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../17/1/Nearest_Neighbors.html">
+     17.1. Nearest Neighbors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../17/2/Training_and_Testing.html">
+     17.2. Training and Testing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../17/3/Rows_of_Tables.html">
+     17.3. Rows of Tables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../17/4/Implementing_the_Classifier.html">
+     17.4. Implementing the Classifier
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../17/5/Accuracy_of_the_Classifier.html">
+     17.5. The Accuracy of the Classifier
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../17/6/Multiple_Regression.html">
+     17.6. Multiple Regression
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../18/Updating_Predictions.html">
+   18. Updating Predictions
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../18/1/More_Likely_than_Not_Binary_Classifier.html">
+     18.1. A "More Likely Than Not" Binary Classifier
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../18/2/Making_Decisions.html">
+     18.2. Making Decisions
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/chapters/12/3/Causality.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/data-8/textbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/12/3/Causality.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/data-8/textbook&urlpath=tree/textbook/chapters/12/3/Causality.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#treating-chronic-back-pain-a-randomized-controlled-trial">
+   12.3.1. Treating Chronic Back Pain: A Randomized Controlled Trial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#potential-outcomes">
+   12.3.2. Potential Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-hypotheses">
+   12.3.3. The Hypotheses
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-test-statistic">
+   12.3.4. The Test Statistic
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#predicting-the-statistic-under-the-null-hypothesis">
+   12.3.5. Predicting the Statistic Under the Null Hypothesis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generating-one-value-of-the-statistic">
+     12.3.5.1. Generating One Value of the Statistic
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#permutation-test">
+     12.3.5.2. Permutation Test
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion-of-the-test">
+   12.3.6. Conclusion of the Test
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   12.3.7. Causality
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-meta-analysis">
+   12.3.8. A Meta-Analysis
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell tag_remove-input docutils container">
+</div>
+<div class="section" id="causality">
+<h1><span class="section-number">12.3. </span>Causality<a class="headerlink" href="#causality" title="Permalink to this headline">¶</a></h1>
+<p>Our methods for comparing two samples have a powerful use in the analysis of randomized controlled experiments. Since the treatment and control groups are assigned randomly in such experiements, differences in their outcomes can be compared to what would happen just due to chance if the treatment had no effect at all. If the observed differences are more marked than what we would predict as purely due to chance, we will have evidence of <em>causation</em>. Because of the unbiased assignment of individuals to the treatment and control groups, differences in the outcomes of the two groups can be ascribed to the treatment.</p>
+<p>The key to the analysis of randomized controlled experiments is understanding exactly how chance enters the picture. This helps us set up clear null and alternative hypotheses. Once that’s done, we can simply use the methods of the previous sections to complete the analysis.</p>
+<p>Let’s see how to do this in an example.</p>
+<div class="section" id="treating-chronic-back-pain-a-randomized-controlled-trial">
+<h2><span class="section-number">12.3.1. </span>Treating Chronic Back Pain: A Randomized Controlled Trial<a class="headerlink" href="#treating-chronic-back-pain-a-randomized-controlled-trial" title="Permalink to this headline">¶</a></h2>
+<p>Low-back pain in adults can be very persistent and hard to treat. Common methods run the gamut from corticosteroids to acupuncture. A <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/11376175">randomized controlled trial (RCT)</a> examined the effect of using Botulinum Toxin A as a treatment. Botulinum toxin is a neurotoxic protein that causes the disease botulism; <a class="reference external" href="https://en.wikipedia.org/wiki/Botulinum_toxin">Wikipedia</a> says that botulinum “is the most acutely lethal toxin known.” There are seven types of botulinum toxin. Botulinum Toxin A is one of the types that can cause disease in humans, but it is also used in medicine to treat various diseases involving the muscles. The RCT analyzed by Foster, Clapp, and Jabbari in 2001 examined it as a treatment for low back pain.</p>
+<p>Thirty one patients with low-back pain were randomized into treatment and control groups, with 15 in the treatment group and 16 in control. The control group was given normal saline, and the trials were run double-blind so that neither doctors nor patients knew which group they were in.</p>
+<p>Eight weeks after the start of the study, nine of the 15 in the treatment group and two of the 16 in the control group had pain relief (according to a precise definition used by the researchers). These data are in the table <code class="docutils literal notranslate"><span class="pre">bta</span></code> and appear to show that the treatment has a clear benefit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bta</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;bta.csv&#39;</span><span class="p">)</span>
+<span class="n">bta</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Group</th> <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Control  </td> <td>1     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>1     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0     </td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Remember that counting is the same as adding zeros and ones. The sum of 1’s in the control group is the number of control group patients who had pain relief. So the <em>average</em> of the number of 1’s is the <em>proportion</em> of control group patients who had pain relief.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bta</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;Group&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Group</th> <th>Result average</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Control  </td> <td>0.125         </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0.6           </td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>In the treatment group, 60% of the patients had pain relief, compared to only 12.5% in the control group. None of the patients suffered any side effects.</p>
+<p>So the indications are that botulinum toxin A did better than the saline. But the conclusion isn’t yet a slam-dunk. The patients were assigned at random into the two groups, so perhaps the difference could just be due to chance?</p>
+<p>To understand what this means, we have to consider the possibility that among the 31 patients in the study, some were simply better able to recover than others, even without any help from the treatment. What if an unusually large proportion of such patients got assigned to the treatment group, just by chance? Then even if the treatment did nothing more than the saline in the control group, the results of the treatment group might look better than those of the control group.</p>
+<p>To account for this possibility, let’s start by carefully setting up the chance model.</p>
+</div>
+<div class="section" id="potential-outcomes">
+<h2><span class="section-number">12.3.2. </span>Potential Outcomes<a class="headerlink" href="#potential-outcomes" title="Permalink to this headline">¶</a></h2>
+<p>Before the patients are randomized into the two groups, our minds instinctively imagine two possible outcomes for each patient: the outcome that the patient would have if assigned to the treatment group, and the outcome that the same patient would have if assigned to the control group. These are called the two <em>potential outcomes</em> of the patient.</p>
+<p>Thus there are 31 potential treatment outcomes and 31 potential control outcomes. The question is about the distributions of these two sets of 31 outcomes each. Are they the same, or are they different?</p>
+<p>We can’t answer this just yet, because we don’t get to see all 31 values in each group. We just get to see a randomly selected 16 of the potential control outcomes, and the treatment outcomes of <em>the remaining</em> 15 patients.</p>
+<p>Here is a good way to visualize the setting. Each patient has a two-sided ticket:</p>
+<p><img alt="Two-sided ticket" src="../../../_images/causality1.png" /></p>
+<p>After the randomization, we get to see the right half of a randomly selected set of tickets, and the left half of the remaining group.</p>
+<p><img alt="Half-tickets" src="../../../_images/causality2.png" /></p>
+<p>The table <code class="docutils literal notranslate"><span class="pre">observed_outcomes</span></code> collects the information about every patient’s potential outcomes, leaving the unobserved half of each “ticket” blank.  (It’s just another way of thinking about the <code class="docutils literal notranslate"><span class="pre">bta</span></code> table, carrying the same information.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">observed_outcomes</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s2">&quot;observed_outcomes.csv&quot;</span><span class="p">)</span>
+<span class="n">observed_outcomes</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Group</th> <th>Outcome if assigned treatment</th> <th>Outcome if assigned control</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Control  </td> <td>Unknown                      </td> <td>1                          </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>Unknown                      </td> <td>1                          </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>Unknown                      </td> <td>0                          </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>Unknown                      </td> <td>0                          </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>Unknown                      </td> <td>0                          </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>Unknown                      </td> <td>0                          </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>Unknown                      </td> <td>0                          </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>Unknown                      </td> <td>0                          </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>Unknown                      </td> <td>0                          </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>Unknown                      </td> <td>0                          </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>Unknown                      </td> <td>0                          </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>Unknown                      </td> <td>0                          </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>Unknown                      </td> <td>0                          </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>Unknown                      </td> <td>0                          </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>Unknown                      </td> <td>0                          </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>Unknown                      </td> <td>0                          </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1                            </td> <td>Unknown                    </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1                            </td> <td>Unknown                    </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1                            </td> <td>Unknown                    </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1                            </td> <td>Unknown                    </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1                            </td> <td>Unknown                    </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1                            </td> <td>Unknown                    </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1                            </td> <td>Unknown                    </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1                            </td> <td>Unknown                    </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1                            </td> <td>Unknown                    </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0                            </td> <td>Unknown                    </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0                            </td> <td>Unknown                    </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0                            </td> <td>Unknown                    </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0                            </td> <td>Unknown                    </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0                            </td> <td>Unknown                    </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0                            </td> <td>Unknown                    </td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+</div>
+<div class="section" id="the-hypotheses">
+<h2><span class="section-number">12.3.3. </span>The Hypotheses<a class="headerlink" href="#the-hypotheses" title="Permalink to this headline">¶</a></h2>
+<p>The question is whether the treatment does anything. In terms of the table <code class="docutils literal notranslate"><span class="pre">observed_outcomes</span></code>, the question is whether the distribution of the 31 “treatment” values in Column 1  (including the unknown ones) is different from the distribution of the 31 “control” values in Column 2 (again including the unknown ones).</p>
+<p><strong>Null Hypothesis:</strong> The distribution of all 31 potential “treatment” outcomes is the same as that of all 31 potential “control” outcomes. Botulinum toxin A does nothing different from saline; the difference in the two samples is just due to chance.</p>
+<p><strong>Alternative Hypothesis:</strong> The distribution of 31 potential “treatment” outcomes is different from that of the 31 control outcomes. The treatment does something different from the control.</p>
+<p>There are 31 observed outcomes jointly in the two groups. If the null hypothesis were true, it wouldn’t matter which of those 31 outcomes were labeled “treatment” and which “control.” Any random subset of 16 out of the 31 values could be called “control” and the remaining 15 “treatment”.</p>
+<p>We can simulate this. We can randomly permute the 31 values, split them into two groups of 16 and 15, and see how different the distributions in the two groups are. Since the data are zeros and ones, we can just see how different the two proportions are.</p>
+<p>That’s exactly what we did for A/B testing in the previous section. Sample A is now the control group and Sample B the treatment group. We will carry out the test below showing the details of all the steps. You should confirm that they are the same as the steps carried out for A/B testing.</p>
+</div>
+<div class="section" id="the-test-statistic">
+<h2><span class="section-number">12.3.4. </span>The Test Statistic<a class="headerlink" href="#the-test-statistic" title="Permalink to this headline">¶</a></h2>
+<p>If the two group proportions are very different from each other, we will lean towards the alternative hypothesis that the two underlying distributions are different. So our test statistic will be the distance between the two group proportions, that is, the absolute value of the difference between them.</p>
+<p>Large values of the test statistic will favor the alternative hypothesis over the null.</p>
+<p>Since the two group proportions were 0.6 and 0.125, the observed value of the test statistic is <span class="math notranslate nohighlight">\(\big{\vert} 0.6 - 0.125 \big{\vert} = 0.475\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bta</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;Group&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Group</th> <th>Result average</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Control  </td> <td>0.125         </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0.6           </td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">observed_proportions</span> <span class="o">=</span> <span class="n">bta</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;Group&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">observed_distance</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">observed_proportions</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">observed_proportions</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">observed_distance</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.475
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we have done before, we will define a function that takes the following arguments:</p>
+<ul class="simple">
+<li><p>the name of the table of data</p></li>
+<li><p>the column label of the numerical variable</p></li>
+<li><p>the column label of the group labels</p></li>
+</ul>
+<p>and returns the absolute difference between the two group proportions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">group_label</span><span class="p">):</span>
+    <span class="n">reduced</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">group_label</span><span class="p">)</span>
+    <span class="n">proportions</span> <span class="o">=</span> <span class="n">reduced</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="n">group_label</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">proportions</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">proportions</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span><span class="p">(</span><span class="n">bta</span><span class="p">,</span> <span class="s1">&#39;Result&#39;</span><span class="p">,</span> <span class="s1">&#39;Group&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.475
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="predicting-the-statistic-under-the-null-hypothesis">
+<h2><span class="section-number">12.3.5. </span>Predicting the Statistic Under the Null Hypothesis<a class="headerlink" href="#predicting-the-statistic-under-the-null-hypothesis" title="Permalink to this headline">¶</a></h2>
+<p>We can simulate results under the null hypothesis, to see how our test statistic should come out if the null hypothesis is true.</p>
+<div class="section" id="generating-one-value-of-the-statistic">
+<h3><span class="section-number">12.3.5.1. </span>Generating One Value of the Statistic<a class="headerlink" href="#generating-one-value-of-the-statistic" title="Permalink to this headline">¶</a></h3>
+<p>The simulation follows exactly the same process we used in the previous section. We start by randomly permuting the all group labels and then attaching the shuffled labels to the 0/1 results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shuffled_labels</span> <span class="o">=</span> <span class="n">bta</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">with_replacement</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bta_with_shuffled_labels</span> <span class="o">=</span> <span class="n">bta</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;Shuffled Label&#39;</span><span class="p">,</span> <span class="n">shuffled_labels</span><span class="p">)</span>
+<span class="n">bta_with_shuffled_labels</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Group</th> <th>Result</th> <th>Shuffled Label</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Control  </td> <td>1     </td> <td>Control       </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>1     </td> <td>Treatment     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td> <td>Control       </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td> <td>Treatment     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td> <td>Treatment     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td> <td>Treatment     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td> <td>Treatment     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td> <td>Control       </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td> <td>Control       </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td> <td>Treatment     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td> <td>Control       </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td> <td>Treatment     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td> <td>Treatment     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td> <td>Treatment     </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td> <td>Control       </td>
+        </tr>
+        <tr>
+            <td>Control  </td> <td>0     </td> <td>Treatment     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1     </td> <td>Treatment     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1     </td> <td>Control       </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1     </td> <td>Treatment     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1     </td> <td>Treatment     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1     </td> <td>Treatment     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1     </td> <td>Treatment     </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1     </td> <td>Control       </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1     </td> <td>Control       </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>1     </td> <td>Control       </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0     </td> <td>Control       </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0     </td> <td>Control       </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0     </td> <td>Control       </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0     </td> <td>Control       </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0     </td> <td>Control       </td>
+        </tr>
+        <tr>
+            <td>Treatment</td> <td>0     </td> <td>Control       </td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>We can now find the distance between the two proportions after the group labels have been shuffled.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span><span class="p">(</span><span class="n">bta_with_shuffled_labels</span><span class="p">,</span> <span class="s1">&#39;Result&#39;</span><span class="p">,</span> <span class="s1">&#39;Shuffled Label&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.08750000000000002
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is quite different from the distance between the two original proportions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span><span class="p">(</span><span class="n">bta_with_shuffled_labels</span><span class="p">,</span> <span class="s1">&#39;Result&#39;</span><span class="p">,</span> <span class="s1">&#39;Group&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.475
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="permutation-test">
+<h3><span class="section-number">12.3.5.2. </span>Permutation Test<a class="headerlink" href="#permutation-test" title="Permalink to this headline">¶</a></h3>
+<p>If we shuffled the labels again, how different would the new distance be? To answer this, we will define a function that simulates one simulated value of the distance under the hypothesis of random draws from the same underlying distribution. And then we will collect 20,000 such simulated values in an array.</p>
+<p>You can see that we are doing exactly what we did in our previous examples of the permutation test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one_simulated_distance</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">group_label</span><span class="p">):</span>
+    <span class="n">shuffled_labels</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">with_replacement</span> <span class="o">=</span> <span class="kc">False</span>
+                                                    <span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="n">group_label</span><span class="p">)</span>
+    <span class="n">shuffled_table</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">label</span><span class="p">)</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
+        <span class="s1">&#39;Shuffled Label&#39;</span><span class="p">,</span> <span class="n">shuffled_labels</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">distance</span><span class="p">(</span><span class="n">shuffled_table</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="s1">&#39;Shuffled Label&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distances</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+
+<span class="n">repetitions</span> <span class="o">=</span> <span class="mi">20000</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
+    <span class="n">new_distance</span> <span class="o">=</span> <span class="n">one_simulated_distance</span><span class="p">(</span><span class="n">bta</span><span class="p">,</span> <span class="s1">&#39;Result&#39;</span><span class="p">,</span> <span class="s1">&#39;Group&#39;</span><span class="p">)</span>
+    <span class="n">distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="n">new_distance</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusion-of-the-test">
+<h2><span class="section-number">12.3.6. </span>Conclusion of the Test<a class="headerlink" href="#conclusion-of-the-test" title="Permalink to this headline">¶</a></h2>
+<p>The array <code class="docutils literal notranslate"><span class="pre">distances</span></code> contains 20,000 values of our test statistic simulated under the null hypothesis.</p>
+<p>To find the P-value of the test, remember that large values of the test statistic favor the alternative hypothesis. So the empirical P-value is the proportion of simulated statistics that were equal to or larger than the observed statistic.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empirical_P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">distances</span> <span class="o">&gt;=</span> <span class="n">observed_distance</span><span class="p">)</span> <span class="o">/</span> <span class="n">repetitions</span>
+<span class="n">empirical_P</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00925
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a small P-value. The observed statistic, shown as the red dot below, is in the tail of the empirical histogram of the test statistic generated under the null hypothesis.</p>
+<p>The result is statistically significant. The test favors the alternative hypothesis over the null. The evidence supports the hypothesis that the treatment is doing something.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;Distance&#39;</span><span class="p">,</span> <span class="n">distances</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">observed_distance</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Prediction Under the Null Hypothesis&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Observed Distance&#39;</span><span class="p">,</span> <span class="n">observed_distance</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Empirical P-value:&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">empirical_P</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Observed Distance 0.475
+Empirical P-value: 0.9199999999999999 %
+</pre></div>
+</div>
+<img alt="../../../_images/Causality_30_1.png" src="../../../_images/Causality_30_1.png" />
+</div>
+</div>
+<p>The study reports a P-value of 0.009, or 0.9%, which is not far from our empirical value.</p>
+</div>
+<div class="section" id="id1">
+<h2><span class="section-number">12.3.7. </span>Causality<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Because the trials were randomized, the test is evidence that the treatment <em>causes</em> the difference. The random assignment of patients to the two groups ensures that there is no confounding variable that could affect the conclusion of causality.</p>
+<p>If the treatment had not been randomly assigned, our test would still point toward an <em>association</em> between the treatment and back pain outcomes among our 31 patients.  But beware: without randomization, this association would not imply that the treatment caused a change in back pain outcomes.  For example, if the patients themselves had chosen whether to administer the treatment, perhaps the patients experiencing more pain would be more likely to choose the treatment <em>and</em> more likely to experience some reduction in pain even without medication.  Pre-existing pain would then be a <em>confounding factor</em> in the analysis.</p>
+</div>
+<div class="section" id="a-meta-analysis">
+<h2><span class="section-number">12.3.8. </span>A Meta-Analysis<a class="headerlink" href="#a-meta-analysis" title="Permalink to this headline">¶</a></h2>
+<p>While the RCT does provide evidence that the botulinum toxin A treatment helped patients, a study of 31 patients isn’t enough to establish the effectiveness of a medical treatment. This is not just because of the small sample size.  Our results in this section are valid for the 31 patients in the study, but we are really interested in the population of <em>all possible patients</em>.  If the 31 patients were a random sample from that larger population, our confidence interval would be valid for that population.  But they were not a random sample.</p>
+<p>In 2011, a group of researchers performed a <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/21249702">meta-analysis</a> of the studies on the treatment. That is, they identified all the available studies of such treatments for low-back pain and summarized the collated results.</p>
+<p>There were several studies but not many could be included in a scientifically sound manner: “We excluded evidence from nineteen studies due to non-randomisation, incomplete or unpublished data.” Only three randomized controlled trials remained, one of which is the one we have studied in this section. The meta-analysis gave it the highest assessment among all the studies (LBP stands for low-back pain): “We identified three studies that investigated the merits of BoNT for LBP, but only one had a low risk of bias and evaluated patients with non-specific LBP (N = 31).”</p>
+<p>Putting it all together, the meta-analysis concluded, “There is low quality evidence that BoNT injections improved pain, function, or both better than saline injections and very low quality evidence that they were better than acupuncture or steroid injections. …  Further research is very likely to have an important impact on the estimate of effect and our confidence in it. Future trials should standardize patient populations, treatment protocols and comparison groups, enlist more participants and include long-term outcomes, cost-benefit analysis and clinical relevance of findings.”</p>
+<p>It takes a lot of careful work to establish that a medical treatment has a beneficial effect. Knowing how to analyze randomized controlled trials is a crucial part of this work. Now that you know how to do that, you are well positioned to help medical and other professions establish cause-and-effect relations.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/12/3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../2/Deflategate.html" title="previous page"><span class="section-number">12.2. </span>Deflategate</a>
+    <a class='right-next' id="next-link" href="../../13/Estimation.html" title="next page"><span class="section-number">13. </span>Estimation</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ani Adhikari and John DeNero<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-148221575-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

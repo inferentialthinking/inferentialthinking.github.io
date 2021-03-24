@@ -1,0 +1,1258 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11.2. Multiple Categories &#8212; Computational and Inferential Thinking</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/book.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://inferentialthinking.org/chapters/11/2/Multiple_Categories.html" />
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="11.3. Decisions and Uncertainty" href="../3/Decisions_and_Uncertainty.html" />
+    <link rel="prev" title="11.1. Assessing Models" href="../1/Assessing_Models.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://inferentialthinking.org/chapters/11/2/Multiple_Categories.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Multiple Categories" />
+<meta property="og:description" content="Multiple Categories  We have developed a way of assessing models about chance processes that generate data in two categories. The method extends to models invol" />
+<meta property="og:image"       content="https://inferentialthinking.org/_static/favicon.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/favicon.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Computational and Inferential Thinking</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../01/what-is-data-science.html">
+   1. Data Science
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../01/1/intro.html">
+     1.1. Introduction
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../01/1/1/computational-tools.html">
+       1.1.1. Computational Tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../01/1/2/statistical-techniques.html">
+       1.1.2. Statistical Techniques
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../01/2/why-data-science.html">
+     1.2. Why Data Science?
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../01/3/Plotting_the_Classics.html">
+     1.3. Plotting the Classics
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../01/3/1/Literary_Characters.html">
+       1.3.1. Literary Characters
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../01/3/2/Another_Kind_Of_Character.html">
+       1.3.2. Another Kind of Character
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../02/causality-and-experiments.html">
+   2. Causality and Experiments
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02/1/observation-and-visualization-john-snow-and-the-broad-street-pump.html">
+     2.1. John Snow and the Broad Street Pump
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02/2/snow-s-grand-experiment.html">
+     2.2. Snow’s “Grand Experiment”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02/3/establishing-causality.html">
+     2.3. Establishing Causality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02/4/randomization.html">
+     2.4. Randomization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02/5/endnote.html">
+     2.5. Endnote
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../03/programming-in-python.html">
+   3. Programming in Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03/1/Expressions.html">
+     3.1. Expressions
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../03/2/Names.html">
+     3.2. Names
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../03/2/1/Growth.html">
+       3.2.1. Example: Growth Rates
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03/3/Calls.html">
+     3.3. Call Expressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03/4/Introduction_to_Tables.html">
+     3.4. Introduction to Tables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03/4/Introduction_to_Tables.html#choosing-sets-of-columns">
+     3.5. Choosing Sets of Columns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03/4/Introduction_to_Tables.html#sorting-rows">
+     3.6. Sorting Rows
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../04/Data_Types.html">
+   4. Data Types
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04/1/Numbers.html">
+     4.1. Numbers
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../04/2/Strings.html">
+     4.2. Strings
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04/2/1/String_Methods.html">
+       4.2.1. String Methods
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04/3/Comparison.html">
+     4.3. Comparisons
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../05/Sequences.html">
+   5. Sequences
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05/1/Arrays.html">
+     5.1. Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05/2/Ranges.html">
+     5.2. Ranges
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05/3/More_on_Arrays.html">
+     5.3. More on Arrays
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../06/Tables.html">
+   6. Tables
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06/1/Sorting_Rows.html">
+     6.1. Sorting Rows
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06/2/Selecting_Rows.html">
+     6.2. Selecting Rows
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06/3/Example_Trends_in_the_Population_of_the_United_States.html">
+     6.3. Example: Population Trends
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06/4/Example_Gender_Ratio_in_the_US_Population.html">
+     6.4. Example: Trends in Gender
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../07/Visualization.html">
+   7. Visualization
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07/1/Visualizing_Categorical_Distributions.html">
+     7.1. Categorical Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07/2/Visualizing_Numerical_Distributions.html">
+     7.2. Numerical Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07/3/Overlaid_Graphs.html">
+     7.3. Overlaid Graphs
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../08/Functions_and_Tables.html">
+   8. Functions and Tables
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08/1/Applying_a_Function_to_a_Column.html">
+     8.1. Applying Functions to Columns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08/2/Classifying_by_One_Variable.html">
+     8.2. Classifying by One Variable
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08/3/Cross-Classifying_by_More_than_One_Variable.html">
+     8.3. Cross-Classifying
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08/4/Joining_Tables_by_Columns.html">
+     8.4. Joining Tables by Columns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08/5/Bike_Sharing_in_the_Bay_Area.html">
+     8.5. Bike Sharing in the Bay Area
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../09/Randomness.html">
+   9. Randomness
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09/1/Conditional_Statements.html">
+     9.1. Conditional Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09/2/Iteration.html">
+     9.2. Iteration
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09/3/Simulation.html">
+     9.3. Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09/4/Monty_Hall_Problem.html">
+     9.4. The Monty Hall Problem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09/5/Finding_Probabilities.html">
+     9.5. Finding Probabilities
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../10/Sampling_and_Empirical_Distributions.html">
+   10. Sampling and Empirical Distributions
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../10/1/Empirical_Distributions.html">
+     10.1. Empirical Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../10/2/Sampling_from_a_Population.html">
+     10.2. Sampling from a Population
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../10/3/Empirical_Distribution_of_a_Statistic.html">
+     10.3. Empirical Distibution of a Statistic
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../Testing_Hypotheses.html">
+   11. Testing Hypotheses
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1/Assessing_Models.html">
+     11.1. Assessing Models
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     11.2. Multiple Categories
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3/Decisions_and_Uncertainty.html">
+     11.3. Decisions and Uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4/Error_Probabilities.html">
+     11.4. Error Probabilities
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../12/Comparing_Two_Samples.html">
+   12. Comparing Two Samples
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../12/1/AB_Testing.html">
+     12.1. A/B Testing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../12/2/Deflategate.html">
+     12.2. Deflategate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../12/3/Causality.html">
+     12.3. Causality
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../13/Estimation.html">
+   13. Estimation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../13/1/Percentiles.html">
+     13.1. Percentiles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../13/2/Bootstrap.html">
+     13.2. The Bootstrap
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../13/3/Confidence_Intervals.html">
+     13.3. Confidence Intervals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../13/4/Using_Confidence_Intervals.html">
+     13.4. Using Confidence Intervals
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../14/Why_the_Mean_Matters.html">
+   14. Why the Mean Matters
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../14/1/Properties_of_the_Mean.html">
+     14.1. Properties of the Mean
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../14/2/Variability.html">
+     14.2. Variability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../14/3/SD_and_the_Normal_Curve.html">
+     14.3. The SD and the Normal Curve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../14/4/Central_Limit_Theorem.html">
+     14.4. The Central Limit Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../14/5/Variability_of_the_Sample_Mean.html">
+     14.5. The Variability of the Sample Mean
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../14/6/Choosing_a_Sample_Size.html">
+     14.6. Choosing a Sample Size
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../15/Prediction.html">
+   15. Prediction
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../15/1/Correlation.html">
+     15.1. Correlation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../15/2/Regression_Line.html">
+     15.2. The Regression Line
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../15/3/Method_of_Least_Squares.html">
+     15.3. The Method of Least Squares
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../15/4/Least_Squares_Regression.html">
+     15.4. Least Squares Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../15/5/Visual_Diagnostics.html">
+     15.5. Visual Diagnostics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../15/6/Numerical_Diagnostics.html">
+     15.6. Numerical Diagnostics
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../16/Inference_for_Regression.html">
+   16. Inference for Regression
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../16/1/Regression_Model.html">
+     16.1. A Regression Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../16/2/Inference_for_the_True_Slope.html">
+     16.2. Inference for the True Slope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../16/3/Prediction_Intervals.html">
+     16.3. Prediction Intervals
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../17/Classification.html">
+   17. Classification
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../17/1/Nearest_Neighbors.html">
+     17.1. Nearest Neighbors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../17/2/Training_and_Testing.html">
+     17.2. Training and Testing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../17/3/Rows_of_Tables.html">
+     17.3. Rows of Tables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../17/4/Implementing_the_Classifier.html">
+     17.4. Implementing the Classifier
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../17/5/Accuracy_of_the_Classifier.html">
+     17.5. The Accuracy of the Classifier
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../17/6/Multiple_Regression.html">
+     17.6. Multiple Regression
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../18/Updating_Predictions.html">
+   18. Updating Predictions
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../18/1/More_Likely_than_Not_Binary_Classifier.html">
+     18.1. A "More Likely Than Not" Binary Classifier
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../18/2/Making_Decisions.html">
+     18.2. Making Decisions
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/chapters/11/2/Multiple_Categories.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/data-8/textbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/11/2/Multiple_Categories.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/data-8/textbook&urlpath=tree/textbook/chapters/11/2/Multiple_Categories.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jury-selection-in-alameda-county">
+   11.2.1. Jury Selection in Alameda County
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jury-panels">
+   11.2.2. Jury Panels
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#composition-of-panels-in-alameda-county">
+   11.2.3. Composition of Panels in Alameda County
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparison-with-panels-selected-at-random">
+   11.2.4. Comparison with Panels Selected at Random
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-new-statistic-the-distance-between-two-distributions">
+   11.2.5. A New Statistic: The Distance between Two Distributions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulating-one-value-of-the-statistic">
+   11.2.6. Simulating One Value of the Statistic
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#predicting-the-statistic-under-the-model-of-random-selection">
+   11.2.7. Predicting the Statistic Under the Model of Random Selection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assessing-the-model-of-random-selection">
+   11.2.8. Assessing the Model of Random Selection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-possible-explanations-for-the-differences">
+   11.2.9. Some Possible Explanations for the Differences
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-about-the-data">
+   11.2.10. Questions about the Data
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="section" id="multiple-categories">
+<h1><span class="section-number">11.2. </span>Multiple Categories<a class="headerlink" href="#multiple-categories" title="Permalink to this headline">¶</a></h1>
+<p>We have developed a way of assessing models about chance processes that generate data in two categories. The method extends to models involving data in multiple categories. The process of assessment is the same as before, the only difference being that we have to come up with a new statistic to simulate.</p>
+<p>Let’s do this in an example that addresses the same kind of question that was raised in the case of Robert Swain’s jury panel. This time, the data are more recent.</p>
+<div class="section" id="jury-selection-in-alameda-county">
+<h2><span class="section-number">11.2.1. </span>Jury Selection in Alameda County<a class="headerlink" href="#jury-selection-in-alameda-county" title="Permalink to this headline">¶</a></h2>
+<p>In 2010, the American Civil Liberties Union (ACLU) of Northern California presented a <a class="reference external" href="https://www.aclunc.org/sites/default/files/racial_and_ethnic_disparities_in_alameda_county_jury_pools.pdf">report</a> on jury selection in Alameda County, California. The report concluded that certain ethnic groups are underrepresented among jury panelists in Alameda County, and suggested some reforms of the process by which eligible jurors are assigned to panels. In this section, we will perform our own analysis of the data and examine some questions that arise as a result.</p>
+<p>Some details about jury panels and juries will be helpful in interpreting the results of our analysis.</p>
+</div>
+<div class="section" id="jury-panels">
+<h2><span class="section-number">11.2.2. </span>Jury Panels<a class="headerlink" href="#jury-panels" title="Permalink to this headline">¶</a></h2>
+<p>A jury panel is a group of people chosen to be prospective jurors; the final trial jury is selected from among them. Jury panels can consist of a few dozen people or several thousand, depending on the trial. By law, a jury panel is supposed to be representative of the community in which the trial is taking place. Section 197 of California’s Code of Civil Procedure says, “All persons selected for jury service shall be selected at random, from a source or sources inclusive of a representative cross section of the population of the area served by the court.”</p>
+<p>The final jury is selected from the panel by deliberate inclusion or exclusion. The law allows potential jurors to be excused for medical reasons; lawyers on both sides may strike a certain number of potential jurors from the list in what are called “peremptory challenges”; the trial judge might make a selection based on questionnaires filled out by the panel; and so on. But the initial panel is supposed to resemble a random sample of the population of eligible jurors.</p>
+</div>
+<div class="section" id="composition-of-panels-in-alameda-county">
+<h2><span class="section-number">11.2.3. </span>Composition of Panels in Alameda County<a class="headerlink" href="#composition-of-panels-in-alameda-county" title="Permalink to this headline">¶</a></h2>
+<p>The focus of the study by the ACLU of Northern California was the ethnic composition of jury panels in Alameda County. The ACLU compiled data on the ethnic composition of the jury panels in 11 felony trials in Alameda County in the years 2009 and 2010. In those panels, the total number of people who reported for jury service was 1,453. The ACLU gathered demographic data on all of these prosepctive jurors, and compared those data with the composition of all eligible jurors in the county.</p>
+<p>The data are tabulated below in a table called <code class="docutils literal notranslate"><span class="pre">jury</span></code>. For each ethnicity, the first value is the proportion of all eligible juror candidates of that ethnicity. The second value is the proportion of people of that ethnicity among those who appeared for the process of selection into the jury.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jury</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="s1">&#39;Ethnicity&#39;</span><span class="p">,</span> <span class="n">make_array</span><span class="p">(</span><span class="s1">&#39;Asian&#39;</span><span class="p">,</span> <span class="s1">&#39;Black&#39;</span><span class="p">,</span> <span class="s1">&#39;Latino&#39;</span><span class="p">,</span> <span class="s1">&#39;White&#39;</span><span class="p">,</span> <span class="s1">&#39;Other&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;Eligible&#39;</span><span class="p">,</span> <span class="n">make_array</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.18</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.54</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span>
+    <span class="s1">&#39;Panels&#39;</span><span class="p">,</span> <span class="n">make_array</span><span class="p">(</span><span class="mf">0.26</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.54</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">jury</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Ethnicity</th> <th>Eligible</th> <th>Panels</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Asian    </td> <td>0.15    </td> <td>0.26  </td>
+        </tr>
+        <tr>
+            <td>Black    </td> <td>0.18    </td> <td>0.08  </td>
+        </tr>
+        <tr>
+            <td>Latino   </td> <td>0.12    </td> <td>0.08  </td>
+        </tr>
+        <tr>
+            <td>White    </td> <td>0.54    </td> <td>0.54  </td>
+        </tr>
+        <tr>
+            <td>Other    </td> <td>0.01    </td> <td>0.04  </td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Some ethnicities are overrepresented and some are underrepresented on the jury panels in the study. A bar chart is helpful for visualizing the differences.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jury</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="s1">&#39;Ethnicity&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Multiple_Categories_8_0.png" src="../../../_images/Multiple_Categories_8_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="comparison-with-panels-selected-at-random">
+<h2><span class="section-number">11.2.4. </span>Comparison with Panels Selected at Random<a class="headerlink" href="#comparison-with-panels-selected-at-random" title="Permalink to this headline">¶</a></h2>
+<p>What if we select a random sample of 1,453 people from the population of eligible jurors? Will the distribution of their ethnicities look like the distribution of the panels above?</p>
+<p>We can answer these questions by using <code class="docutils literal notranslate"><span class="pre">sample_proportions</span></code> and augmenting the <code class="docutils literal notranslate"><span class="pre">jury</span></code> table with a column of the proportions in our sample.</p>
+<p><strong>Technical note.</strong> Random samples of prospective jurors would be selected without replacement. However, when the size of a sample is small relative to the size of the population, sampling without replacement resembles sampling with replacement; the proportions in the population don’t change much between draws. The population of eligible jurors in Alameda County is over a million, and compared to that, a sample size of about 1500 is quite small. We will therefore sample with replacement.</p>
+<p>In the cell below, we sample at random 1453 times from the distribution of eligible jurors, and display the distribution of the random sample along with the distributions of the eligible jurors and the panel in the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eligible_population</span> <span class="o">=</span> <span class="n">jury</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Eligible&#39;</span><span class="p">)</span>
+<span class="n">sample_distribution</span> <span class="o">=</span> <span class="n">sample_proportions</span><span class="p">(</span><span class="mi">1453</span><span class="p">,</span> <span class="n">eligible_population</span><span class="p">)</span>
+<span class="n">panels_and_sample</span> <span class="o">=</span> <span class="n">jury</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;Random Sample&#39;</span><span class="p">,</span> <span class="n">sample_distribution</span><span class="p">)</span>
+<span class="n">panels_and_sample</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Ethnicity</th> <th>Eligible</th> <th>Panels</th> <th>Random Sample</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Asian    </td> <td>0.15    </td> <td>0.26  </td> <td>0.13627      </td>
+        </tr>
+        <tr>
+            <td>Black    </td> <td>0.18    </td> <td>0.08  </td> <td>0.18307      </td>
+        </tr>
+        <tr>
+            <td>Latino   </td> <td>0.12    </td> <td>0.08  </td> <td>0.130076     </td>
+        </tr>
+        <tr>
+            <td>White    </td> <td>0.54    </td> <td>0.54  </td> <td>0.544391     </td>
+        </tr>
+        <tr>
+            <td>Other    </td> <td>0.01    </td> <td>0.04  </td> <td>0.00619408   </td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>The distribution of the random sample is quite close to the distribution of the eligible population, unlike the distribution of the panels.</p>
+<p>As always, it helps to visualize.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">panels_and_sample</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="s1">&#39;Ethnicity&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Multiple_Categories_12_0.png" src="../../../_images/Multiple_Categories_12_0.png" />
+</div>
+</div>
+<p>The bar chart shows that the distribution of the random sample resembles the eligible population but the distribution of the panels does not.</p>
+<p>To assess whether this observation is particular to one random sample or more general, we can  simulate multiple panels under the model of random selection and see what the simulations predict. But we won’t be able to look at thousands of bar charts like the one above. We need a statistic that will help us assess whether or not the model or random selection is supported by the data.</p>
+</div>
+<div class="section" id="a-new-statistic-the-distance-between-two-distributions">
+<h2><span class="section-number">11.2.5. </span>A New Statistic: The Distance between Two Distributions<a class="headerlink" href="#a-new-statistic-the-distance-between-two-distributions" title="Permalink to this headline">¶</a></h2>
+<p>We know how to measure how different two numbers are – if the numbers are <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, the distance between them is <span class="math notranslate nohighlight">\(\vert x-y \vert\)</span>. Now we have to quantify the distance between two distributions. For example, we have to measure the distance between the blue and gold distributions below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jury</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="s1">&#39;Ethnicity&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Multiple_Categories_16_0.png" src="../../../_images/Multiple_Categories_16_0.png" />
+</div>
+</div>
+<p>For this we will compute a quantity called the <em>total variation distance</em> between two distributions. The calculation is as an extension of the calculation of the distance between two numbers.</p>
+<p>To compute the total variation distance, we first take the difference between the two proportions in each category.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Augment the table with a column of differences between proportions</span>
+
+<span class="n">jury_with_diffs</span> <span class="o">=</span> <span class="n">jury</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
+    <span class="s1">&#39;Difference&#39;</span><span class="p">,</span> <span class="n">jury</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Panels&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">jury</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Eligible&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">jury_with_diffs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Ethnicity</th> <th>Eligible</th> <th>Panels</th> <th>Difference</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Asian    </td> <td>0.15    </td> <td>0.26  </td> <td>0.11      </td>
+        </tr>
+        <tr>
+            <td>Black    </td> <td>0.18    </td> <td>0.08  </td> <td>-0.1      </td>
+        </tr>
+        <tr>
+            <td>Latino   </td> <td>0.12    </td> <td>0.08  </td> <td>-0.04     </td>
+        </tr>
+        <tr>
+            <td>White    </td> <td>0.54    </td> <td>0.54  </td> <td>0         </td>
+        </tr>
+        <tr>
+            <td>Other    </td> <td>0.01    </td> <td>0.04  </td> <td>0.03      </td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Take a look at the column <code class="docutils literal notranslate"><span class="pre">Difference</span></code> and notice that the sum of its entries is 0: the positive entries add up to 0.14, exactly canceling the total of the negative entries which is -0.14.</p>
+<p>This is numerical evidence of the fact that in the bar chart, the gold bars exceed the blue bars by exactly as much as the blue bars exceed the gold. The proportions in each of the two columns <code class="docutils literal notranslate"><span class="pre">Panels</span></code> and <code class="docutils literal notranslate"><span class="pre">Eligible</span></code> add up to 1, and so the give-and-take between their entries must add up to 0.</p>
+<p>To avoid the cancellation, we drop the negative signs and then add all the entries. But this gives us two times the total of the positive entries (equivalently, two times the total of the negative entries, with the sign removed). So we divide the sum by 2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jury_with_diffs</span> <span class="o">=</span> <span class="n">jury_with_diffs</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
+    <span class="s1">&#39;Absolute Difference&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">jury_with_diffs</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Difference&#39;</span><span class="p">))</span>
+<span class="p">)</span>
+
+<span class="n">jury_with_diffs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Ethnicity</th> <th>Eligible</th> <th>Panels</th> <th>Difference</th> <th>Absolute Difference</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Asian    </td> <td>0.15    </td> <td>0.26  </td> <td>0.11      </td> <td>0.11               </td>
+        </tr>
+        <tr>
+            <td>Black    </td> <td>0.18    </td> <td>0.08  </td> <td>-0.1      </td> <td>0.1                </td>
+        </tr>
+        <tr>
+            <td>Latino   </td> <td>0.12    </td> <td>0.08  </td> <td>-0.04     </td> <td>0.04               </td>
+        </tr>
+        <tr>
+            <td>White    </td> <td>0.54    </td> <td>0.54  </td> <td>0         </td> <td>0                  </td>
+        </tr>
+        <tr>
+            <td>Other    </td> <td>0.01    </td> <td>0.04  </td> <td>0.03      </td> <td>0.03               </td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jury_with_diffs</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Absolute Difference&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.14
+</pre></div>
+</div>
+</div>
+</div>
+<p>This quantity 0.14 is the <em>total variation distance</em> (TVD) between the distribution of ethnicities in the eligible juror population and the distribution in the panels.</p>
+<p>We could have obtained the same result by just adding the positive differences. But our method of including all the absolute differences eliminates the need to keep track of which differences are positive and which are not.</p>
+</div>
+<div class="section" id="simulating-one-value-of-the-statistic">
+<h2><span class="section-number">11.2.6. </span>Simulating One Value of the Statistic<a class="headerlink" href="#simulating-one-value-of-the-statistic" title="Permalink to this headline">¶</a></h2>
+<p>We will use the total variation distance between distributions as the statistic to simulate. It will help us decide whether the model of random selection is good, because large values of the distance will be evidence against the model.</p>
+<p>Keep in mind that <strong>the observed value of our statistic is 0.14</strong>, calculated above.</p>
+<p>Since we are going to be computing total variation distance repeatedly, we will write a function to compute it.</p>
+<p>The function <code class="docutils literal notranslate"><span class="pre">total_variation_distance</span></code> returns the TVD between distributions in two arrays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">total_variation_distance</span><span class="p">(</span><span class="n">distribution_1</span><span class="p">,</span> <span class="n">distribution_2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">distribution_1</span> <span class="o">-</span> <span class="n">distribution_2</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This function will help us calculate our statistic in each repetition of the simulation. But first, let’s check that it gives the right answer when we use it to compute the distance between the blue (eligible) and gold (panels) distributions above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_variation_distance</span><span class="p">(</span><span class="n">jury</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Panels&#39;</span><span class="p">),</span> <span class="n">jury</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Eligible&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.14
+</pre></div>
+</div>
+</div>
+</div>
+<p>This agrees with the value that we computed directly without using the function.</p>
+<p>In the cell below we use the function to compute the TVD between the distributions of the eligible jurors and one random sample. This is the code for simulating one value of our statistic. Recall that <code class="docutils literal notranslate"><span class="pre">eligible_population</span></code> is the array containing the distribution of the eligible jurors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_distribution</span> <span class="o">=</span> <span class="n">sample_proportions</span><span class="p">(</span><span class="mi">1453</span><span class="p">,</span> <span class="n">eligible_population</span><span class="p">)</span>
+<span class="n">total_variation_distance</span><span class="p">(</span><span class="n">sample_distribution</span><span class="p">,</span> <span class="n">eligible_population</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.018795595320027513
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the distance is quite a bit smaller than 0.14, the distance between the distribution of the panels and the eligible jurors.</p>
+<p>We are now ready to run a simulation to assess the model of random selection.</p>
+</div>
+<div class="section" id="predicting-the-statistic-under-the-model-of-random-selection">
+<h2><span class="section-number">11.2.7. </span>Predicting the Statistic Under the Model of Random Selection<a class="headerlink" href="#predicting-the-statistic-under-the-model-of-random-selection" title="Permalink to this headline">¶</a></h2>
+<p>The total variation distance between the distributions of the random sample and the eligible jurors is the statistic that we are using to measure the distance between the two distributions. By repeating the process of sampling, we can see how much the statistic varies across different random samples.</p>
+<p>The code below simulates the statistic based on a large number of replications of the random sampling process, following our usual sequence of steps for simulation. We first define a function that returns one simulated value of the total variation distance under the hypothesis of random selection. Then we use our function in a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to create an array <code class="docutils literal notranslate"><span class="pre">tvds</span></code> consisting of 5,000 such distances.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulate one simulated value of </span>
+<span class="c1"># the total variation distance between</span>
+<span class="c1"># the distribution of a sample selected at random</span>
+<span class="c1"># and the distribution of the eligible population</span>
+
+<span class="k">def</span> <span class="nf">one_simulated_tvd</span><span class="p">():</span>
+    <span class="n">sample_distribution</span> <span class="o">=</span> <span class="n">sample_proportions</span><span class="p">(</span><span class="mi">1453</span><span class="p">,</span> <span class="n">eligible_population</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">total_variation_distance</span><span class="p">(</span><span class="n">sample_distribution</span><span class="p">,</span> <span class="n">eligible_population</span><span class="p">)</span>   
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tvds</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+
+<span class="n">repetitions</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
+    <span class="n">tvds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tvds</span><span class="p">,</span> <span class="n">one_simulated_tvd</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The empirical histogram of the simulated distances shows that drawing 1453 jurors at random from the pool of eligible candidates results in a distribution that rarely deviates from the eligible jurors’ race distribution by more than about 0.05.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;TVD&#39;</span><span class="p">,</span> <span class="n">tvds</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Multiple_Categories_34_0.png" src="../../../_images/Multiple_Categories_34_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="assessing-the-model-of-random-selection">
+<h2><span class="section-number">11.2.8. </span>Assessing the Model of Random Selection<a class="headerlink" href="#assessing-the-model-of-random-selection" title="Permalink to this headline">¶</a></h2>
+<p>The panels in the study, however, were not quite so similar to the eligible population. The total variation distance between the panels and the population was 0.14, which is far out in the tail of the histogram above. It does not look at all like a typical distance between a random sample and the eligible population.</p>
+<p>The data in the panels is not consistent with the predicted values of the statistic based on the model of random selection. So our analysis supports the ACLU’s calculation that the panels were not representative of the distribution provided for the eligible jurors.</p>
+</div>
+<div class="section" id="some-possible-explanations-for-the-differences">
+<h2><span class="section-number">11.2.9. </span>Some Possible Explanations for the Differences<a class="headerlink" href="#some-possible-explanations-for-the-differences" title="Permalink to this headline">¶</a></h2>
+<p>As with most such analyses, however, our analysis does not say <em>why</em> the distributions are different or what the difference might imply.</p>
+<p>The ACLU report discusses several possible reasons for the discrepancies. For example, some minority groups were underrepresented on the records of voter registration and of the Department of Motor Vehicles, the two main sources from which jurors are selected. At the time of the study, the county did not have an effective process for following up on prospective jurors who had been called but had failed to appear. The ACLU listed several other reasons as well. Whatever the reasons, it seems clear that the composition of the jury panels was different from what we would have expected in a random sample from the distribution in the <code class="docutils literal notranslate"><span class="pre">Eligible</span></code> column.</p>
+</div>
+<div class="section" id="questions-about-the-data">
+<h2><span class="section-number">11.2.10. </span>Questions about the Data<a class="headerlink" href="#questions-about-the-data" title="Permalink to this headline">¶</a></h2>
+<p>We have developed a powerful technique that helps decide whether one distribution looks like a random sample from another. But data science is about more than techniques. In particular, data science always involves a thoughtful examination of how the data were gathered.</p>
+<p><strong>Eligible Jurors.</strong> First, it is important to remember that not everyone is eligible to serve on a jury. On its <a class="reference external" href="http://www.alameda.courts.ca.gov/pages.aspx/jury-duty-overview">website</a>, the Superior Court of Alameda County says, “You may be called to serve if you are 18 years old, a U.S. citizen and a resident of the county or district where summoned. You must be able to understand English, and be physically and mentally capable of serving. In addition, you must not have served as any kind of juror in the past 12 months, nor have been convicted of a felony.”</p>
+<p>The Census doesn’t maintain records of the populations in all these categories. Thus the ACLU had to obtain the demographics of eligible jurors in some other way. Here is their own description of the process they followed and some flaws that it might contain.</p>
+<p>“For the purpose of determining the demographics of Alameda County’s jury eligible population, we used a declaration that was prepared for the Alameda County trial of People v. Stuart Alexander in 2002. In the declaration, Professor Weeks, a demographer at San Diego State University, estimated the jury eligible population for Alameda County, using the 2000 Census data. To arrive at this estimate, Professor Weeks took into account the number of people who are not eligible for jury services because they do not speak English, are not citizens, are under 18, or have a felony conviction. Thus, his estimate should be an accurate assessment of who is actually eligible for jury service in Alameda County, much more so than simply reviewing the Census report of the race and ethnicity of all people living in Alameda County. It should be noted, however, that the Census data on which Professor Weeks relied is now ten years old and the demographics of the county may have changed by two or three percent in some categories.”</p>
+<p>Thus the distribution of ethnicities of eligible jurors used in the analysis is itself an estimate and might be somewhat out of date.</p>
+<p><strong>Panels.</strong> In addition, panels aren’t selected from the entire eligible population. The Superior Court of Alameda County says, “The objective of the court is to provide an accurate cross-section of the county’s population. The names of jurors are selected at random from everyone who is a registered voter and/or has a driver’s license or identification card issued by the Department of Motor Vehicles.”</p>
+<p>All of this raises complex questions about how to accurately estimate the ethnic composition of eligible jurors in Alameda County.</p>
+<p>It is not clear exactly how the 1453 panelists were classified into the different ethnic categories (the ACLU report says that “attorneys … cooperated in collecting jury pool data”). There are serious social, cultural, and political factors that affect who gets classified or self-classifies into each ethnic category. We also don’t know whether the definitions of those categories in the panels are the same as those used by Professor Weeks who in turn used Census categories in his estimation process. Thus there are also questions about the correspondence between the two distributions being compared.</p>
+<p>Thus, while we have a clear conclusion about the data in our table – the panels do not look like a random sample from the distribution provided for eligible jurors – questions about the nature of the data prevent us from concluding anything broader.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/11/2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../1/Assessing_Models.html" title="previous page"><span class="section-number">11.1. </span>Assessing Models</a>
+    <a class='right-next' id="next-link" href="../3/Decisions_and_Uncertainty.html" title="next page"><span class="section-number">11.3. </span>Decisions and Uncertainty</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ani Adhikari and John DeNero<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-148221575-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

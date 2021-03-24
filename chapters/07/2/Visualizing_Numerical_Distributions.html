@@ -1,0 +1,1446 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7.2. Visualizing Numerical Distributions &#8212; Computational and Inferential Thinking</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/book.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://inferentialthinking.org/chapters/07/2/Visualizing_Numerical_Distributions.html" />
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="7.3. Overlaid Graphs" href="../3/Overlaid_Graphs.html" />
+    <link rel="prev" title="7.1. Visualizing Categorical Distributions" href="../1/Visualizing_Categorical_Distributions.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://inferentialthinking.org/chapters/07/2/Visualizing_Numerical_Distributions.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Visualizing Numerical Distributions" />
+<meta property="og:description" content="Visualizing Numerical Distributions  Many of the variables that data scientists study are quantitative or numerical. Their values are numbers on which you can p" />
+<meta property="og:image"       content="https://inferentialthinking.org/_static/favicon.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/favicon.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Computational and Inferential Thinking</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../01/what-is-data-science.html">
+   1. Data Science
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../01/1/intro.html">
+     1.1. Introduction
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../01/1/1/computational-tools.html">
+       1.1.1. Computational Tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../01/1/2/statistical-techniques.html">
+       1.1.2. Statistical Techniques
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../01/2/why-data-science.html">
+     1.2. Why Data Science?
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../01/3/Plotting_the_Classics.html">
+     1.3. Plotting the Classics
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../01/3/1/Literary_Characters.html">
+       1.3.1. Literary Characters
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../01/3/2/Another_Kind_Of_Character.html">
+       1.3.2. Another Kind of Character
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../02/causality-and-experiments.html">
+   2. Causality and Experiments
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02/1/observation-and-visualization-john-snow-and-the-broad-street-pump.html">
+     2.1. John Snow and the Broad Street Pump
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02/2/snow-s-grand-experiment.html">
+     2.2. Snow’s “Grand Experiment”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02/3/establishing-causality.html">
+     2.3. Establishing Causality
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02/4/randomization.html">
+     2.4. Randomization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02/5/endnote.html">
+     2.5. Endnote
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../03/programming-in-python.html">
+   3. Programming in Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03/1/Expressions.html">
+     3.1. Expressions
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../03/2/Names.html">
+     3.2. Names
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../03/2/1/Growth.html">
+       3.2.1. Example: Growth Rates
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03/3/Calls.html">
+     3.3. Call Expressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03/4/Introduction_to_Tables.html">
+     3.4. Introduction to Tables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03/4/Introduction_to_Tables.html#choosing-sets-of-columns">
+     3.5. Choosing Sets of Columns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03/4/Introduction_to_Tables.html#sorting-rows">
+     3.6. Sorting Rows
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../04/Data_Types.html">
+   4. Data Types
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04/1/Numbers.html">
+     4.1. Numbers
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../04/2/Strings.html">
+     4.2. Strings
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../04/2/1/String_Methods.html">
+       4.2.1. String Methods
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04/3/Comparison.html">
+     4.3. Comparisons
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../05/Sequences.html">
+   5. Sequences
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05/1/Arrays.html">
+     5.1. Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05/2/Ranges.html">
+     5.2. Ranges
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05/3/More_on_Arrays.html">
+     5.3. More on Arrays
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../06/Tables.html">
+   6. Tables
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06/1/Sorting_Rows.html">
+     6.1. Sorting Rows
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06/2/Selecting_Rows.html">
+     6.2. Selecting Rows
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06/3/Example_Trends_in_the_Population_of_the_United_States.html">
+     6.3. Example: Population Trends
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../06/4/Example_Gender_Ratio_in_the_US_Population.html">
+     6.4. Example: Trends in Gender
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../Visualization.html">
+   7. Visualization
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1/Visualizing_Categorical_Distributions.html">
+     7.1. Categorical Distributions
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     7.2. Numerical Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3/Overlaid_Graphs.html">
+     7.3. Overlaid Graphs
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../08/Functions_and_Tables.html">
+   8. Functions and Tables
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08/1/Applying_a_Function_to_a_Column.html">
+     8.1. Applying Functions to Columns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08/2/Classifying_by_One_Variable.html">
+     8.2. Classifying by One Variable
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08/3/Cross-Classifying_by_More_than_One_Variable.html">
+     8.3. Cross-Classifying
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08/4/Joining_Tables_by_Columns.html">
+     8.4. Joining Tables by Columns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08/5/Bike_Sharing_in_the_Bay_Area.html">
+     8.5. Bike Sharing in the Bay Area
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../09/Randomness.html">
+   9. Randomness
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09/1/Conditional_Statements.html">
+     9.1. Conditional Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09/2/Iteration.html">
+     9.2. Iteration
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09/3/Simulation.html">
+     9.3. Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09/4/Monty_Hall_Problem.html">
+     9.4. The Monty Hall Problem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09/5/Finding_Probabilities.html">
+     9.5. Finding Probabilities
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../10/Sampling_and_Empirical_Distributions.html">
+   10. Sampling and Empirical Distributions
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../10/1/Empirical_Distributions.html">
+     10.1. Empirical Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../10/2/Sampling_from_a_Population.html">
+     10.2. Sampling from a Population
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../10/3/Empirical_Distribution_of_a_Statistic.html">
+     10.3. Empirical Distibution of a Statistic
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../11/Testing_Hypotheses.html">
+   11. Testing Hypotheses
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../11/1/Assessing_Models.html">
+     11.1. Assessing Models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../11/2/Multiple_Categories.html">
+     11.2. Multiple Categories
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../11/3/Decisions_and_Uncertainty.html">
+     11.3. Decisions and Uncertainty
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../11/4/Error_Probabilities.html">
+     11.4. Error Probabilities
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../12/Comparing_Two_Samples.html">
+   12. Comparing Two Samples
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../12/1/AB_Testing.html">
+     12.1. A/B Testing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../12/2/Deflategate.html">
+     12.2. Deflategate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../12/3/Causality.html">
+     12.3. Causality
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../13/Estimation.html">
+   13. Estimation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../13/1/Percentiles.html">
+     13.1. Percentiles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../13/2/Bootstrap.html">
+     13.2. The Bootstrap
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../13/3/Confidence_Intervals.html">
+     13.3. Confidence Intervals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../13/4/Using_Confidence_Intervals.html">
+     13.4. Using Confidence Intervals
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../14/Why_the_Mean_Matters.html">
+   14. Why the Mean Matters
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../14/1/Properties_of_the_Mean.html">
+     14.1. Properties of the Mean
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../14/2/Variability.html">
+     14.2. Variability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../14/3/SD_and_the_Normal_Curve.html">
+     14.3. The SD and the Normal Curve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../14/4/Central_Limit_Theorem.html">
+     14.4. The Central Limit Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../14/5/Variability_of_the_Sample_Mean.html">
+     14.5. The Variability of the Sample Mean
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../14/6/Choosing_a_Sample_Size.html">
+     14.6. Choosing a Sample Size
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../15/Prediction.html">
+   15. Prediction
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../15/1/Correlation.html">
+     15.1. Correlation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../15/2/Regression_Line.html">
+     15.2. The Regression Line
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../15/3/Method_of_Least_Squares.html">
+     15.3. The Method of Least Squares
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../15/4/Least_Squares_Regression.html">
+     15.4. Least Squares Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../15/5/Visual_Diagnostics.html">
+     15.5. Visual Diagnostics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../15/6/Numerical_Diagnostics.html">
+     15.6. Numerical Diagnostics
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../16/Inference_for_Regression.html">
+   16. Inference for Regression
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../16/1/Regression_Model.html">
+     16.1. A Regression Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../16/2/Inference_for_the_True_Slope.html">
+     16.2. Inference for the True Slope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../16/3/Prediction_Intervals.html">
+     16.3. Prediction Intervals
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../17/Classification.html">
+   17. Classification
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../17/1/Nearest_Neighbors.html">
+     17.1. Nearest Neighbors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../17/2/Training_and_Testing.html">
+     17.2. Training and Testing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../17/3/Rows_of_Tables.html">
+     17.3. Rows of Tables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../17/4/Implementing_the_Classifier.html">
+     17.4. Implementing the Classifier
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../17/5/Accuracy_of_the_Classifier.html">
+     17.5. The Accuracy of the Classifier
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../17/6/Multiple_Regression.html">
+     17.6. Multiple Regression
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../18/Updating_Predictions.html">
+   18. Updating Predictions
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../18/1/More_Likely_than_Not_Binary_Classifier.html">
+     18.1. A "More Likely Than Not" Binary Classifier
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../18/2/Making_Decisions.html">
+     18.2. Making Decisions
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/chapters/07/2/Visualizing_Numerical_Distributions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/data-8/textbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/07/2/Visualizing_Numerical_Distributions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/data-8/textbook&urlpath=tree/textbook/chapters/07/2/Visualizing_Numerical_Distributions.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-the-distribution-of-the-adjusted-receipts">
+   7.2.1. Visualizing the Distribution of the Adjusted Receipts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-histogram">
+   7.2.2. A Histogram
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-horizontal-axis">
+   7.2.3. The Horizontal Axis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-counts-in-the-bins">
+   7.2.4. The Counts in the Bins
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-vertical-axis-density-scale">
+   7.2.5. The Vertical Axis: Density Scale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unequal-bins">
+   7.2.6. Unequal Bins
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-problem-with-simply-plotting-counts">
+   7.2.7. The Problem with Simply Plotting Counts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-histogram-general-principles-and-calculation">
+   7.2.8. The Histogram: General Principles and Calculation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flat-tops-and-the-level-of-detail">
+   7.2.9. Flat Tops and the Level of Detail
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#histograms-q-a">
+   7.2.10. Histograms Q&amp;A
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#differences-between-bar-charts-and-histograms">
+   7.2.11. Differences Between Bar Charts and Histograms
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell tag_remove-input docutils container">
+</div>
+<div class="section" id="visualizing-numerical-distributions">
+<h1><span class="section-number">7.2. </span>Visualizing Numerical Distributions<a class="headerlink" href="#visualizing-numerical-distributions" title="Permalink to this headline">¶</a></h1>
+<p>Many of the variables that data scientists study are <em>quantitative</em> or <em>numerical</em>. Their values are numbers on which you can perform arithmetic. Examples that we have seen include the number of periods in chapters of a book, the amount of money made by movies, and the age of people in the United States.</p>
+<p>The values of a categorical variable can be given numerical codes, but that doesn’t make the variable quantitative. In the example in which we studied Census data broken down by age group, the categorial variable <code class="docutils literal notranslate"><span class="pre">SEX</span></code> had the numerical codes <code class="docutils literal notranslate"><span class="pre">1</span></code> for ‘Male,’ <code class="docutils literal notranslate"><span class="pre">2</span></code> for ‘Female,’ and <code class="docutils literal notranslate"><span class="pre">0</span></code> for the aggregate of both groups <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">2</span></code>. While 0, 1, and 2 are numbers, in this context it doesn’t make sense to subtract 1 from 2, or take the average of 0, 1, and 2, or perform other arithmetic on the three values. <code class="docutils literal notranslate"><span class="pre">SEX</span></code> is a categorical variable even though the values have been given a numerical code.</p>
+<p>For our main example, we will return to a dataset that we studied when we were visualizing categorical data. It is the table <code class="docutils literal notranslate"><span class="pre">top</span></code>, which consists of data from U.S.A.’s top grossing movies of all time. For convenience, here is the description of the table again.</p>
+<p>The first column contains the title of the movie. The second column contains the name of the studio that produced the movie. The third contains the domestic box office gross in dollars, and the fourth contains the  gross amount that would have been earned from ticket sales at 2016 prices. The fifth contains the release year of the movie.</p>
+<p>There are 200 movies on the list. Here are the top ten according to the unadjusted gross receipts in the column <code class="docutils literal notranslate"><span class="pre">Gross</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;top_movies.csv&#39;</span><span class="p">)</span>
+<span class="c1"># Make the numbers in the Gross and Gross (Adjusted) columns look nicer:</span>
+<span class="n">top</span><span class="o">.</span><span class="n">set_format</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">NumberFormatter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Title</th> <th>Studio</th> <th>Gross</th> <th>Gross (Adjusted)</th> <th>Year</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Star Wars: The Force Awakens             </td> <td>Buena Vista (Disney)</td> <td>906,723,418</td> <td>906,723,400     </td> <td>2015</td>
+        </tr>
+        <tr>
+            <td>Avatar                                   </td> <td>Fox                 </td> <td>760,507,625</td> <td>846,120,800     </td> <td>2009</td>
+        </tr>
+        <tr>
+            <td>Titanic                                  </td> <td>Paramount           </td> <td>658,672,302</td> <td>1,178,627,900   </td> <td>1997</td>
+        </tr>
+        <tr>
+            <td>Jurassic World                           </td> <td>Universal           </td> <td>652,270,625</td> <td>687,728,000     </td> <td>2015</td>
+        </tr>
+        <tr>
+            <td>Marvel's The Avengers                    </td> <td>Buena Vista (Disney)</td> <td>623,357,910</td> <td>668,866,600     </td> <td>2012</td>
+        </tr>
+        <tr>
+            <td>The Dark Knight                          </td> <td>Warner Bros.        </td> <td>534,858,444</td> <td>647,761,600     </td> <td>2008</td>
+        </tr>
+        <tr>
+            <td>Star Wars: Episode I - The Phantom Menace</td> <td>Fox                 </td> <td>474,544,677</td> <td>785,715,000     </td> <td>1999</td>
+        </tr>
+        <tr>
+            <td>Star Wars                                </td> <td>Fox                 </td> <td>460,998,007</td> <td>1,549,640,500   </td> <td>1977</td>
+        </tr>
+        <tr>
+            <td>Avengers: Age of Ultron                  </td> <td>Buena Vista (Disney)</td> <td>459,005,868</td> <td>465,684,200     </td> <td>2015</td>
+        </tr>
+        <tr>
+            <td>The Dark Knight Rises                    </td> <td>Warner Bros.        </td> <td>448,139,099</td> <td>500,961,700     </td> <td>2012</td>
+        </tr>
+    </tbody>
+</table>
+<p>... (190 rows omitted)</p></div></div>
+</div>
+<div class="section" id="visualizing-the-distribution-of-the-adjusted-receipts">
+<h2><span class="section-number">7.2.1. </span>Visualizing the Distribution of the Adjusted Receipts<a class="headerlink" href="#visualizing-the-distribution-of-the-adjusted-receipts" title="Permalink to this headline">¶</a></h2>
+<p>In this section we will draw graphs of the distribution of the numerical variable in the column <code class="docutils literal notranslate"><span class="pre">Gross</span> <span class="pre">(Adjusted)</span></code>. For simplicity, let’s create a smaller table that has the information that we need. And since three-digit numbers are easier to work with than nine-digit numbers, let’s measure the <code class="docutils literal notranslate"><span class="pre">Adjusted</span> <span class="pre">Gross</span></code> receipts in millions of dollars. Note how <code class="docutils literal notranslate"><span class="pre">round</span></code> is used to retain only two decimal places.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">millions</span> <span class="o">=</span> <span class="n">top</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;Adjusted Gross&#39;</span><span class="p">,</span> 
+                                     <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">top</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">millions</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Title</th> <th>Adjusted Gross</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Star Wars: The Force Awakens             </td> <td>906.72        </td>
+        </tr>
+        <tr>
+            <td>Avatar                                   </td> <td>846.12        </td>
+        </tr>
+        <tr>
+            <td>Titanic                                  </td> <td>1178.63       </td>
+        </tr>
+        <tr>
+            <td>Jurassic World                           </td> <td>687.73        </td>
+        </tr>
+        <tr>
+            <td>Marvel's The Avengers                    </td> <td>668.87        </td>
+        </tr>
+        <tr>
+            <td>The Dark Knight                          </td> <td>647.76        </td>
+        </tr>
+        <tr>
+            <td>Star Wars: Episode I - The Phantom Menace</td> <td>785.72        </td>
+        </tr>
+        <tr>
+            <td>Star Wars                                </td> <td>1549.64       </td>
+        </tr>
+        <tr>
+            <td>Avengers: Age of Ultron                  </td> <td>465.68        </td>
+        </tr>
+        <tr>
+            <td>The Dark Knight Rises                    </td> <td>500.96        </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (190 rows omitted)</p></div></div>
+</div>
+</div>
+<div class="section" id="a-histogram">
+<h2><span class="section-number">7.2.2. </span>A Histogram<a class="headerlink" href="#a-histogram" title="Permalink to this headline">¶</a></h2>
+<p>A <em>histogram</em> of a numerical dataset looks very much like a bar chart, though it has some important differences that we will examine in this section. First, let’s just draw a histogram of the adjusted receipts.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">hist</span></code> method generates a histogram of the values in a column. The optional <code class="docutils literal notranslate"><span class="pre">unit</span></code> argument is used in the labels on the two axes. The histogram shows the distribution of the adjusted gross amounts, in millions of 2016 dollars.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">millions</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;Adjusted Gross&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;Million Dollars&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Visualizing_Numerical_Distributions_7_0.png" src="../../../_images/Visualizing_Numerical_Distributions_7_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="the-horizontal-axis">
+<h2><span class="section-number">7.2.3. </span>The Horizontal Axis<a class="headerlink" href="#the-horizontal-axis" title="Permalink to this headline">¶</a></h2>
+<p>The amounts have been grouped into contiguous intervals called <em>bins</em>. Although in this dataset no movie grossed an amount that is exactly on the edge between two bins, <code class="docutils literal notranslate"><span class="pre">hist</span></code> does have to account for situations where there might have been values at the edges. So <code class="docutils literal notranslate"><span class="pre">hist</span></code> has an <em>endpoint convention</em>: bins include the data at their left endpoint, but not the data at their right endpoint.</p>
+<p>We will use the notation [<em>a</em>, <em>b</em>) for the bin that starts at <em>a</em> and ends at <em>b</em> but doesn’t include <em>b</em>.</p>
+<p>Sometimes, adjustments have to be made in the first or last bin, to ensure that the smallest and largest values of the variable are included. You saw an example of such an adjustment in the Census data studied earlier, where an age of “100” years actually meant “100 years old or older.”</p>
+<p>We can see that there are 10 bins (some bars are so low that they are hard to see), and that they all have the same width. We can also see that none of the movies grossed fewer than 300 million dollars; that is because we are considering only the top grossing movies of all time.</p>
+<p>It is a little harder to see exactly where the ends of the bins are situated. For example, it is not easy to pinpoint exactly where the value 500 lies on the horizontal axis. So it is hard to judge exactly where one bar ends and the next begins.</p>
+<p>The optional argument <code class="docutils literal notranslate"><span class="pre">bins</span></code> can be used with <code class="docutils literal notranslate"><span class="pre">hist</span></code> to specify the endpoints of the bins. It must consist of a sequence of numbers that starts with the left end of the first bin and ends with the right end of the last bin. We will start by setting the numbers in <code class="docutils literal notranslate"><span class="pre">bins</span></code> to be 300, 400, 500, and so on, ending with 2000.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">millions</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;Adjusted Gross&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">2001</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;Million Dollars&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Visualizing_Numerical_Distributions_9_0.png" src="../../../_images/Visualizing_Numerical_Distributions_9_0.png" />
+</div>
+</div>
+<p>The horizontal axis of this figure is easier to read. The labels 200, 400, 600, and so on are centered at the corresponding values. The tallest bar is for movies that grossed between 300 million and 400 million dollars.</p>
+<p>A very small number of movies grossed 800 million dollars or more. This results in the figure being “skewed to the right,” or, less formally, having “a long right hand tail.” Distributions of variables like income or rent in large populations also often have this kind of shape.</p>
+</div>
+<div class="section" id="the-counts-in-the-bins">
+<h2><span class="section-number">7.2.4. </span>The Counts in the Bins<a class="headerlink" href="#the-counts-in-the-bins" title="Permalink to this headline">¶</a></h2>
+<p>The counts of values in the bins can be computed from a table using the <code class="docutils literal notranslate"><span class="pre">bin</span></code> method, which takes a column label or index and an optional sequence or number of bins. The result is a tabular form of a histogram. The first column lists the left endpoints of the bins (but see the note about the final value, below). The second column contains the counts of all values in the <code class="docutils literal notranslate"><span class="pre">Adjusted</span> <span class="pre">Gross</span></code> column that are in the corresponding bin. That is, it counts all the <code class="docutils literal notranslate"><span class="pre">Adjusted</span> <span class="pre">Gross</span></code> values that are greater than or equal to the value in <code class="docutils literal notranslate"><span class="pre">bin</span></code>, but less than the next value in <code class="docutils literal notranslate"><span class="pre">bin</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bin_counts</span> <span class="o">=</span> <span class="n">millions</span><span class="o">.</span><span class="n">bin</span><span class="p">(</span><span class="s1">&#39;Adjusted Gross&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">2001</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">bin_counts</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>bin</th> <th>Adjusted Gross count</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>300 </td> <td>81                  </td>
+        </tr>
+        <tr>
+            <td>400 </td> <td>52                  </td>
+        </tr>
+        <tr>
+            <td>500 </td> <td>28                  </td>
+        </tr>
+        <tr>
+            <td>600 </td> <td>16                  </td>
+        </tr>
+        <tr>
+            <td>700 </td> <td>7                   </td>
+        </tr>
+        <tr>
+            <td>800 </td> <td>5                   </td>
+        </tr>
+        <tr>
+            <td>900 </td> <td>3                   </td>
+        </tr>
+        <tr>
+            <td>1000</td> <td>1                   </td>
+        </tr>
+        <tr>
+            <td>1100</td> <td>3                   </td>
+        </tr>
+        <tr>
+            <td>1200</td> <td>2                   </td>
+        </tr>
+        <tr>
+            <td>1300</td> <td>0                   </td>
+        </tr>
+        <tr>
+            <td>1400</td> <td>0                   </td>
+        </tr>
+        <tr>
+            <td>1500</td> <td>1                   </td>
+        </tr>
+        <tr>
+            <td>1600</td> <td>0                   </td>
+        </tr>
+        <tr>
+            <td>1700</td> <td>1                   </td>
+        </tr>
+        <tr>
+            <td>1800</td> <td>0                   </td>
+        </tr>
+        <tr>
+            <td>1900</td> <td>0                   </td>
+        </tr>
+        <tr>
+            <td>2000</td> <td>0                   </td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Notice the <code class="docutils literal notranslate"><span class="pre">bin</span></code> value 2000 in the last row. That’s not the left end-point of any bar – it’s the right end point of the last bar. By the endpoint convention, the data there are not included. So the corresponding <code class="docutils literal notranslate"><span class="pre">count</span></code> is recorded as 0, and would have been recorded as 0 even if there had been movies that made more than $2,000$ million dollars. When either <code class="docutils literal notranslate"><span class="pre">bin</span></code> or <code class="docutils literal notranslate"><span class="pre">hist</span></code> is called with a <code class="docutils literal notranslate"><span class="pre">bins</span></code> argument, the graph only considers values that are in the specified bins.</p>
+<p>Once values have been binned, the resulting counts can be used to generate a histogram using the <code class="docutils literal notranslate"><span class="pre">bin_column</span></code> named argument to specify which column contains the bin lower bounds.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bin_counts</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;Adjusted Gross count&#39;</span><span class="p">,</span> <span class="n">bin_column</span><span class="o">=</span><span class="s1">&#39;bin&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;Million Dollars&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Visualizing_Numerical_Distributions_14_0.png" src="../../../_images/Visualizing_Numerical_Distributions_14_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="the-vertical-axis-density-scale">
+<h2><span class="section-number">7.2.5. </span>The Vertical Axis: Density Scale<a class="headerlink" href="#the-vertical-axis-density-scale" title="Permalink to this headline">¶</a></h2>
+<p>The horizontal axis of a histogram is straightforward to read, once we have taken care of details like the ends of the bins. The features of the vertical axis require a little more attention. We will go over them one by one.</p>
+<p>Let’s start by examining how to calculate the numbers on the vertical axis. If the calculation seems a little strange, have patience – the rest of the section will explain the reasoning.</p>
+<p><strong>Calculation.</strong> The height of each bar is the percent of elements that fall into the corresponding bin, relative to the width of the bin.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="n">bin_counts</span><span class="o">.</span><span class="n">relabeled</span><span class="p">(</span><span class="s1">&#39;Adjusted Gross count&#39;</span><span class="p">,</span> <span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">percents</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
+    <span class="s1">&#39;Percent&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span><span class="o">/</span><span class="mi">200</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+    <span class="p">)</span>
+<span class="n">heights</span> <span class="o">=</span> <span class="n">percents</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
+    <span class="s1">&#39;Height&#39;</span><span class="p">,</span> <span class="n">percents</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Percent&#39;</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>
+    <span class="p">)</span>
+<span class="n">heights</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>bin</th> <th>Count</th> <th>Percent</th> <th>Height</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>300 </td> <td>81   </td> <td>40.5   </td> <td>0.405 </td>
+        </tr>
+        <tr>
+            <td>400 </td> <td>52   </td> <td>26     </td> <td>0.26  </td>
+        </tr>
+        <tr>
+            <td>500 </td> <td>28   </td> <td>14     </td> <td>0.14  </td>
+        </tr>
+        <tr>
+            <td>600 </td> <td>16   </td> <td>8      </td> <td>0.08  </td>
+        </tr>
+        <tr>
+            <td>700 </td> <td>7    </td> <td>3.5    </td> <td>0.035 </td>
+        </tr>
+        <tr>
+            <td>800 </td> <td>5    </td> <td>2.5    </td> <td>0.025 </td>
+        </tr>
+        <tr>
+            <td>900 </td> <td>3    </td> <td>1.5    </td> <td>0.015 </td>
+        </tr>
+        <tr>
+            <td>1000</td> <td>1    </td> <td>0.5    </td> <td>0.005 </td>
+        </tr>
+        <tr>
+            <td>1100</td> <td>3    </td> <td>1.5    </td> <td>0.015 </td>
+        </tr>
+        <tr>
+            <td>1200</td> <td>2    </td> <td>1      </td> <td>0.01  </td>
+        </tr>
+    </tbody>
+</table>
+<p>... (8 rows omitted)</p></div></div>
+</div>
+<p>Go over the numbers on the vertical axis of the histogram above to check that the column <code class="docutils literal notranslate"><span class="pre">Heights</span></code> looks correct.</p>
+<p>The calculations will become clear if we just examine the first row of the table.</p>
+<p>Remember that there are 200 movies in the dataset. The [300, 400) bin contains 81 movies. That’s 40.5% of all the movies:</p>
+<div class="math notranslate nohighlight">
+\[
+\mbox{Percent} = \frac{81}{200} \cdot 100 = 40.5
+\]</div>
+<p>The width of the [300, 400) bin is <span class="math notranslate nohighlight">\(400 - 300 = 100\)</span>. So</p>
+<div class="math notranslate nohighlight">
+\[
+\mbox{Height} = \frac{40.5}{100} = 0.405
+\]</div>
+<p>The code for calculating the heights used the facts that there are 200 movies in all and that the width of each bin is 100.</p>
+<p><strong>Units.</strong> The height of the bar is 40.5% divided by 100 million dollars, and so the height is 0.405% per million dollars.</p>
+<p>This method of drawing histograms creates a vertical axis that is said to be <em>on the density scale</em>. The height of bar is <strong>not</strong> the percent of entries in the bin; it is the percent of entries in the bin relative to the amount of space in the bin. That is why the height measures crowdedness or <em>density</em>.</p>
+<p>Let’s see why this matters.</p>
+</div>
+<div class="section" id="unequal-bins">
+<h2><span class="section-number">7.2.6. </span>Unequal Bins<a class="headerlink" href="#unequal-bins" title="Permalink to this headline">¶</a></h2>
+<p>An advantage of the histogram over a bar chart is that a histogram can contain bins of unequal width. Below, the values in the <code class="docutils literal notranslate"><span class="pre">Millions</span></code> column are binned into three uneven categories.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uneven</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">1500</span><span class="p">)</span>
+<span class="n">millions</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;Adjusted Gross&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">uneven</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;Million Dollars&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Visualizing_Numerical_Distributions_21_0.png" src="../../../_images/Visualizing_Numerical_Distributions_21_0.png" />
+</div>
+</div>
+<p>Here are the counts in the three bins.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">millions</span><span class="o">.</span><span class="n">bin</span><span class="p">(</span><span class="s1">&#39;Adjusted Gross&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">uneven</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>bin</th> <th>Adjusted Gross count</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>300 </td> <td>81                  </td>
+        </tr>
+        <tr>
+            <td>400 </td> <td>80                  </td>
+        </tr>
+        <tr>
+            <td>600 </td> <td>37                  </td>
+        </tr>
+        <tr>
+            <td>1500</td> <td>0                   </td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Although the ranges [300, 400) and [400, 600) have nearly identical counts, the bar over the former is twice as tall as the latter because it is only half as wide. The density of values in the [300, 400) is twice as much as the density in [400, 600).</p>
+<p>Histograms help us visualize where on the number line the data are most concentrated, especially when the bins are uneven.</p>
+</div>
+<div class="section" id="the-problem-with-simply-plotting-counts">
+<h2><span class="section-number">7.2.7. </span>The Problem with Simply Plotting Counts<a class="headerlink" href="#the-problem-with-simply-plotting-counts" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to display counts directly in a chart, using the <code class="docutils literal notranslate"><span class="pre">normed=False</span></code> option of the <code class="docutils literal notranslate"><span class="pre">hist</span></code> method. The resulting chart has the same shape as a histogram when the bins all have equal widths, though the numbers on the vertical axis are different.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">millions</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;Adjusted Gross&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">2001</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">normed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Visualizing_Numerical_Distributions_26_0.png" src="../../../_images/Visualizing_Numerical_Distributions_26_0.png" />
+</div>
+</div>
+<p>While the count scale is perhaps more natural to interpret than the density scale, the chart becomes highly misleading when bins have different widths. Below, it appears (due to the count scale) that high-grossing movies are quite common, when in fact we have seen that they are relatively rare.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">millions</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;Adjusted Gross&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">uneven</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Visualizing_Numerical_Distributions_28_0.png" src="../../../_images/Visualizing_Numerical_Distributions_28_0.png" />
+</div>
+</div>
+<p>Even though the method used is called <code class="docutils literal notranslate"><span class="pre">hist</span></code>, <strong>the figure above is NOT A HISTOGRAM.</strong> It misleadingly exaggerates the proportion of movies grossing at least 600 million dollars. The height of each bar is simply plotted at the number of movies in the bin, <em>without accounting for the difference in the widths of the bins</em>.</p>
+<p>The picture becomes even more absurd if the last two bins are combined.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">very_uneven</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">1500</span><span class="p">)</span>
+<span class="n">millions</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;Adjusted Gross&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">very_uneven</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Visualizing_Numerical_Distributions_30_0.png" src="../../../_images/Visualizing_Numerical_Distributions_30_0.png" />
+</div>
+</div>
+<p>In this count-based figure, the shape of the distribution of movies is lost entirely.</p>
+</div>
+<div class="section" id="the-histogram-general-principles-and-calculation">
+<h2><span class="section-number">7.2.8. </span>The Histogram: General Principles and Calculation<a class="headerlink" href="#the-histogram-general-principles-and-calculation" title="Permalink to this headline">¶</a></h2>
+<p>The figure above shows that what the eye perceives as “big” is area, not just height. This observation becomes particularly important when the bins have different widths.</p>
+<p>That is why a histogram has two defining properties:</p>
+<ol class="simple">
+<li><p>The bins are drawn to scale and are contiguous (though some might be empty), because the values on the horizontal axis are numerical.</p></li>
+<li><p>The <strong>area</strong> of each bar is proportional to the number of entries in the bin.</p></li>
+</ol>
+<p>Property 2 is the key to drawing a histogram, and is usually achieved as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+\mbox{area of bar} ~=~ \mbox{percent of entries in bin}
+\]</div>
+<p>The calculation of the heights just uses the fact that the bar is a rectangle:</p>
+<div class="math notranslate nohighlight">
+\[
+\mbox{area of bar} = \mbox{height of bar} \times \mbox{width of bin}
+\]</div>
+<p>and so</p>
+<div class="math notranslate nohighlight">
+\[
+\mbox{height of bar} ~=~ 
+\frac{\mbox{area of bar}}{\mbox{width of bin}} ~=~
+\frac{\mbox{percent of entries in bin}}{\mbox{width of bin}}
+\]</div>
+<p>The units of height are “percent per unit on the horizontal axis.”</p>
+<p>When drawn using this method, the histogram is said to be drawn on the density scale. On this scale:</p>
+<ul class="simple">
+<li><p>The area of each bar is equal to the percent of data values that are in the corresponding bin.</p></li>
+<li><p>The total area of all the bars in the histogram is 100%. Speaking in terms of proportions, we say that the areas of all the bars in a histogram “sum to 1”.</p></li>
+</ul>
+</div>
+<div class="section" id="flat-tops-and-the-level-of-detail">
+<h2><span class="section-number">7.2.9. </span>Flat Tops and the Level of Detail<a class="headerlink" href="#flat-tops-and-the-level-of-detail" title="Permalink to this headline">¶</a></h2>
+<p>Even though the density scale correctly represents percents using area, some detail is lost by grouping values into bins.</p>
+<p>Take another look at the [300, 400) bin in the figure below. The flat top of the bar, at the level 0.405% per million dollars, hides the fact that the movies are somewhat unevenly distributed across that bin.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">millions</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;Adjusted Gross&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">uneven</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;Million Dollars&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Visualizing_Numerical_Distributions_34_0.png" src="../../../_images/Visualizing_Numerical_Distributions_34_0.png" />
+</div>
+</div>
+<p>To see this, let us split the [300, 400) bin into 10 narrower bins, each of width 10 million dollars.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">some_tiny_bins</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">310</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">330</span><span class="p">,</span> <span class="mi">340</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="mi">370</span><span class="p">,</span> <span class="mi">380</span><span class="p">,</span> <span class="mi">390</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">1500</span><span class="p">)</span>
+<span class="n">millions</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;Adjusted Gross&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">some_tiny_bins</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;Million Dollars&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Visualizing_Numerical_Distributions_36_0.png" src="../../../_images/Visualizing_Numerical_Distributions_36_0.png" />
+</div>
+</div>
+<p>Some of the skinny bars are taller than 0.405 and others are shorter; the first two have heights of 0 because there are no data between 300 and 320. By putting a flat top at the level 0.405 across the whole bin, we are deciding to ignore the finer detail and are using the flat level as a rough approximation. Often, though not always, this is sufficient for understanding the general shape of the distribution.</p>
+<p><strong>The height as a rough approximation.</strong>
+This observation gives us a different way of thinking about the height.
+Look again at the [300, 400) bin in the earlier histograms. As we have seen, the bin is 100 million dollars wide and contains 40.5% of the data. Therefore the height of the corresponding bar is 0.405% per million dollars.</p>
+<p>Now think of the bin as consisting of 100 narrow bins that are each 1 million dollars wide. The bar’s height of “0.405% per million dollars” means that as a rough approximation, 0.405% of the movies are in each of those 100 skinny bins of width 1 million dollars.</p>
+<p>Notice that because we have the entire dataset that is being used to draw the histograms, we can draw the histograms to as fine a level of detail as the data and our patience will allow. However, if you are looking at a histogram in a book or on a website, and you don’t have access to the underlying dataset, then it becomes important to have a clear understanding of the “rough approximation” created by the flat tops.</p>
+</div>
+<div class="section" id="histograms-q-a">
+<h2><span class="section-number">7.2.10. </span>Histograms Q&amp;A<a class="headerlink" href="#histograms-q-a" title="Permalink to this headline">¶</a></h2>
+<p>Let’s draw the histogram again, this time with four bins, and check our understanding of the concepts.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uneven_again</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">450</span><span class="p">,</span> <span class="mi">1500</span><span class="p">)</span>
+<span class="n">millions</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;Adjusted Gross&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">uneven_again</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;Million Dollars&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Visualizing_Numerical_Distributions_41_0.png" src="../../../_images/Visualizing_Numerical_Distributions_41_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">millions</span><span class="o">.</span><span class="n">bin</span><span class="p">(</span><span class="s1">&#39;Adjusted Gross&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">uneven_again</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>bin</th> <th>Adjusted Gross count</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>300 </td> <td>32                  </td>
+        </tr>
+        <tr>
+            <td>350 </td> <td>49                  </td>
+        </tr>
+        <tr>
+            <td>400 </td> <td>25                  </td>
+        </tr>
+        <tr>
+            <td>450 </td> <td>92                  </td>
+        </tr>
+        <tr>
+            <td>1500</td> <td>0                   </td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Look again at the histogram, and compare the [400, 450) bin with the [450, 1500) bin.</p>
+<p><strong>Q</strong>: Which has more movies in it?</p>
+<p><strong>A</strong>: The [450, 1500) bin. It has 92 movies, compared with 25 movies in the [400, 450) bin.</p>
+<p><strong>Q</strong>: Then why is the [450, 1500) bar so much shorter than the [400, 450) bar?</p>
+<p><strong>A</strong>: Because height represents density per unit of space in the bin, not the number of movies in the bin. The [450, 1500) bin does have more movies than the [400, 450) bin, but it is also a whole lot wider. So it is less crowded. The density of movies in it is much lower.</p>
+</div>
+<div class="section" id="differences-between-bar-charts-and-histograms">
+<h2><span class="section-number">7.2.11. </span>Differences Between Bar Charts and Histograms<a class="headerlink" href="#differences-between-bar-charts-and-histograms" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Bar charts display one quantity per category. They are often used to display the distributions of categorical variables. Histograms display the distributions of quantitative variables.</p></li>
+<li><p>All the bars in a bar chart have the same width, and there is an equal amount of space between consecutive bars. The bars of a histogram can have different widths, and they are contiguous.</p></li>
+<li><p>The lengths (or heights, if the bars are drawn vertically) of the bars in a bar chart are proportional to the value for each category. The heights of bars in a histogram measure densities; the <em>areas</em> of bars in a histogram are proportional to the numbers of entries in the bins.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/07/2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../1/Visualizing_Categorical_Distributions.html" title="previous page"><span class="section-number">7.1. </span>Visualizing Categorical Distributions</a>
+    <a class='right-next' id="next-link" href="../3/Overlaid_Graphs.html" title="next page"><span class="section-number">7.3. </span>Overlaid Graphs</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ani Adhikari and John DeNero<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-148221575-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>
