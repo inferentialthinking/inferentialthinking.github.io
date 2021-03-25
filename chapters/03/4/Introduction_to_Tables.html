@@ -220,16 +220,6 @@
      3.4. Introduction to Tables
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="#choosing-sets-of-columns">
-     3.5. Choosing Sets of Columns
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="#sorting-rows">
-     3.6. Sorting Rows
-    </a>
-   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -785,32 +775,25 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   3.4. Introduction to Tables
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#choosing-sets-of-columns">
-   3.5. Choosing Sets of Columns
+   3.4.1. Choosing Sets of Columns
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sorting-rows">
-   3.6. Sorting Rows
+   3.4.2. Sorting Rows
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#selecting-rows-that-satisfy-a-condition">
-     3.6.1. Selecting Rows that Satisfy a Condition
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-salaries-in-the-nba">
-     3.6.2. Example: Salaries in the NBA
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selecting-rows-that-satisfy-a-condition">
+   3.4.3. Selecting Rows that Satisfy a Condition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-salaries-in-the-nba">
+   3.4.4. Example: Salaries in the NBA
+  </a>
  </li>
 </ul>
 
@@ -901,9 +884,8 @@
 <p>... (4 rows omitted)</p></div></div>
 </div>
 <p>You can replace 2 by any number of rows. If you ask for more than six, you will only get six, because <code class="docutils literal notranslate"><span class="pre">cones</span></code> only has six rows.</p>
-</div>
 <div class="section" id="choosing-sets-of-columns">
-<h1><span class="section-number">3.5. </span>Choosing Sets of Columns<a class="headerlink" href="#choosing-sets-of-columns" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">3.4.1. </span>Choosing Sets of Columns<a class="headerlink" href="#choosing-sets-of-columns" title="Permalink to this headline">¶</a></h2>
 <p>The method <code class="docutils literal notranslate"><span class="pre">select</span></code> creates a new table consisting of only the specified columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1089,7 +1071,7 @@
 <p>Like <code class="docutils literal notranslate"><span class="pre">select</span></code>, the <code class="docutils literal notranslate"><span class="pre">drop</span></code> method creates a smaller table and leaves the original table unchanged. In order to explore your data, you can create any number of smaller tables by using choosing or dropping columns. It will do no harm to your original data table.</p>
 </div>
 <div class="section" id="sorting-rows">
-<h1><span class="section-number">3.6. </span>Sorting Rows<a class="headerlink" href="#sorting-rows" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">3.4.2. </span>Sorting Rows<a class="headerlink" href="#sorting-rows" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">sort</span></code> method creates a new table by arranging the rows of the original table in ascending order of the values in the specified column. Here the <code class="docutils literal notranslate"><span class="pre">cones</span></code> table has been sorted in ascending order of the price of the cones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1164,8 +1146,9 @@
 </table></div></div>
 </div>
 <p>Like <code class="docutils literal notranslate"><span class="pre">select</span></code> and <code class="docutils literal notranslate"><span class="pre">drop</span></code>, the <code class="docutils literal notranslate"><span class="pre">sort</span></code> method leaves the original table unchanged.</p>
+</div>
 <div class="section" id="selecting-rows-that-satisfy-a-condition">
-<h2><span class="section-number">3.6.1. </span>Selecting Rows that Satisfy a Condition<a class="headerlink" href="#selecting-rows-that-satisfy-a-condition" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4.3. </span>Selecting Rows that Satisfy a Condition<a class="headerlink" href="#selecting-rows-that-satisfy-a-condition" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">where</span></code> method creates a new table consisting only of the rows that satisfy a given condition. In this section we will work with a very simple condition, which is that the value in a specified column must be equal to a value that we also specify. Thus the <code class="docutils literal notranslate"><span class="pre">where</span></code> method has two arguments.</p>
 <p>The code in the cell below creates a table consisting only of the rows corresponding to chocolate cones.</p>
 <div class="cell docutils container">
@@ -1216,7 +1199,7 @@
 <p>Like all the other table methods in this section, <code class="docutils literal notranslate"><span class="pre">where</span></code> leaves the original table unchanged.</p>
 </div>
 <div class="section" id="example-salaries-in-the-nba">
-<h2><span class="section-number">3.6.2. </span>Example: Salaries in the NBA<a class="headerlink" href="#example-salaries-in-the-nba" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4.4. </span>Example: Salaries in the NBA<a class="headerlink" href="#example-salaries-in-the-nba" title="Permalink to this headline">¶</a></h2>
 <p>“The NBA is the highest paying professional sports league in the world,” <a class="reference external" href="http://edition.cnn.com/2015/12/04/sport/gallery/highest-paid-nba-players/">reported CNN</a> in March 2016. The table <code class="docutils literal notranslate"><span class="pre">nba</span></code> contains the <a class="reference external" href="https://www.statcrunch.com/app/index.php?dataid=1843341">salaries of all National Basketball Association players</a> in 2015-2016.</p>
 <p>Each row represents one player. The columns are:</p>
 <table class="colwidths-auto table">
