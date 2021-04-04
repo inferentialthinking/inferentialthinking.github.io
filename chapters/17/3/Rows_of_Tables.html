@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>17.3. Rows of Tables &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -819,7 +820,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="rows-of-tables">
+<section id="rows-of-tables">
 <h1><span class="section-number">17.3. </span>Rows of Tables<a class="headerlink" href="#rows-of-tables" title="Permalink to this headline">¶</a></h1>
 <p>Now that we have a qualitative understanding of nearest neighbor classification, it’s time to implement our classifier.</p>
 <p>Until this chapter, we have worked mostly with single columns of tables. But now we have to see whether one <em>individual</em> is “close” to another. Data for individuals are contained in <em>rows</em> of tables.</p>
@@ -862,7 +863,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="converting-rows-to-arrays-when-possible">
+<section id="converting-rows-to-arrays-when-possible">
 <h2><span class="section-number">17.3.1. </span>Converting Rows to Arrays (When Possible)<a class="headerlink" href="#converting-rows-to-arrays-when-possible" title="Permalink to this headline">¶</a></h2>
 <p>Rows whose elements are all numerical (or all strings) can be converted to arrays.  Converting a row to an array gives us access to arithmetic operations and other nice NumPy functions, so it is often useful.</p>
 <p>Recall that in the previous section we tried to classify the patients as ‘CKD’ or ‘not CKD’, based on two attributes <code class="docutils literal notranslate"><span class="pre">Hemoglobin</span></code> and <code class="docutils literal notranslate"><span class="pre">Glucose</span></code>, both measured in standard units.</p>
@@ -1020,8 +1021,8 @@
 </div>
 </div>
 <p>This is very handy because we can now use array operations on the data in each row.</p>
-</div>
-<div class="section" id="distance-between-points-when-there-are-two-attributes">
+</section>
+<section id="distance-between-points-when-there-are-two-attributes">
 <h2><span class="section-number">17.3.2. </span>Distance Between Points When There are Two Attributes<a class="headerlink" href="#distance-between-points-when-there-are-two-attributes" title="Permalink to this headline">¶</a></h2>
 <p>The main calculation we need to do is to find the distance between Alice’s point and any other point. For this, the first thing we need is a way to compute the distance between any pair of points.</p>
 <p>How do we do this?  In 2-dimensional space, it’s pretty easy.  If we have a point at coordinates <span class="math notranslate nohighlight">\((x_0,y_0)\)</span> and another at <span class="math notranslate nohighlight">\((x_1,y_1)\)</span>, the distance between them is</p>
@@ -1082,8 +1083,8 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 </div>
 </div>
 <p>We have begun to build our classifier: the <code class="docutils literal notranslate"><span class="pre">distance</span></code> function is the first building block. Now let’s work on the next piece.</p>
-</div>
-<div class="section" id="using-apply-on-an-entire-row">
+</section>
+<section id="using-apply-on-an-entire-row">
 <h2><span class="section-number">17.3.3. </span>Using <code class="docutils literal notranslate"><span class="pre">apply</span></code> on an Entire Row<a class="headerlink" href="#using-apply-on-an-entire-row" title="Permalink to this headline">¶</a></h2>
 <p>Recall that if you want to apply a function to each element of a column of a table, one way to do that is by the call <code class="docutils literal notranslate"><span class="pre">table_name.apply(function_name,</span> <span class="pre">column_label)</span></code>. This evaluates to an array consisting of the values of the function when we call it on each element of the column. So each entry of the array is based on the corresponding row of the table.</p>
 <p>If you use <code class="docutils literal notranslate"><span class="pre">apply</span></code> without specifying a column label, then the entire row is passed to the function. Let’s see how this works on a very small table <code class="docutils literal notranslate"><span class="pre">t</span></code> containing the information about the first five patients in the training sample.</p>
@@ -1156,8 +1157,8 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 </div>
 </div>
 <p>This way of using <code class="docutils literal notranslate"><span class="pre">apply</span></code> will help us create the next building block of our classifier.</p>
-</div>
-<div class="section" id="alice-s-k-nearest-neighbors">
+</section>
+<section id="alice-s-k-nearest-neighbors">
 <h2><span class="section-number">17.3.4. </span>Alice’s <span class="math notranslate nohighlight">\(k\)</span> Nearest Neighbors<a class="headerlink" href="#alice-s-k-nearest-neighbors" title="Permalink to this headline">¶</a></h2>
 <p>If we want to classify Alice using a k-nearest neighbor classifier, we have to identify her <span class="math notranslate nohighlight">\(k\)</span> nearest neighbors. What are the steps in this process? Suppose <span class="math notranslate nohighlight">\(k = 5\)</span>. Then the steps are:</p>
 <ul class="simple">
@@ -1350,8 +1351,8 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 </div>
 </div>
 <p>We are well on our way to implementing our k-nearest neighbor classifier. In the next two sections we will put it together and assess its accuracy.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

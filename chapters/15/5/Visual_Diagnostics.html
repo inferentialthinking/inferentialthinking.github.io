@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>15.5. Visual Diagnostics &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -804,7 +805,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="visual-diagnostics">
+<section id="visual-diagnostics">
 <h1><span class="section-number">15.5. </span>Visual Diagnostics<a class="headerlink" href="#visual-diagnostics" title="Permalink to this headline">¶</a></h1>
 <p>Suppose a data scientist has decided to use linear regression to estimate values of one variable (called the response variable) based on another variable (called the predictor). To see how well this method of estimation performs, the data scientist must measure how far off the estimates are from the actual values. These differences are called <em>residuals</em>.</p>
 <div class="math notranslate nohighlight">
@@ -934,7 +935,7 @@
 </div>
 </div>
 <p>The midparent heights are on the horizontal axis, as in the original scatter plot. But now the vertical axis shows the residuals. Notice that the plot appears to be centered around the horizontal line at the level 0 (shown in dark blue). Notice also that the plot shows no upward or downward trend. We will observe later that this is true of all regressions.</p>
-<div class="section" id="regression-diagnostics">
+<section id="regression-diagnostics">
 <h2><span class="section-number">15.5.1. </span>Regression Diagnostics<a class="headerlink" href="#regression-diagnostics" title="Permalink to this headline">¶</a></h2>
 <p>Residual plots help us make visual assessments of the quality of a linear regression analysis. Such assessments are called <em>diagnostics</em>. The function <code class="docutils literal notranslate"><span class="pre">regression_diagnostic_plots</span></code> draws the original scatter plot as well as the residual plot for ease of comparison.</p>
 <div class="cell docutils container">
@@ -960,8 +961,8 @@
 <p>This residual plot indicates that linear regression was a reasonable method of estimation. Notice how the residuals are distributed fairly symmetrically above and below the horizontal line at 0, corresponding to the original scatter plot being roughly symmetrical above and below. Notice also that the vertical spread of the plot is fairly even across the most common values of the children’s heights. In other words, apart from a few outlying points, the plot isn’t narrower in some places and wider in others.</p>
 <p>In other words, the accuracy of the regression appears to be about the same across the observed range of the predictor variable.</p>
 <p><strong>The residual plot of a good regression shows no pattern. The residuals look about the same, above and below the horizontal line at 0, across the range of the predictor variable.</strong></p>
-</div>
-<div class="section" id="detecting-nonlinearity">
+</section>
+<section id="detecting-nonlinearity">
 <h2><span class="section-number">15.5.2. </span>Detecting Nonlinearity<a class="headerlink" href="#detecting-nonlinearity" title="Permalink to this headline">¶</a></h2>
 <p>Drawing the scatter plot of the data usually gives an indication of whether the relation between the two variables is non-linear. Often, however, it is easier to spot non-linearity in a residual plot than in the original scatter plot. This is usually because of the scales of the two plots: the residual plot allows us to zoom in on the errors and hence makes it easier to spot patterns.</p>
 <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Dugong_dugon.jpg"/>
@@ -1044,8 +1045,8 @@
 <p>While you can spot the non-linearity in the original scatter, it is more clearly evident in the residual plot.</p>
 <p>At the low end of the lengths, the residuals are almost all positive; then they are almost all negative; then positive again at the high end of lengths. In other words the regression estimates have a pattern of being too high, then too low, then too high. That means it would have been better to use a curve instead of a straight line to estimate the ages.</p>
 <p><strong>When a residual plot shows a pattern, there may be a non-linear relation between the variables.</strong></p>
-</div>
-<div class="section" id="detecting-heteroscedasticity">
+</section>
+<section id="detecting-heteroscedasticity">
 <h2><span class="section-number">15.5.3. </span>Detecting Heteroscedasticity<a class="headerlink" href="#detecting-heteroscedasticity" title="Permalink to this headline">¶</a></h2>
 <p><em>Heteroscedasticity</em> is a word that will surely be of interest to those who are preparing for Spelling Bees. For data scientists, its interest lies in its meaning, which is “uneven spread”.</p>
 <p>Recall the table <code class="docutils literal notranslate"><span class="pre">hybrid</span></code> that contains data on hybrid cars in the U.S. Here is a regression of fuel efficiency on the rate of acceleration. The association is negative: cars that accelearate quickly tend to be less efficient.</p>
@@ -1062,8 +1063,8 @@
 </div>
 <p>Notice how the residual plot flares out towards the low end of the accelerations. In other words, the variability in the size of the errors is greater for low values of acceleration than for high values. Uneven variation is often more easily noticed in a residual plot than in the original scatter plot.</p>
 <p><strong>If the residual plot shows uneven variation about the horizontal line at 0, the regression estimates are not equally accurate across the range of the predictor variable.</strong></p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

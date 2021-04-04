@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>12.1. A/B Testing &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -824,11 +825,11 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="a-b-testing">
+<section id="a-b-testing">
 <h1><span class="section-number">12.1. </span>A/B Testing<a class="headerlink" href="#a-b-testing" title="Permalink to this headline">¶</a></h1>
 <p>In modern data analytics, deciding whether two numerical samples come from the same underlying distribution is called <em>A/B testing</em>. The name refers to the labels of the two samples, A and B.</p>
 <p>We will develop the method in the context of an example. The data come from a sample of newborns in a large hospital system. We will treat it as if it were a simple random sample though the sampling was done in multiple stages. <a class="reference external" href="https://www.stat.berkeley.edu/~statlabs/">Stat Labs</a> by Deborah Nolan and Terry Speed has details about a larger dataset from which this set is drawn.</p>
-<div class="section" id="smokers-and-nonsmokers">
+<section id="smokers-and-nonsmokers">
 <h2><span class="section-number">12.1.1. </span>Smokers and Nonsmokers<a class="headerlink" href="#smokers-and-nonsmokers" title="Permalink to this headline">¶</a></h2>
 <p>The table <code class="docutils literal notranslate"><span class="pre">births</span></code> contains the following variables for 1,174 mother-baby pairs: the baby’s birth weight in ounces, the number of gestational days, the mother’s age in completed years, the mother’s height in inches, pregnancy weight in pounds, and whether or not the mother smoked during pregnancy.</p>
 <div class="cell docutils container">
@@ -925,15 +926,15 @@
 </div>
 <p>The distribution of the weights of the babies born to mothers who smoked appears to be based slightly to the left of the distribution corresponding to non-smoking mothers. The weights of the babies of the mothers who smoked seem lower on average than the weights of the babies of the non-smokers.</p>
 <p>This raises the question of whether the difference reflects just chance variation or a difference in the distributions in the larger population. Could it be that there is no difference between the two distributions in the population, but we are seeing a difference in the samples just because of the mothers who happened to be selected?</p>
-</div>
-<div class="section" id="the-hypotheses">
+</section>
+<section id="the-hypotheses">
 <h2><span class="section-number">12.1.2. </span>The Hypotheses<a class="headerlink" href="#the-hypotheses" title="Permalink to this headline">¶</a></h2>
 <p>We can try to answer this question by a test of hypotheses. The chance model that we will test says that there is no underlying difference in the populations; the distributions in the samples are different just due to chance.</p>
 <p>Formally, this is the null hypothesis. We are going to have to figure out how to simulate a useful statistic under this hypothesis. But as a start, let’s just state the two natural hypotheses.</p>
 <p><strong>Null hypothesis:</strong> In the population, the distribution of birth weights of babies is the same for mothers who don’t smoke as for mothers who do. The difference in the sample is due to chance.</p>
 <p><strong>Alternative hypothesis:</strong> In the population, the babies of the mothers who smoke have a lower birth weight, on average, than the babies of the non-smokers.</p>
-</div>
-<div class="section" id="test-statistic">
+</section>
+<section id="test-statistic">
 <h2><span class="section-number">12.1.3. </span>Test Statistic<a class="headerlink" href="#test-statistic" title="Permalink to this headline">¶</a></h2>
 <p>The alternative hypothesis compares the average birth weights of the two groups and says that the average for the mothers who smoke is smaller. Therefore it is reasonable for us to use the difference between the two group means as our statistic.</p>
 <p>We will do the subtraction in the order “average weight of the smoking group <span class="math notranslate nohighlight">\(-\)</span> average weight of the non-smoking group”. Small values (that is, large negative values) of this statistic will favor the alternative hypothesis.</p>
@@ -1008,8 +1009,8 @@
 </div>
 </div>
 <p>That’s the same as the value of <code class="docutils literal notranslate"><span class="pre">observed_difference</span></code> calculated earlier.</p>
-</div>
-<div class="section" id="predicting-the-statistic-under-the-null-hypothesis">
+</section>
+<section id="predicting-the-statistic-under-the-null-hypothesis">
 <h2><span class="section-number">12.1.4. </span>Predicting the Statistic Under the Null Hypothesis<a class="headerlink" href="#predicting-the-statistic-under-the-null-hypothesis" title="Permalink to this headline">¶</a></h2>
 <p>To see how the statistic should vary under the null hypothesis, we have to figure out how to simulate the statistic under that hypothesis. A clever method based on <em>random permutations</em> does just that.</p>
 <p>If there were no difference between the two distributions in the underlying population, then whether a birth weight has the label <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> with respect to maternal smoking should make no difference to the average. The idea, then, is to shuffle all the labels randomly among the mothers. This is called <em>random permutation</em>.</p>
@@ -1206,8 +1207,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="permutation-test">
+</section>
+<section id="permutation-test">
 <h2><span class="section-number">12.1.5. </span>Permutation Test<a class="headerlink" href="#permutation-test" title="Permalink to this headline">¶</a></h2>
 <p>Tests based on random permutations of the data are called <em>permutation tests</em>. We are performing one in this example. In the cell below, we will simulate our test statistic – the difference between the averages of the two groups – many times and collect the differences in an array.</p>
 <div class="cell docutils container">
@@ -1223,8 +1224,8 @@
 </div>
 </div>
 <p>The array <code class="docutils literal notranslate"><span class="pre">differences</span></code> contains 5,000 simulated values of our test statistic: the difference between the mean weight in the smoking group and the mean weight in the non-smoking group, when the labels have been assigned at random.</p>
-</div>
-<div class="section" id="conclusion-of-the-test">
+</section>
+<section id="conclusion-of-the-test">
 <h2><span class="section-number">12.1.6. </span>Conclusion of the Test<a class="headerlink" href="#conclusion-of-the-test" title="Permalink to this headline">¶</a></h2>
 <p>The histogram below shows the distribution of these 5,000 values. It is the empirical distribution of the test statistic simulated under the null hypothesis. This is a prediction about the test statistic, based on the null hypothesis.</p>
 <div class="cell docutils container">
@@ -1260,8 +1261,8 @@
 </div>
 </div>
 <p>The empirical P-value is 0, meaning that none of the 5,000 permuted samples resulted in a difference of -9.27 or lower. This is only an approximation. The exact chance of getting a difference in that range is not 0 but it is vanishingly small.</p>
-</div>
-<div class="section" id="another-permutation-test">
+</section>
+<section id="another-permutation-test">
 <h2><span class="section-number">12.1.7. </span>Another Permutation Test<a class="headerlink" href="#another-permutation-test" title="Permalink to this headline">¶</a></h2>
 <p>We can use the same method to compare other attributes of the smokers and the non-smokers, such as their ages. Histograms of the ages of the two groups show that in the sample, the mothers who smoked tended to be younger.</p>
 <div class="cell docutils container">
@@ -1336,8 +1337,8 @@
 </div>
 </div>
 <p>The empirical P-value is around 1% and therefore the result is statistically significant. The test supports the hypothesis that the smokers were younger on average.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

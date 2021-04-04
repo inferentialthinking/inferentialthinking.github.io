@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>13.2. The Bootstrap &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -822,7 +823,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="the-bootstrap">
+<section id="the-bootstrap">
 <h1><span class="section-number">13.2. </span>The Bootstrap<a class="headerlink" href="#the-bootstrap" title="Permalink to this headline">¶</a></h1>
 <p>A data scientist is using the data in a random sample to estimate an unknown parameter. She uses the sample to calculate the value of a statistic that she will use as her estimate.</p>
 <p>Once she has calculated the observed value of her statistic, she could just present it as her estimate and go on her merry way. But she’s a data scientist. She knows that her random sample is just one of numerous possible random samples, and thus her estimate is just one of numerous plausible estimates.</p>
@@ -830,7 +831,7 @@
 <p>It looks as though the data scientist is stuck.</p>
 <p>Fortunately, a brilliant idea called <em>the bootstrap</em> can help her out. Since it is not feasible to generate new samples from the population, the bootstrap generates new random samples by a method called <em>resampling</em>: the new samples are drawn at random <em>from the original sample</em>.</p>
 <p>In this section, we will see how and why the bootstrap works. In the rest of the chapter, we will use the bootstrap for inference.</p>
-<div class="section" id="employee-compensation-in-the-city-of-san-francisco">
+<section id="employee-compensation-in-the-city-of-san-francisco">
 <h2><span class="section-number">13.2.1. </span>Employee Compensation in the City of San Francisco<a class="headerlink" href="#employee-compensation-in-the-city-of-san-francisco" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://data.sfgov.org">SF OpenData</a> is a website where the City and County of San Francisco make some of their data publicly available. One of the data sets contains compensation data for employees of the City. These include medical professionals at City-run hospitals, police officers, fire fighters, transportation workers, elected officials, and all other employees of the City.</p>
 <p>Compensation data for the calendar year 2015 are in the table <code class="docutils literal notranslate"><span class="pre">sf2015</span></code>.</p>
@@ -980,8 +981,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="population-and-parameter">
+</section>
+<section id="population-and-parameter">
 <h2><span class="section-number">13.2.2. </span>Population and Parameter<a class="headerlink" href="#population-and-parameter" title="Permalink to this headline">¶</a></h2>
 <p>Let this table of just over 36,500 rows be our population. Here is a histogram of the total compensations.</p>
 <div class="cell docutils container">
@@ -1038,8 +1039,8 @@
 <p>The median total compensation of all employees was just over $110,300.</p>
 <p>From a practical perspective, there is no reason for us to draw a sample to estimate this parameter since we simply know its value. But in this section we are going to pretend we don’t know the value, and see how well we can estimate it based on a random sample.</p>
 <p>In later sections, we will come down to earth and work in situations where the parameter is unknown. For now, we are all-knowing.</p>
-</div>
-<div class="section" id="a-random-sample-and-an-estimate">
+</section>
+<section id="a-random-sample-and-an-estimate">
 <h2><span class="section-number">13.2.3. </span>A Random Sample and an Estimate<a class="headerlink" href="#a-random-sample-and-an-estimate" title="Permalink to this headline">¶</a></h2>
 <p>Let us draw a sample of 500 employees at random without replacement, and let the median total compensation of the sampled employees serve as our estimate of the parameter.</p>
 <div class="cell docutils container">
@@ -1070,8 +1071,8 @@
 <p>So now we have one estimate of the parameter. But had the sample come out differently, the estimate would have had a different value. We would like to be able to quantify the amount by which the estimate could vary across samples. That measure of variability will help us measure how accurately we can estimate the parameter.</p>
 <p>To see how different the estimate would be if the sample had come out differently, we could just draw another sample from the population, but that would be cheating. We are trying to mimic real life, in which we won’t have all the population data at hand.</p>
 <p>Somehow, we have to get another random sample without sampling from the population.</p>
-</div>
-<div class="section" id="the-bootstrap-resampling-from-the-sample">
+</section>
+<section id="the-bootstrap-resampling-from-the-sample">
 <h2><span class="section-number">13.2.4. </span>The Bootstrap: Resampling from the Sample<a class="headerlink" href="#the-bootstrap-resampling-from-the-sample" title="Permalink to this headline">¶</a></h2>
 <p>What we do have is a large random sample from the population. As we know, a large random sample is likely to resemble the population from which it is drawn. This observation allows data scientists to <em>lift themselves up by their own bootstraps</em>: the sampling procedure can be replicated by <em>sampling from the sample</em>.</p>
 <p>Here are the steps of <em>the bootstrap method</em> for generating another random sample that resembles the population:</p>
@@ -1087,8 +1088,8 @@
 <img alt="../../../_images/Bootstrap_25_0.png" src="../../../_images/Bootstrap_25_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="a-resampled-median">
+</section>
+<section id="a-resampled-median">
 <h2><span class="section-number">13.2.5. </span>A Resampled Median<a class="headerlink" href="#a-resampled-median" title="Permalink to this headline">¶</a></h2>
 <p>Recall that when the <code class="docutils literal notranslate"><span class="pre">sample</span></code> method is used without specifying a sample size, by default the sample size equals the number of rows of the table from which the sample is drawn. That’s perfect for the bootstrap! Here is one new sample drawn from the original sample, and the corresponding sample median.</p>
 <div class="cell docutils container">
@@ -1136,8 +1137,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="bootstrap-empirical-distribution-of-the-sample-median">
+</section>
+<section id="bootstrap-empirical-distribution-of-the-sample-median">
 <h2><span class="section-number">13.2.6. </span>Bootstrap Empirical Distribution of the Sample Median<a class="headerlink" href="#bootstrap-empirical-distribution-of-the-sample-median" title="Permalink to this headline">¶</a></h2>
 <p>Let us define a function <code class="docutils literal notranslate"><span class="pre">bootstrap_median</span></code> that takes our original sample, the label of the column containing the variable, and the number of bootstrap samples we want to take, and returns an array of the corresponding resampled medians.</p>
 <p>Each time we resample and find the median, we <em>replicate</em> the bootstrap process. So the number of bootstrap samples will be called the number of replications.</p>
@@ -1188,8 +1189,8 @@
 </div>
 <p>It is important to remember that the red dot is fixed: it is $110,305.79, the population median. The empirical histogram is the result of random draws, and will be situated randomly relative to the red dot.</p>
 <p>Remember also that the point of all these computations is to estimate the population median, which is the red dot. Our estimates are all the randomly generated sampled medians whose histogram you see above. We want those estimates to contain the parameter – it they don’t, then they are off.</p>
-</div>
-<div class="section" id="do-the-estimates-capture-the-parameter">
+</section>
+<section id="do-the-estimates-capture-the-parameter">
 <h2><span class="section-number">13.2.7. </span>Do the Estimates Capture the Parameter?<a class="headerlink" href="#do-the-estimates-capture-the-parameter" title="Permalink to this headline">¶</a></h2>
 <p>How often does the empirical histogram of the resampled medians sit firmly over the red dot, and not just brush the dot with its tails? To answer this, we must define “sit firmly”. Let’s take that to mean “the middle 95% of the resampled medians contains the red dot”.</p>
 <p>Here are the two ends of the “middle 95%” interval of resampled medians:</p>
@@ -1363,8 +1364,8 @@
 <p>That gives you one interval of estimates. Now if you repeat <strong>the entire process</strong> 100 times, ending up with 100 intervals, then about 95 of those 100 intervals will contain the population parameter.</p>
 <p>In other words, this process of estimation captures the parameter about 95% of the time.</p>
 <p>You can replace 95% by a different value, as long as it’s not 100. Suppose you replace 95% by 80% and keep the sample size fixed at 500. Then your intervals of estimates will be shorter than those we simulated here, because the “middle 80%” is a smaller range than the “middle 95%”. Only about 80% of your intervals will contain the parameter.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

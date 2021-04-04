@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>9.4. The Monty Hall Problem &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -836,7 +837,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="the-monty-hall-problem">
+<section id="the-monty-hall-problem">
 <h1><span class="section-number">9.4. </span>The Monty Hall Problem<a class="headerlink" href="#the-monty-hall-problem" title="Permalink to this headline">¶</a></h1>
 <p>This <a class="reference external" href="https://en.wikipedia.org/wiki/Monty_Hall_problem">problem</a> has flummoxed many people over the years, <a class="reference external" href="https://web.archive.org/web/20140413131827/http://www.decisionsciences.org/DecisionLine/Vol30/30_1/vazs30_1.pdf">mathematicians included</a>. Let’s see if we can work it out by simulation.</p>
 <p>The setting is derived from a television game show called “Let’s Make a Deal”. Monty Hall hosted this show in the 1960’s, and it has since led to a number of spin-offs. An exciting part of the show was that while the contestants had the chance to win great prizes, they might instead end up with “zonks” that were less desirable. This is the basis for what is now known as <em>the Monty Hall problem</em>.</p>
@@ -850,7 +851,7 @@
 <li><p>There are two doors left, one of which was the contestant’s original choice. One of the doors has the car behind it, and the other one has a goat. The contestant now gets to choose which of the two doors to open.</p></li>
 </ul>
 <p>The contestant has a decision to make. Which door should she choose to open, if she wants the car? Should she stick with her initial choice, or switch to the other door? That is the Monty Hall problem.</p>
-<div class="section" id="the-solution">
+<section id="the-solution">
 <h2><span class="section-number">9.4.1. </span>The Solution<a class="headerlink" href="#the-solution" title="Permalink to this headline">¶</a></h2>
 <p>In any problem involving chances, the assumptions about randomness are important. It’s reasonable to assume that there is a 1/3 chance that the contestant’s initial choice is the door that has the car behind it.</p>
 <p>The solution to the problem is quite straightforward under this assumption, though the straightforward solution doesn’t convince everyone. Here it is anyway.</p>
@@ -862,11 +863,11 @@
 </ul>
 <p>That’s it. End of story.</p>
 <p>Not convinced? Then let’s simulate the game and see how the results turn out.</p>
-</div>
-<div class="section" id="simulation">
+</section>
+<section id="simulation">
 <h2><span class="section-number">9.4.2. </span>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h2>
 <p>The simulation will be more complex that those we have done so far. Let’s break it down.</p>
-<div class="section" id="step-1-what-to-simulate">
+<section id="step-1-what-to-simulate">
 <h3><span class="section-number">9.4.2.1. </span>Step 1: What to Simulate<a class="headerlink" href="#step-1-what-to-simulate" title="Permalink to this headline">¶</a></h3>
 <p>For each play we will simulate what’s behind all three doors:</p>
 <ul class="simple">
@@ -875,11 +876,11 @@
 <li><p>the remaining door</p></li>
 </ul>
 <p>So we will be keeping track of three quantitites, not just one.</p>
-</div>
-<div class="section" id="step-2-simulating-one-play">
+</section>
+<section id="step-2-simulating-one-play">
 <h3><span class="section-number">9.4.2.2. </span>Step 2: Simulating One Play<a class="headerlink" href="#step-2-simulating-one-play" title="Permalink to this headline">¶</a></h3>
 <p>The bulk of our work consists of simulating one play of the game. This involves several pieces.</p>
-<div class="section" id="the-goats">
+<section id="the-goats">
 <h4><span class="section-number">9.4.2.2.1. </span>The Goats<a class="headerlink" href="#the-goats" title="Permalink to this headline">¶</a></h4>
 <p>We start by setting up an array <code class="docutils literal notranslate"><span class="pre">goats</span></code> that contains unimaginative names for the two goats.</p>
 <div class="cell docutils container">
@@ -915,8 +916,8 @@
 </div>
 </div>
 <p>The string <code class="docutils literal notranslate"><span class="pre">'watermelon'</span></code> is not the name of one of the goats, so when <code class="docutils literal notranslate"><span class="pre">'watermelon'</span></code> is the input then <code class="docutils literal notranslate"><span class="pre">other_goat</span></code> does nothing.</p>
-</div>
-<div class="section" id="the-options">
+</section>
+<section id="the-options">
 <h4><span class="section-number">9.4.2.2.2. </span>The Options<a class="headerlink" href="#the-options" title="Permalink to this headline">¶</a></h4>
 <p>The array <code class="docutils literal notranslate"><span class="pre">hidden_behind_doors</span></code> contains the set of things that could be behind the doors.</p>
 <div class="cell docutils container">
@@ -969,13 +970,13 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="step-3-number-of-repetitions">
+</section>
+</section>
+<section id="step-3-number-of-repetitions">
 <h3><span class="section-number">9.4.2.3. </span>Step 3: Number of Repetitions<a class="headerlink" href="#step-3-number-of-repetitions" title="Permalink to this headline">¶</a></h3>
 <p>To gauge the frequency with which the different results occur, we have to play the game many times and collect the results. Let’s run 10,000 repetitions.</p>
-</div>
-<div class="section" id="step-4-coding-the-simulation">
+</section>
+<section id="step-4-coding-the-simulation">
 <h3><span class="section-number">9.4.2.4. </span>Step 4: Coding the Simulation<a class="headerlink" href="#step-4-coding-the-simulation" title="Permalink to this headline">¶</a></h3>
 <p>It’s time to run the whole simulation.</p>
 <p>We will play the game 10,000 times and collect the results in a table. Each row of the table will contain the result of one play.</p>
@@ -1003,9 +1004,9 @@
 </div>
 </div>
 <p>The simulation is done. Notice how short the code is. The majority of the work was done in simulating the outcome of one game.</p>
-</div>
-</div>
-<div class="section" id="visualization">
+</section>
+</section>
+<section id="visualization">
 <h2><span class="section-number">9.4.3. </span>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
 <p>To see whether the contestant should stick with her original choice or switch, let’s see how frequently the car is behind each of her two options.</p>
 <div class="cell docutils container">
@@ -1104,8 +1105,8 @@
 </div>
 <p>Notice how the three blue bars are almost equal – the original choice is equally likely to be any of the three available items. But the gold bar corresponding to <code class="docutils literal notranslate"><span class="pre">Car</span></code> is twice as long as the blue.</p>
 <p>The simulation confirms that the contestant is twice as likely to win if she switches.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

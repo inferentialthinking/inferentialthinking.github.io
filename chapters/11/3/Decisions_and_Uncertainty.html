@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>11.3. Decisions and Uncertainty &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -829,13 +830,13 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="decisions-and-uncertainty">
+<section id="decisions-and-uncertainty">
 <h1><span class="section-number">11.3. </span>Decisions and Uncertainty<a class="headerlink" href="#decisions-and-uncertainty" title="Permalink to this headline">¶</a></h1>
 <p>We have seen several examples of assessing models that involve chance, by comparing observed data to the predictions made by the models. In all of our examples, there has been no doubt about whether the data were consistent with the model’s predictions. The data were either very far away from the predictions, or very close to them.</p>
 <p>But outcomes are not always so clear cut. How far is “far”? Exactly what does “close” mean? While these questions don’t have universal answers, there are guidelines and conventions that you can follow. In this section we will describe some of them.</p>
 <p>But first let us develop a general framework of decision making, into which all our examples will fit.</p>
 <p>What we have developed while assessing models are some of the fundamental concepts of statistical tests of hypotheses. Using statistical tests as a way of making decisions is standard in many fields and has a standard terminology. Here is the sequence of the steps in most statistical tests, along with some terminology and examples. You will see that they are consistent with the sequence of steps we have used for assessing models.</p>
-<div class="section" id="step-1-the-hypotheses">
+<section id="step-1-the-hypotheses">
 <h2><span class="section-number">11.3.1. </span>Step 1: The Hypotheses<a class="headerlink" href="#step-1-the-hypotheses" title="Permalink to this headline">¶</a></h2>
 <p>All statistical tests attempt to choose between two views of the world. Specifically, the choice is between two views about how the data were generated. These two views are called <em>hypotheses</em>.</p>
 <p><strong>The null hypothesis.</strong> This is a clearly defined model about chances. It says that the data were generated at random under clearly specified assumptions about the randomness. The word “null” reinforces the idea that if the data look different from what the null hypothesis predicts, the difference is due to <em>nothing</em> but chance.</p>
@@ -844,8 +845,8 @@
 <p>Under this hypothesis, we were able to simulate random samples, by using <code class="docutils literal notranslate"><span class="pre">sample_proportions(929,</span> <span class="pre">[0.75,</span> <span class="pre">0.25])</span></code>. We used a sample size of 929 because that’s the number of plants Mendel grew.</p>
 <p><strong>The alternative hypothesis.</strong> This says that some reason other than chance made the data differ from the predictions of the model in the null hypothesis.</p>
 <p>In the example about Mendel’s plants, the alternative hypothesis is simply that his model isn’t good.</p>
-</div>
-<div class="section" id="step-2-the-test-statistic">
+</section>
+<section id="step-2-the-test-statistic">
 <h2><span class="section-number">11.3.2. </span>Step 2: The Test Statistic<a class="headerlink" href="#step-2-the-test-statistic" title="Permalink to this headline">¶</a></h2>
 <p>In order to decide between the two hypothesis, we must choose a statistic that we can use to make the decision. This is called the <strong>test statistic</strong>.</p>
 <p>In the example of Mendel’s plants, our statistic was the absolute difference between the sample percent and 75% which was predicted by his model.</p>
@@ -873,28 +874,28 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="step-3-the-distribution-of-the-test-statistic-under-the-null-hypothesis">
+</section>
+<section id="step-3-the-distribution-of-the-test-statistic-under-the-null-hypothesis">
 <h2><span class="section-number">11.3.3. </span>Step 3: The Distribution of the Test Statistic, Under the Null Hypothesis<a class="headerlink" href="#step-3-the-distribution-of-the-test-statistic-under-the-null-hypothesis" title="Permalink to this headline">¶</a></h2>
 <p>The main computational aspect of a test of hypotheses is figuring out <em>what the values of the test statistic might be if the null hypothesis were true</em>.</p>
 <p>The test statistic is simulated based on the assumptions of the model in the null hypothesis. That model involves chance, so the statistic comes out differently when you simulate it multiple times.</p>
 <p>By simulating the statistic repeatedly, we get a good sense of its possible values and which ones are more likely than others. In other words, we get a good approximation to the probability distribution of the statistic, as predicted by the model in the null hypothesis.</p>
 <p>As with all distributions, it is very useful to visualize this distribution by a histogram. We have done so in all our examples.</p>
-</div>
-<div class="section" id="step-4-the-conclusion-of-the-test">
+</section>
+<section id="step-4-the-conclusion-of-the-test">
 <h2><span class="section-number">11.3.4. </span>Step 4. The Conclusion of the Test<a class="headerlink" href="#step-4-the-conclusion-of-the-test" title="Permalink to this headline">¶</a></h2>
 <p>The choice between the null and alternative hypotheses depends on the comparison between what you computed in Steps 2 and 3: the observed value of the test statistic and its distribution as predicted by the null hypothesis.</p>
 <p>If the two are consistent with each other, then the observed test statistic is in line with what the null hypothesis predicts. In other words, the test does not point towards the alternative hypothesis; the null hypothesis is better supported by the data. This was the case with the assessment of Mendel’s model.</p>
 <p>But if the two are not consistent with each other, as is the case in our example about Alameda County jury panels, then the data do not support the null hypothesis. That is why we concluded that the jury panels were not selected at random. Something other than chance affected their composition.</p>
 <p>If the data do not support the null hypothesis, we say that the test <em>rejects</em> the null hypothesis.</p>
-</div>
-<div class="section" id="the-meaning-of-consistent">
+</section>
+<section id="the-meaning-of-consistent">
 <h2><span class="section-number">11.3.5. </span>The Meaning of “Consistent”<a class="headerlink" href="#the-meaning-of-consistent" title="Permalink to this headline">¶</a></h2>
 <p>In the example about Alameda County juries, it was apparent that our observed test statistic was far from what was predicted by the null hypothesis. In the example about pea flowers, it is just as clear that the observed statistic is consistent with the distribution that the null predicts. So in both of the examples, it is clear which hypothesis to choose.</p>
 <p>But sometimes the decision is not so clear. Whether the observed test statistic is consistent with its predicted distribution under the null hypothesis is a matter of judgment. We recommend that you provide your judgment along with the value of the test statistic and a graph of its predicted distribution under the null. That will allow your reader to make his or her own judgment about whether the two are consistent.</p>
 <p>Here is an example where the decision requires judgment.</p>
-</div>
-<div class="section" id="the-gsi-s-defense">
+</section>
+<section id="the-gsi-s-defense">
 <h2><span class="section-number">11.3.6. </span>The GSI’s Defense<a class="headerlink" href="#the-gsi-s-defense" title="Permalink to this headline">¶</a></h2>
 <p>A Berkeley Statistics class of about 350 students was divided into 12 discussion sections led by Graduate Student Instructors (GSIs). After the midterm, students in Section 3 noticed that their scores were on average lower than the rest of the class.</p>
 <p>In such situations, students tend to grumble about the section’s GSI. Surely, they feel, there must have been something wrong with the GSI’s teaching. Or else why would their section have done worse than others?</p>
@@ -1173,8 +1174,8 @@
 <p>As we said earlier, small values of the test statistic will make us lean towards the alternative hypothesis, that the average score in the section is too low for it to look like a random sample from the class.</p>
 <p>Is the observed statistic of 13.667 “too low” in relation to this distribution? In other words, is the red far enough out into the left hand tail of the histogram for you to think that it is “too far”?</p>
 <p>It’s up to you to decide! Use your judgment. Go ahead – it’s OK to do so.</p>
-</div>
-<div class="section" id="conventional-cut-offs-and-the-p-value">
+</section>
+<section id="conventional-cut-offs-and-the-p-value">
 <h2><span class="section-number">11.3.7. </span>Conventional Cut-offs and the P-value<a class="headerlink" href="#conventional-cut-offs-and-the-p-value" title="Permalink to this headline">¶</a></h2>
 <p>If you don’t want to make your own judgment, there are conventions that you can follow. These conventions tell us how far out into the tails is considered “too far”.</p>
 <p>The conventions are based on the area in the tail, starting at the observed statistic (the red dot) and looking in the direction that makes us lean toward the alternative (the left side, in this example). If the area of the tail is small, the observed statistic is far away from the values most commonly predicted by the null hypothesis.</p>
@@ -1202,8 +1203,8 @@
 </ul>
 <p>By this convention, our P-value of 5.7% is not considered small. So we have to conclude that the GSI’s defense holds good – the average score of Section 3 is like those generated by random chance. Formally, the result of the test is not statistically significant.</p>
 <p>When you make a conclusion in this way, we recommend that you don’t just say whether or not the result is statistically significant. Along with your conclusion, provide the observed statistic and the P-value as well, so that readers can use their own judgment.</p>
-</div>
-<div class="section" id="historical-note-on-the-conventions">
+</section>
+<section id="historical-note-on-the-conventions">
 <h2><span class="section-number">11.3.8. </span>Historical Note on the Conventions<a class="headerlink" href="#historical-note-on-the-conventions" title="Permalink to this headline">¶</a></h2>
 <p>The determination of statistical significance, as defined above, has become standard in statistical analyses in all fields of application. When a convention is so universally followed, it is interesting to examine how it arose.</p>
 <p>The method of statistical testing – choosing between hypotheses based on data in random samples – was developed by Sir Ronald Fisher in the early 20th century. Sir Ronald might have set the convention for statistical significance somewhat unwittingly, in the following statement in his 1925 book <em>Statistical Methods for Research Workers</em>. About the 5% level, he wrote, “It is convenient to take this point as a limit in judging whether a deviation is to be considered significant or not.”</p>
@@ -1215,8 +1216,8 @@
 <li><p>Don’t look to defy convention only when the conventionally derived result is not to your liking.</p></li>
 <li><p>Even if a test concludes that the data don’t support the chance model in the null hypothesis, it typically doesn’t explain <em>why</em> the model doesn’t work.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>9.3. Simulation &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -846,23 +847,23 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="simulation">
+<section id="simulation">
 <h1><span class="section-number">9.3. </span>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h1>
 <p>Simulation is the process of using a computer to mimic a physical experiment. In this class, those experiments will almost invariably involve chance.</p>
 <p>We have seen how to simulate the results of tosses of a coin. The steps in that simulation were examples of the steps that will constitute every simulation we do in this course. In this section we will set out those steps and follow them in examples.</p>
-<div class="section" id="step-1-what-to-simulate">
+<section id="step-1-what-to-simulate">
 <h2><span class="section-number">9.3.1. </span>Step 1: What to Simulate<a class="headerlink" href="#step-1-what-to-simulate" title="Permalink to this headline">¶</a></h2>
 <p>Specify the quantity you want to simulate. For example, you might decide that you want to simulate the outcomes of tosses of a coin.</p>
-</div>
-<div class="section" id="step-2-simulating-one-value">
+</section>
+<section id="step-2-simulating-one-value">
 <h2><span class="section-number">9.3.2. </span>Step 2: Simulating One Value<a class="headerlink" href="#step-2-simulating-one-value" title="Permalink to this headline">¶</a></h2>
 <p>Figure out how to simulate <em>one</em> value of the quantity you specified in Step 1. In our example, you have to figure out how to simulate the outcome of <em>one</em> toss of a coin. If your quantity is more complicated, you might need several lines of code to come up with one simulated value.</p>
-</div>
-<div class="section" id="step-3-number-of-repetitions">
+</section>
+<section id="step-3-number-of-repetitions">
 <h2><span class="section-number">9.3.3. </span>Step 3: Number of Repetitions<a class="headerlink" href="#step-3-number-of-repetitions" title="Permalink to this headline">¶</a></h2>
 <p>Decide how many times you want to simulate the quantity. You will have to repeat Step 2 that many times. In one of our earlier examples we had decided to simulate the outcomes of 1000 tosses of a coin, and so we needed 1000 repetitions of generating the outcome of a single toss.</p>
-</div>
-<div class="section" id="step-4-coding-the-simulation">
+</section>
+<section id="step-4-coding-the-simulation">
 <h2><span class="section-number">9.3.4. </span>Step 4: Coding the Simulation<a class="headerlink" href="#step-4-coding-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Put it all together in code.</p>
 <ul class="simple">
@@ -877,18 +878,18 @@
 </ul>
 <p>That’s it! Once you have carried out the steps above, your simulation is done. The collection array contains all the simulated values.</p>
 <p>At this point you can use the collection array as you would any other array. You can visualize the distribution of the simulated values, count how many simulated values fall into a particular category, and so on.</p>
-</div>
-<div class="section" id="number-of-heads-in-100-tosses">
+</section>
+<section id="number-of-heads-in-100-tosses">
 <h2><span class="section-number">9.3.5. </span>Number of Heads in 100 Tosses<a class="headerlink" href="#number-of-heads-in-100-tosses" title="Permalink to this headline">¶</a></h2>
 <p>It is natural to expect that in 100 tosses of a coin, there will be 50 heads, give or take a few.</p>
 <p>But how many is “a few”? What’s the chance of getting exactly 50 heads? Questions like these matter in data science not only because they are about interesting aspects of randomness, but also because they can be used in analyzing experiments where assignments to treatment and control groups are decided by the toss of a coin.</p>
 <p>In this example we will simulate the number of heads in 100 tosses of a coin. The histogram of our results will give us some insight into how many heads are likely.</p>
 <p>Let’s get started on the simulation, following the steps above.</p>
-<div class="section" id="id1">
+<section id="id1">
 <h3><span class="section-number">9.3.5.1. </span>Step 1: What to Simulate<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>The quantity we are going to simulate is the number of heads in 100 tosses.</p>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h3><span class="section-number">9.3.5.2. </span>Step 2: Simulating One Value<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>We have to figure out how to make one set of 100 tosses and count the number of heads. Let’s start by creating a coin.</p>
 <div class="cell docutils container">
@@ -942,16 +943,16 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id3">
+</section>
+<section id="id3">
 <h3><span class="section-number">9.3.5.3. </span>Step 3: Number of Repetitions<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>How many repetitions we want is up to us. The more we use, the more reliable our simulations will be, but the longer it will take to run the code. Python is pretty fast at tossing coins. Let’s go for 10,000 repetitions. That means we are going to do the following 10,000 times:</p>
 <ul class="simple">
 <li><p>Toss a coin 100 times and count the number of heads.</p></li>
 </ul>
 <p>That’s a lot of tossing! It’s good that we have Python to do it for us.</p>
-</div>
-<div class="section" id="id4">
+</section>
+<section id="id4">
 <h3><span class="section-number">9.3.5.4. </span>Step 4: Coding the Simulation<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>We are ready to write the code to execute the entire simulation.</p>
 <div class="cell docutils container">
@@ -1065,9 +1066,9 @@
 <p>The histogram also shows that in almost all of the repetitions, the number of heads in 100 tosses was somewhere between 35 and 65. Indeed, the bulk of the repetitions produced numbers of heads in the range 45 to 55.</p>
 <p>While in theory it is <em>possible</em> that the number of heads can be anywhere between 0 and 100, the simulation shows that the range of <em>probable</em> values is much smaller.</p>
 <p>This is an instance of a more general phenomenon about the variability in coin tossing, as we will see later in the course.</p>
-</div>
-</div>
-<div class="section" id="a-more-compact-version-of-the-code">
+</section>
+</section>
+<section id="a-more-compact-version-of-the-code">
 <h2><span class="section-number">9.3.6. </span>A More Compact Version of the Code<a class="headerlink" href="#a-more-compact-version-of-the-code" title="Permalink to this headline">¶</a></h2>
 <p>We wrote the code for the simulation to show each of the steps in detail. Here are the same steps written in a more compact form. You can see that the code starts out the same way as before, but then some steps are combined.</p>
 <div class="cell docutils container">
@@ -1095,7 +1096,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="moves-in-monopoly">
+<section id="moves-in-monopoly">
 <h3><span class="section-number">9.3.6.1. </span>Moves in Monopoly<a class="headerlink" href="#moves-in-monopoly" title="Permalink to this headline">¶</a></h3>
 <p>Each move in the game Monopoly is determined by the total number of spots of two rolls of a die. If you play Monopoly, what should you expect to get when you roll the die two times?</p>
 <p>We can explore this by simulating the sum of two rolls of a die. We will run the simulation 10,000 times as we did in the previous example. Notice that in this paragraph we have completed Steps 1 and 3 of our simulation process.</p>
@@ -1144,9 +1145,9 @@
 </div>
 </div>
 <p>Seven is the most common value, with the frequencies falling off symmetrically on either side.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

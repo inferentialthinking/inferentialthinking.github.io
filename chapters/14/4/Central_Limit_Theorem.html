@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>14.4. The Central Limit Theorem &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -809,11 +810,11 @@
 </div>
 <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="the-central-limit-theorem">
+<section id="the-central-limit-theorem">
 <h1><span class="section-number">14.4. </span>The Central Limit Theorem<a class="headerlink" href="#the-central-limit-theorem" title="Permalink to this headline">¶</a></h1>
 <p>Very few of the data histograms that we have seen in this course have been bell shaped. When we have come across a bell shaped distribution, it has almost invariably been an empirical histogram of a statistic based on a random sample.</p>
 <p>The examples below show two very different situations in which an approximate bell shape appears in such histograms.</p>
-<div class="section" id="net-gain-in-roulette">
+<section id="net-gain-in-roulette">
 <h2><span class="section-number">14.4.1. </span>Net Gain in Roulette<a class="headerlink" href="#net-gain-in-roulette" title="Permalink to this headline">¶</a></h2>
 <p>In an earlier section, the bell appeared as the rough shape of the total amount of money we would make if we placed the same bet repeatedly on different spins of a roulette wheel.</p>
 <div class="cell docutils container">
@@ -1028,8 +1029,8 @@
 </div>
 </div>
 <p><strong>Summary.</strong> The net gain in 400 bets is the sum of the 400 amounts won on each individual bet. The probability distribution of that sum is approximately normal, with an average and an SD that we can approximate.</p>
-</div>
-<div class="section" id="average-flight-delay">
+</section>
+<section id="average-flight-delay">
 <h2><span class="section-number">14.4.2. </span>Average Flight Delay<a class="headerlink" href="#average-flight-delay" title="Permalink to this headline">¶</a></h2>
 <p>The table <code class="docutils literal notranslate"><span class="pre">united</span></code> contains data on departure delays of 13,825 United Airlines domestic flights out of San Francisco airport in the summer of 2015. As we have seen before, the distribution of delays has a long right-hand tail.</p>
 <div class="cell docutils container">
@@ -1117,15 +1118,15 @@
 </div>
 </div>
 <p>Once again, we see a rough bell shape, even though we are drawing from a very skewed distribution. The bell is centered somewhere between 16 ad 17, as we expect.</p>
-</div>
-<div class="section" id="central-limit-theorem">
+</section>
+<section id="central-limit-theorem">
 <h2><span class="section-number">14.4.3. </span>Central Limit Theorem<a class="headerlink" href="#central-limit-theorem" title="Permalink to this headline">¶</a></h2>
 <p>The reason why the bell shape appears in such settings is a remarkable result of probability theory called the <strong>Central Limit Theorem</strong>.</p>
 <p><strong>The Central Limit Theorem says that the probability distribution of the sum or average of a large random sample drawn with replacement will be roughly normal, <em>regardless of the distribution of the population from which the sample is drawn</em>.</strong></p>
 <p>As we noted when we were studying Chebychev’s bounds, results that can be applied to random samples <em>regardless of the distribution of the population</em> are very powerful, because in data science we rarely know the distribution of the population.</p>
 <p>The Central Limit Theorem makes it possible to make inferences with very little knowledge about the population, provided we have a large random sample. That is why it is central to the field of statistical inference.</p>
-</div>
-<div class="section" id="proportion-of-purple-flowers">
+</section>
+<section id="proportion-of-purple-flowers">
 <h2><span class="section-number">14.4.4. </span>Proportion of Purple Flowers<a class="headerlink" href="#proportion-of-purple-flowers" title="Permalink to this headline">¶</a></h2>
 <p>Recall Mendel’s probability model for the colors of the flowers of a species of pea plant. The model says that the flower colors of the plants are like draws made at random with replacement from {Purple, Purple, Purple, White}.</p>
 <p>In a large sample of plants, about what proportion will have purple flowers? We would expect the answer to be about 0.75, the proportion purple in the model. And, because proportions are means, the Central Limit Theorem says that the distribution of the sample proportion of purple plants is roughly normal.</p>
@@ -1221,8 +1222,8 @@
 <p>Both distributions are approximately normal but one is narrower than the other. The proportions based on a sample size of 800 are more tightly clustered around 0.75 than those from a sample size of 200. Increasing the sample size has decreased the variability in the sample proportion.</p>
 <p>This should not be surprising.  We have leaned many times on the intuition that a larger sample size generally reduces the variability of a statistic.  However, in the case of a sample average, we can <em>quantify</em> the relationship between sample size and variability.</p>
 <p>Exactly how does the sample size affect the variability of a sample average or proportion? That is the question we will examine in the next section.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

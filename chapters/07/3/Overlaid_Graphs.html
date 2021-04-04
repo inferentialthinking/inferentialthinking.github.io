@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>7.3. Overlaid Graphs &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -802,7 +803,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="overlaid-graphs">
+<section id="overlaid-graphs">
 <h1><span class="section-number">7.3. </span>Overlaid Graphs<a class="headerlink" href="#overlaid-graphs" title="Permalink to this headline">¶</a></h1>
 <p>In this chapter, we have learned how to visualize data by drawing graphs. A common use of such visualizations is to compare two datasets. In this section, we will see how to <em>overlay</em> plots, that is, draw them in a single graphic on a common pair of axes.</p>
 <p>For the overlay to make sense, the graphs that are being overlaid must represent the same variables and be measured in the same units.</p>
@@ -810,7 +811,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">name_of_table.method(column_label_of_common_axis,</span> <span class="pre">array_of_labels_of_variables_to_plot)</span></code></p>
 <p>More commonly, we will first select only the columns needed for our graph, and then call the method by just specifying the variable on the common axis:</p>
 <p><code class="docutils literal notranslate"><span class="pre">name_of_table.method(column_label_of_common_axis)</span></code></p>
-<div class="section" id="scatter-plots">
+<section id="scatter-plots">
 <h2><span class="section-number">7.3.1. </span>Scatter Plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Francis_Galton">Franics Galton</a> (1822-1911) was an English polymath who was a pioneer in the analysis of relations between numerical variables.</p>
 <p>Galton meticulously collected copious amounts of data, some of which we will analyze in this course. Here is a subset of Galton’s data on heights of parents and their children. Specifically, the population consists of 179 men who were the first-born in their families. The data are their own heights and the heights of their parents. All heights were measured in inches.</p>
@@ -876,8 +877,8 @@
 </div>
 <p>Notice how we only specified the variable (sons’ heights) on the common horizontal axis. Python drew two scatter plots: one each for the relation between this variable and the other two.</p>
 <p>Both the gold and the blue scatter plots slope upwards and show a positive association between the sons’ heights and the heights of both their parents. The blue (fathers) plot is in general higher than the gold, because the fathers were in general taller than the mothers.</p>
-</div>
-<div class="section" id="line-plots">
+</section>
+<section id="line-plots">
 <h2><span class="section-number">7.3.2. </span>Line Plots<a class="headerlink" href="#line-plots" title="Permalink to this headline">¶</a></h2>
 <p>Our next example involves data on children of more recent times. We will return to the Census data table <code class="docutils literal notranslate"><span class="pre">us_pop</span></code>, created below again for reference. From this, we will extract the counts of all children in each of the age categories 0 through 18 years.</p>
 <div class="cell docutils container">
@@ -978,8 +979,8 @@
 <p>On this scale, it’s important to remember that we only have data at ages 0, 1, 2, and so on; the graphs “join the dots” in between.</p>
 <p>The graphs cross each other in a few places: for example, there were more 4-year-olds in 2010 than in 2014, and there were more 14-year-olds in 2014 than in 2010.</p>
 <p>Of course, the 14-year-olds in 2014 mostly consist of the 10-year-olds in 2010. To see this, look at the gold graph at <code class="docutils literal notranslate"><span class="pre">AGE</span></code> 14 and the blue graph at <code class="docutils literal notranslate"><span class="pre">AGE</span></code> 10. Indeed, you will notice that the entire gold graph (2014) looks like the blue graph (2010) slid over to the right by 4 years. The slide is accompanied by a slight rise due to the net effect of children who entered the country between 2010 and 2014 outnumbering those who left. Fortunately at these ages there is not much loss of life.</p>
-</div>
-<div class="section" id="bar-charts">
+</section>
+<section id="bar-charts">
 <h2><span class="section-number">7.3.3. </span>Bar Charts<a class="headerlink" href="#bar-charts" title="Permalink to this headline">¶</a></h2>
 <p>For our final example of this section, we look at distributions of ethnicities of adults and children in California as well as in the entire United States.</p>
 <p>The Kaiser Family Foundation has complied Census data on the distribution of race and ethnicity in the U.S. The Foundation’s website provides compilations of data for <a class="reference external" href="http://kff.org/other/state-indicator/distribution-by-raceethnicity/">the entire U.S. population</a> in 2014, as well as for <a class="reference external" href="http://kff.org/other/state-indicator/children-by-raceethnicity/">U.S. children</a> who were younger than 18 years old that year.</p>
@@ -1051,8 +1052,8 @@
 </div>
 </div>
 <p>More complex datasets naturally give rise to varied and interesting visualizations, including overlaid graphs of different kinds. To analyze such data, it helps to have some more skills in data manipulation, so that we can get the data into a form that allows us to use methods like those in this section. In the next chapter we will develop some of these skills.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

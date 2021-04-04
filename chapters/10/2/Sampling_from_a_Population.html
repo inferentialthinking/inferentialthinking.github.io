@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>10.2. Sampling from a Population &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -797,7 +798,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="sampling-from-a-population">
+<section id="sampling-from-a-population">
 <h1><span class="section-number">10.2. </span>Sampling from a Population<a class="headerlink" href="#sampling-from-a-population" title="Permalink to this headline">¶</a></h1>
 <p>The law of averages also holds when the random sample is drawn from individuals in a large population.</p>
 <p>As an example, we will study a population of flight delay times. The table <code class="docutils literal notranslate"><span class="pre">united</span></code> contains data for United Airlines domestic flights departing from San Francisco in the summer of 2015. The data are made publicly available by the <a class="reference external" href="http://www.transtats.bts.gov/Fields.asp?Table_ID=293">Bureau of Transportation Statistics</a> in the United States Department of Transportation.</p>
@@ -924,7 +925,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="empirical-distribution-of-the-sample">
+<section id="empirical-distribution-of-the-sample">
 <h2><span class="section-number">10.2.1. </span>Empirical Distribution of the Sample<a class="headerlink" href="#empirical-distribution-of-the-sample" title="Permalink to this headline">¶</a></h2>
 <p>Let us now think of the 13,825 flights as a population, and draw random samples from it with replacement. It is helpful to package our code into a function. The function <code class="docutils literal notranslate"><span class="pre">empirical_hist_delay</span></code> takes the sample size as its argument and draws an empiricial histogram of the results.</p>
 <div class="cell docutils container">
@@ -967,14 +968,14 @@
 <img alt="../../../_images/Sampling_from_a_Population_18_0.png" src="../../../_images/Sampling_from_a_Population_18_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="convergence-of-the-empirical-histogram-of-the-sample">
+</section>
+<section id="convergence-of-the-empirical-histogram-of-the-sample">
 <h2><span class="section-number">10.2.2. </span>Convergence of the Empirical Histogram of the Sample<a class="headerlink" href="#convergence-of-the-empirical-histogram-of-the-sample" title="Permalink to this headline">¶</a></h2>
 <p>What we have observed in this section can be summarized as follows:</p>
 <p>For a large random sample, the empirical histogram of the sample resembles the histogram of the population, with high probability.</p>
 <p>This justifies the use of large random samples in statistical inference. The idea is that since a large random sample is likely to resemble the population from which it is drawn, quantities computed from the values in the sample are likely to be close to the corresponding quantities in the population.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

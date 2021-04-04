@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>6.2. Selecting Rows &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -816,10 +817,10 @@
 </div>
 <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="selecting-rows">
+<section id="selecting-rows">
 <h1><span class="section-number">6.2. </span>Selecting Rows<a class="headerlink" href="#selecting-rows" title="Permalink to this headline">¶</a></h1>
 <p>Often, we would like to extract just those rows that correspond to entries with a particular feature. For example, we might want only the rows corresponding to the Warriors, or to players who earned more than <span class="math notranslate nohighlight">\(\$10\)</span> million. Or we might just want the top five earners.</p>
-<div class="section" id="specified-rows">
+<section id="specified-rows">
 <h2><span class="section-number">6.2.1. </span>Specified Rows<a class="headerlink" href="#specified-rows" title="Permalink to this headline">¶</a></h2>
 <p>The Table method <code class="docutils literal notranslate"><span class="pre">take</span></code> does just that – it takes a specified set of rows. Its argument is a row index or array of indices, and it creates a new table consisting of only those rows.</p>
 <p>For example, if we wanted just the first row of <code class="docutils literal notranslate"><span class="pre">nba</span></code>, we could use <code class="docutils literal notranslate"><span class="pre">take</span></code> as follows.</p>
@@ -952,8 +953,8 @@
     </tbody>
 </table></div></div>
 </div>
-</div>
-<div class="section" id="rows-corresponding-to-a-specified-feature">
+</section>
+<section id="rows-corresponding-to-a-specified-feature">
 <h2><span class="section-number">6.2.2. </span>Rows Corresponding to a Specified Feature<a class="headerlink" href="#rows-corresponding-to-a-specified-feature" title="Permalink to this headline">¶</a></h2>
 <p>More often, we will want to access data in a set of rows that have a certain feature, but whose indices we don’t know ahead of time. For example, we might want data on all the players who made more than <span class="math notranslate nohighlight">\(\$10\)</span> million, but we don’t want to spend time counting rows in the sorted table.</p>
 <p>The method <code class="docutils literal notranslate"><span class="pre">where</span></code> does the job for us. Its output is a table with the same columns as the original but only the rows <em>where</em> the feature occurs.</p>
@@ -1190,8 +1191,8 @@
 </table>
 <p>... (4 rows omitted)</p></div></div>
 </div>
-</div>
-<div class="section" id="multiple-features">
+</section>
+<section id="multiple-features">
 <h2><span class="section-number">6.2.3. </span>Multiple Features<a class="headerlink" href="#multiple-features" title="Permalink to this headline">¶</a></h2>
 <p>You can access rows that have multiple specified features, by using <code class="docutils literal notranslate"><span class="pre">where</span></code> repeatedly. For example, here is a way to extract all the Point Guards whose salaries were over <span class="math notranslate nohighlight">\(\$15\)</span> million.</p>
 <div class="cell docutils container">
@@ -1226,8 +1227,8 @@
     </tbody>
 </table></div></div>
 </div>
-</div>
-<div class="section" id="general-form">
+</section>
+<section id="general-form">
 <h2><span class="section-number">6.2.4. </span>General Form<a class="headerlink" href="#general-form" title="Permalink to this headline">¶</a></h2>
 <p>By now you will have realized that the general way to create a new table by selecting rows with a given feature is to use <code class="docutils literal notranslate"><span class="pre">where</span></code> and <code class="docutils literal notranslate"><span class="pre">are</span></code> with the appropriate condition:</p>
 <p><code class="docutils literal notranslate"><span class="pre">original_table_name.where(column_label_string,</span> <span class="pre">are.condition)</span></code></p>
@@ -1279,8 +1280,8 @@
     </tbody>
 </table></div></div>
 </div>
-</div>
-<div class="section" id="some-more-conditions">
+</section>
+<section id="some-more-conditions">
 <h2><span class="section-number">6.2.5. </span>Some More Conditions<a class="headerlink" href="#some-more-conditions" title="Permalink to this headline">¶</a></h2>
 <p>Here are some predicates of <code class="docutils literal notranslate"><span class="pre">are</span></code> that you might find useful. Note that <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are numbers, <code class="docutils literal notranslate"><span class="pre">STRING</span></code> is a string, and <code class="docutils literal notranslate"><span class="pre">Z</span></code> is either a number or a string; you have to specify these depending on the feature you want.</p>
 <table class="colwidths-auto table">
@@ -1538,8 +1539,8 @@
 </table></div></div>
 </div>
 <p>As you can see, the use of <code class="docutils literal notranslate"><span class="pre">where</span></code> with <code class="docutils literal notranslate"><span class="pre">are</span></code> gives you great flexibility in accessing rows with features that interest you. Don’t hesitate to experiment!</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

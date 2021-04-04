@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>9.5. Finding Probabilities &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -814,22 +815,22 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="finding-probabilities">
+<section id="finding-probabilities">
 <h1><span class="section-number">9.5. </span>Finding Probabilities<a class="headerlink" href="#finding-probabilities" title="Permalink to this headline">¶</a></h1>
 <p>Over the centuries, there has been considerable philosophical debate about what probabilities are. Some people think that probabilities are relative frequencies; others think they are long run relative frequencies; still others think that probabilities are a subjective measure of their own personal degree of uncertainty.</p>
 <p>In this course, most probabilities will be relative frequencies, though many will have subjective interpretations. Regardless, the ways in which probabilities are calculated and combined are consistent across the different interpretations.</p>
 <p>By convention, probabilities are numbers between 0 and 1, or, equivalently, 0% and 100%. Impossible events have probability 0. Events that are certain have probability 1.</p>
 <p>Math is the main tool for finding probabilities exactly, though computers are useful for this purpose too. Simulation can provide excellent approximations, with high probability. In this section, we will informally develop a few simple rules that govern the calculation of probabilities. In subsequent sections we will return to simulations to approximate probabilities of complex events.</p>
 <p>We will use the standard notation <span class="math notranslate nohighlight">\(P(\mbox{event})\)</span> to denote the probability that “event” happens, and we will use the words “chance” and “probability” interchangeably.</p>
-<div class="section" id="when-an-event-doesn-t-happen">
+<section id="when-an-event-doesn-t-happen">
 <h2><span class="section-number">9.5.1. </span>When an Event Doesn’t Happen<a class="headerlink" href="#when-an-event-doesn-t-happen" title="Permalink to this headline">¶</a></h2>
 <p>If the chance that event happens is 40%, then the chance that it doesn’t happen is 60%. This natural calculation can be described in general as follows:</p>
 <div class="math notranslate nohighlight">
 \[
 P(\mbox{an event doesn't happen}) ~=~ 1 - P(\mbox{the event happens})
 \]</div>
-</div>
-<div class="section" id="when-all-outcomes-are-equally-likely">
+</section>
+<section id="when-all-outcomes-are-equally-likely">
 <h2><span class="section-number">9.5.2. </span>When All Outcomes are Equally Likely<a class="headerlink" href="#when-all-outcomes-are-equally-likely" title="Permalink to this headline">¶</a></h2>
 <p>If you are rolling an ordinary die, a natural assumption is that all six faces are equally likely. Then probabilities of how one roll comes out can be easily calculated as a ratio. For example, the chance that the die shows an even number is</p>
 <div class="math notranslate nohighlight">
@@ -854,8 +855,8 @@ P(\mbox{an event happens}) ~=~
 \]</div>
 <p>provided all the outcomes are equally likely.</p>
 <p>Not all random phenomena are as simple as one roll of a die. The two main rules of probability, developed below, allow mathematicians to find probabilities even in complex situations.</p>
-</div>
-<div class="section" id="when-two-events-must-both-happen">
+</section>
+<section id="when-two-events-must-both-happen">
 <h2><span class="section-number">9.5.3. </span>When Two Events Must Both Happen<a class="headerlink" href="#when-two-events-must-both-happen" title="Permalink to this headline">¶</a></h2>
 <p>Suppose you have a box that contains three tickets: one red, one blue, and one green. Suppose you draw two tickets at random without replacement; that is, you shuffle the three tickets, draw one, shuffle the remaining two, and draw another from those two. What is the chance you get the green ticket first, followed by the red one?</p>
 <p>There are six possible pairs of colors: RB, BR, RG, GR, BG, GB (we’ve abbreviated the names of each color to just its first letter). All of these are equally likely by the sampling scheme, and only one of them (GR) makes the event happen. So</p>
@@ -885,8 +886,8 @@ P(\mbox{two events both happen})
 P(\mbox{the other event happens, given that the first one happened})
 \]</div>
 <p>Thus, when there are two conditions – one event must happen, as well as another – the chance is <em>a fraction of a fraction</em>, which is smaller than either of the two component fractions. The more conditions that have to be satisfied, the less likely they are to all be satisfied.</p>
-</div>
-<div class="section" id="when-an-event-can-happen-in-two-different-ways">
+</section>
+<section id="when-an-event-can-happen-in-two-different-ways">
 <h2><span class="section-number">9.5.4. </span>When an Event Can Happen in Two Different Ways<a class="headerlink" href="#when-an-event-can-happen-in-two-different-ways" title="Permalink to this headline">¶</a></h2>
 <p>Suppose instead we want the chance that one of the two tickets is green and the other red. This event doesn’t specify the order in which the colors must appear. So they can appear in either order.</p>
 <p>A good way to tackle problems like this is to <em>partition</em> the event so that it can happen in exactly one of several different ways. The natural partition of “one green and one red” is: GR, RG.</p>
@@ -907,8 +908,8 @@ P(\mbox{first way it can happen}) + P(\mbox{second way it can happen}) ~~~
 <p>Thus, when an event can happen in one of two different ways, the chance that it happens is a sum of chances, and hence bigger than the chance of either of the individual ways.</p>
 <p>The multiplication rule has a natural extension to more than two events, as we will see below. So also the addition rule has a natural extension to events that can happen in one of several different ways.</p>
 <p>We end the section with examples that use combinations of all these rules.</p>
-</div>
-<div class="section" id="at-least-one-success">
+</section>
+<section id="at-least-one-success">
 <h2><span class="section-number">9.5.5. </span>At Least One Success<a class="headerlink" href="#at-least-one-success" title="Permalink to this headline">¶</a></h2>
 <p>Data scientists often work with random samples from populations. A question that sometimes arises is about the likelihood that a particular individual in the population is selected to be in the sample. To work out the chance, that individual is called a “success,” and the problem is to find the chance that the sample contains a success.</p>
 <p>To see how such chances might be calculated, we start with a simpler setting: tossing a coin two times.</p>
@@ -1037,8 +1038,8 @@ P(\mbox{at least one 6 in 17 rolls})
 </table></div></div>
 </div>
 <p>Calculations like these can be used to find the chance that a particular individual is selected in a random sample. The exact calculation will depend on the sampling scheme. But what we have observed above can usually be generalized: increasing the size of the random sample increases the chance that an individual is selected.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

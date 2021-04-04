@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>13.3. Confidence Intervals &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -814,13 +815,13 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="confidence-intervals">
+<section id="confidence-intervals">
 <h1><span class="section-number">13.3. </span>Confidence Intervals<a class="headerlink" href="#confidence-intervals" title="Permalink to this headline">¶</a></h1>
 <p>We have developed a method for estimating a parameter by using random sampling and the bootstrap. Our method produces an interval of estimates, to account for chance variability in the random sample. By providing an interval of estimates instead of just one estimate, we give ourselves some wiggle room.</p>
 <p>In the previous example we saw that our process of estimation produced a good interval about 95% of the time, a “good” interval being one that contains the parameter. We say that we are <em>95% confident</em> that the process results in a good interval. Our interval of estimates is called a <em>95% confidence interval</em> for the parameter, and 95% is called the <em>confidence level</em> of the interval.</p>
 <p>The situation in the previous example was a bit unusual. Because we happened to know the value of the parameter, we were able to check whether an interval was good or a dud, and this in turn helped us to see that our process of estimation captured the parameter about 95 out of every 100 times we used it.</p>
 <p>But usually, data scientists don’t know the value of the parameter. That is the reason they want to estimate it in the first place. In such situations, they provide an interval of estimates for the unknown parameter by using methods like the one we have developed. Because of statistical theory and demonstrations like the one we have seen, data scientists can be confident that their process of generating the interval results in a good interval a known percent of the time.</p>
-<div class="section" id="confidence-interval-for-a-population-median-bootstrap-percentile-method">
+<section id="confidence-interval-for-a-population-median-bootstrap-percentile-method">
 <h2><span class="section-number">13.3.1. </span>Confidence Interval for a Population Median: Bootstrap Percentile Method<a class="headerlink" href="#confidence-interval-for-a-population-median-bootstrap-percentile-method" title="Permalink to this headline">¶</a></h2>
 <p>We will now use the bootstrap method to estimate an unknown population median. The data come from a sample of newborns in a large hospital system; we will treat it as if it were a simple random sample though the sampling was done in multiple stages. <a class="reference external" href="https://www.stat.berkeley.edu/~statlabs/">Stat Labs</a> by Deborah Nolan and Terry Speed has details about a larger dataset from which this set is drawn.</p>
 <p>The table <code class="docutils literal notranslate"><span class="pre">baby</span></code> contains the following variables for mother-baby pairs: the baby’s birth weight in ounces, the number of gestational days, the mother’s age in completed years, the mother’s height in inches, pregnancy weight in pounds, and whether or not the mother smoked during pregnancy.</p>
@@ -1056,8 +1057,8 @@
 <p>This histogram and interval resembles those we drew in the previous section, with one big difference – there is no red dot showing where the parameter is. We don’t know where that dot should be, or whether it is even in the interval.</p>
 <p>We just have an interval of estimates. It is a 95% confidence interval of estimates, because the process that generates it produces a good interval about 95% of the time. That certainly beats guessing at random!</p>
 <p>Keep in mind that this interval is an approximate 95% confidence interval. There are many approximations involved in its computation. The approximation is not bad, but it is not exact.</p>
-</div>
-<div class="section" id="confidence-interval-for-a-population-mean-bootstrap-percentile-method">
+</section>
+<section id="confidence-interval-for-a-population-mean-bootstrap-percentile-method">
 <h2><span class="section-number">13.3.2. </span>Confidence Interval for a Population Mean: Bootstrap Percentile Method<a class="headerlink" href="#confidence-interval-for-a-population-mean-bootstrap-percentile-method" title="Permalink to this headline">¶</a></h2>
 <p>What we have done for medians can be done for means as well. Suppose we want to estimate the average age of the mothers in the population. A natural estimate is the average age of the mothers in the sample. Here is the distribution of their ages, and their average age which was about 27.2 years.</p>
 <div class="cell docutils container">
@@ -1155,8 +1156,8 @@
 </div>
 </div>
 <p>This is a consequence of the Central Limit Theorem of probability and statistics. In later sections, we will see what the theorem says.</p>
-</div>
-<div class="section" id="an-80-confidence-interval">
+</section>
+<section id="an-80-confidence-interval">
 <h2><span class="section-number">13.3.3. </span>An 80% Confidence Interval<a class="headerlink" href="#an-80-confidence-interval" title="Permalink to this headline">¶</a></h2>
 <p>You can use the bootstrapped sample means to construct an interval of any level of confidence. For example, to construct an 80% confidence interval for the mean age in the population, you would take the “middle 80%” of the resampled means. So you would want 10% of the distribution in each of the two tails, and hence the endpoints would be the 10th and 90th percentiles of the resampled means.</p>
 <div class="cell docutils container">
@@ -1187,8 +1188,8 @@
 <p>This 80% confidence interval is much shorter than the 95% confidence interval. It only goes from about 27.0 years to about 27.4 years. While that’s a tight set of estimates, you know that this process only produces a good interval about 80% of the time.</p>
 <p>The earlier process produced a wider interval but we had more confidence in the process that generated it.</p>
 <p>To get a narrow confidence interval at a high level of confidence, you’ll have to start with a larger sample. We’ll see why in the next chapter.</p>
-</div>
-<div class="section" id="confidence-interval-for-a-population-proportion-bootstrap-percentile-method">
+</section>
+<section id="confidence-interval-for-a-population-proportion-bootstrap-percentile-method">
 <h2><span class="section-number">13.3.4. </span>Confidence Interval for a Population Proportion: Bootstrap Percentile Method<a class="headerlink" href="#confidence-interval-for-a-population-proportion-bootstrap-percentile-method" title="Permalink to this headline">¶</a></h2>
 <p>In the sample, 39% of the mothers smoked during pregnancy.</p>
 <div class="cell docutils container">
@@ -1277,8 +1278,8 @@
 <img alt="../../../_images/Confidence_Intervals_47_0.png" src="../../../_images/Confidence_Intervals_47_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="care-in-using-the-bootstrap">
+</section>
+<section id="care-in-using-the-bootstrap">
 <h2><span class="section-number">13.3.5. </span>Care in Using the Bootstrap<a class="headerlink" href="#care-in-using-the-bootstrap" title="Permalink to this headline">¶</a></h2>
 <p>The bootstrap is an elegant and powerful method. Before using it, it is important to keep some points in mind.</p>
 <ul class="simple">
@@ -1292,8 +1293,8 @@
 </ul>
 </li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

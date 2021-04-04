@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>16.3. Prediction Intervals &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -811,7 +812,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="prediction-intervals">
+<section id="prediction-intervals">
 <h1><span class="section-number">16.3. </span>Prediction Intervals<a class="headerlink" href="#prediction-intervals" title="Permalink to this headline">¶</a></h1>
 <p>One of the primary uses of regression is to make predictions for a new individual who was not part of our original sample but is similar to the sampled individuals. In the language of the model, we want to estimate <span class="math notranslate nohighlight">\(y\)</span> for a new value of <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>Our estimate is the height of the true line at <span class="math notranslate nohighlight">\(x\)</span>. Of course, we don’t know the true line. What we have as a substitute is the regression line through our sample of points.</p>
@@ -853,7 +854,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="the-variability-of-the-prediction">
+<section id="the-variability-of-the-prediction">
 <h2><span class="section-number">16.3.1. </span>The Variability of the Prediction<a class="headerlink" href="#the-variability-of-the-prediction" title="Permalink to this headline">¶</a></h2>
 <p>We have developed a method making one prediction of a new baby’s birth weight based on the number of gestational days, using the data in our sample. But as data scientists, we know that the sample might have been different. Had the sample been different, the regression line would have been different too, and so would our prediction. To see how good our prediction is, we must get a sense of how variable the prediction can be.</p>
 <p>To do this, we must generate new samples. We can do that by bootstrapping the scatter plot as in the previous section. We will then fit the regression line to the scatter plot in each replication, and make a prediction based on each line. The figure below shows 10 such lines, and the corresponding predicted birth weight at 300 gestational days.</p>
@@ -910,8 +911,8 @@
     </tbody>
 </table></div></div>
 </div>
-</div>
-<div class="section" id="bootstrap-prediction-interval">
+</section>
+<section id="bootstrap-prediction-interval">
 <h2><span class="section-number">16.3.2. </span>Bootstrap Prediction Interval<a class="headerlink" href="#bootstrap-prediction-interval" title="Permalink to this headline">¶</a></h2>
 <p>If we increase the number of repetitions of the resampling process, we can generate an empirical histogram of the predictions. This will allow us to create an interval of predictions, using the same percentile method that we used create a bootstrap confidence interval for the slope.</p>
 <p>Let us define a function called <code class="docutils literal notranslate"><span class="pre">bootstrap_prediction</span></code> to do this. The function takes five arguments:</p>
@@ -976,8 +977,8 @@ Approximate 95%-confidence interval:
 </div>
 <p>The figure above shows a bootstrap empirical histogram of the predicted birth weight of a baby at 300 gestational days, based on 5,000 repetitions of the bootstrap process. The empirical distribution is roughly normal.</p>
 <p>An approximate 95% prediction interval of scores has been constructed by taking the “middle 95%” of the predictions, that is, the interval from the 2.5th percentile to the 97.5th percentile of the predictions. The interval ranges from about 127 to about 131. The prediction based on the original sample was about 129, which is close to the center of the interval.</p>
-</div>
-<div class="section" id="the-effect-of-changing-the-value-of-the-predictor">
+</section>
+<section id="the-effect-of-changing-the-value-of-the-predictor">
 <h2><span class="section-number">16.3.3. </span>The Effect of Changing the Value of the Predictor<a class="headerlink" href="#the-effect-of-changing-the-value-of-the-predictor" title="Permalink to this headline">¶</a></h2>
 <p>The figure below shows the histogram of 5,000 bootstrap predictions at 285 gestational days. The prediction based on the original sample is about 122 ounces, and the interval ranges from about 121 ounces to about 123 ounces.</p>
 <div class="cell docutils container">
@@ -1016,14 +1017,14 @@ Approximate 95%-confidence interval:
 <img alt="../../../_images/Prediction_Intervals_25_0.png" src="../../../_images/Prediction_Intervals_25_0.png" />
 </div>
 </div>
-<div class="section" id="words-of-caution">
+<section id="words-of-caution">
 <h3><span class="section-number">16.3.3.1. </span>Words of caution<a class="headerlink" href="#words-of-caution" title="Permalink to this headline">¶</a></h3>
 <p>All of the predictions and tests that we have performed in this chapter assume that the regression model holds. Specifically, the methods assume that the scatter plot resembles points generated by starting with points that are on a straight line and then pushing them off the line by adding random normal noise.</p>
 <p>If the scatter plot does not look like that, then perhaps the model does not hold for the data. If the model does not hold, then calculations that assume the model to be true are not valid.</p>
 <p>Therefore, we must first decide whether the regression model holds for our data, before we start making predictions based on the model or testing hypotheses about parameters of the model. A simple way is to do what we did in this section, which is to draw the scatter diagram of the two variables and see whether it looks roughly linear and evenly spread out around a line. We should also run the diagnostics we developed in the previous section using the residual plot.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

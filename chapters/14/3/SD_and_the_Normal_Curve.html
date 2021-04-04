@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>14.3. The SD and the Normal Curve &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -809,11 +810,11 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="the-sd-and-the-normal-curve">
+<section id="the-sd-and-the-normal-curve">
 <h1><span class="section-number">14.3. </span>The SD and the Normal Curve<a class="headerlink" href="#the-sd-and-the-normal-curve" title="Permalink to this headline">¶</a></h1>
 <p>We know that the mean is the balance point of the histogram. Unlike the mean, the SD is usually not easy to identify by looking at the histogram.</p>
 <p>However, there is one shape of distribution for which the SD is almost as clearly identifiable as the mean. That is the bell-shaped disribution. This section examines that shape, as it appears frequently in probability histograms and also in some histograms of data.</p>
-<div class="section" id="a-roughly-bell-shaped-histogram-of-data">
+<section id="a-roughly-bell-shaped-histogram-of-data">
 <h2><span class="section-number">14.3.1. </span>A Roughly Bell-Shaped Histogram of Data<a class="headerlink" href="#a-roughly-bell-shaped-histogram-of-data" title="Permalink to this headline">¶</a></h2>
 <p>Let us look at the distribution of heights of mothers in our familiar sample of 1,174 mother-newborn pairs. The mothers’ heights have a mean of 64 inches and an SD of 2.5 inches. Unlike the heights of the basketball players, the mothers’ heights are distributed fairly symmetrically about the mean in a bell-shaped curve.</p>
 <div class="cell docutils container">
@@ -863,14 +864,14 @@
 </div>
 </div>
 <p>The last two lines of code in the cell above change the labeling of the horizontal axis. Now, the labels correspond to “average <span class="math notranslate nohighlight">\(\pm\)</span> <span class="math notranslate nohighlight">\(z\)</span> SDs” for <span class="math notranslate nohighlight">\(z = 0, \pm 1, \pm 2\)</span>, and <span class="math notranslate nohighlight">\(\pm 3\)</span>. Because of the shape of the distribution, the “center” has an unambiguous meaning and is clearly visible at 64.</p>
-</div>
-<div class="section" id="how-to-spot-the-sd-on-a-bell-shaped-curve">
+</section>
+<section id="how-to-spot-the-sd-on-a-bell-shaped-curve">
 <h2><span class="section-number">14.3.2. </span>How to Spot the SD on a Bell Shaped Curve<a class="headerlink" href="#how-to-spot-the-sd-on-a-bell-shaped-curve" title="Permalink to this headline">¶</a></h2>
 <p>To see how the SD is related to the curve, start at the top of the curve and look towards the right. Notice that there is a place where the curve changes from looking like an “upside-down cup” to a “right-way-up cup”; formally, the curve has a point of inflection. That point is one SD above average. It is the point <span class="math notranslate nohighlight">\(z=1\)</span>, which is “average plus 1 SD” = 66.5 inches.</p>
 <p>Symmetrically on the left-hand side of the mean, the point of inflection is at <span class="math notranslate nohighlight">\(z=-1\)</span>, that is, “average minus 1 SD” = 61.5 inches.</p>
 <p>In general, <strong>for bell-shaped distributions, the SD is the distance between the mean and the points of inflection on either side.</strong></p>
-</div>
-<div class="section" id="the-standard-normal-curve">
+</section>
+<section id="the-standard-normal-curve">
 <h2><span class="section-number">14.3.3. </span>The standard normal curve<a class="headerlink" href="#the-standard-normal-curve" title="Permalink to this headline">¶</a></h2>
 <p>All the bell-shaped histograms that we have seen look essentially the same apart from the labels on the axes. Indeed, there is really just one basic curve from which all of these curves can be drawn just by relabeling the axes appropriately.</p>
 <p>To draw that basic curve, we will use the units into which we can convert every list: standard units. The resulting curve is therefore called the <em>standard normal curve</em>.</p>
@@ -902,8 +903,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="the-standard-normal-cdf">
+</section>
+<section id="the-standard-normal-cdf">
 <h2><span class="section-number">14.3.4. </span>The standard normal “cdf”<a class="headerlink" href="#the-standard-normal-cdf" title="Permalink to this headline">¶</a></h2>
 <p>The fundamental function for finding areas under the normal curve is <code class="docutils literal notranslate"><span class="pre">stats.norm.cdf</span></code>. It takes a numerical argument and returns all the area under the curve to the left of that number. Formally, it is called the “cumulative distribution function” of the standard normal curve. That rather unwieldy mouthful is abbreviated as cdf.</p>
 <p>Let us use this function to find the area to the left of <span class="math notranslate nohighlight">\(z=1\)</span> under the standard normal curve.</p>
@@ -1007,8 +1008,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

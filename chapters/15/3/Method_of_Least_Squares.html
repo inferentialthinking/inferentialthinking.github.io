@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>15.3. The Method of Least Squares &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -816,7 +817,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="the-method-of-least-squares">
+<section id="the-method-of-least-squares">
 <h1><span class="section-number">15.3. </span>The Method of Least Squares<a class="headerlink" href="#the-method-of-least-squares" title="Permalink to this headline">¶</a></h1>
 <p>We have retraced the steps that Galton and Pearson took to develop the equation of the regression line that runs through a football shaped scatter plot. But not all scatter plots are football shaped, not even linear ones. Does every scatter plot have a “best” line that goes through it? If so, can we still use the formulas for the slope and intercept developed in the previous section, or do we need new ones?</p>
 <p>To address these questions, we need a reasonable definition of “best”. Recall that the purpose of the line is to <em>predict</em> or <em>estimate</em> values of <span class="math notranslate nohighlight">\(y\)</span>, given values of <span class="math notranslate nohighlight">\(x\)</span>. Estimates typically aren’t perfect. Each one is off the true value by an <em>error</em>. A reasonable criterion for a line to be the “best” is for it to have the smallest possible overall error among all straight lines.</p>
@@ -877,7 +878,7 @@
 </div>
 </div>
 <p>The scatter plot is remarkably close to linear, and the correlation is more than 0.92.</p>
-<div class="section" id="error-in-estimation">
+<section id="error-in-estimation">
 <h2><span class="section-number">15.3.1. </span>Error in Estimation<a class="headerlink" href="#error-in-estimation" title="Permalink to this headline">¶</a></h2>
 <p>The graph below shows the scatter plot and line that we developed in the previous section. We don’t yet know if that’s the best among all lines. We first have to say precisely what “best” means.</p>
 <div class="cell docutils container">
@@ -997,14 +998,14 @@ Intercept of Regression Line: 4745.0 characters
 <img alt="../../../_images/Method_of_Least_Squares_20_0.png" src="../../../_images/Method_of_Least_Squares_20_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="root-mean-squared-error">
+</section>
+<section id="root-mean-squared-error">
 <h2><span class="section-number">15.3.2. </span>Root Mean Squared Error<a class="headerlink" href="#root-mean-squared-error" title="Permalink to this headline">¶</a></h2>
 <p>What we need now is one overall measure of the rough size of the errors. You will recognize the approach to creating this – it’s exactly the way we developed the SD.</p>
 <p>If you use any arbitrary line to calculate your estimates, then some of your errors are likely to be positive and others negative. To avoid cancellation when measuring the rough size of the errors, we will take the mean of the squared errors rather than the mean of the errors themselves.</p>
 <p>The mean squared error of estimation is a measure of roughly how big the squared errors are, but as we have noted earlier, its units are hard to interpret. Taking the square root yields the root mean square error (rmse), which is in the same units as the variable being predicted and therefore much easier to understand.</p>
-</div>
-<div class="section" id="minimizing-the-root-mean-squared-error">
+</section>
+<section id="minimizing-the-root-mean-squared-error">
 <h2><span class="section-number">15.3.3. </span>Minimizing the Root Mean Squared Error<a class="headerlink" href="#minimizing-the-root-mean-squared-error" title="Permalink to this headline">¶</a></h2>
 <p>Our observations so far can be summarized as follows.</p>
 <ul class="simple">
@@ -1085,7 +1086,7 @@ Intercept of Regression Line: 4745.0 characters
 </div>
 </div>
 <p>The proof of this statement requires abstract mathematics that is beyond the scope of this course. On the other hand, we do have a powerful tool – Python – that performs large numerical computations with ease. So we can use Python to confirm that the regression line minimizes the mean squared error.</p>
-<div class="section" id="numerical-optimization">
+<section id="numerical-optimization">
 <h3><span class="section-number">15.3.3.1. </span>Numerical Optimization<a class="headerlink" href="#numerical-optimization" title="Permalink to this headline">¶</a></h3>
 <p>First note that a line that minimizes the root mean squared error is also a line that minimizes the squared error. The square root makes no difference to the minimization. So we will save ourselves a step of computation and just minimize the mean squared error (mse).</p>
 <p>We are trying to predict the number of characters (<span class="math notranslate nohighlight">\(y\)</span>) based on the number of periods (<span class="math notranslate nohighlight">\(x\)</span>) in chapters of Little Women. If we use the line</p>
@@ -1194,14 +1195,14 @@ intercept from minimize:    4744.784845352655
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="the-least-squares-line">
+</section>
+</section>
+<section id="the-least-squares-line">
 <h2><span class="section-number">15.3.4. </span>The Least Squares Line<a class="headerlink" href="#the-least-squares-line" title="Permalink to this headline">¶</a></h2>
 <p>Therefore, we have found not only that the regression line minimizes mean squared error, but also that minimizing mean squared error gives us the regression line. The regression line is the only line that minimizes mean squared error.</p>
 <p>That is why the regression line is sometimes called the “least squares line.”</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
