@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>8.1. Applying a Function to a Column &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -813,7 +812,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<section id="applying-a-function-to-a-column">
+<div class="section" id="applying-a-function-to-a-column">
 <h1><span class="section-number">8.1. </span>Applying a Function to a Column<a class="headerlink" href="#applying-a-function-to-a-column" title="Permalink to this headline">¶</a></h1>
 <p>We have seen many examples of creating new columns of tables by applying functions to existing columns or to other arrays. All of those functions took arrays as their arguments. But frequently we will want to convert the entries in a column by a function that doesn’t take an array as its argument. For example, it might take just one number as its argument, as in the function <code class="docutils literal notranslate"><span class="pre">cut_off_at_100</span></code> defined below.</p>
 <div class="cell docutils container">
@@ -904,7 +903,7 @@
     </tbody>
 </table></div></div>
 </div>
-<section id="apply">
+<div class="section" id="apply">
 <h2><span class="section-number">8.1.1. </span><code class="docutils literal notranslate"><span class="pre">apply</span></code><a class="headerlink" href="#apply" title="Permalink to this headline">¶</a></h2>
 <p>To cut off each of the ages at 100, we will use a new Table method. The <code class="docutils literal notranslate"><span class="pre">apply</span></code> method calls a function on each element of a column, forming a new array of return values. To indicate which function to call, just name it (without quotation marks or parentheses). The name of the column of input values is a string that must still appear within quotation marks.</p>
 <div class="cell docutils container">
@@ -958,8 +957,8 @@
     </tbody>
 </table></div></div>
 </div>
-</section>
-<section id="functions-as-values">
+</div>
+<div class="section" id="functions-as-values">
 <h2><span class="section-number">8.1.2. </span>Functions as Values<a class="headerlink" href="#functions-as-values" title="Permalink to this headline">¶</a></h2>
 <p>We’ve seen that Python has many kinds of values.  For example, <code class="docutils literal notranslate"><span class="pre">6</span></code> is a number value, <code class="docutils literal notranslate"><span class="pre">&quot;cake&quot;</span></code> is a text value, <code class="docutils literal notranslate"><span class="pre">Table()</span></code> is an empty table, and <code class="docutils literal notranslate"><span class="pre">ages</span></code> is a name for a table value (since we defined it above).</p>
 <p>In Python, every function, including <code class="docutils literal notranslate"><span class="pre">cut_off_at_100</span></code>, is also a value. It helps to think about recipes again. A recipe for cake is a real thing, distinct from cakes or ingredients, and you can give it a name like “Ani’s cake recipe.” When we defined <code class="docutils literal notranslate"><span class="pre">cut_off_at_100</span></code> with a <code class="docutils literal notranslate"><span class="pre">def</span></code> statement, we actually did two separate things: we created a function that cuts off numbers at 100, and we gave it the name <code class="docutils literal notranslate"><span class="pre">cut_off_at_100</span></code>.</p>
@@ -999,17 +998,17 @@
 </div>
 </div>
 <p>Let us see another application of <code class="docutils literal notranslate"><span class="pre">apply</span></code>.</p>
-</section>
-<section id="example-prediction">
+</div>
+<div class="section" id="example-prediction">
 <h2><span class="section-number">8.1.3. </span>Example: Prediction<a class="headerlink" href="#example-prediction" title="Permalink to this headline">¶</a></h2>
 <p>Data Science is often used to make predictions about the future. If we are trying to predict an outcome for a particular individual – for example, how she will respond to a treatment, or whether he will buy a product – it is natural to base the prediction on the outcomes of other similar individuals.</p>
 <p>Charles Darwin’s cousin <a class="reference external" href="https://en.wikipedia.org/wiki/Francis_Galton">Sir Francis Galton</a> was a pioneer in using this idea to make predictions based on numerical data. He studied how physical characteristics are passed down from one generation to the next.</p>
 <p>The data below are Galton’s carefully collected measurements on the heights of parents and their adult children. Each row corresponds to one adult child. The variables are a numerical code for the family, the heights (in inches) of the father and mother, a “midparent height” which is a weighted average <a class="reference external" href="#footnotes">[1]</a> of the height of the two parents, the number of children in the family, as well as the child’s birth rank (1 = oldest), gender, and height.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Galton&#39;s data on heights of parents and their adult children</span>
-<span class="n">galton</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;galton.csv&#39;</span><span class="p">)</span>
-<span class="n">galton</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data on heights of parents and their adult children</span>
+<span class="n">family_heights</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;family_heights.csv&#39;</span><span class="p">)</span>
+<span class="n">family_heights</span>
 </pre></div>
 </div>
 </div>
@@ -1059,7 +1058,7 @@
 <p>The table <code class="docutils literal notranslate"><span class="pre">heights</span></code> consists of just the midparent heights and child’s heights. The scatter plot of the two variables shows a positive association, as we would expect for these variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heights</span> <span class="o">=</span> <span class="n">galton</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">relabeled</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;MidParent&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">relabeled</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Child&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heights</span> <span class="o">=</span> <span class="n">family_heights</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">relabeled</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;MidParent&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">relabeled</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Child&#39;</span><span class="p">)</span>
 <span class="n">heights</span>
 </pre></div>
 </div>
@@ -1313,12 +1312,12 @@
 <p>Galton’s calculations and visualizations were very similar to ours, except that he didn’t have Python. He drew the graph of averages through the scatter diagram and noticed that it roughly followed a straight line. This straight line is now called the <em>regression line</em> and is one of the most common methods of making predictions. Galton’s friend, the mathematician Karl Pearson, used these analyses to formalize the notion of <em>correlation</em>.</p>
 <p>This example, like the one about John Snow’s analysis of cholera deaths, shows how some of the fundamental concepts of modern data science have roots going back more than a century. Galton’s methods such as the one we have used here are precursors to <em>nearest neighbor</em> prediction methods that now have powerful applications in diverse settings. The modern field of <em>machine learning</em> includes the automation of such methods to make predictions based on vast and rapidly evolving datasets.</p>
 <p><a id='footnotes'></a></p>
-</section>
-<section id="footnotes">
+</div>
+<div class="section" id="footnotes">
 <h2><span class="section-number">8.1.4. </span>Footnotes<a class="headerlink" href="#footnotes" title="Permalink to this headline">¶</a></h2>
 <p>[1] Galton multiplied the heights of all the women by 1.08 before taking the average height of the men and the women. For a discussion of this, see <a class="reference external" href="http://chance.amstat.org/2013/09/1-pagano/">Chance</a>, a magazine published by the American Statistical Association.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

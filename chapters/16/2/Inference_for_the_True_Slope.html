@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>16.2. Inference for the True Slope &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -808,7 +807,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<section id="inference-for-the-true-slope">
+<div class="section" id="inference-for-the-true-slope">
 <h1><span class="section-number">16.2. </span>Inference for the True Slope<a class="headerlink" href="#inference-for-the-true-slope" title="Permalink to this headline">¶</a></h1>
 <p>Our simulations show that if the regression model holds and the sample size is large, then the regression line is likely to be close to the true line. This allows us to estimate the slope of the true line.</p>
 <p>We will use our familiar sample of mothers and their newborn babies to develop a method of estimating the slope of the true line. First, let’s see if we believe that the regression model is an appropriate set of assumptions for describing the relation between birth weight and the number of gestational days.</p>
@@ -857,7 +856,7 @@
 <p>But had the scatter plot come out differently, the regression line would have been different and might have had a different slope. How do we figure out how different the slope might have been?</p>
 <p>We need another sample of points, so that we can draw the regression line through the new scatter plot and find its slope. But from where will get another sample?</p>
 <p>You have guessed it – we will <em>bootstrap our original sample</em>. That will give us a bootstrapped scatter plot, through which we can draw a regression line.</p>
-<section id="bootstrapping-the-scatter-plot">
+<div class="section" id="bootstrapping-the-scatter-plot">
 <h2><span class="section-number">16.2.1. </span>Bootstrapping the Scatter Plot<a class="headerlink" href="#bootstrapping-the-scatter-plot" title="Permalink to this headline">¶</a></h2>
 <p>We can simulate new samples by random sampling with replacement from the original sample, as many times as the original sample size. Each of these new samples will give us a scatter plot. We will call that a <em>bootstrapped scatter plot</em>, and for short, we will call the entire process <em>bootstrapping the scatter plot</em>.</p>
 <p>Here is the original scatter diagram from the sample, and four replications of the bootstrap resampling procedure. Notice how the resampled scatter plots are in general a little more sparse than the original. That is because some of the original points do not get selected in the samples.</p>
@@ -866,8 +865,8 @@
 <img alt="../../../_images/Inference_for_the_True_Slope_11_0.png" src="../../../_images/Inference_for_the_True_Slope_11_0.png" />
 </div>
 </div>
-</section>
-<section id="estimating-the-true-slope">
+</div>
+<div class="section" id="estimating-the-true-slope">
 <h2><span class="section-number">16.2.2. </span>Estimating the True Slope<a class="headerlink" href="#estimating-the-true-slope" title="Permalink to this headline">¶</a></h2>
 <p>We can bootstrap the scatter plot a large number of times, and draw a regression line through each bootstrapped plot. Each of those lines has a slope. We can simply collect all the slopes and draw their empirical histogram. Recall that by default, the <code class="docutils literal notranslate"><span class="pre">sample</span></code> method draws at random with replacement, the same number of times as the number of rows in the table. That is, <code class="docutils literal notranslate"><span class="pre">sample</span></code> generates a bootstrap sample by default.</p>
 <div class="cell docutils container">
@@ -901,8 +900,8 @@
 </div>
 </div>
 <p>An approximate 95% confidence interval for the true slope extends from about 0.38 ounces per day to about 0.56 ounces per day.</p>
-</section>
-<section id="a-function-to-bootstrap-the-slope">
+</div>
+<div class="section" id="a-function-to-bootstrap-the-slope">
 <h2><span class="section-number">16.2.3. </span>A Function to Bootstrap the Slope<a class="headerlink" href="#a-function-to-bootstrap-the-slope" title="Permalink to this headline">¶</a></h2>
 <p>Let us collect all the steps of our method of estimating the slope and define a function <code class="docutils literal notranslate"><span class="pre">bootstrap_slope</span></code> that carries them out. Its arguments are the name of the table and the labels of the predictor and response variables, and the desired number of bootstrap replications. In each replication, the function bootstraps the original scatter plot and calculates the slope of the resulting regression line. It then draws the histogram of all the generated slopes and prints the interval consisting of the “middle 95%” of the slopes.</p>
 <div class="cell docutils container">
@@ -993,8 +992,8 @@ Approximate 95%-confidence interval for the true slope:
 </div>
 </div>
 <p>A 95% confidence interval for the true slope extends from about 1 ounce per inch to about 1.9 ounces per inch.</p>
-</section>
-<section id="could-the-true-slope-be-0">
+</div>
+<div class="section" id="could-the-true-slope-be-0">
 <h2><span class="section-number">16.2.4. </span>Could the True Slope Be 0?<a class="headerlink" href="#could-the-true-slope-be-0" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we believe that our data follow the regression model, and we fit the regression line to estimate the true line. If the regression line isn’t perfectly flat, as is almost invariably the case, we will be observing some linear association in the scatter plot.</p>
 <p>But what if that observation is spurious? In other words, what if the true line was flat – that is, there was no linear relation between the two variables – and the association that we observed was just due to randomness in generating the points that form our sample?</p>
@@ -1058,8 +1057,8 @@ Approximate 95%-confidence interval for the true slope:
 </div>
 </div>
 <p>Because the interval contains 0, we cannot reject the null hypothesis that the slope of the true linear relation between maternal age and baby’s birth weight is 0. Based on this analysis, it would be unwise to predict birth weight based on the regression model with maternal age as the predictor.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

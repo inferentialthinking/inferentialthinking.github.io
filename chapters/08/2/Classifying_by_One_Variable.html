@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>8.2. Classifying by One Variable &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -805,11 +804,11 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<section id="classifying-by-one-variable">
+<div class="section" id="classifying-by-one-variable">
 <h1><span class="section-number">8.2. </span>Classifying by One Variable<a class="headerlink" href="#classifying-by-one-variable" title="Permalink to this headline">¶</a></h1>
 <p>Data scientists often need to classify individuals into groups according to shared features, and then identify some characteristics of the groups. For example, in the example using Galton’s data on heights, we saw that it was useful to classify families according to the parents’ midparent heights, and then find the average height of the children in each group.</p>
 <p>This section is about classifying individuals into categories that are not numerical. We begin by recalling the basic use of <code class="docutils literal notranslate"><span class="pre">group</span></code>.</p>
-<section id="counting-the-number-in-each-category">
+<div class="section" id="counting-the-number-in-each-category">
 <h2><span class="section-number">8.2.1. </span>Counting the Number in Each Category<a class="headerlink" href="#counting-the-number-in-each-category" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">group</span></code> method with a single argument counts the number of rows for each category in a column. The result contains one row per unique value in the grouped column.</p>
 <p>Here is a small table of data on ice cream cones. The <code class="docutils literal notranslate"><span class="pre">group</span></code> method can be used to list the distinct flavors and provide the counts of each flavor.</p>
@@ -875,8 +874,8 @@
 <p>There are two distinct categories, chocolate and strawberry. The call to <code class="docutils literal notranslate"><span class="pre">group</span></code> creates a table of counts in each category. The column is called <code class="docutils literal notranslate"><span class="pre">count</span></code> by default, and contains the number of rows in each category.</p>
 <p>Notice that this can all be worked out from just the <code class="docutils literal notranslate"><span class="pre">Flavor</span></code> column. The <code class="docutils literal notranslate"><span class="pre">Price</span></code> column has not been used.</p>
 <p>But what if we wanted the total price of the cones of each different flavor? That’s where the second argument of <code class="docutils literal notranslate"><span class="pre">group</span></code> comes in.</p>
-</section>
-<section id="finding-a-characteristic-of-each-category">
+</div>
+<div class="section" id="finding-a-characteristic-of-each-category">
 <h2><span class="section-number">8.2.2. </span>Finding a Characteristic of Each Category<a class="headerlink" href="#finding-a-characteristic-of-each-category" title="Permalink to this headline">¶</a></h2>
 <p>The optional second argument of <code class="docutils literal notranslate"><span class="pre">group</span></code> names the function that will be used to aggregate values in other columns for all of those rows. For instance, <code class="docutils literal notranslate"><span class="pre">sum</span></code> will sum up the prices in all rows that match each category. This result also contains one row per unique value in the grouped column, but it has the same number of columns as the original table.</p>
 <p>To find the total price of each flavor, we call <code class="docutils literal notranslate"><span class="pre">group</span></code> again, with <code class="docutils literal notranslate"><span class="pre">Flavor</span></code> as its first argument as before. But this time there is a second argument: the function name <code class="docutils literal notranslate"><span class="pre">sum</span></code>.</p>
@@ -1051,8 +1050,8 @@
     </tbody>
 </table></div></div>
 </div>
-</section>
-<section id="example-nba-salaries">
+</div>
+<div class="section" id="example-nba-salaries">
 <h2><span class="section-number">8.2.3. </span>Example: NBA Salaries<a class="headerlink" href="#example-nba-salaries" title="Permalink to this headline">¶</a></h2>
 <p>The table <code class="docutils literal notranslate"><span class="pre">nba</span></code> contains data on the 2015-2016 players in the National Basketball Association. We have examined these data earlier. Recall that salaries are measured in millions of dollars.</p>
 <div class="cell docutils container">
@@ -1259,8 +1258,8 @@
     </tbody>
 </table></div></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

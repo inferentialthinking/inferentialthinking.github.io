@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>14.1. Properties of the Mean &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -822,7 +821,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<section id="properties-of-the-mean">
+<div class="section" id="properties-of-the-mean">
 <h1><span class="section-number">14.1. </span>Properties of the Mean<a class="headerlink" href="#properties-of-the-mean" title="Permalink to this headline">¶</a></h1>
 <p>In this course, we have used the words “average” and “mean” interchangeably, and will continue to do so. The definition of the mean will be familiar to you from your high school days or even earlier.</p>
 <p><strong>Definition.</strong> The <em>average</em> or <em>mean</em> of a collection of numbers is the sum of all the elements of the collection, divided by the number of elements in the collection.</p>
@@ -858,7 +857,7 @@
 </div>
 </div>
 </div>
-<section id="basic-properties">
+<div class="section" id="basic-properties">
 <h2><span class="section-number">14.1.1. </span>Basic Properties<a class="headerlink" href="#basic-properties" title="Permalink to this headline">¶</a></h2>
 <p>The definition and the example above point to some properties of the mean.</p>
 <ul class="simple">
@@ -869,12 +868,12 @@
 <li><p>If the collection consists of values of a variable measured in specified units, then the mean has the same units too.</p></li>
 </ul>
 <p>We will now study some other properties that are helpful in understanding the mean and its relation to other statistics.</p>
-</section>
-<section id="the-mean-is-a-smoother">
+</div>
+<div class="section" id="the-mean-is-a-smoother">
 <h2><span class="section-number">14.1.2. </span>The Mean is a “Smoother”<a class="headerlink" href="#the-mean-is-a-smoother" title="Permalink to this headline">¶</a></h2>
 <p>You can think of taking the mean as an “equalizing” or “smoothing” operation. For example, imagine the entries in <code class="docutils literal notranslate"><span class="pre">not_symmetric</span></code> above as the dollars in the pockets of four different people. To get the mean, you first put all of the money into one big pot and then divide it evenly among the four people. They had started out with different amounts of money in their pockets ($2, $3, $3, and $9), but now each person has $4.25, the mean amount.</p>
-</section>
-<section id="proportions-are-means">
+</div>
+<div class="section" id="proportions-are-means">
 <h2><span class="section-number">14.1.3. </span>Proportions are Means<a class="headerlink" href="#proportions-are-means" title="Permalink to this headline">¶</a></h2>
 <p>If a collection consists only of ones and zeroes, then the sum of the collection is the number of ones in it, and the mean of the collection is the proportion of ones.</p>
 <div class="cell docutils container">
@@ -916,8 +915,8 @@
 </div>
 </div>
 <p>Because proportions are a special case of means, results about random sample means apply to random sample proportions as well.</p>
-</section>
-<section id="the-mean-and-the-histogram">
+</div>
+<div class="section" id="the-mean-and-the-histogram">
 <h2><span class="section-number">14.1.4. </span>The Mean and the Histogram<a class="headerlink" href="#the-mean-and-the-histogram" title="Permalink to this headline">¶</a></h2>
 <p>The mean of the collection {2, 3, 3, 9} is 4.25, which is not the “halfway point” of the data. So then what does the mean measure?</p>
 <p>To see this, notice that the mean can be calculated in different ways.</p>
@@ -973,8 +972,8 @@
 <img alt="../../../_images/Properties_of_the_Mean_19_0.png" src="../../../_images/Properties_of_the_Mean_19_0.png" />
 </div>
 </div>
-</section>
-<section id="the-mean-and-the-median">
+</div>
+<div class="section" id="the-mean-and-the-median">
 <h2><span class="section-number">14.1.5. </span>The Mean and the Median<a class="headerlink" href="#the-mean-and-the-median" title="Permalink to this headline">¶</a></h2>
 <p>If a student’s score on a test is below average, does that imply that the student is in the bottom half of the class on that test?</p>
 <p>Happily for the student, the answer is, “Not necessarily.” The reason has to do with the relation between the average, which is the balance point of the histogram, and the median, which is the “half-way point” of the data.</p>
@@ -1027,7 +1026,7 @@
 <p>But the mean of the gold distribution is not 3: the gold histogram would not balance at 3. The balance point has shifted to the right, to 4.25.</p>
 <p>In the gold distribution, 3 out of 4 entries (75%) are below average. The student with a below average score can therefore take heart. He or she might be in the majority of the class.</p>
 <p>In general, <strong>if the histogram has a tail on one side (the formal term is “skewed”), then the mean is pulled away from the median in the direction of the tail.</strong></p>
-<section id="example">
+<div class="section" id="example">
 <h3><span class="section-number">14.1.5.1. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <p>The table <code class="docutils literal notranslate"><span class="pre">sf2015</span></code> contains salary and benefits data for San Francisco City employees in 2015. As before, we will restrict our analysis to those who had the equivalent of at least half-time employment for the year.</p>
 <div class="cell docutils container">
@@ -1077,9 +1076,9 @@
 </div>
 <p>Distributions of incomes of large populations tend to be right skewed. When the bulk of a population has middle to low incomes, but a very small proportion has very high incomes, the histogram has a long, thin tail to the right.</p>
 <p>The mean income is affected by this tail: the farther the tail stretches to the right, the larger the mean becomes. But the median is not affected by values at the extremes of the distribution. That is why economists often summarize income distributions by the median instead of the mean.</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

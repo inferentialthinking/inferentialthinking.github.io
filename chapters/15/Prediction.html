@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>15. Prediction &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -778,18 +777,18 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<section id="prediction">
+<div class="section" id="prediction">
 <h1><span class="section-number">15. </span>Prediction<a class="headerlink" href="#prediction" title="Permalink to this headline">¶</a></h1>
 <p>An important aspect of data science is to find out what data can tell us about the future. What do data about climate and pollution say about temperatures a few decades from now? Based on a person’s internet profile, which websites are likely to interest them? How can a patient’s medical history be used to judge how well he or she will respond to a treatment?</p>
 <p>To answer such questions, data scientists have developed methods for making <em>predictions</em>. In this chapter we will study one of the most commonly used ways of predicting the value of one variable based on the value of another.</p>
-<p>The foundations of the method were laid by <a class="reference external" href="https://en.wikipedia.org/wiki/Francis_Galton">Sir Francis Galton</a>. As we saw in Section 7.1, Galton studied how physical characteristics are passed down from one generation to the next. Among his best known work is the prediction of the heights of adults based on the heights of their parents. We have studied the dataset that Galton collected for this. The table <code class="docutils literal notranslate"><span class="pre">heights</span></code> contains his data on the midparent height and child’s height (all in inches) for a population of 934 adult “children”.</p>
+<p>Here is a historical dataset used for the prediction of the heights of adults based on the heights of their parents. We have studied this dataset in an earlier section. The table <code class="docutils literal notranslate"><span class="pre">heights</span></code> contains data on the midparent height and child’s height (all in inches) for a population of 934 adult “children”. Recall that the midparent height is an average of the heights of the two parents.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Galton&#39;s data on heights of parents and their adult children</span>
-<span class="n">galton</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;galton.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data on heights of parents and their adult children</span>
+<span class="n">original</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;family_heights.csv&#39;</span><span class="p">)</span>
 <span class="n">heights</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
-    <span class="s1">&#39;MidParent&#39;</span><span class="p">,</span> <span class="n">galton</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;midparentHeight&#39;</span><span class="p">),</span>
-    <span class="s1">&#39;Child&#39;</span><span class="p">,</span> <span class="n">galton</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;childHeight&#39;</span><span class="p">)</span>
+    <span class="s1">&#39;MidParent&#39;</span><span class="p">,</span> <span class="n">original</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;midparentHeight&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;Child&#39;</span><span class="p">,</span> <span class="n">original</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;childHeight&#39;</span><span class="p">)</span>
     <span class="p">)</span>
 </pre></div>
 </div>
@@ -853,7 +852,7 @@
 <img alt="../../_images/Prediction_5_0.png" src="../../_images/Prediction_5_0.png" />
 </div>
 </div>
-<p>The primary reason for collecting the data was to be able to predict the adult height of a child born to parents similar to those in the dataset. We made these predictions in Section 7.1, after noticing the positive association between the two variables.</p>
+<p>A primary reason for studying the data was to be able to predict the adult height of a child born to parents who were similar to those in the dataset. We made these predictions in Section 8.1, after noticing the positive association between the two variables.</p>
 <p>Our approach was to base the prediction on all the points that correspond to a midparent height of around the midparent height of the new person. To do this, we wrote a function called <code class="docutils literal notranslate"><span class="pre">predict_child</span></code> which takes a midparent height as its argument and returns the average height of all the children who had midparent heights within half an inch of the argument.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -895,10 +894,10 @@
 <img alt="../../_images/Prediction_10_0.png" src="../../_images/Prediction_10_0.png" />
 </div>
 </div>
-<p>The prediction at a given midparent height lies roughly at the center of the vertical strip of points at the given height. This method of prediction is called <em>regression.</em> Later in this chapter we will see where this term came from. We will also see whether we can avoid our arbitrary definitions of “closeness” being “within 0.5 inches”. But first we will develop a measure that can be used in many settings to decide how good one variable will be as a predictor of another.</p>
+<p>The prediction at a given midparent height lies roughly at the center of the vertical strip of points at the given height. This method of prediction is called <em>regression.</em> Later in this chapter we will see whether we can avoid our arbitrary definitions of “closeness” being “within 0.5 inches”. But first we will develop a measure that can be used in many settings to decide how good one variable will be as a predictor of another.</p>
 <div class="toctree-wrapper compound">
 </div>
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {

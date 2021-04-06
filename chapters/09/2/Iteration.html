@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>9.2. Iteration &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -803,7 +802,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<section id="iteration">
+<div class="section" id="iteration">
 <h1><span class="section-number">9.2. </span>Iteration<a class="headerlink" href="#iteration" title="Permalink to this headline">¶</a></h1>
 <p>It is often the case in programming – especially when dealing with randomness – that we want to repeat a process multiple times. For example, recall the game of betting on one roll of a die with the following rules:</p>
 <ul class="simple">
@@ -899,7 +898,7 @@ rabbit
 </div>
 </div>
 <p>In this case, we simply perform exactly the same (random) action several times, so the code in the body of our <code class="docutils literal notranslate"><span class="pre">for</span></code> statement does not actually refer to <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p>
-<section id="augmenting-arrays">
+<div class="section" id="augmenting-arrays">
 <h2><span class="section-number">9.2.1. </span>Augmenting Arrays<a class="headerlink" href="#augmenting-arrays" title="Permalink to this headline">¶</a></h2>
 <p>While the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement above does simulate the results of five bets, the results are simply printed and are not in a form that we can use for computation. Any array of results would be more useful. Thus a typical use of a <code class="docutils literal notranslate"><span class="pre">for</span></code> statement is to create an array of results, by augmenting the array each time.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">append</span></code> method in <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> helps us do this. The call <code class="docutils literal notranslate"><span class="pre">np.append(array_name,</span> <span class="pre">value)</span></code> evaluates to a new array that is <code class="docutils literal notranslate"><span class="pre">array_name</span></code> augmented by <code class="docutils literal notranslate"><span class="pre">value</span></code>. When you use <code class="docutils literal notranslate"><span class="pre">append</span></code>, keep in mind that all the entries of an array must have the same type.</p>
@@ -943,8 +942,8 @@ rabbit
 </div>
 </div>
 </div>
-</section>
-<section id="example-betting-on-5-rolls">
+</div>
+<div class="section" id="example-betting-on-5-rolls">
 <h2><span class="section-number">9.2.2. </span>Example: Betting on 5 Rolls<a class="headerlink" href="#example-betting-on-5-rolls" title="Permalink to this headline">¶</a></h2>
 <p>We can now simulate five bets on the die and collect the results in an array that we will call the <em>collection array</em>. We will start out by creating an empty array for this, and then append the outcome of each bet. Notice that the body of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop contains two statements. Both statements are executed for each item in the given sequence.</p>
 <div class="cell docutils container">
@@ -1014,8 +1013,8 @@ rabbit
 </div>
 </div>
 </div>
-</section>
-<section id="example-betting-on-300-rolls">
+</div>
+<div class="section" id="example-betting-on-300-rolls">
 <h2><span class="section-number">9.2.3. </span>Example: Betting on 300 Rolls<a class="headerlink" href="#example-betting-on-300-rolls" title="Permalink to this headline">¶</a></h2>
 <p>Iteration is a powerful technique. For example, we can see the variation in the results of 300 bets by running exactly the same code for 300 bets instead of five.</p>
 <div class="cell docutils container">
@@ -1055,8 +1054,8 @@ rabbit
 </div>
 </div>
 <p>Not surprisingly, each of the three outcomes -1, 0, and 1 appeared about about 100 of the 300 times, give or take. We will examine the “give or take” amounts more closely in later chapters.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

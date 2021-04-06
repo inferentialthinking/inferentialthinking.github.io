@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>17.6. Multiple Regression &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -829,12 +828,12 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<section id="multiple-regression">
+<div class="section" id="multiple-regression">
 <h1><span class="section-number">17.6. </span>Multiple Regression<a class="headerlink" href="#multiple-regression" title="Permalink to this headline">¶</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>Now that we have explored ways to use multiple attributes to predict a categorical variable, let us return to predicting a quantitative variable. Predicting a numerical quantity is called regression, and a commonly used method to use multiple attributes for regression is called <em>multiple linear regression</em>.</p>
-<section id="home-prices">
+<div class="section" id="home-prices">
 <h2><span class="section-number">17.6.1. </span>Home Prices<a class="headerlink" href="#home-prices" title="Permalink to this headline">¶</a></h2>
 <p>The following dataset of house prices and attributes was collected over several years for the city of Ames, Iowa. A <a class="reference external" href="http://ww2.amstat.org/publications/jse/v19n3/decock.pdf">description of the dataset appears online</a>. We will focus only a subset of the columns. We will try to predict the sale price column from the other columns.</p>
 <div class="cell docutils container">
@@ -902,7 +901,7 @@
 <img alt="../../../_images/Multiple_Regression_6_0.png" src="../../../_images/Multiple_Regression_6_0.png" />
 </div>
 </div>
-<section id="correlation">
+<div class="section" id="correlation">
 <h3><span class="section-number">17.6.1.1. </span>Correlation<a class="headerlink" href="#correlation" title="Permalink to this headline">¶</a></h3>
 <p>No single attribute is sufficient to predict the sale price. For example, the area of first floor, measured in square feet, correlates with sale price but only explains some of its variability.</p>
 <div class="cell docutils container">
@@ -965,9 +964,9 @@ Correlation of Yr Sold and SalePrice:	 0.02594857908072111
 </div>
 </div>
 <p>This high correlation indicates that we should try to use more than one attribute to predict the sale price. In a dataset with multiple observed attributes and a single numerical value to be predicted (the sale price in this case), multiple linear regression can be an effective technique.</p>
-</section>
-</section>
-<section id="multiple-linear-regression">
+</div>
+</div>
+<div class="section" id="multiple-linear-regression">
 <h2><span class="section-number">17.6.2. </span>Multiple Linear Regression<a class="headerlink" href="#multiple-linear-regression" title="Permalink to this headline">¶</a></h2>
 <p>In multiple linear regression, a numerical output is predicted from numerical input attributes by multiplying each attribute value by a different slope, then summing the results. In this example, the slope for the <code class="docutils literal notranslate"><span class="pre">1st</span> <span class="pre">Flr</span> <span class="pre">SF</span></code> would represent the dollars per square foot of area on the first floor of the house that should be used in our prediction.</p>
 <p>Before we begin prediction, we split our data randomly into a training and test set of equal size.</p>
@@ -1022,7 +1021,7 @@ Predicted sale price using random slopes: 169429.7032316262
 </div>
 </div>
 </div>
-<section id="least-squares-regression">
+<div class="section" id="least-squares-regression">
 <h3><span class="section-number">17.6.2.1. </span>Least Squares Regression<a class="headerlink" href="#least-squares-regression" title="Permalink to this headline">¶</a></h3>
 <p>The next step in performing multiple regression is to define the least squares objective. We perform the prediction for each row in the training set, and then compute the root mean squared error (RMSE) of the predictions from the actual prices.</p>
 <div class="cell docutils container">
@@ -1081,8 +1080,8 @@ Predicted sale price using random slopes: 169429.7032316262
 </div>
 </div>
 </div>
-</section>
-<section id="interpreting-multiple-regression">
+</div>
+<div class="section" id="interpreting-multiple-regression">
 <h3><span class="section-number">17.6.2.2. </span>Interpreting Multiple Regression<a class="headerlink" href="#interpreting-multiple-regression" title="Permalink to this headline">¶</a></h3>
 <p>Let’s interpret these results. The best slopes give us a method for estimating the price of a house from its attributes. A square foot of area on the first floor is worth about $75 (the first slope), while one on the second floor is worth about $70 (the second slope). The final negative value describes the market: prices in later years were lower on average.</p>
 <p>The RMSE of around $30,000 means that our best linear prediction of the sale price based on all of the attributes is off by around $30,000 on the training set, on average.  We find a similar error when predicting prices on the test set, which indicates that our prediction method will generalize to other samples from the same population.</p>
@@ -1133,9 +1132,9 @@ Predicted sale price using random slopes: 169429.7032316262
 </div>
 </div>
 <p>As with simple linear regression, interpreting the result of a predictor is at least as important as making predictions. There are many lessons about interpreting multiple regression that are not included in this textbook. A natural next step after completing this text would be to study linear modeling and regression in further depth.</p>
-</section>
-</section>
-<section id="nearest-neighbors-for-regression">
+</div>
+</div>
+<div class="section" id="nearest-neighbors-for-regression">
 <h2><span class="section-number">17.6.3. </span>Nearest Neighbors for Regression<a class="headerlink" href="#nearest-neighbors-for-regression" title="Permalink to this headline">¶</a></h2>
 <p>Another approach to predicting the sale price of a house is to use the price of similar houses. This <em>nearest neighbor</em> approach is very similar to our classifier. To speed up computation, we will only use the attributes that had the highest correlation with the sale price in our original analysis.</p>
 <div class="cell docutils container">
@@ -1253,7 +1252,7 @@ Predicted sale price using nearest neighbors: 143415.0
 </div>
 </div>
 </div>
-<section id="evaluation">
+<div class="section" id="evaluation">
 <h3><span class="section-number">17.6.3.1. </span>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h3>
 <p>To evaluate the performance of this approach for the whole test set, we apply <code class="docutils literal notranslate"><span class="pre">predict_nn</span></code> to each test example, then compute the root mean squared error of the predictions. Computation of the predictions may take several minutes.</p>
 <div class="cell docutils container">
@@ -1286,9 +1285,9 @@ Test set RMSE for nearest neighbor regression: 36067.116043510105
 <img alt="../../../_images/Multiple_Regression_42_0.png" src="../../../_images/Multiple_Regression_42_0.png" />
 </div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

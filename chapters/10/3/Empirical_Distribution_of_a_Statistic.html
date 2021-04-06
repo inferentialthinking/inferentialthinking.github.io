@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>10.3. Empirical Distribution of a Statistic &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -813,7 +812,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<section id="empirical-distribution-of-a-statistic">
+<div class="section" id="empirical-distribution-of-a-statistic">
 <h1><span class="section-number">10.3. </span>Empirical Distribution of a Statistic<a class="headerlink" href="#empirical-distribution-of-a-statistic" title="Permalink to this headline">¶</a></h1>
 <p>The Law of Averages implies that with high probability, the empirical distribution of a large random sample will resemble the distribution of the population from which the sample was drawn.</p>
 <p>The resemblance is visible in two histograms: the empirical histogram of a large random sample is likely to resemble the histogram of the population.</p>
@@ -850,7 +849,7 @@
 </div>
 </div>
 <p>The two histograms clearly resemble each other, though they are not identical.</p>
-<section id="parameter">
+<div class="section" id="parameter">
 <h2><span class="section-number">10.3.1. </span>Parameter<a class="headerlink" href="#parameter" title="Permalink to this headline">¶</a></h2>
 <p>Frequently, we are interested in numerical quantities associated with a population.</p>
 <ul class="simple">
@@ -898,8 +897,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="statistic">
+</div>
+<div class="section" id="statistic">
 <h2><span class="section-number">10.3.2. </span>Statistic<a class="headerlink" href="#statistic" title="Permalink to this headline">¶</a></h2>
 <p>In many situations, we will be interested in figuring out the value of an unknown parameter. For this, we will rely on data from a large random sample drawn from the population.</p>
 <p>A <em>statistic</em> (note the singular!) is any number computed using the data in a sample. The sample median, therefore, is a statistic.</p>
@@ -934,8 +933,8 @@ A fundamental consideration in using any statistic based on a random sample is t
 <p>Run the cell above a few times to see how the answer varies. Often it is equal to 2, the same value as the population parameter. But sometimes it is different.</p>
 <p><strong>Just how different could the statistic have been?</strong> One way to answer this is to simulate the statistic many times and note the values. A histogram of those values will tell us about the distribution of the statistic.</p>
 <p>Let’s recall the main steps in a simulation.</p>
-</section>
-<section id="simulating-a-statistic">
+</div>
+<div class="section" id="simulating-a-statistic">
 <h2><span class="section-number">10.3.3. </span>Simulating a Statistic<a class="headerlink" href="#simulating-a-statistic" title="Permalink to this headline">¶</a></h2>
 <p>We will simulate the sample median using the steps we set up in an earlier chapter when we started studying simulation. You can replace the sample size of 1000 by any other sample size, and the sample median by any other statistic.</p>
 <p><strong>Step 1: Decide which statistic to simulate.</strong> We have already decided that: we are going to simulate the median of a random sample of size 1000 drawn from the population of flight delays.</p>
@@ -962,8 +961,8 @@ A fundamental consideration in using any statistic based on a random sample is t
 </div>
 </div>
 <p>The simulation is done. All 5,000 simulated sample medians have been collected in the array <code class="docutils literal notranslate"><span class="pre">medians</span></code>. Now it’s time to visualize the results.</p>
-</section>
-<section id="visualization">
+</div>
+<div class="section" id="visualization">
 <h2><span class="section-number">10.3.4. </span>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
 <p>Here are the simulated random sample medians displayed in the table <code class="docutils literal notranslate"><span class="pre">simulated_medians</span></code>.</p>
 <div class="cell docutils container">
@@ -1028,16 +1027,16 @@ A fundamental consideration in using any statistic based on a random sample is t
 </div>
 <p>You can see that the sample median is very likely to be about 2, which was the value of the population median. Since samples of 1000 flight delays are likely to resemble the population of delays, it is not surprising that the median delays of those samples should be close to the median delay in the population.</p>
 <p>This is an example of how a statistic can provide a good estimate of a parameter.</p>
-</section>
-<section id="the-power-of-simulation">
+</div>
+<div class="section" id="the-power-of-simulation">
 <h2><span class="section-number">10.3.5. </span>The Power of Simulation<a class="headerlink" href="#the-power-of-simulation" title="Permalink to this headline">¶</a></h2>
 <p>If we could generate all possible random samples of size 1000, we would know all possible values of the statistic (the sample median), as well as the probabilities of all those values. We could visualize all the values and probabilities in the probability histogram of the statistic.</p>
 <p>But in many situations including this one, the number of all possible samples is large enough to exceed the capacity of the computer, and purely mathematical calculations of the probabilities can be intractably difficult.</p>
 <p>This is where empirical histograms come in.</p>
 <p>We know that by the Law of Averages, the empirical histogram of the statistic is likely to resemble the probability histogram of the statistic, if the sample size is large and if you repeat the random sampling process numerous times.</p>
 <p>This means that simulating random processes repeatedly is a way of approximating probability distributions <em>without figuring out the probabilities mathematically or generating all possible random samples</em>. Thus computer simulations become a powerful tool in data science. They can help data scientists understand the properties of random quantities that would be complicated to analyze in other ways.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

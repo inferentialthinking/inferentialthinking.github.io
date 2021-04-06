@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>6.4. Example: Trends in Gender &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -816,7 +815,7 @@
 </div>
 <div class="cell tag_remove-input docutils container">
 </div>
-<section id="example-trends-in-gender">
+<div class="section" id="example-trends-in-gender">
 <h1><span class="section-number">6.4. </span>Example: Trends in Gender<a class="headerlink" href="#example-trends-in-gender" title="Permalink to this headline">¶</a></h1>
 <p>We are now equipped with enough coding skills to examine features and trends in subgroups of the U.S. population. In this example, we will look at the distribution of males and females across age groups. We will continue using the <code class="docutils literal notranslate"><span class="pre">us_pop</span></code> table from the previous section.</p>
 <div class="cell docutils container">
@@ -869,7 +868,7 @@
 </div>
 <p>As we know from having examined this dataset earlier, a <a class="reference external" href="http://www2.census.gov/programs-surveys/popest/datasets/2010-2015/national/asrh/nc-est2015-agesex-res.pdf">description of the table</a> appears online. Here is a reminder of what the table contains.</p>
 <p>Each row represents an age group. The <code class="docutils literal notranslate"><span class="pre">SEX</span></code> column contains numeric codes: <code class="docutils literal notranslate"><span class="pre">0</span></code> stands for the total, <code class="docutils literal notranslate"><span class="pre">1</span></code> for male, and <code class="docutils literal notranslate"><span class="pre">2</span></code> for female. The <code class="docutils literal notranslate"><span class="pre">AGE</span></code> column contains ages in completed years, but the special value <code class="docutils literal notranslate"><span class="pre">999</span></code> represents the entire population regardless of age. The rest of the columns contain estimates of the US population.</p>
-<section id="understanding-age-100">
+<div class="section" id="understanding-age-100">
 <h2><span class="section-number">6.4.1. </span>Understanding <code class="docutils literal notranslate"><span class="pre">AGE</span></code> = 100<a class="headerlink" href="#understanding-age-100" title="Permalink to this headline">¶</a></h2>
 <p>As a preliminary, let’s interpret data in the final age category in the table, where <code class="docutils literal notranslate"><span class="pre">AGE</span></code> is 100. The code below extracts the rows for the combined group of men and women (<code class="docutils literal notranslate"><span class="pre">SEX</span></code> code 0) for the highest ages.</p>
 <div class="cell docutils container">
@@ -904,8 +903,8 @@
 <p>Not surprisingly, the numbers of people are smaller at higher ages – for example, there are fewer 99-year-olds than 98-year-olds.</p>
 <p>It does come as a surprise, though, that the numbers for <code class="docutils literal notranslate"><span class="pre">AGE</span></code> 100 are quite a bit larger than those for age 99. A closer examination of the documentation shows that it’s because the Census Bureau used 100 as the code for everyone aged 100 or more.</p>
 <p>The row with <code class="docutils literal notranslate"><span class="pre">AGE</span></code> 100 doesn’t just represent 100-year-olds – it also includes those who are older than 100. That is why the numbers in that row are larger than in the row for the 99-year-olds.</p>
-</section>
-<section id="overall-proportions-of-males-and-females">
+</div>
+<div class="section" id="overall-proportions-of-males-and-females">
 <h2><span class="section-number">6.4.2. </span>Overall Proportions of Males and Females<a class="headerlink" href="#overall-proportions-of-males-and-females" title="Permalink to this headline">¶</a></h2>
 <p>We will now begin looking at gender ratios in 2014. First, let’s look at all the age groups together. Remember that this means looking at the rows where the “age” is coded 999. The table <code class="docutils literal notranslate"><span class="pre">all_ages</span></code> contains this information. There are three rows: one for the total of both genders, one for males (<code class="docutils literal notranslate"><span class="pre">SEX</span></code> code 1), and one for females (<code class="docutils literal notranslate"><span class="pre">SEX</span></code> code 2).</p>
 <div class="cell docutils container">
@@ -969,8 +968,8 @@
     </tbody>
 </table></div></div>
 </div>
-</section>
-<section id="proportions-of-boys-and-girls-among-infants">
+</div>
+<div class="section" id="proportions-of-boys-and-girls-among-infants">
 <h2><span class="section-number">6.4.3. </span>Proportions of Boys and Girls among Infants<a class="headerlink" href="#proportions-of-boys-and-girls-among-infants" title="Permalink to this headline">¶</a></h2>
 <p>When we look at infants, however, the opposite is true. Let’s define infants to be babies who have not yet completed one year, represented in the row corresponding to <code class="docutils literal notranslate"><span class="pre">AGE</span></code> 0. Here are their numbers in the population. You can see that male infants outnumbered female infants.</p>
 <div class="cell docutils container">
@@ -1031,8 +1030,8 @@
 </table></div></div>
 </div>
 <p>In fact, it has long been observed that the proportion of boys among newborns is slightly more than 1/2. The reason for this is not thoroughly understood, and <a class="reference external" href="http://www.npr.org/sections/health-shots/2015/03/30/396384911/why-are-more-baby-boys-born-than-girls">scientists are still working on it</a>.</p>
-</section>
-<section id="female-male-gender-ratio-at-each-age">
+</div>
+<div class="section" id="female-male-gender-ratio-at-each-age">
 <h2><span class="section-number">6.4.4. </span>Female:Male Gender Ratio at Each Age<a class="headerlink" href="#female-male-gender-ratio-at-each-age" title="Permalink to this headline">¶</a></h2>
 <p>We have seen that while there are more baby boys than baby girls, there are more females than males overall. So it’s clear that the split between genders must vary across age groups.</p>
 <p>To study this variation, we will separate out the data for the females and the males, and eliminate the row where all the ages are aggregated and <code class="docutils literal notranslate"><span class="pre">AGE</span></code> is coded as 999.</p>
@@ -1389,8 +1388,8 @@
 <img alt="../../../_images/Example_Gender_Ratio_in_the_US_Population_34_0.png" src="../../../_images/Example_Gender_Ratio_in_the_US_Population_34_0.png" />
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

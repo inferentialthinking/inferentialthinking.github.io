@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>12.3. Causality &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -842,12 +841,12 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<section id="causality">
+<div class="section" id="causality">
 <h1><span class="section-number">12.3. </span>Causality<a class="headerlink" href="#causality" title="Permalink to this headline">¶</a></h1>
 <p>Our methods for comparing two samples have a powerful use in the analysis of randomized controlled experiments. Since the treatment and control groups are assigned randomly in such experiements, differences in their outcomes can be compared to what would happen just due to chance if the treatment had no effect at all. If the observed differences are more marked than what we would predict as purely due to chance, we will have evidence of <em>causation</em>. Because of the unbiased assignment of individuals to the treatment and control groups, differences in the outcomes of the two groups can be ascribed to the treatment.</p>
 <p>The key to the analysis of randomized controlled experiments is understanding exactly how chance enters the picture. This helps us set up clear null and alternative hypotheses. Once that’s done, we can simply use the methods of the previous sections to complete the analysis.</p>
 <p>Let’s see how to do this in an example.</p>
-<section id="treating-chronic-back-pain-a-randomized-controlled-trial">
+<div class="section" id="treating-chronic-back-pain-a-randomized-controlled-trial">
 <h2><span class="section-number">12.3.1. </span>Treating Chronic Back Pain: A Randomized Controlled Trial<a class="headerlink" href="#treating-chronic-back-pain-a-randomized-controlled-trial" title="Permalink to this headline">¶</a></h2>
 <p>Low-back pain in adults can be very persistent and hard to treat. Common methods run the gamut from corticosteroids to acupuncture. A <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/11376175">randomized controlled trial (RCT)</a> examined the effect of using Botulinum Toxin A as a treatment. Botulinum toxin is a neurotoxic protein that causes the disease botulism; <a class="reference external" href="https://en.wikipedia.org/wiki/Botulinum_toxin">Wikipedia</a> says that botulinum “is the most acutely lethal toxin known.” There are seven types of botulinum toxin. Botulinum Toxin A is one of the types that can cause disease in humans, but it is also used in medicine to treat various diseases involving the muscles. The RCT analyzed by Foster, Clapp, and Jabbari in 2001 examined it as a treatment for low back pain.</p>
 <p>Thirty one patients with low-back pain were randomized into treatment and control groups, with 15 in the treatment group and 16 in control. The control group was given normal saline, and the trials were run double-blind so that neither doctors nor patients knew which group they were in.</p>
@@ -991,8 +990,8 @@
 <p>So the indications are that botulinum toxin A did better than the saline. But the conclusion isn’t yet a slam-dunk. The patients were assigned at random into the two groups, so perhaps the difference could just be due to chance?</p>
 <p>To understand what this means, we have to consider the possibility that among the 31 patients in the study, some were simply better able to recover than others, even without any help from the treatment. What if an unusually large proportion of such patients got assigned to the treatment group, just by chance? Then even if the treatment did nothing more than the saline in the control group, the results of the treatment group might look better than those of the control group.</p>
 <p>To account for this possibility, let’s start by carefully setting up the chance model.</p>
-</section>
-<section id="potential-outcomes">
+</div>
+<div class="section" id="potential-outcomes">
 <h2><span class="section-number">12.3.2. </span>Potential Outcomes<a class="headerlink" href="#potential-outcomes" title="Permalink to this headline">¶</a></h2>
 <p>Before the patients are randomized into the two groups, our minds instinctively imagine two possible outcomes for each patient: the outcome that the patient would have if assigned to the treatment group, and the outcome that the same patient would have if assigned to the control group. These are called the two <em>potential outcomes</em> of the patient.</p>
 <p>Thus there are 31 potential treatment outcomes and 31 potential control outcomes. The question is about the distributions of these two sets of 31 outcomes each. Are they the same, or are they different?</p>
@@ -1113,8 +1112,8 @@
     </tbody>
 </table></div></div>
 </div>
-</section>
-<section id="the-hypotheses">
+</div>
+<div class="section" id="the-hypotheses">
 <h2><span class="section-number">12.3.3. </span>The Hypotheses<a class="headerlink" href="#the-hypotheses" title="Permalink to this headline">¶</a></h2>
 <p>The question is whether the treatment does anything. In terms of the table <code class="docutils literal notranslate"><span class="pre">observed_outcomes</span></code>, the question is whether the distribution of the 31 “treatment” values in Column 1  (including the unknown ones) is different from the distribution of the 31 “control” values in Column 2 (again including the unknown ones).</p>
 <p><strong>Null Hypothesis:</strong> The distribution of all 31 potential “treatment” outcomes is the same as that of all 31 potential “control” outcomes. Botulinum toxin A does nothing different from saline; the difference in the two samples is just due to chance.</p>
@@ -1122,8 +1121,8 @@
 <p>There are 31 observed outcomes jointly in the two groups. If the null hypothesis were true, it wouldn’t matter which of those 31 outcomes were labeled “treatment” and which “control.” Any random subset of 16 out of the 31 values could be called “control” and the remaining 15 “treatment”.</p>
 <p>We can simulate this. We can randomly permute the 31 values, split them into two groups of 16 and 15, and see how different the distributions in the two groups are. Since the data are zeros and ones, we can just see how different the two proportions are.</p>
 <p>That’s exactly what we did for A/B testing in the previous section. Sample A is now the control group and Sample B the treatment group. We will carry out the test below showing the details of all the steps. You should confirm that they are the same as the steps carried out for A/B testing.</p>
-</section>
-<section id="the-test-statistic">
+</div>
+<div class="section" id="the-test-statistic">
 <h2><span class="section-number">12.3.4. </span>The Test Statistic<a class="headerlink" href="#the-test-statistic" title="Permalink to this headline">¶</a></h2>
 <p>If the two group proportions are very different from each other, we will lean towards the alternative hypothesis that the two underlying distributions are different. So our test statistic will be the distance between the two group proportions, that is, the absolute value of the difference between them.</p>
 <p>Large values of the test statistic will favor the alternative hypothesis over the null.</p>
@@ -1194,11 +1193,11 @@
 </div>
 </div>
 </div>
-</section>
-<section id="predicting-the-statistic-under-the-null-hypothesis">
+</div>
+<div class="section" id="predicting-the-statistic-under-the-null-hypothesis">
 <h2><span class="section-number">12.3.5. </span>Predicting the Statistic Under the Null Hypothesis<a class="headerlink" href="#predicting-the-statistic-under-the-null-hypothesis" title="Permalink to this headline">¶</a></h2>
 <p>We can simulate results under the null hypothesis, to see how our test statistic should come out if the null hypothesis is true.</p>
-<section id="generating-one-value-of-the-statistic">
+<div class="section" id="generating-one-value-of-the-statistic">
 <h3><span class="section-number">12.3.5.1. </span>Generating One Value of the Statistic<a class="headerlink" href="#generating-one-value-of-the-statistic" title="Permalink to this headline">¶</a></h3>
 <p>The simulation follows exactly the same process we used in the previous section. We start by randomly permuting the all group labels and then attaching the shuffled labels to the 0/1 results.</p>
 <div class="cell docutils container">
@@ -1345,8 +1344,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="permutation-test">
+</div>
+<div class="section" id="permutation-test">
 <h3><span class="section-number">12.3.5.2. </span>Permutation Test<a class="headerlink" href="#permutation-test" title="Permalink to this headline">¶</a></h3>
 <p>If we shuffled the labels again, how different would the new distance be? To answer this, we will define a function that simulates one simulated value of the distance under the hypothesis of random draws from the same underlying distribution. And then we will collect 20,000 such simulated values in an array.</p>
 <p>You can see that we are doing exactly what we did in our previous examples of the permutation test.</p>
@@ -1374,9 +1373,9 @@
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="conclusion-of-the-test">
+</div>
+</div>
+<div class="section" id="conclusion-of-the-test">
 <h2><span class="section-number">12.3.6. </span>Conclusion of the Test<a class="headerlink" href="#conclusion-of-the-test" title="Permalink to this headline">¶</a></h2>
 <p>The array <code class="docutils literal notranslate"><span class="pre">distances</span></code> contains 20,000 values of our test statistic simulated under the null hypothesis.</p>
 <p>To find the P-value of the test, remember that large values of the test statistic favor the alternative hypothesis. So the empirical P-value is the proportion of simulated statistics that were equal to or larger than the observed statistic.</p>
@@ -1414,21 +1413,21 @@ Empirical P-value: 0.9199999999999999 %
 </div>
 </div>
 <p>The study reports a P-value of 0.009, or 0.9%, which is not far from our empirical value.</p>
-</section>
-<section id="id1">
+</div>
+<div class="section" id="id1">
 <h2><span class="section-number">12.3.7. </span>Causality<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Because the trials were randomized, the test is evidence that the treatment <em>causes</em> the difference. The random assignment of patients to the two groups ensures that there is no confounding variable that could affect the conclusion of causality.</p>
 <p>If the treatment had not been randomly assigned, our test would still point toward an <em>association</em> between the treatment and back pain outcomes among our 31 patients.  But beware: without randomization, this association would not imply that the treatment caused a change in back pain outcomes.  For example, if the patients themselves had chosen whether to administer the treatment, perhaps the patients experiencing more pain would be more likely to choose the treatment <em>and</em> more likely to experience some reduction in pain even without medication.  Pre-existing pain would then be a <em>confounding factor</em> in the analysis.</p>
-</section>
-<section id="a-meta-analysis">
+</div>
+<div class="section" id="a-meta-analysis">
 <h2><span class="section-number">12.3.8. </span>A Meta-Analysis<a class="headerlink" href="#a-meta-analysis" title="Permalink to this headline">¶</a></h2>
 <p>While the RCT does provide evidence that the botulinum toxin A treatment helped patients, a study of 31 patients isn’t enough to establish the effectiveness of a medical treatment. This is not just because of the small sample size.  Our results in this section are valid for the 31 patients in the study, but we are really interested in the population of <em>all possible patients</em>.  If the 31 patients were a random sample from that larger population, our confidence interval would be valid for that population.  But they were not a random sample.</p>
 <p>In 2011, a group of researchers performed a <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/21249702">meta-analysis</a> of the studies on the treatment. That is, they identified all the available studies of such treatments for low-back pain and summarized the collated results.</p>
 <p>There were several studies but not many could be included in a scientifically sound manner: “We excluded evidence from nineteen studies due to non-randomisation, incomplete or unpublished data.” Only three randomized controlled trials remained, one of which is the one we have studied in this section. The meta-analysis gave it the highest assessment among all the studies (LBP stands for low-back pain): “We identified three studies that investigated the merits of BoNT for LBP, but only one had a low risk of bias and evaluated patients with non-specific LBP (N = 31).”</p>
 <p>Putting it all together, the meta-analysis concluded, “There is low quality evidence that BoNT injections improved pain, function, or both better than saline injections and very low quality evidence that they were better than acupuncture or steroid injections. …  Further research is very likely to have an important impact on the estimate of effect and our confidence in it. Future trials should standardize patient populations, treatment protocols and comparison groups, enlist more participants and include long-term outcomes, cost-benefit analysis and clinical relevance of findings.”</p>
 <p>It takes a lot of careful work to establish that a medical treatment has a beneficial effect. Knowing how to analyze randomized controlled trials is a crucial part of this work. Now that you know how to do that, you are well positioned to help medical and other professions establish cause-and-effect relations.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

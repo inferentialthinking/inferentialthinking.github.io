@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>5.3. More on Arrays &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -808,7 +807,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<section id="more-on-arrays">
+<div class="section" id="more-on-arrays">
 <h1><span class="section-number">5.3. </span>More on Arrays<a class="headerlink" href="#more-on-arrays" title="Permalink to this headline">¶</a></h1>
 <p>It’s often necessary to compute something that involves data from more than one array. If two arrays are of the same size, Python makes it easy to do calculations involving both arrays.</p>
 <p>For our first example, we return once more to the temperature data.  This time, we create arrays of average daily <a class="reference external" href="http://berkeleyearth.lbl.gov/auto/Regional/TMAX/Text/global-land-TMAX-Trend.txt">high</a> and <a class="reference external" href="http://berkeleyearth.lbl.gov/auto/Regional/TMIN/Text/global-land-TMIN-Trend.txt">low</a> temperatures for the decades surrounding 1850, 1900, 1950, and 2000.</p>
@@ -878,12 +877,12 @@
 </div>
 <p><img alt="array subtraction" src="../../../_images/array_subtraction.png" /></p>
 <p>What we’ve seen in these examples are special cases of a general feature of arrays.</p>
-<section id="elementwise-arithmetic-on-pairs-of-numerical-arrays">
+<div class="section" id="elementwise-arithmetic-on-pairs-of-numerical-arrays">
 <h2><span class="section-number">5.3.1. </span>Elementwise arithmetic on pairs of numerical arrays<a class="headerlink" href="#elementwise-arithmetic-on-pairs-of-numerical-arrays" title="Permalink to this headline">¶</a></h2>
 <p>If an arithmetic operator acts on two arrays of the same size, then the operation is performed on each corresponding pair of elements in the two arrays. The final result is an array.</p>
 <p>For example, if <code class="docutils literal notranslate"><span class="pre">array1</span></code> and <code class="docutils literal notranslate"><span class="pre">array2</span></code> have the same number of elements, then the value of <code class="docutils literal notranslate"><span class="pre">array1</span> <span class="pre">*</span> <span class="pre">array2</span></code> is an array. Its first element is the first element of <code class="docutils literal notranslate"><span class="pre">array1</span></code> times the first element of <code class="docutils literal notranslate"><span class="pre">array2</span></code>, its second element is the second element of <code class="docutils literal notranslate"><span class="pre">array1</span></code> times the second element of <code class="docutils literal notranslate"><span class="pre">array2</span></code>, and so on.</p>
-</section>
-<section id="example-wallis-formula-for-pi">
+</div>
+<div class="section" id="example-wallis-formula-for-pi">
 <h2><span class="section-number">5.3.2. </span>Example: Wallis’ Formula for <span class="math notranslate nohighlight">\(\pi\)</span><a class="headerlink" href="#example-wallis-formula-for-pi" title="Permalink to this headline">¶</a></h2>
 <p>The number <span class="math notranslate nohighlight">\(\pi\)</span> is important in many different areas of math. Centuries before computers were invented, mathematicians worked on finding simple ways to approximate the numerical value of <span class="math notranslate nohighlight">\(\pi\)</span>. We have already seen Leibniz’s formula for <span class="math notranslate nohighlight">\(\pi\)</span>. About half a century before Leibniz, the English mathematician <a class="reference external" href="https://en.wikipedia.org/wiki/John_Wallis">John Wallis</a> (1616-1703) also expressed <span class="math notranslate nohighlight">\(\pi\)</span> in terms of simple fractions, as an infinite product.</p>
 <div class="math notranslate nohighlight">
@@ -919,12 +918,12 @@
 </div>
 <p>That’s <span class="math notranslate nohighlight">\(\pi\)</span> correct to five decimal places.  Wallis clearly came up with a great formula.</p>
 <p><a id='footnotes'></a></p>
-</section>
-<section id="footnotes">
+</div>
+<div class="section" id="footnotes">
 <h2><span class="section-number">5.3.3. </span>Footnotes<a class="headerlink" href="#footnotes" title="Permalink to this headline">¶</a></h2>
 <p>[1] As we saw in the example about Leibniz’s formula, when we add  <em>infinitely</em> many fractions, the order can matter. The same is true with multiplying fractions, as we are doing here. But our approximation to <span class="math notranslate nohighlight">\(\pi\)</span> uses only a large finite number of fractions, so it’s okay to multiply the terms in any convenient order.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

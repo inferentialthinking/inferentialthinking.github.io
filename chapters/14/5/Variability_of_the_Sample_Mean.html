@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>14.5. The Variability of the Sample Mean &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -810,7 +809,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<section id="the-variability-of-the-sample-mean">
+<div class="section" id="the-variability-of-the-sample-mean">
 <h1><span class="section-number">14.5. </span>The Variability of the Sample Mean<a class="headerlink" href="#the-variability-of-the-sample-mean" title="Permalink to this headline">¶</a></h1>
 <p>By the Central Limit Theorem, the probability distribution of the mean of a large random sample is roughly normal. The bell curve is centered at the population mean. Some of the sample means are higher, and some lower, but the deviations from the population mean are roughly symmetric on either side, as we have seen repeatedly. Formally, probability theory shows that the sample mean is an <em>unbiased</em> estimate of the population mean.</p>
 <p>In our simulations, we also noticed that the means of larger samples tend to be more tightly clustered around the population mean than means of smaller samples. In this section, we will quantify the variability of the sample mean and develop a relation between the variability and the sample size.</p>
@@ -931,7 +930,7 @@ SD of sample means: 1.5883338034053167
 </div>
 <p>You can see the Central Limit Theorem in action – the histograms of the sample means are roughly normal, even though the histogram of the delays themselves is far from normal.</p>
 <p>You can also see that each of the three histograms of the sample means is centered very close to the population mean. In each case, the “average of sample means” is very close to 16.66 minutes, the population mean. Both values are provided in the printout above each histogram. As expected, the sample mean is an unbiased estimate of the population mean.</p>
-<section id="the-sd-of-all-the-sample-means">
+<div class="section" id="the-sd-of-all-the-sample-means">
 <h2><span class="section-number">14.5.1. </span>The SD of All the Sample Means<a class="headerlink" href="#the-sd-of-all-the-sample-means" title="Permalink to this headline">¶</a></h2>
 <p>You can also see that the histograms get narrower, and hence taller, as the sample size increases. We have seen that before, but now we will pay closer attention to the measure of spread.</p>
 <p>The SD of the population of all delays is about 40 minutes.</p>
@@ -1043,12 +1042,12 @@ SD of sample means: 1.5883338034053167
 \frac{\mbox{Population SD}}{\sqrt{\mbox{sample size}}}
 \]</div>
 <p>This is the standard deviation of the averages of all the possible samples that could be drawn. <strong>It measures roughly how far off the sample means are from the population mean.</strong></p>
-</section>
-<section id="the-central-limit-theorem-for-the-sample-mean">
+</div>
+<div class="section" id="the-central-limit-theorem-for-the-sample-mean">
 <h2><span class="section-number">14.5.2. </span>The Central Limit Theorem for the Sample Mean<a class="headerlink" href="#the-central-limit-theorem-for-the-sample-mean" title="Permalink to this headline">¶</a></h2>
 <p>If you draw a large random sample with replacement from a population, then, regardless of the distribution of the population, the probability distribution of the sample mean is roughly normal, centered at the population mean, with an SD equal to the population SD divided by the square root of the sample size.</p>
-</section>
-<section id="the-accuracy-of-the-sample-mean">
+</div>
+<div class="section" id="the-accuracy-of-the-sample-mean">
 <h2><span class="section-number">14.5.3. </span>The Accuracy of the Sample Mean<a class="headerlink" href="#the-accuracy-of-the-sample-mean" title="Permalink to this headline">¶</a></h2>
 <p>The SD of all possible sample means measures how variable the sample mean can be. As such, it is taken as a measure of the accuracy of the sample mean as an estimate of the population mean. The smaller the SD, the more accurate the estimate.</p>
 <p>The formula shows that:</p>
@@ -1056,14 +1055,14 @@ SD of sample means: 1.5883338034053167
 <li><p>The population size doesn’t affect the accuracy of the sample mean. The population size doesn’t appear anywhere in the formula.</p></li>
 <li><p>The population SD is a constant; it’s the same for every sample drawn from the population. The sample size can be varied. Because the sample size appears in the denominator, the variability of the sample mean <em>decreases</em> as the sample size increases, and hence the accuracy increases.</p></li>
 </ul>
-</section>
-<section id="the-square-root-law">
+</div>
+<div class="section" id="the-square-root-law">
 <h2><span class="section-number">14.5.4. </span>The Square Root Law<a class="headerlink" href="#the-square-root-law" title="Permalink to this headline">¶</a></h2>
 <p>From the table of SD comparisons, you can see that the SD of the means of random samples of 25 flight delays is about 8 minutes. If you multiply the sample size by 4, you’ll get samples of size 100. The SD of the means of all of those samples is about 4 minutes. That’s smaller than 8 minutes, but it’s not 4 times as small; it’s only 2 times as small. That’s because the sample size in the denominator has a square root over it. The sample size increased by a factor of 4, but the SD went down by a factor of <span class="math notranslate nohighlight">\(2 = \sqrt{4}\)</span>. In other words, the accuracy went up by a factor of <span class="math notranslate nohighlight">\(2 = \sqrt{4}\)</span>.</p>
 <p>In general, when you multiply the sample size by a factor, the accuracy of the sample mean goes up by the square root of that factor.</p>
 <p>So to increase accuracy by a factor of 10, you have to multiply sample size by a factor of 100. Accuracy doesn’t come cheap!</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

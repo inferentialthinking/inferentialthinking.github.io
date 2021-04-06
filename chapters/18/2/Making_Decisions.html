@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>18.2. Making Decisions &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -802,7 +801,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<section id="making-decisions">
+<div class="section" id="making-decisions">
 <h1><span class="section-number">18.2. </span>Making Decisions<a class="headerlink" href="#making-decisions" title="Permalink to this headline">¶</a></h1>
 <p>A primary use of Bayes’ Rule is to make decisions based on incomplete information, incorporating new information as it comes in. This section points out the importance of keeping your assumptions in mind as you make decisions.</p>
 <div class="cell tag_remove-input docutils container">
@@ -814,7 +813,7 @@
 <li><p>A <strong>false negative</strong> is an error in which the test concludes Negative but the patient does have the disease.</p></li>
 </ul>
 <p>These errors can affect people’s decisions. False positives can cause anxiety and unnecessary treatment (which in some cases is expensive or dangerous). False negatives can have even more serious consequences if the patient doesn’t receive treatment because of their Negative test result.</p>
-<section id="a-test-for-a-rare-disease">
+<div class="section" id="a-test-for-a-rare-disease">
 <h2><span class="section-number">18.2.1. </span>A Test for a Rare Disease<a class="headerlink" href="#a-test-for-a-rare-disease" title="Permalink to this headline">¶</a></h2>
 <p>Suppose there is a large population and a disease that strikes a tiny proportion of the population. The tree diagram below summarizes information about such a disease and about a medical test for it.</p>
 <p><img alt="Tree Rare Disease" src="../../../_images/tree_disease_rare.png" /></p>
@@ -885,8 +884,8 @@
 </ul>
 <p>These two proportions are comparable; the second is a little larger.</p>
 <p>So, given that the randomly chosen person tested positive, we were right to classify them as more likely than not to <strong>not</strong> have the disease.</p>
-</section>
-<section id="a-subjective-prior">
+</div>
+<div class="section" id="a-subjective-prior">
 <h2><span class="section-number">18.2.2. </span>A Subjective Prior<a class="headerlink" href="#a-subjective-prior" title="Permalink to this headline">¶</a></h2>
 <p>Being right isn’t always satisfying. Classifying a Positive patient as not having the disease still seems somehow wrong, for such an accurate test. Since the calculations are right, let’s take a look at the basis of our probability calculation: the assumption of randomness.</p>
 <p>Our assumption was that a randomly chosen person was tested and got a Positive result. But this doesn’t happen in reality. People go in to get tested because they think they might have the disease, or because their doctor thinks they might have the disease. <strong>People getting tested are not randomly chosen members of the population.</strong></p>
@@ -911,8 +910,8 @@
 </div>
 <p>The effect of changing the prior is stunning. Even though the doctor has a pretty low prior probability (5%) that the patient has the disease, once the patient tests Positive the posterior probability of having the disease shoots up to more than 91%.</p>
 <p>If the patient tests Positive, it would be reasonable for the doctor to proceed as though the patient has the disease.</p>
-</section>
-<section id="confirming-the-answer">
+</div>
+<div class="section" id="confirming-the-answer">
 <h2><span class="section-number">18.2.3. </span>Confirming the Answer<a class="headerlink" href="#confirming-the-answer" title="Permalink to this headline">¶</a></h2>
 <p>Though the doctor’s opinion is subjective, we can generate an artificial population in which 5% of the people have the disease and are tested using the same test. Then we can count people in different categories to see if the counts are consistent with the answer we got by using Bayes’ Rule.</p>
 <p>We can use <code class="docutils literal notranslate"><span class="pre">population(0.05)</span></code> and <code class="docutils literal notranslate"><span class="pre">pivot</span></code> to construct the corresponding population and look at the counts in the four cells.</p>
@@ -979,8 +978,8 @@
 </div>
 <p>Run the two cells a few times and you will see that the proportion of true Positives among the Positives hovers around the value of 0.912 that we calculated by Bayes’ Rule.</p>
 <p>You can also use the <code class="docutils literal notranslate"><span class="pre">population</span></code> function with a different argument to change the prior disease probability and see how the posterior probabilities are affected.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

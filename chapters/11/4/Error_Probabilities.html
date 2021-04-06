@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>11.4. Error Probabilities &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -815,10 +814,10 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<section id="error-probabilities">
+<div class="section" id="error-probabilities">
 <h1><span class="section-number">11.4. </span>Error Probabilities<a class="headerlink" href="#error-probabilities" title="Permalink to this headline">¶</a></h1>
 <p>In the process by which we decide which of two hypotheses is better supported by our data, the final step involves a judgment about the consistency of the data and the null hypothesis. While this step results in a good decision a vast majority of the time, it can sometimes lead us astray. The reason is chance variation. For example, even when the null hypothesis is true, chance variation might cause the sample to look quite different from what the null hypothesis predicts.</p>
-<section id="wrong-conclusions">
+<div class="section" id="wrong-conclusions">
 <h2><span class="section-number">11.4.1. </span>Wrong Conclusions<a class="headerlink" href="#wrong-conclusions" title="Permalink to this headline">¶</a></h2>
 <p>If you are testing a null hypothesis against the alternative that the null hypothesis isn’t true, then there are four ways of classifying reality and the result of the test.</p>
 <table class="colwidths-auto table">
@@ -841,8 +840,8 @@
 </table>
 <p>In two out of the four cells of this table, the test result is wrong. One type of error occurs if the test favors the alternative hypothesis when in fact the null hypothesis is true. The other type of error occurs if the test favors the null hypothesis when in fact the alternative hypothesis is true.</p>
 <p>Since the null hypothesis is a completely specified chance model, we can estimate the chance of the first type of error. The answer turns out to be essentially the cutoff that we use for the P-value. Let’s see how.</p>
-</section>
-<section id="the-chance-of-an-error">
+</div>
+<div class="section" id="the-chance-of-an-error">
 <h2><span class="section-number">11.4.2. </span>The Chance of an Error<a class="headerlink" href="#the-chance-of-an-error" title="Permalink to this headline">¶</a></h2>
 <p>Suppose you want to test whether a coin is fair or not. Then the hypotheses are:</p>
 <p><strong>Null:</strong> The coin is fair. That is, the results are like draws made at random with replacement from <em>Heads, Tails</em>.</p>
@@ -862,8 +861,8 @@
 <p>The area to the right of 45 (where the gold line is) is about 5%. Large values of the test statistic favor the alternative. So if the test statistic comes out to be 45 or more, the test will conclude that the coin is unfair.</p>
 <p>However, as the figure shows, a fair coin can produce test statistics with values 45 or more. In fact it does so with chance about 5%.</p>
 <p>So <em>if the coin is fair</em> and our test uses a 5% cutoff for deciding whether it is fair or not, then there is about a 5% chance that the test will wrongly conclude that the coin is unfair.</p>
-</section>
-<section id="the-cutoff-for-the-p-value-is-an-error-probability">
+</div>
+<div class="section" id="the-cutoff-for-the-p-value-is-an-error-probability">
 <h2><span class="section-number">11.4.3. </span>The Cutoff for the P-value is an Error Probability<a class="headerlink" href="#the-cutoff-for-the-p-value-is-an-error-probability" title="Permalink to this headline">¶</a></h2>
 <p>The example above is a special case of a general fact:</p>
 <p><strong>If you use a <span class="math notranslate nohighlight">\(p\)</span>% cutoff for the P-value, and the null hypothesis happens to be true, then there is about a <span class="math notranslate nohighlight">\(p\)</span>% chance that your test will conclude that the alternative is true.</strong></p>
@@ -872,8 +871,8 @@
 <p><strong>Alternative Hypothesis.</strong> The treatment has an effect.</p>
 <p>The idea is to control the chance of concluding the treatment does something if in fact it does nothing. This reduces the risk of giving patients a useless treatment.</p>
 <p>Still, even if you set the cutoff to be as low as 1%, and the treatment does nothing, there is about a 1% chance of concluding that the treatment does something. This is due to chance variation. There is a small chance that data from random samples end up leading you astray.</p>
-</section>
-<section id="data-snooping-and-p-hacking">
+</div>
+<div class="section" id="data-snooping-and-p-hacking">
 <h2><span class="section-number">11.4.4. </span>Data Snooping and P-Hacking<a class="headerlink" href="#data-snooping-and-p-hacking" title="Permalink to this headline">¶</a></h2>
 <p>The discussion above implies that if each of 100 different research groups runs a separate randomized controlled experiment about the effect of a treatment that in fact has no effect, and each experiment uses a 1% cutoff for the P-value, then by chance variation, one of the experiments is expected to wrongly conclude that the treatment does have an effect.</p>
 <p>Unfortunately, that could be the one that gets published. This is why it is important that experiments be <em>replicated</em>. That is, other researchers ought to be able to carry out the experiment and see if they get similar results.</p>
@@ -881,12 +880,12 @@
 <p>Now suppose the drug has no effect on anything. Just by chance variation, a small percent of the tests might conclude that it does have an effect. So, when you read a study that uses tests of hypotheses and concludes that a treatment has an effect, always ask how many different effects were tested before the researchers found the one that was reported.</p>
 <p>If the researchers ran multiple different tests before finding one that gave a “highly statistically significant” result, use the result with caution. The study could be marred by <em>data snooping</em>, which essentially means torturing the data into making a false confession. This is sometimes also called <em>p-hacking</em>.</p>
 <p>In such a situation, one way to validate the reported result is by replicating the experiment and testing for that particular effect alone. If it comes out significant again, that will validate the original conclusion.</p>
-</section>
-<section id="technical-note-the-other-kind-of-error">
+</div>
+<div class="section" id="technical-note-the-other-kind-of-error">
 <h2><span class="section-number">11.4.5. </span>Technical Note: The Other Kind of Error<a class="headerlink" href="#technical-note-the-other-kind-of-error" title="Permalink to this headline">¶</a></h2>
 <p>There is, of course, another kind of error: concluding that the treatment does nothing when in fact it does something. Discussions of that error are outside the scope of this course. Just be aware that life isn’t easy: if you set up your test to reduce one of the two errors, you almost always increase the other one.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

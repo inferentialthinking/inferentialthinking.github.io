@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>18.1. A “More Likely Than Not” Binary Classifier &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -805,7 +804,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<section id="a-more-likely-than-not-binary-classifier">
+<div class="section" id="a-more-likely-than-not-binary-classifier">
 <h1><span class="section-number">18.1. </span>A “More Likely Than Not” Binary Classifier<a class="headerlink" href="#a-more-likely-than-not-binary-classifier" title="Permalink to this headline">¶</a></h1>
 <p>Let’s try to use data to classify a point into one of two categories, choosing the category that we think is more likely than not. To do this, we not only need the data but also a clear description of how chances are involved.</p>
 <p>We will start out in a simple artifical setting just to develop the main technique, and then move to a more intriguing example.</p>
@@ -821,7 +820,7 @@
 <p>We have a pretty simple classifier! But now suppose I give you some additional information about the student who was picked:</p>
 <p><strong>The student has declared a major.</strong></p>
 <p>Would this knowledge change your classification?</p>
-<section id="updating-the-prediction-based-on-new-information">
+<div class="section" id="updating-the-prediction-based-on-new-information">
 <h2><span class="section-number">18.1.1. </span>Updating the Prediction Based on New Information<a class="headerlink" href="#updating-the-prediction-based-on-new-information" title="Permalink to this headline">¶</a></h2>
 <p>Now that we know the student has declared a major, it becomes important to look at the relation between year and major declaration. It’s still true that more students are Second Years than Third Years. But it’s also true that among the Third Years, a much higher percent have declared their major than among the Second Years. Our classifier has to take both of these observations into account.</p>
 <p>To visualize this, we will use a table <code class="docutils literal notranslate"><span class="pre">students</span></code> that consists of one row for each of 100 students whose years and majors have the same proportions as given in the data.</p>
@@ -897,8 +896,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="tree-diagram">
+</div>
+<div class="section" id="tree-diagram">
 <h2><span class="section-number">18.1.2. </span>Tree Diagram<a class="headerlink" href="#tree-diagram" title="Permalink to this headline">¶</a></h2>
 <p>The proportion that we have just calculated was based on a class of 100 students. But there’s no reason the class couldn’t have had 200 students, for example, as long as all the proportions in the cells were correct. Then our calculation would just have been 64/(60 + 64) which is 0.516 as before.</p>
 <p>So the calculation depends only on the proportions in the different categories, not on the counts. The proportions can be visualized in a <em>tree diagram</em>, shown directly below the pivot table for ease of comparison.</p>
@@ -942,8 +941,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="bayes-rule">
+</div>
+<div class="section" id="bayes-rule">
 <h2><span class="section-number">18.1.3. </span>Bayes’ Rule<a class="headerlink" href="#bayes-rule" title="Permalink to this headline">¶</a></h2>
 <p>The method that we have just used is due to the Reverend <a class="reference external" href="https://en.wikipedia.org/wiki/Thomas_Bayes">Thomas Bayes</a> (1701-1761). His method solved what was called an “inverse probability” problem: given new data, how can you update chances you had found earlier? Though Bayes lived three centuries ago, his method is <a class="reference external" href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">widely used now</a> in machine learning.</p>
 <p>We will state the rule in the context of our population of students. First, some terminology:</p>
@@ -992,8 +991,8 @@ P(\mbox{Second Year} ~\big{\vert}~ \mbox{Declared})
 \mbox{posterior} ~ \propto ~ \mbox{prior} \times \mbox{likelihood}
 \]</div>
 <p>Formulas are great for efficiently describing calculations. But in settings like our example about students, it is simpler not to think in terms of formulas. Just use the tree diagram.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

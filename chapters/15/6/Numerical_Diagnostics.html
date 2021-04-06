@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>15.6. Numerical Diagnostics &#8212; Computational and Inferential Thinking</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -813,7 +812,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<section id="numerical-diagnostics">
+<div class="section" id="numerical-diagnostics">
 <h1><span class="section-number">15.6. </span>Numerical Diagnostics<a class="headerlink" href="#numerical-diagnostics" title="Permalink to this headline">¶</a></h1>
 <p>In addition to visualization, we can use numerical properties of residuals to assess the quality of regression. We will not prove these properties mathematically. Rather, we will observe them by computation and see what they tell us about the regression.</p>
 <p>All of the facts listed below hold for all shapes of scatter plots, whether or not they are linear.</p>
@@ -823,7 +822,7 @@
 </div>
 <div class="cell tag_remove-input docutils container">
 </div>
-<section id="residual-plots-show-no-trend">
+<div class="section" id="residual-plots-show-no-trend">
 <h2><span class="section-number">15.6.1. </span>Residual Plots Show No Trend<a class="headerlink" href="#residual-plots-show-no-trend" title="Permalink to this headline">¶</a></h2>
 <p><strong>For every linear regression, whether good or bad, the residual plot shows no trend. Overall, it is flat. In other words, the residuals and the predictor variable are uncorrelated.</strong></p>
 <p>You can see this in all the residual plots above. We can also calculate the correlation between the predictor variable and the residuals in each case.</p>
@@ -868,13 +867,13 @@
 </div>
 </div>
 </div>
-</section>
-<section id="average-of-residuals">
+</div>
+<div class="section" id="average-of-residuals">
 <h2><span class="section-number">15.6.2. </span>Average of Residuals<a class="headerlink" href="#average-of-residuals" title="Permalink to this headline">¶</a></h2>
 <p><strong>No matter what the shape of the scatter diagram, the average of the residuals is 0.</strong></p>
 <p>This is analogous to the fact that if you take any list of numbers and calculate the list of deviations from average, the average of the deviations is 0.</p>
 <p>In all the residual plots above, you have seen the horizontal line at 0 going through the center of the plot. That is a visualization of this fact.</p>
-<p>As a numerical example, here is the average of the residuals in the regression of children’s heights based on parents’ heights in Galton’s dataset.</p>
+<p>As a numerical example, here is the average of the residuals in the regression of children’s heights based on midparent heights.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">heights</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Residual&#39;</span><span class="p">)),</span> <span class="mi">10</span><span class="p">)</span>
@@ -900,8 +899,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="sd-of-the-residuals">
+</div>
+<div class="section" id="sd-of-the-residuals">
 <h2><span class="section-number">15.6.3. </span>SD of the Residuals<a class="headerlink" href="#sd-of-the-residuals" title="Permalink to this headline">¶</a></h2>
 <p><strong>No matter what the shape of the scatter plot, the SD of the residuals is a fraction of the SD of the response variable. The fraction is  <span class="math notranslate nohighlight">\(\sqrt{1-r^2}\)</span>.</strong></p>
 <div class="math notranslate nohighlight">
@@ -970,8 +969,8 @@
 <p>The extreme cases are when <span class="math notranslate nohighlight">\(r=1\)</span> or <span class="math notranslate nohighlight">\(r=-1\)</span>. In both cases, <span class="math notranslate nohighlight">\(\sqrt{1-r^2} = 0\)</span>. Therefore the residuals have an average of 0 and an SD of 0 as well, and therefore the residuals are all equal to 0. The regression line does a perfect job of estimation. As we saw earlier in this chapter, if <span class="math notranslate nohighlight">\(r = \pm 1\)</span>, the scatter plot is a perfect straight line and is the same as the regression line, so indeed there is no error in the regression estimate.</p>
 <p>But usually <span class="math notranslate nohighlight">\(r\)</span> is not at the extremes. If <span class="math notranslate nohighlight">\(r\)</span> is neither <span class="math notranslate nohighlight">\(\pm 1\)</span> nor 0, then <span class="math notranslate nohighlight">\(\sqrt{1-r^2}\)</span> is a proper fraction, and the rough overall size of the error of the regression estimate is somewhere between 0 and the SD of <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <p>The worst case is when <span class="math notranslate nohighlight">\(r = 0\)</span>. Then <span class="math notranslate nohighlight">\(\sqrt{1-r^2} =1\)</span>, and the SD of the residuals is equal to the SD of <span class="math notranslate nohighlight">\(y\)</span>. This is consistent with the observation that if <span class="math notranslate nohighlight">\(r=0\)</span> then the regression line is a flat line at the average of <span class="math notranslate nohighlight">\(y\)</span>. In this situation, the root mean square error of regression is the root mean squared deviation from the average of <span class="math notranslate nohighlight">\(y\)</span>, which is the SD of <span class="math notranslate nohighlight">\(y\)</span>. In practical terms, if <span class="math notranslate nohighlight">\(r = 0\)</span> then there is no linear association between the two variables, so there is no benefit in using linear regression.</p>
-</section>
-<section id="another-way-to-interpret-r">
+</div>
+<div class="section" id="another-way-to-interpret-r">
 <h2><span class="section-number">15.6.4. </span>Another Way to Interpret <span class="math notranslate nohighlight">\(r\)</span><a class="headerlink" href="#another-way-to-interpret-r" title="Permalink to this headline">¶</a></h2>
 <p>We can rewrite the result above to say that no matter what the shape of the scatter plot,</p>
 <div class="math notranslate nohighlight">
@@ -1058,8 +1057,8 @@
 \[
 \frac{\mbox{variance of fitted values}}{\mbox{variance of }y} ~=~ r^2
 \]</div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
