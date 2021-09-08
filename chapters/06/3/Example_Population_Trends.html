@@ -50,11 +50,11 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://inferentialthinking.org/chapters/06/3/Example_Trends_in_the_Population_of_the_United_States.html" />
+    <link rel="canonical" href="https://inferentialthinking.org/chapters/06/3/Example_Population_Trends.html" />
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="6.4. Example: Trends in Gender" href="../4/Example_Gender_Ratio_in_the_US_Population.html" />
+    <link rel="next" title="6.4. Example: Sex Ratios" href="../4/Example_Sex_Ratios.html" />
     <link rel="prev" title="6.2. Selecting Rows" href="../2/Selecting_Rows.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -320,8 +320,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../4/Example_Gender_Ratio_in_the_US_Population.html">
-     6.4. Example: Trends in Gender
+    <a class="reference internal" href="../4/Example_Sex_Ratios.html">
+     6.4. Example: Sex Ratios
     </a>
    </li>
   </ul>
@@ -761,7 +761,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/chapters/06/3/Example_Trends_in_the_Population_of_the_United_States.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/chapters/06/3/Example_Population_Trends.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -799,14 +799,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/06/3/Example_Trends_in_the_Population_of_the_United_States.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/06/3/Example_Population_Trends.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/data-8/textbook&urlpath=tree/textbook/chapters/06/3/Example_Trends_in_the_Population_of_the_United_States.ipynb&branch=main"><button type="button"
+        <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/data-8/textbook&urlpath=tree/textbook/chapters/06/3/Example_Population_Trends.ipynb&branch=main"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../../_static/images/logo_jupyterhub.svg"
@@ -822,6 +822,24 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ages-97-100">
+   6.3.1. Ages 97-100
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#percent-change">
+   6.3.2. Percent Change
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -837,11 +855,11 @@
 <p>We are now ready to work with large tables of data. The file below contains “Annual Estimates of the Resident Population by Single Year of Age and Sex for the United States.” Notice that <code class="docutils literal notranslate"><span class="pre">read_table</span></code> can read data directly from a URL.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># As of Jan 2017, this census file is online here: </span>
-<span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;http://www2.census.gov/programs-surveys/popest/datasets/2010-2015/national/asrh/nc-est2015-agesex-res.csv&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># As of August 2021, this census file is online here: </span>
+<span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;http://www2.census.gov/programs-surveys/popest/technical-documentation/file-layouts/2010-2019/nc-est2019-agesex-res.csv&#39;</span>
 
 <span class="c1"># A local copy can be accessed here in case census.gov moves the file:</span>
-<span class="c1"># data = path_data + &#39;nc-est2015-agesex-res.csv&#39;</span>
+<span class="c1"># data = path_data + &#39;nc-est2019-agesex-res.csv&#39;</span>
 
 <span class="n">full_census_table</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">full_census_table</span>
@@ -852,50 +870,55 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>SEX</th> <th>AGE</th> <th>CENSUS2010POP</th> <th>ESTIMATESBASE2010</th> <th>POPESTIMATE2010</th> <th>POPESTIMATE2011</th> <th>POPESTIMATE2012</th> <th>POPESTIMATE2013</th> <th>POPESTIMATE2014</th> <th>POPESTIMATE2015</th>
+            <th>SEX</th> <th>AGE</th> <th>CENSUS2010POP</th> <th>ESTIMATESBASE2010</th> <th>POPESTIMATE2010</th> <th>POPESTIMATE2011</th> <th>POPESTIMATE2012</th> <th>POPESTIMATE2013</th> <th>POPESTIMATE2014</th> <th>POPESTIMATE2015</th> <th>POPESTIMATE2016</th> <th>POPESTIMATE2017</th> <th>POPESTIMATE2018</th> <th>POPESTIMATE2019</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>0   </td> <td>0   </td> <td>3944153      </td> <td>3944160          </td> <td>3951330        </td> <td>3963087        </td> <td>3926540        </td> <td>3931141        </td> <td>3949775        </td> <td>3978038        </td>
+            <td>0   </td> <td>0   </td> <td>3944153      </td> <td>3944160          </td> <td>3951430        </td> <td>3963092        </td> <td>3926570        </td> <td>3931258        </td> <td>3954787        </td> <td>3983981        </td> <td>3954773        </td> <td>3893990        </td> <td>3815343        </td> <td>3783052        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>1   </td> <td>3978070      </td> <td>3978090          </td> <td>3957888        </td> <td>3966551        </td> <td>3977939        </td> <td>3942872        </td> <td>3949776        </td> <td>3968564        </td>
+            <td>0   </td> <td>1   </td> <td>3978070      </td> <td>3978090          </td> <td>3957730        </td> <td>3966225        </td> <td>3977549        </td> <td>3942698        </td> <td>3948891        </td> <td>3973133        </td> <td>4002903        </td> <td>3972711        </td> <td>3908830        </td> <td>3829599        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>2   </td> <td>4096929      </td> <td>4096939          </td> <td>4090862        </td> <td>3971565        </td> <td>3980095        </td> <td>3992720        </td> <td>3959664        </td> <td>3966583        </td>
+            <td>0   </td> <td>2   </td> <td>4096929      </td> <td>4096939          </td> <td>4090621        </td> <td>3970654        </td> <td>3978925        </td> <td>3991740        </td> <td>3958711        </td> <td>3966321        </td> <td>3991349        </td> <td>4020045        </td> <td>3987032        </td> <td>3922044        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>3   </td> <td>4119040      </td> <td>4119051          </td> <td>4111920        </td> <td>4102470        </td> <td>3983157        </td> <td>3992734        </td> <td>4007079        </td> <td>3974061        </td>
+            <td>0   </td> <td>3   </td> <td>4119040      </td> <td>4119051          </td> <td>4111688        </td> <td>4101644        </td> <td>3981531        </td> <td>3991017        </td> <td>4005928        </td> <td>3974351        </td> <td>3982984        </td> <td>4006946        </td> <td>4033038        </td> <td>3998665        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>4   </td> <td>4063170      </td> <td>4063186          </td> <td>4077551        </td> <td>4122294        </td> <td>4112849        </td> <td>3994449        </td> <td>4005716        </td> <td>4020035        </td>
+            <td>0   </td> <td>4   </td> <td>4063170      </td> <td>4063186          </td> <td>4077346        </td> <td>4121488        </td> <td>4111490        </td> <td>3992502        </td> <td>4004032        </td> <td>4020292        </td> <td>3989750        </td> <td>3997280        </td> <td>4018719        </td> <td>4043323        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>5   </td> <td>4056858      </td> <td>4056872          </td> <td>4064653        </td> <td>4087709        </td> <td>4132242        </td> <td>4123626        </td> <td>4006900        </td> <td>4018158        </td>
+            <td>0   </td> <td>5   </td> <td>4056858      </td> <td>4056872          </td> <td>4064521        </td> <td>4087054        </td> <td>4131049        </td> <td>4121876        </td> <td>4004576        </td> <td>4017589        </td> <td>4035033        </td> <td>4003452        </td> <td>4008443        </td> <td>4028281        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>6   </td> <td>4066381      </td> <td>4066412          </td> <td>4073013        </td> <td>4074993        </td> <td>4097605        </td> <td>4142916        </td> <td>4135930        </td> <td>4019207        </td>
+            <td>0   </td> <td>6   </td> <td>4066381      </td> <td>4066412          </td> <td>4072904        </td> <td>4074531        </td> <td>4096631        </td> <td>4141126        </td> <td>4133372        </td> <td>4017388        </td> <td>4031568        </td> <td>4048018        </td> <td>4014057        </td> <td>4017227        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>7   </td> <td>4030579      </td> <td>4030594          </td> <td>4043046        </td> <td>4083225        </td> <td>4084913        </td> <td>4108349        </td> <td>4155326        </td> <td>4148360        </td>
+            <td>0   </td> <td>7   </td> <td>4030579      </td> <td>4030594          </td> <td>4042990        </td> <td>4082821        </td> <td>4084175        </td> <td>4106756        </td> <td>4152666        </td> <td>4145872        </td> <td>4030888        </td> <td>4044139        </td> <td>4058370        </td> <td>4022319        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>8   </td> <td>4046486      </td> <td>4046497          </td> <td>4025604        </td> <td>4053203        </td> <td>4093177        </td> <td>4095711        </td> <td>4120903        </td> <td>4167887        </td>
+            <td>0   </td> <td>8   </td> <td>4046486      </td> <td>4046497          </td> <td>4025501        </td> <td>4052773        </td> <td>4092559        </td> <td>4094513        </td> <td>4118349        </td> <td>4165033        </td> <td>4158848        </td> <td>4042924        </td> <td>4054236        </td> <td>4066194        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>9   </td> <td>4148353      </td> <td>4148369          </td> <td>4125415        </td> <td>4035710        </td> <td>4063152        </td> <td>4104072        </td> <td>4108349        </td> <td>4133564        </td>
+            <td>0   </td> <td>9   </td> <td>4148353      </td> <td>4148369          </td> <td>4125312        </td> <td>4035319        </td> <td>4062726        </td> <td>4103052        </td> <td>4106068        </td> <td>4130887        </td> <td>4177895        </td> <td>4170813        </td> <td>4053179        </td> <td>4061874        </td>
         </tr>
     </tbody>
 </table>
 <p>... (296 rows omitted)</p></div></div>
 </div>
 <p>Only the first 10 rows of the table are displayed. Later we will see how to display the entire table; however, this is typically not useful with large tables.</p>
-<p>a <a class="reference external" href="http://www2.census.gov/programs-surveys/popest/datasets/2010-2015/national/asrh/nc-est2015-agesex-res.pdf">description of the table</a> appears online. The <code class="docutils literal notranslate"><span class="pre">SEX</span></code> column contains numeric codes: <code class="docutils literal notranslate"><span class="pre">0</span></code> stands for the total, <code class="docutils literal notranslate"><span class="pre">1</span></code> for male, and <code class="docutils literal notranslate"><span class="pre">2</span></code> for female. The <code class="docutils literal notranslate"><span class="pre">AGE</span></code> column contains ages in completed years, but the special value <code class="docutils literal notranslate"><span class="pre">999</span></code> is a sum of the total population. The rest of the columns contain estimates of the US population.</p>
-<p>Typically, a public table will contain more information than necessary for a particular investigation or analysis. In this case, let us suppose that we are only interested in the population changes from 2010 to 2014. Let us <code class="docutils literal notranslate"><span class="pre">select</span></code> the relevant columns.</p>
+<p>A <a class="reference external" href="https://www2.census.gov/programs-surveys/popest/technical-documentation/file-layouts/2010-2019/nc-est2019-agesex-res.pdf">description of the table</a> appears online.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">SEX</span></code> column contains numeric codes: <code class="docutils literal notranslate"><span class="pre">0</span></code> stands for the total, <code class="docutils literal notranslate"><span class="pre">1</span></code> for male, and <code class="docutils literal notranslate"><span class="pre">2</span></code> for female. The assumptions underlying this binary categorization are questionable. We will discuss them in the next section.</p>
+<p>In this section we will focus on age and population size.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">AGE</span></code> column contains ages in completed years, but the special value <code class="docutils literal notranslate"><span class="pre">999</span></code> is a sum of the total population. The “age” <code class="docutils literal notranslate"><span class="pre">100</span></code> too has a special status. In that category, the Census Bureau includes all people aged 100 or more.</p>
+<p>The other columns contain estimates of the US population in each category of sex and age in the years 2010 through 2019. The Census is decennial: it takes place every 10 years. The most recent Census was held in 2020 and the one before that in 2010. The Census Bureau also estimates population changes each year. As explained in the Bureau’s description of its <a class="reference external" href="https://www2.census.gov/programs-surveys/popest/technical-documentation/methodology/2010-2020/methods-statement-v2020-final.pdf">methodology</a>, it “adds [the estimated changes] to the last decennial census to produce updated population estimates every year.”</p>
+<p>Typically, a publicly available table will contain more information than necessary for a particular investigation or analysis. To get the large table into a more usable form, we have to do some <em>data cleaning</em>.</p>
+<p>Suppose we are only interested in the population changes from 2014 to 2019. Let’s <code class="docutils literal notranslate"><span class="pre">select</span></code> the relevant columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">partial_census_table</span> <span class="o">=</span> <span class="n">full_census_table</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;SEX&#39;</span><span class="p">,</span> <span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="s1">&#39;POPESTIMATE2010&#39;</span><span class="p">,</span> <span class="s1">&#39;POPESTIMATE2014&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">partial_census_table</span> <span class="o">=</span> <span class="n">full_census_table</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;SEX&#39;</span><span class="p">,</span> <span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="s1">&#39;POPESTIMATE2014&#39;</span><span class="p">,</span> <span class="s1">&#39;POPESTIMATE2019&#39;</span><span class="p">)</span>
 <span class="n">partial_census_table</span>
 </pre></div>
 </div>
@@ -904,48 +927,48 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>SEX</th> <th>AGE</th> <th>POPESTIMATE2010</th> <th>POPESTIMATE2014</th>
+            <th>SEX</th> <th>AGE</th> <th>POPESTIMATE2014</th> <th>POPESTIMATE2019</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>0   </td> <td>0   </td> <td>3951330        </td> <td>3949775        </td>
+            <td>0   </td> <td>0   </td> <td>3954787        </td> <td>3783052        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>1   </td> <td>3957888        </td> <td>3949776        </td>
+            <td>0   </td> <td>1   </td> <td>3948891        </td> <td>3829599        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>2   </td> <td>4090862        </td> <td>3959664        </td>
+            <td>0   </td> <td>2   </td> <td>3958711        </td> <td>3922044        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>3   </td> <td>4111920        </td> <td>4007079        </td>
+            <td>0   </td> <td>3   </td> <td>4005928        </td> <td>3998665        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>4   </td> <td>4077551        </td> <td>4005716        </td>
+            <td>0   </td> <td>4   </td> <td>4004032        </td> <td>4043323        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>5   </td> <td>4064653        </td> <td>4006900        </td>
+            <td>0   </td> <td>5   </td> <td>4004576        </td> <td>4028281        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>6   </td> <td>4073013        </td> <td>4135930        </td>
+            <td>0   </td> <td>6   </td> <td>4133372        </td> <td>4017227        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>7   </td> <td>4043046        </td> <td>4155326        </td>
+            <td>0   </td> <td>7   </td> <td>4152666        </td> <td>4022319        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>8   </td> <td>4025604        </td> <td>4120903        </td>
+            <td>0   </td> <td>8   </td> <td>4118349        </td> <td>4066194        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>9   </td> <td>4125415        </td> <td>4108349        </td>
+            <td>0   </td> <td>9   </td> <td>4106068        </td> <td>4061874        </td>
         </tr>
     </tbody>
 </table>
 <p>... (296 rows omitted)</p></div></div>
 </div>
-<p>We can also simplify the labels of the selected columns.</p>
+<p>We can simplify the labels of the selected columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">us_pop</span> <span class="o">=</span> <span class="n">partial_census_table</span><span class="o">.</span><span class="n">relabeled</span><span class="p">(</span><span class="s1">&#39;POPESTIMATE2010&#39;</span><span class="p">,</span> <span class="s1">&#39;2010&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">relabeled</span><span class="p">(</span><span class="s1">&#39;POPESTIMATE2014&#39;</span><span class="p">,</span> <span class="s1">&#39;2014&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">us_pop</span> <span class="o">=</span> <span class="n">partial_census_table</span><span class="o">.</span><span class="n">relabeled</span><span class="p">(</span><span class="s1">&#39;POPESTIMATE2014&#39;</span><span class="p">,</span> <span class="s1">&#39;2014&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">relabeled</span><span class="p">(</span><span class="s1">&#39;POPESTIMATE2019&#39;</span><span class="p">,</span> <span class="s1">&#39;2019&#39;</span><span class="p">)</span>
 <span class="n">us_pop</span>
 </pre></div>
 </div>
@@ -954,66 +977,153 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>SEX</th> <th>AGE</th> <th>2010</th> <th>2014</th>
+            <th>SEX</th> <th>AGE</th> <th>2014</th> <th>2019</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>0   </td> <td>0   </td> <td>3951330</td> <td>3949775</td>
+            <td>0   </td> <td>0   </td> <td>3954787</td> <td>3783052</td>
         </tr>
         <tr>
-            <td>0   </td> <td>1   </td> <td>3957888</td> <td>3949776</td>
+            <td>0   </td> <td>1   </td> <td>3948891</td> <td>3829599</td>
         </tr>
         <tr>
-            <td>0   </td> <td>2   </td> <td>4090862</td> <td>3959664</td>
+            <td>0   </td> <td>2   </td> <td>3958711</td> <td>3922044</td>
         </tr>
         <tr>
-            <td>0   </td> <td>3   </td> <td>4111920</td> <td>4007079</td>
+            <td>0   </td> <td>3   </td> <td>4005928</td> <td>3998665</td>
         </tr>
         <tr>
-            <td>0   </td> <td>4   </td> <td>4077551</td> <td>4005716</td>
+            <td>0   </td> <td>4   </td> <td>4004032</td> <td>4043323</td>
         </tr>
         <tr>
-            <td>0   </td> <td>5   </td> <td>4064653</td> <td>4006900</td>
+            <td>0   </td> <td>5   </td> <td>4004576</td> <td>4028281</td>
         </tr>
         <tr>
-            <td>0   </td> <td>6   </td> <td>4073013</td> <td>4135930</td>
+            <td>0   </td> <td>6   </td> <td>4133372</td> <td>4017227</td>
         </tr>
         <tr>
-            <td>0   </td> <td>7   </td> <td>4043046</td> <td>4155326</td>
+            <td>0   </td> <td>7   </td> <td>4152666</td> <td>4022319</td>
         </tr>
         <tr>
-            <td>0   </td> <td>8   </td> <td>4025604</td> <td>4120903</td>
+            <td>0   </td> <td>8   </td> <td>4118349</td> <td>4066194</td>
         </tr>
         <tr>
-            <td>0   </td> <td>9   </td> <td>4125415</td> <td>4108349</td>
+            <td>0   </td> <td>9   </td> <td>4106068</td> <td>4061874</td>
         </tr>
     </tbody>
 </table>
 <p>... (296 rows omitted)</p></div></div>
 </div>
-<p>We now have a table that is easy to work with. Each column of the table is an array of the same length, and so columns can be combined using arithmetic. Here is the change in population between 2010 and 2014.</p>
+<div class="section" id="ages-97-100">
+<h2><span class="section-number">6.3.1. </span>Ages 97-100<a class="headerlink" href="#ages-97-100" title="Permalink to this headline">¶</a></h2>
+<p>As a warm-up, let’s examine the total population, labeled by <code class="docutils literal notranslate"><span class="pre">SEX</span></code> code 0. Since all these rows will have the same value 0 in the <code class="docutils literal notranslate"><span class="pre">SEX</span></code> column, we will drop that column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">us_pop</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2014&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">us_pop</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2010&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">us_pop_by_age</span> <span class="o">=</span> <span class="n">us_pop</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;SEX&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">equal_to</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;SEX&#39;</span><span class="p">)</span>
+<span class="n">us_pop_by_age</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  -1555,   -8112, -131198, ...,    6443,   12950, 4693244])
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>AGE</th> <th>2014</th> <th>2019</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0   </td> <td>3954787</td> <td>3783052</td>
+        </tr>
+        <tr>
+            <td>1   </td> <td>3948891</td> <td>3829599</td>
+        </tr>
+        <tr>
+            <td>2   </td> <td>3958711</td> <td>3922044</td>
+        </tr>
+        <tr>
+            <td>3   </td> <td>4005928</td> <td>3998665</td>
+        </tr>
+        <tr>
+            <td>4   </td> <td>4004032</td> <td>4043323</td>
+        </tr>
+        <tr>
+            <td>5   </td> <td>4004576</td> <td>4028281</td>
+        </tr>
+        <tr>
+            <td>6   </td> <td>4133372</td> <td>4017227</td>
+        </tr>
+        <tr>
+            <td>7   </td> <td>4152666</td> <td>4022319</td>
+        </tr>
+        <tr>
+            <td>8   </td> <td>4118349</td> <td>4066194</td>
+        </tr>
+        <tr>
+            <td>9   </td> <td>4106068</td> <td>4061874</td>
+        </tr>
+    </tbody>
+</table>
+<p>... (92 rows omitted)</p></div></div>
+</div>
+<p>Now let’s look at the population in the highest ages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">us_pop_by_age</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">97</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>AGE</th> <th>2014</th> <th>2019</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>97  </td> <td>82948</td> <td>116969</td>
+        </tr>
+        <tr>
+            <td>98  </td> <td>59546</td> <td>86150 </td>
+        </tr>
+        <tr>
+            <td>99  </td> <td>41277</td> <td>57124 </td>
+        </tr>
+        <tr>
+            <td>100 </td> <td>70685</td> <td>100322</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Not surprisingly, the numbers of people are smaller at higher ages. For example, there are fewer 99-year-olds than 98-year-olds.</p>
+<p>But the numbers for <code class="docutils literal notranslate"><span class="pre">AGE</span></code> 100 are quite a bit larger than those for age 99. That is because the row with <code class="docutils literal notranslate"><span class="pre">AGE</span></code> 100 doesn’t just represent 100-year-olds. It also includes those who are older than 100.</p>
+</div>
+<div class="section" id="percent-change">
+<h2><span class="section-number">6.3.2. </span>Percent Change<a class="headerlink" href="#percent-change" title="Permalink to this headline">¶</a></h2>
+<p>Each column of the table <code class="docutils literal notranslate"><span class="pre">us_pop_by_age</span></code> is an array of the same length, and so columns can be combined using arithmetic. The array below contains the change in population between 2014 and 2019. There is one entry corresponding to each row of <code class="docutils literal notranslate"><span class="pre">us_pop_by_age</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">change</span> <span class="o">=</span> <span class="n">us_pop_by_age</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2019&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">us_pop_by_age</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2014&#39;</span><span class="p">)</span>
+<span class="n">change</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-171735, -119292,  -36667, ...,   15847,   29637, 9938515])
 </pre></div>
 </div>
 </div>
 </div>
-<p>Let us augment <code class="docutils literal notranslate"><span class="pre">us_pop</span></code> with a column that contains these changes, both in absolute terms and as percents relative to the value in 2010.</p>
+<p>We can augment <code class="docutils literal notranslate"><span class="pre">us_pop_by_age</span></code> with a column that contains these changes, both in absolute terms and as percents relative to the value in 2014.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">change</span> <span class="o">=</span> <span class="n">us_pop</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2014&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">us_pop</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2010&#39;</span><span class="p">)</span>
-<span class="n">census</span> <span class="o">=</span> <span class="n">us_pop</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">us_pop_change</span> <span class="o">=</span> <span class="n">us_pop_by_age</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
     <span class="s1">&#39;Change&#39;</span><span class="p">,</span> <span class="n">change</span><span class="p">,</span>
-    <span class="s1">&#39;Percent Change&#39;</span><span class="p">,</span> <span class="n">change</span><span class="o">/</span><span class="n">us_pop</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2010&#39;</span><span class="p">)</span>
+    <span class="s1">&#39;Percent Change&#39;</span><span class="p">,</span> <span class="n">change</span><span class="o">/</span><span class="n">us_pop_by_age</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2014&#39;</span><span class="p">)</span>
 <span class="p">)</span>
-<span class="n">census</span><span class="o">.</span><span class="n">set_format</span><span class="p">(</span><span class="s1">&#39;Percent Change&#39;</span><span class="p">,</span> <span class="n">PercentFormatter</span><span class="p">)</span>
+<span class="n">us_pop_change</span><span class="o">.</span><span class="n">set_format</span><span class="p">(</span><span class="s1">&#39;Percent Change&#39;</span><span class="p">,</span> <span class="n">PercentFormatter</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1021,48 +1131,48 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>SEX</th> <th>AGE</th> <th>2010</th> <th>2014</th> <th>Change</th> <th>Percent Change</th>
+            <th>AGE</th> <th>2014</th> <th>2019</th> <th>Change</th> <th>Percent Change</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>0   </td> <td>0   </td> <td>3951330</td> <td>3949775</td> <td>-1555  </td> <td>-0.04%        </td>
+            <td>0   </td> <td>3954787</td> <td>3783052</td> <td>-171735</td> <td>-4.34%        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>1   </td> <td>3957888</td> <td>3949776</td> <td>-8112  </td> <td>-0.20%        </td>
+            <td>1   </td> <td>3948891</td> <td>3829599</td> <td>-119292</td> <td>-3.02%        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>2   </td> <td>4090862</td> <td>3959664</td> <td>-131198</td> <td>-3.21%        </td>
+            <td>2   </td> <td>3958711</td> <td>3922044</td> <td>-36667 </td> <td>-0.93%        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>3   </td> <td>4111920</td> <td>4007079</td> <td>-104841</td> <td>-2.55%        </td>
+            <td>3   </td> <td>4005928</td> <td>3998665</td> <td>-7263  </td> <td>-0.18%        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>4   </td> <td>4077551</td> <td>4005716</td> <td>-71835 </td> <td>-1.76%        </td>
+            <td>4   </td> <td>4004032</td> <td>4043323</td> <td>39291  </td> <td>0.98%         </td>
         </tr>
         <tr>
-            <td>0   </td> <td>5   </td> <td>4064653</td> <td>4006900</td> <td>-57753 </td> <td>-1.42%        </td>
+            <td>5   </td> <td>4004576</td> <td>4028281</td> <td>23705  </td> <td>0.59%         </td>
         </tr>
         <tr>
-            <td>0   </td> <td>6   </td> <td>4073013</td> <td>4135930</td> <td>62917  </td> <td>1.54%         </td>
+            <td>6   </td> <td>4133372</td> <td>4017227</td> <td>-116145</td> <td>-2.81%        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>7   </td> <td>4043046</td> <td>4155326</td> <td>112280 </td> <td>2.78%         </td>
+            <td>7   </td> <td>4152666</td> <td>4022319</td> <td>-130347</td> <td>-3.14%        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>8   </td> <td>4025604</td> <td>4120903</td> <td>95299  </td> <td>2.37%         </td>
+            <td>8   </td> <td>4118349</td> <td>4066194</td> <td>-52155 </td> <td>-1.27%        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>9   </td> <td>4125415</td> <td>4108349</td> <td>-17066 </td> <td>-0.41%        </td>
+            <td>9   </td> <td>4106068</td> <td>4061874</td> <td>-44194 </td> <td>-1.08%        </td>
         </tr>
     </tbody>
 </table>
-<p>... (296 rows omitted)</p></div></div>
+<p>... (92 rows omitted)</p></div></div>
 </div>
-<p><strong>Sorting the data.</strong> Let us sort the table in decreasing order of the absolute change in population.</p>
+<p>Almost all the entries displayed in the <code class="docutils literal notranslate"><span class="pre">Percent</span> <span class="pre">Change</span></code> column are negative, demonstrating a drop in population at the youngest ages. However, the overall population grew by about 9.9 million people, a percent change of just over 3%.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">census</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;Change&#39;</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">us_pop_change</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">equal_to</span><span class="p">(</span><span class="mi">999</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1070,53 +1180,75 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>SEX</th> <th>AGE</th> <th>2010</th> <th>2014</th> <th>Change</th> <th>Percent Change</th>
+            <th>AGE</th> <th>2014</th> <th>2019</th> <th>Change</th> <th>Percent Change</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>0   </td> <td>999 </td> <td>309346863</td> <td>318907401</td> <td>9560538</td> <td>3.09%         </td>
+            <td>999 </td> <td>318301008</td> <td>328239523</td> <td>9938515</td> <td>3.12%         </td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Let us compare this to the change at each age. For ease of interpretation, we will sort the table in decreasing order of the absolute change in population, contained in the column <code class="docutils literal notranslate"><span class="pre">Change</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">us_pop_change</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+    <span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">below</span><span class="p">(</span><span class="mi">999</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;Change&#39;</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>AGE</th> <th>2014</th> <th>2019</th> <th>Change</th> <th>Percent Change</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>72  </td> <td>2191642</td> <td>3191048</td> <td>999406</td> <td>45.60%        </td>
         </tr>
         <tr>
-            <td>1   </td> <td>999 </td> <td>152088043</td> <td>156955337</td> <td>4867294</td> <td>3.20%         </td>
+            <td>68  </td> <td>2567511</td> <td>3345475</td> <td>777964</td> <td>30.30%        </td>
         </tr>
         <tr>
-            <td>2   </td> <td>999 </td> <td>157258820</td> <td>161952064</td> <td>4693244</td> <td>2.98%         </td>
+            <td>69  </td> <td>2530460</td> <td>3252423</td> <td>721963</td> <td>28.53%        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>67  </td> <td>2693707  </td> <td>3485241  </td> <td>791534 </td> <td>29.38%        </td>
+            <td>70  </td> <td>2461426</td> <td>3136704</td> <td>675278</td> <td>27.43%        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>64  </td> <td>2706055  </td> <td>3487559  </td> <td>781504 </td> <td>28.88%        </td>
+            <td>71  </td> <td>2516392</td> <td>3083083</td> <td>566691</td> <td>22.52%        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>66  </td> <td>2621335  </td> <td>3347060  </td> <td>725725 </td> <td>27.69%        </td>
+            <td>76  </td> <td>1692960</td> <td>2222392</td> <td>529432</td> <td>31.27%        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>65  </td> <td>2678525  </td> <td>3382824  </td> <td>704299 </td> <td>26.29%        </td>
+            <td>62  </td> <td>3677408</td> <td>4156645</td> <td>479237</td> <td>13.03%        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>71  </td> <td>1953607  </td> <td>2519705  </td> <td>566098 </td> <td>28.98%        </td>
+            <td>28  </td> <td>4345247</td> <td>4818725</td> <td>473478</td> <td>10.90%        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>34  </td> <td>3822189  </td> <td>4364748  </td> <td>542559 </td> <td>14.19%        </td>
+            <td>64  </td> <td>3481789</td> <td>3950578</td> <td>468789</td> <td>13.46%        </td>
         </tr>
         <tr>
-            <td>0   </td> <td>23  </td> <td>4217228  </td> <td>4702156  </td> <td>484928 </td> <td>11.50%        </td>
+            <td>38  </td> <td>3848856</td> <td>4305576</td> <td>456720</td> <td>11.87%        </td>
         </tr>
     </tbody>
 </table>
-<p>... (296 rows omitted)</p></div></div>
+<p>... (91 rows omitted)</p></div></div>
 </div>
-<p>Not surprisingly, the top row of the sorted table is the line that corresponds to the entire population: both sexes and all age groups. From 2010 to 2014, the population of the United States increased by about 9.5 million people, a change of just over 3%.</p>
-<p>The next two rows correspond to all the men and all the women respectively. The male population grew more than the female population, both in absolute and percentage terms. Both percent changes were around 3%.</p>
-<p>Now take a look at the next few rows. The percent change jumps from about 3% for the overall population to almost 30% for the people in their late sixties and early seventies. This stunning change contributes to what is known as the greying of America.</p>
-<p>By far the greatest absolute change was among those in the 64-67 agegroup in 2014. What could explain this large increase? We can explore this question by examining the years in which the relevant groups were born.</p>
+<p>Take a look at the top few rows. While the percent change is about 3% for the overall population, it jumps to well over 20% for the people in their late sixties and early seventies. This stunning change contributes to what is known as the greying of America.</p>
+<p>What could explain this large increase? We can explore this question by examining the years in which the relevant groups were born.</p>
 <ul class="simple">
-<li><p>Those who were in the 64-67 age group in 2010 were born in the years 1943 to 1946. The attack on Pearl Harbor was in late 1941, and by 1942 U.S. forces were heavily engaged in a massive war that ended in 1945.</p></li>
-<li><p>Those who were 64 to 67 years old in 2014 were born in the years 1947 to 1950, at the height of the post-WWII baby boom in the United States.</p></li>
+<li><p>Those who were in the age group 69 to 72 in 2014 were born in the years 1942 to 1945. The attack on Pearl Harbor was in late 1941, and by 1942 U.S. forces were heavily engaged in a massive war that ended in 1945.</p></li>
+<li><p>Those who were 69 to 72 years old in 2019 were born in the years 1947 to 1950, at the height of the post-WWII baby boom in the United States.</p></li>
 </ul>
-<p>The post-war jump in births is the major reason for the large changes that we have observed.</p>
+<p>The post-war jump in births is a major reason for the large changes that we have observed.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -1158,10 +1290,10 @@
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="../4/Example_Gender_Ratio_in_the_US_Population.html" title="next page">
+        <a class="right-next" href="../4/Example_Sex_Ratios.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">6.4. </span>Example: Trends in Gender</p>
+                <p class="prevnext-title"><span class="section-number">6.4. </span>Example: Sex Ratios</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

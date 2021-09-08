@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6.4. Example: Trends in Gender &#8212; Computational and Inferential Thinking</title>
+    <title>6.4. Example: Sex Ratios &#8212; Computational and Inferential Thinking</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -50,12 +50,12 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://inferentialthinking.org/chapters/06/4/Example_Gender_Ratio_in_the_US_Population.html" />
+    <link rel="canonical" href="https://inferentialthinking.org/chapters/06/4/Example_Sex_Ratios.html" />
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="7. Visualization" href="../../07/Visualization.html" />
-    <link rel="prev" title="6.3. Example: Population Trends" href="../3/Example_Trends_in_the_Population_of_the_United_States.html" />
+    <link rel="prev" title="6.3. Example: Population Trends" href="../3/Example_Population_Trends.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -315,13 +315,13 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../3/Example_Trends_in_the_Population_of_the_United_States.html">
+    <a class="reference internal" href="../3/Example_Population_Trends.html">
      6.3. Example: Population Trends
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     6.4. Example: Trends in Gender
+     6.4. Example: Sex Ratios
     </a>
    </li>
   </ul>
@@ -761,7 +761,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/chapters/06/4/Example_Gender_Ratio_in_the_US_Population.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/chapters/06/4/Example_Sex_Ratios.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -799,14 +799,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/06/4/Example_Gender_Ratio_in_the_US_Population.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/06/4/Example_Sex_Ratios.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/data-8/textbook&urlpath=tree/textbook/chapters/06/4/Example_Gender_Ratio_in_the_US_Population.ipynb&branch=main"><button type="button"
+        <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/data-8/textbook&urlpath=tree/textbook/chapters/06/4/Example_Sex_Ratios.ipynb&branch=main"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../../_static/images/logo_jupyterhub.svg"
@@ -828,29 +828,29 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#understanding-age-100">
-   6.4.1. Understanding
+  <a class="reference internal nav-link" href="#the-code-used-in-the-sex-column">
+   6.4.1. The Code Used in the
    <code class="docutils literal notranslate">
     <span class="pre">
-     AGE
+     SEX
     </span>
    </code>
-   = 100
+   Column
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overall-proportions-of-males-and-females">
-   6.4.2. Overall Proportions of Males and Females
+  <a class="reference internal nav-link" href="#overall-proportions">
+   6.4.2. Overall Proportions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#proportions-of-boys-and-girls-among-infants">
-   6.4.3. Proportions of Boys and Girls among Infants
+  <a class="reference internal nav-link" href="#proportions-among-infants">
+   6.4.3. Proportions Among Infants
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#female-male-gender-ratio-at-each-age">
-   6.4.4. Female:Male Gender Ratio at Each Age
+  <a class="reference internal nav-link" href="#sex-ratio-at-each-age">
+   6.4.4. Sex Ratio at Each Age
   </a>
  </li>
 </ul>
@@ -868,9 +868,9 @@
 </div>
 <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="example-trends-in-gender">
-<h1><span class="section-number">6.4. </span>Example: Trends in Gender<a class="headerlink" href="#example-trends-in-gender" title="Permalink to this headline">¶</a></h1>
-<p>We are now equipped with enough coding skills to examine features and trends in subgroups of the U.S. population. In this example, we will look at the distribution of males and females across age groups. We will continue using the <code class="docutils literal notranslate"><span class="pre">us_pop</span></code> table from the previous section.</p>
+<div class="section" id="example-sex-ratios">
+<h1><span class="section-number">6.4. </span>Example: Sex Ratios<a class="headerlink" href="#example-sex-ratios" title="Permalink to this headline">¶</a></h1>
+<p>In this section we will continue using the <code class="docutils literal notranslate"><span class="pre">us_pop</span></code> table from the previous section. But this time we will focus on population trends in relation to the <code class="docutils literal notranslate"><span class="pre">SEX</span></code> column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">us_pop</span>
@@ -881,89 +881,67 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>SEX</th> <th>AGE</th> <th>2010</th> <th>2014</th>
+            <th>SEX</th> <th>AGE</th> <th>2014</th> <th>2019</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>0   </td> <td>0   </td> <td>3951330</td> <td>3949775</td>
+            <td>0   </td> <td>0   </td> <td>3954787</td> <td>3783052</td>
         </tr>
         <tr>
-            <td>0   </td> <td>1   </td> <td>3957888</td> <td>3949776</td>
+            <td>0   </td> <td>1   </td> <td>3948891</td> <td>3829599</td>
         </tr>
         <tr>
-            <td>0   </td> <td>2   </td> <td>4090862</td> <td>3959664</td>
+            <td>0   </td> <td>2   </td> <td>3958711</td> <td>3922044</td>
         </tr>
         <tr>
-            <td>0   </td> <td>3   </td> <td>4111920</td> <td>4007079</td>
+            <td>0   </td> <td>3   </td> <td>4005928</td> <td>3998665</td>
         </tr>
         <tr>
-            <td>0   </td> <td>4   </td> <td>4077551</td> <td>4005716</td>
+            <td>0   </td> <td>4   </td> <td>4004032</td> <td>4043323</td>
         </tr>
         <tr>
-            <td>0   </td> <td>5   </td> <td>4064653</td> <td>4006900</td>
+            <td>0   </td> <td>5   </td> <td>4004576</td> <td>4028281</td>
         </tr>
         <tr>
-            <td>0   </td> <td>6   </td> <td>4073013</td> <td>4135930</td>
+            <td>0   </td> <td>6   </td> <td>4133372</td> <td>4017227</td>
         </tr>
         <tr>
-            <td>0   </td> <td>7   </td> <td>4043046</td> <td>4155326</td>
+            <td>0   </td> <td>7   </td> <td>4152666</td> <td>4022319</td>
         </tr>
         <tr>
-            <td>0   </td> <td>8   </td> <td>4025604</td> <td>4120903</td>
+            <td>0   </td> <td>8   </td> <td>4118349</td> <td>4066194</td>
         </tr>
         <tr>
-            <td>0   </td> <td>9   </td> <td>4125415</td> <td>4108349</td>
+            <td>0   </td> <td>9   </td> <td>4106068</td> <td>4061874</td>
         </tr>
     </tbody>
 </table>
 <p>... (296 rows omitted)</p></div></div>
 </div>
-<p>As we know from having examined this dataset earlier, a <a class="reference external" href="http://www2.census.gov/programs-surveys/popest/datasets/2010-2015/national/asrh/nc-est2015-agesex-res.pdf">description of the table</a> appears online. Here is a reminder of what the table contains.</p>
-<p>Each row represents an age group. The <code class="docutils literal notranslate"><span class="pre">SEX</span></code> column contains numeric codes: <code class="docutils literal notranslate"><span class="pre">0</span></code> stands for the total, <code class="docutils literal notranslate"><span class="pre">1</span></code> for male, and <code class="docutils literal notranslate"><span class="pre">2</span></code> for female. The <code class="docutils literal notranslate"><span class="pre">AGE</span></code> column contains ages in completed years, but the special value <code class="docutils literal notranslate"><span class="pre">999</span></code> represents the entire population regardless of age. The rest of the columns contain estimates of the US population.</p>
-<div class="section" id="understanding-age-100">
-<h2><span class="section-number">6.4.1. </span>Understanding <code class="docutils literal notranslate"><span class="pre">AGE</span></code> = 100<a class="headerlink" href="#understanding-age-100" title="Permalink to this headline">¶</a></h2>
-<p>As a preliminary, let’s interpret data in the final age category in the table, where <code class="docutils literal notranslate"><span class="pre">AGE</span></code> is 100. The code below extracts the rows for the combined group of men and women (<code class="docutils literal notranslate"><span class="pre">SEX</span></code> code 0) for the highest ages.</p>
+<div class="section" id="the-code-used-in-the-sex-column">
+<h2><span class="section-number">6.4.1. </span>The Code Used in the <code class="docutils literal notranslate"><span class="pre">SEX</span></code> Column<a class="headerlink" href="#the-code-used-in-the-sex-column" title="Permalink to this headline">¶</a></h2>
+<p>The contents of the <code class="docutils literal notranslate"><span class="pre">AGE</span></code>, <code class="docutils literal notranslate"><span class="pre">2014</span></code>, and <code class="docutils literal notranslate"><span class="pre">2019</span></code> columns are straightforward to understand. The <code class="docutils literal notranslate"><span class="pre">AGE</span></code> column contains ages in completed years. The special value <code class="docutils literal notranslate"><span class="pre">999</span></code> represents the entire population regardless of age, and <code class="docutils literal notranslate"><span class="pre">100</span></code> represents “100 or more”. The <code class="docutils literal notranslate"><span class="pre">2014</span></code> and <code class="docutils literal notranslate"><span class="pre">2019</span></code> columns contain estimates of the US population in each of the two years.</p>
+<p>The SEX column, however, is more difficult to interpret.</p>
+<p>The Census form asks respondents to provide the sex of each household member by checking one of two boxes labeled Male and Female. The <code class="docutils literal notranslate"><span class="pre">SEX</span></code> column contains numeric codes: <code class="docutils literal notranslate"><span class="pre">1</span></code> for male, <code class="docutils literal notranslate"><span class="pre">2</span></code> for female, and <code class="docutils literal notranslate"><span class="pre">0</span></code> for the total.</p>
+<p>This question has been asked in essentially the same way since 1790. But since then there has been considerable <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/11534012/">research</a> on whether the sex of human beings lends itself to simple binary categorization. For example, nonbinary people do not identify exclusively as male or female. A <a class="reference external" href="https://williamsinstitute.law.ucla.edu/publications/nonbinary-lgbtq-adults-us/">study</a> by the Williams Institute at the UCLA School of Law in 2021 estimated that at least 1.2 million individuals in the United States identify as nonbinary.</p>
+<p>By continuing to use the historical form of the question, the Census fails to reflect the complexity of sex classification. The <a class="reference external" href="https://www2.census.gov/programs-surveys/decennial/2020/partners/outreach-materials/handouts/why-we-ask-the-sex-question.pdf">explanation</a> provided in the 2020 Census and reproduced in the quotation below does not include instructions for those who do not identify as one of Male or Female.</p>
+<blockquote>
+<div><p><strong>Responding to the sex question is easy.</strong></p>
+<p>A question on sex has been included since the first census in 1790. All 2020 Census questions that involve personal characteristics are based on self-identification. When you complete your census, select the box for the biological sex you identify with.</p>
+</div></blockquote>
+<p>Regardless of the opinion expressed above, responding to this question isn’t easy for everyone. Difficulties with answering the question can lead to non-response or inaccurate responses. This can reduce the accuracy of Census data for informing policy decisions and allocating resources.</p>
+<p>Before the 2020 Census, the Census Bureau considered revising this question or including broader questions about sexual orientation and gender identity. In the end the Bureau decided <a class="reference external" href="https://www.census.gov/newsroom/blogs/director/2017/03/planned_subjects_2020.html">not to change</a> the planned Census.</p>
+<p>However, Census Director John Thompson wrote, “The Census Bureau remains committed to reflecting the information needs of our changing society.” Census forms do change. For example, <a class="reference external" href="https://www.census.gov/library/stories/2021/08/improved-race-ethnicity-measures-reveal-united-states-population-much-more-multiracial.html">new questions on race and ethnicity</a> in the 2020 Census have led to a more accurate understanding of US demographics. We can hope that the 2030 Census will be more inclusive and accurate in all respects.</p>
+<p>In what follows, we will use the data provided by the Census keeping in mind the issues described above. We will use the term “male” to mean an individual for whom “Male” (<code class="docutils literal notranslate"><span class="pre">SEX</span></code> code 1) was selected on the Census form. We will use “female” to mean an individual for whom “Female” (<code class="docutils literal notranslate"><span class="pre">SEX</span></code>code 2) was selected.</p>
+</div>
+<div class="section" id="overall-proportions">
+<h2><span class="section-number">6.4.2. </span>Overall Proportions<a class="headerlink" href="#overall-proportions" title="Permalink to this headline">¶</a></h2>
+<p>We will now begin looking at sex ratios in 2019. First, let’s look at all the age groups together. Remember that this means looking at the rows where the “age” is coded 999. The table <code class="docutils literal notranslate"><span class="pre">all_ages</span></code> contains this information. There are three rows: one for the total population, one for males, and one for females.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">us_pop</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;SEX&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">equal_to</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">97</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><table border="1" class="dataframe">
-    <thead>
-        <tr>
-            <th>SEX</th> <th>AGE</th> <th>2010</th> <th>2014</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>0   </td> <td>97  </td> <td>68893</td> <td>83089</td>
-        </tr>
-        <tr>
-            <td>0   </td> <td>98  </td> <td>47037</td> <td>59726</td>
-        </tr>
-        <tr>
-            <td>0   </td> <td>99  </td> <td>32178</td> <td>41468</td>
-        </tr>
-        <tr>
-            <td>0   </td> <td>100 </td> <td>54410</td> <td>71626</td>
-        </tr>
-    </tbody>
-</table></div></div>
-</div>
-<p>Not surprisingly, the numbers of people are smaller at higher ages – for example, there are fewer 99-year-olds than 98-year-olds.</p>
-<p>It does come as a surprise, though, that the numbers for <code class="docutils literal notranslate"><span class="pre">AGE</span></code> 100 are quite a bit larger than those for age 99. A closer examination of the documentation shows that it’s because the Census Bureau used 100 as the code for everyone aged 100 or more.</p>
-<p>The row with <code class="docutils literal notranslate"><span class="pre">AGE</span></code> 100 doesn’t just represent 100-year-olds – it also includes those who are older than 100. That is why the numbers in that row are larger than in the row for the 99-year-olds.</p>
-</div>
-<div class="section" id="overall-proportions-of-males-and-females">
-<h2><span class="section-number">6.4.2. </span>Overall Proportions of Males and Females<a class="headerlink" href="#overall-proportions-of-males-and-females" title="Permalink to this headline">¶</a></h2>
-<p>We will now begin looking at gender ratios in 2014. First, let’s look at all the age groups together. Remember that this means looking at the rows where the “age” is coded 999. The table <code class="docutils literal notranslate"><span class="pre">all_ages</span></code> contains this information. There are three rows: one for the total of both genders, one for males (<code class="docutils literal notranslate"><span class="pre">SEX</span></code> code 1), and one for females (<code class="docutils literal notranslate"><span class="pre">SEX</span></code> code 2).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">us_pop_2014</span> <span class="o">=</span> <span class="n">us_pop</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;2010&#39;</span><span class="p">)</span>
-<span class="n">all_ages</span> <span class="o">=</span> <span class="n">us_pop_2014</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">equal_to</span><span class="p">(</span><span class="mi">999</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">us_pop_2019</span> <span class="o">=</span> <span class="n">us_pop</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;2014&#39;</span><span class="p">)</span>
+<span class="n">all_ages</span> <span class="o">=</span> <span class="n">us_pop_2019</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">equal_to</span><span class="p">(</span><span class="mi">999</span><span class="p">))</span>
 <span class="n">all_ages</span>
 </pre></div>
 </div>
@@ -972,31 +950,31 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>SEX</th> <th>AGE</th> <th>2014</th>
+            <th>SEX</th> <th>AGE</th> <th>2019</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>0   </td> <td>999 </td> <td>318907401</td>
+            <td>0   </td> <td>999 </td> <td>328239523</td>
         </tr>
         <tr>
-            <td>1   </td> <td>999 </td> <td>156955337</td>
+            <td>1   </td> <td>999 </td> <td>161657324</td>
         </tr>
         <tr>
-            <td>2   </td> <td>999 </td> <td>161952064</td>
+            <td>2   </td> <td>999 </td> <td>166582199</td>
         </tr>
     </tbody>
 </table></div></div>
 </div>
-<p>Row 0 of <code class="docutils literal notranslate"><span class="pre">all_ages</span></code> contains the total U.S. population in each of the two years. The United States had just under 319 million in 2014.</p>
-<p>Row 1 contains the counts for males and Row 2 for females. Compare these two rows to see that in 2014, there were more females than males in the United States.</p>
+<p>Row 0 of <code class="docutils literal notranslate"><span class="pre">all_ages</span></code> contains the total U.S. population in each of the two years. The United States had about 330 million people in 2019.</p>
+<p>Row 1 contains the counts for males and Row 2 for females. Compare these two rows to see that in 2019, there were more females than males in the United States.</p>
 <p>The population counts in Row 1 and Row 2 add up to the total population in Row 0.</p>
-<p>For comparability with other quantities, we will need to convert these counts to percents out of the total population. Let’s access the total for 2014 and name it. Then, we’ll show a population table with a proportion column. Consistent with our earlier observation that there were more females than males, about 50.8% of the population in 2014 was female and about 49.2% male in each of the two years.</p>
+<p>For comparability with other quantities, we will need to convert these counts to percents out of the total population. Let’s access the total for 2019 and name it. Then, we’ll show a population table with a proportion column. Consistent with our earlier observation that there were more females than males, 50.75% of the population in 2019 was female and about 49.25% was male.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_2014</span> <span class="o">=</span> <span class="n">all_ages</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2014&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_2019</span> <span class="o">=</span> <span class="n">all_ages</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2019&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">all_ages</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
-    <span class="s1">&#39;Proportion&#39;</span><span class="p">,</span> <span class="n">all_ages</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2014&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">pop_2014</span>
+    <span class="s1">&#39;Proportion&#39;</span><span class="p">,</span> <span class="n">all_ages</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2019&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">pop_2019</span>
 <span class="p">)</span><span class="o">.</span><span class="n">set_format</span><span class="p">(</span><span class="s1">&#39;Proportion&#39;</span><span class="p">,</span> <span class="n">PercentFormatter</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1005,29 +983,29 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>SEX</th> <th>AGE</th> <th>2014</th> <th>Proportion</th>
+            <th>SEX</th> <th>AGE</th> <th>2019</th> <th>Proportion</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>0   </td> <td>999 </td> <td>318907401</td> <td>100.00%   </td>
+            <td>0   </td> <td>999 </td> <td>328239523</td> <td>100.00%   </td>
         </tr>
         <tr>
-            <td>1   </td> <td>999 </td> <td>156955337</td> <td>49.22%    </td>
+            <td>1   </td> <td>999 </td> <td>161657324</td> <td>49.25%    </td>
         </tr>
         <tr>
-            <td>2   </td> <td>999 </td> <td>161952064</td> <td>50.78%    </td>
+            <td>2   </td> <td>999 </td> <td>166582199</td> <td>50.75%    </td>
         </tr>
     </tbody>
 </table></div></div>
 </div>
 </div>
-<div class="section" id="proportions-of-boys-and-girls-among-infants">
-<h2><span class="section-number">6.4.3. </span>Proportions of Boys and Girls among Infants<a class="headerlink" href="#proportions-of-boys-and-girls-among-infants" title="Permalink to this headline">¶</a></h2>
-<p>When we look at infants, however, the opposite is true. Let’s define infants to be babies who have not yet completed one year, represented in the row corresponding to <code class="docutils literal notranslate"><span class="pre">AGE</span></code> 0. Here are their numbers in the population. You can see that male infants outnumbered female infants.</p>
+<div class="section" id="proportions-among-infants">
+<h2><span class="section-number">6.4.3. </span>Proportions Among Infants<a class="headerlink" href="#proportions-among-infants" title="Permalink to this headline">¶</a></h2>
+<p>When we look at infants, however, the opposite is true. Let’s define infants to be babies who have not yet completed one year, represented in the rows corresponding to <code class="docutils literal notranslate"><span class="pre">AGE</span></code> 0. Here are their numbers in the population. You can see that male infants outnumbered female infants.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infants</span> <span class="o">=</span> <span class="n">us_pop_2014</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">equal_to</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infants</span> <span class="o">=</span> <span class="n">us_pop_2019</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">equal_to</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 <span class="n">infants</span>
 </pre></div>
 </div>
@@ -1036,28 +1014,28 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>SEX</th> <th>AGE</th> <th>2014</th>
+            <th>SEX</th> <th>AGE</th> <th>2019</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>0   </td> <td>0   </td> <td>3949775</td>
+            <td>0   </td> <td>0   </td> <td>3783052</td>
         </tr>
         <tr>
-            <td>1   </td> <td>0   </td> <td>2020326</td>
+            <td>1   </td> <td>0   </td> <td>1935117</td>
         </tr>
         <tr>
-            <td>2   </td> <td>0   </td> <td>1929449</td>
+            <td>2   </td> <td>0   </td> <td>1847935</td>
         </tr>
     </tbody>
 </table></div></div>
 </div>
-<p>As before, we can convert these counts to percents out of the total numbers of infants. The resulting table shows that in 2014, just over 51% of infants in the U.S. were male.</p>
+<p>As before, we can convert these counts to percents out of the total numbers of infants. The resulting table shows that in 2019, just over 51% of infants in the U.S. were male.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infants_2014</span> <span class="o">=</span> <span class="n">infants</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2014&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">infants_2019</span> <span class="o">=</span> <span class="n">infants</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2019&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">infants</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
-    <span class="s1">&#39;Proportion&#39;</span><span class="p">,</span> <span class="n">infants</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2014&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">infants_2014</span>
+    <span class="s1">&#39;Proportion&#39;</span><span class="p">,</span> <span class="n">infants</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2019&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">infants_2019</span>
 <span class="p">)</span><span class="o">.</span><span class="n">set_format</span><span class="p">(</span><span class="s1">&#39;Proportion&#39;</span><span class="p">,</span> <span class="n">PercentFormatter</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1066,32 +1044,32 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>SEX</th> <th>AGE</th> <th>2014</th> <th>Proportion</th>
+            <th>SEX</th> <th>AGE</th> <th>2019</th> <th>Proportion</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>0   </td> <td>0   </td> <td>3949775</td> <td>100.00%   </td>
+            <td>0   </td> <td>0   </td> <td>3783052</td> <td>100.00%   </td>
         </tr>
         <tr>
-            <td>1   </td> <td>0   </td> <td>2020326</td> <td>51.15%    </td>
+            <td>1   </td> <td>0   </td> <td>1935117</td> <td>51.15%    </td>
         </tr>
         <tr>
-            <td>2   </td> <td>0   </td> <td>1929449</td> <td>48.85%    </td>
+            <td>2   </td> <td>0   </td> <td>1847935</td> <td>48.85%    </td>
         </tr>
     </tbody>
 </table></div></div>
 </div>
-<p>In fact, it has long been observed that the proportion of boys among newborns is slightly more than 1/2. The reason for this is not thoroughly understood, and <a class="reference external" href="http://www.npr.org/sections/health-shots/2015/03/30/396384911/why-are-more-baby-boys-born-than-girls">scientists are still working on it</a>.</p>
+<p>In fact, it has long been observed that the proportion of males among newborns is slightly more than 1/2. The reason for this is not thoroughly understood, and <a class="reference external" href="http://www.npr.org/sections/health-shots/2015/03/30/396384911/why-are-more-baby-boys-born-than-girls">scientists are still working on it</a>.</p>
 </div>
-<div class="section" id="female-male-gender-ratio-at-each-age">
-<h2><span class="section-number">6.4.4. </span>Female:Male Gender Ratio at Each Age<a class="headerlink" href="#female-male-gender-ratio-at-each-age" title="Permalink to this headline">¶</a></h2>
-<p>We have seen that while there are more baby boys than baby girls, there are more females than males overall. So it’s clear that the split between genders must vary across age groups.</p>
+<div class="section" id="sex-ratio-at-each-age">
+<h2><span class="section-number">6.4.4. </span>Sex Ratio at Each Age<a class="headerlink" href="#sex-ratio-at-each-age" title="Permalink to this headline">¶</a></h2>
+<p>We have seen that while there are more male infants than female, there are more females than males in the population overall. That means the split between sexes must vary across age groups.</p>
 <p>To study this variation, we will separate out the data for the females and the males, and eliminate the row where all the ages are aggregated and <code class="docutils literal notranslate"><span class="pre">AGE</span></code> is coded as 999.</p>
-<p>The tables <code class="docutils literal notranslate"><span class="pre">females</span></code> and <code class="docutils literal notranslate"><span class="pre">males</span></code> contain the data for each the two genders.</p>
+<p>The tables <code class="docutils literal notranslate"><span class="pre">females</span></code> and <code class="docutils literal notranslate"><span class="pre">males</span></code> contain the data for each the two sex codes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">females_all_rows</span> <span class="o">=</span> <span class="n">us_pop_2014</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;SEX&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">equal_to</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">females_all_rows</span> <span class="o">=</span> <span class="n">us_pop_2019</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;SEX&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">equal_to</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">females</span> <span class="o">=</span> <span class="n">females_all_rows</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">not_equal_to</span><span class="p">(</span><span class="mi">999</span><span class="p">))</span>
 <span class="n">females</span>
 </pre></div>
@@ -1101,39 +1079,39 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>SEX</th> <th>AGE</th> <th>2014</th>
+            <th>SEX</th> <th>AGE</th> <th>2019</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>2   </td> <td>0   </td> <td>1929449</td>
+            <td>2   </td> <td>0   </td> <td>1847935</td>
         </tr>
         <tr>
-            <td>2   </td> <td>1   </td> <td>1931375</td>
+            <td>2   </td> <td>1   </td> <td>1871014</td>
         </tr>
         <tr>
-            <td>2   </td> <td>2   </td> <td>1935991</td>
+            <td>2   </td> <td>2   </td> <td>1916500</td>
         </tr>
         <tr>
-            <td>2   </td> <td>3   </td> <td>1957483</td>
+            <td>2   </td> <td>3   </td> <td>1955655</td>
         </tr>
         <tr>
-            <td>2   </td> <td>4   </td> <td>1961199</td>
+            <td>2   </td> <td>4   </td> <td>1976372</td>
         </tr>
         <tr>
-            <td>2   </td> <td>5   </td> <td>1962561</td>
+            <td>2   </td> <td>5   </td> <td>1967081</td>
         </tr>
         <tr>
-            <td>2   </td> <td>6   </td> <td>2024870</td>
+            <td>2   </td> <td>6   </td> <td>1964271</td>
         </tr>
         <tr>
-            <td>2   </td> <td>7   </td> <td>2032494</td>
+            <td>2   </td> <td>7   </td> <td>1966584</td>
         </tr>
         <tr>
-            <td>2   </td> <td>8   </td> <td>2015285</td>
+            <td>2   </td> <td>8   </td> <td>1986471</td>
         </tr>
         <tr>
-            <td>2   </td> <td>9   </td> <td>2010659</td>
+            <td>2   </td> <td>9   </td> <td>1988726</td>
         </tr>
     </tbody>
 </table>
@@ -1141,7 +1119,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">males_all_rows</span> <span class="o">=</span> <span class="n">us_pop_2014</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;SEX&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">equal_to</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">males_all_rows</span> <span class="o">=</span> <span class="n">us_pop_2019</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;SEX&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">equal_to</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">males</span> <span class="o">=</span> <span class="n">males_all_rows</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">not_equal_to</span><span class="p">(</span><span class="mi">999</span><span class="p">))</span>
 <span class="n">males</span>
 </pre></div>
@@ -1151,45 +1129,45 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>SEX</th> <th>AGE</th> <th>2014</th>
+            <th>SEX</th> <th>AGE</th> <th>2019</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>1   </td> <td>0   </td> <td>2020326</td>
+            <td>1   </td> <td>0   </td> <td>1935117</td>
         </tr>
         <tr>
-            <td>1   </td> <td>1   </td> <td>2018401</td>
+            <td>1   </td> <td>1   </td> <td>1958585</td>
         </tr>
         <tr>
-            <td>1   </td> <td>2   </td> <td>2023673</td>
+            <td>1   </td> <td>2   </td> <td>2005544</td>
         </tr>
         <tr>
-            <td>1   </td> <td>3   </td> <td>2049596</td>
+            <td>1   </td> <td>3   </td> <td>2043010</td>
         </tr>
         <tr>
-            <td>1   </td> <td>4   </td> <td>2044517</td>
+            <td>1   </td> <td>4   </td> <td>2066951</td>
         </tr>
         <tr>
-            <td>1   </td> <td>5   </td> <td>2044339</td>
+            <td>1   </td> <td>5   </td> <td>2061200</td>
         </tr>
         <tr>
-            <td>1   </td> <td>6   </td> <td>2111060</td>
+            <td>1   </td> <td>6   </td> <td>2052956</td>
         </tr>
         <tr>
-            <td>1   </td> <td>7   </td> <td>2122832</td>
+            <td>1   </td> <td>7   </td> <td>2055735</td>
         </tr>
         <tr>
-            <td>1   </td> <td>8   </td> <td>2105618</td>
+            <td>1   </td> <td>8   </td> <td>2079723</td>
         </tr>
         <tr>
-            <td>1   </td> <td>9   </td> <td>2097690</td>
+            <td>1   </td> <td>9   </td> <td>2073148</td>
         </tr>
     </tbody>
 </table>
 <p>... (91 rows omitted)</p></div></div>
 </div>
-<p>The plan now is to compare the number of women and the number of men at each age, for each of the two years. Array and Table methods give us straightforward ways to do this. Both of these tables have one row for each age.</p>
+<p>The plan now is to compare the number of females and the number of males at each age, for each of the two years. Array and Table methods give us straightforward ways to do this. Both these tables have one row for each age.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">males</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">)</span>
@@ -1228,12 +1206,13 @@
 </div>
 </div>
 </div>
-<p>For any given age, we can get the Female:Male gender ratio by dividing the number of females by the number of males. To do this in one step, we can use <code class="docutils literal notranslate"><span class="pre">column</span></code> to extract the array of female counts and the corresponding array of male counts, and then simply divide one array by the other. Elementwise division will create an array of gender ratios for all the years.</p>
+<p>For any given age, we can get the Female:Male sex ratio by dividing the number of females by the number of males.</p>
+<p>To do this in one step, we can use <code class="docutils literal notranslate"><span class="pre">column</span></code> to extract the array of female counts and the corresponding array of male counts, and then simply divide one array by the other. Elementwise division will create an array of sex ratios for all the years.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ratios</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
     <span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">females</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">),</span>
-    <span class="s1">&#39;2014 F:M RATIO&#39;</span><span class="p">,</span> <span class="n">females</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2014&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">males</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2014&#39;</span><span class="p">)</span>
+    <span class="s1">&#39;2019 F:M RATIO&#39;</span><span class="p">,</span> <span class="n">females</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2019&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">males</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;2019&#39;</span><span class="p">)</span>
 <span class="p">)</span>
 <span class="n">ratios</span>
 </pre></div>
@@ -1243,47 +1222,47 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>AGE</th> <th>2014 F:M RATIO</th>
+            <th>AGE</th> <th>2019 F:M RATIO</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>0   </td> <td>0.955019      </td>
+            <td>0   </td> <td>0.954947      </td>
         </tr>
         <tr>
-            <td>1   </td> <td>0.956884      </td>
+            <td>1   </td> <td>0.955289      </td>
         </tr>
         <tr>
-            <td>2   </td> <td>0.956672      </td>
+            <td>2   </td> <td>0.955601      </td>
         </tr>
         <tr>
-            <td>3   </td> <td>0.955058      </td>
+            <td>3   </td> <td>0.957242      </td>
         </tr>
         <tr>
-            <td>4   </td> <td>0.959248      </td>
+            <td>4   </td> <td>0.956177      </td>
         </tr>
         <tr>
-            <td>5   </td> <td>0.959998      </td>
+            <td>5   </td> <td>0.954338      </td>
         </tr>
         <tr>
-            <td>6   </td> <td>0.959172      </td>
+            <td>6   </td> <td>0.956801      </td>
         </tr>
         <tr>
-            <td>7   </td> <td>0.957445      </td>
+            <td>7   </td> <td>0.956633      </td>
         </tr>
         <tr>
-            <td>8   </td> <td>0.957099      </td>
+            <td>8   </td> <td>0.955161      </td>
         </tr>
         <tr>
-            <td>9   </td> <td>0.958511      </td>
+            <td>9   </td> <td>0.959278      </td>
         </tr>
     </tbody>
 </table>
 <p>... (91 rows omitted)</p></div></div>
 </div>
-<p>You can see from the display that the ratios are all around 0.96 for children aged nine or younger. When the Female:Male ratio is less than 1, there are fewer females than males. Thus what we are seeing is that there were fewer girls than boys in each of the age groups 0, 1, 2, and so on through 9. Moreover, in each of these age groups, there were about 96 girls for every 100 boys.</p>
-<p>So how can the overall proportion of females in the population be higher than the males?</p>
-<p>Something extraordinary happens when we examine the other end of the age range. Here are the Female:Male ratios for people aged more than 75.</p>
+<p>You can see from the display that the ratios are all around 0.96 for children aged nine or younger. When the Female:Male ratio is less than 1, there are fewer females than males. Thus we are seeing that there were fewer girls than boys in each of the age groups 0, 1, 2, and so on through 9. More precisely, in each of these age groups there were about 96 girls for every 100 boys.</p>
+<p>Then how can the overall proportion of females in the population be higher than the males?</p>
+<p>Something quite different happens when we examine the other end of the age range. Here are the Female:Male ratios for people aged more than 75.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ratios</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">above</span><span class="p">(</span><span class="mi">75</span><span class="p">))</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1294,97 +1273,97 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>AGE</th> <th>2014 F:M RATIO</th>
+            <th>AGE</th> <th>2019 F:M RATIO</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>76  </td> <td>1.23487       </td>
+            <td>76  </td> <td>1.21422       </td>
         </tr>
         <tr>
-            <td>77  </td> <td>1.25797       </td>
+            <td>77  </td> <td>1.23558       </td>
         </tr>
         <tr>
-            <td>78  </td> <td>1.28244       </td>
+            <td>78  </td> <td>1.26373       </td>
         </tr>
         <tr>
-            <td>79  </td> <td>1.31627       </td>
+            <td>79  </td> <td>1.28129       </td>
         </tr>
         <tr>
-            <td>80  </td> <td>1.34138       </td>
+            <td>80  </td> <td>1.29209       </td>
         </tr>
         <tr>
-            <td>81  </td> <td>1.37967       </td>
+            <td>81  </td> <td>1.32745       </td>
         </tr>
         <tr>
-            <td>82  </td> <td>1.41932       </td>
+            <td>82  </td> <td>1.36101       </td>
         </tr>
         <tr>
-            <td>83  </td> <td>1.46552       </td>
+            <td>83  </td> <td>1.39749       </td>
         </tr>
         <tr>
-            <td>84  </td> <td>1.52048       </td>
+            <td>84  </td> <td>1.44603       </td>
         </tr>
         <tr>
-            <td>85  </td> <td>1.5756        </td>
+            <td>85  </td> <td>1.48588       </td>
         </tr>
         <tr>
-            <td>86  </td> <td>1.65096       </td>
+            <td>86  </td> <td>1.53967       </td>
         </tr>
         <tr>
-            <td>87  </td> <td>1.72172       </td>
+            <td>87  </td> <td>1.59775       </td>
         </tr>
         <tr>
-            <td>88  </td> <td>1.81223       </td>
+            <td>88  </td> <td>1.66125       </td>
         </tr>
         <tr>
-            <td>89  </td> <td>1.91837       </td>
+            <td>89  </td> <td>1.73365       </td>
         </tr>
         <tr>
-            <td>90  </td> <td>2.01263       </td>
+            <td>90  </td> <td>1.80539       </td>
         </tr>
         <tr>
-            <td>91  </td> <td>2.09488       </td>
+            <td>91  </td> <td>1.90275       </td>
         </tr>
         <tr>
-            <td>92  </td> <td>2.2299        </td>
+            <td>92  </td> <td>1.99252       </td>
         </tr>
         <tr>
-            <td>93  </td> <td>2.33359       </td>
+            <td>93  </td> <td>2.10192       </td>
         </tr>
         <tr>
-            <td>94  </td> <td>2.52285       </td>
+            <td>94  </td> <td>2.2271        </td>
         </tr>
         <tr>
-            <td>95  </td> <td>2.67253       </td>
+            <td>95  </td> <td>2.34042       </td>
         </tr>
         <tr>
-            <td>96  </td> <td>2.87998       </td>
+            <td>96  </td> <td>2.41969       </td>
         </tr>
         <tr>
-            <td>97  </td> <td>3.09104       </td>
+            <td>97  </td> <td>2.5868        </td>
         </tr>
         <tr>
-            <td>98  </td> <td>3.41826       </td>
+            <td>98  </td> <td>2.65926       </td>
         </tr>
         <tr>
-            <td>99  </td> <td>3.63278       </td>
+            <td>99  </td> <td>2.91367       </td>
         </tr>
         <tr>
-            <td>100 </td> <td>4.25966       </td>
+            <td>100 </td> <td>3.27411       </td>
         </tr>
     </tbody>
 </table></div></div>
 </div>
 <p>Not only are all of these ratios greater than 1, signifying more women than men in all of these age groups, many of them are considerably greater than 1.</p>
 <ul class="simple">
-<li><p>At ages 89 and 90 the ratios are close to 2, meaning that there were about twice as many women as men at those ages in 2014.</p></li>
-<li><p>At ages 98 and 99, there were about 3.5 to 4 times as many women as men.</p></li>
+<li><p>At ages 92 and 93 the ratios are close to 2, meaning that there were about twice as many women as men at those ages in 2019.</p></li>
+<li><p>At ages 99 there were about 3 times as many women as men.</p></li>
 </ul>
 <p>If you are wondering how many people there were at these advanced ages, you can use Python to find out:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">males</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">males</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">contained_in</span><span class="p">(</span><span class="n">make_array</span><span class="p">(</span><span class="mi">92</span><span class="p">,</span> <span class="mi">93</span><span class="p">,</span> <span class="mi">99</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -1392,22 +1371,25 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>SEX</th> <th>AGE</th> <th>2014</th>
+            <th>SEX</th> <th>AGE</th> <th>2019</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>1   </td> <td>98  </td> <td>13518</td>
+            <td>1   </td> <td>92  </td> <td>131684</td>
         </tr>
         <tr>
-            <td>1   </td> <td>99  </td> <td>8951 </td>
+            <td>1   </td> <td>93  </td> <td>103415</td>
+        </tr>
+        <tr>
+            <td>1   </td> <td>99  </td> <td>14596 </td>
         </tr>
     </tbody>
 </table></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">females</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">females</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">contained_in</span><span class="p">(</span><span class="n">make_array</span><span class="p">(</span><span class="mi">92</span><span class="p">,</span> <span class="mi">93</span><span class="p">,</span> <span class="mi">99</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -1415,22 +1397,25 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>SEX</th> <th>AGE</th> <th>2014</th>
+            <th>SEX</th> <th>AGE</th> <th>2019</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>2   </td> <td>98  </td> <td>46208</td>
+            <td>2   </td> <td>92  </td> <td>262383</td>
         </tr>
         <tr>
-            <td>2   </td> <td>99  </td> <td>32517</td>
+            <td>2   </td> <td>93  </td> <td>217370</td>
+        </tr>
+        <tr>
+            <td>2   </td> <td>99  </td> <td>42528 </td>
         </tr>
     </tbody>
 </table></div></div>
 </div>
-<p>The graph below shows the gender ratios plotted against age. The blue curve shows the 2014 ratio by age.</p>
-<p>The ratios are almost 1 (signifying close to equal numbers of males and females) for ages 0 through 60, but they start shooting up dramatically (more females than males) starting at about age 65.</p>
-<p>That females outnumber males in the U.S. is partly due to the marked gender imbalance in favor of women among senior citizens.</p>
+<p>The graph below shows sex ratios plotted against age. The blue curve shows the 2019 ratios by age.</p>
+<p>The ratios are almost 1 (signifying close to equal numbers of males and females) for ages 0 through 60. But they start shooting up dramatically (more females than males) starting in the 65 to 70 range.</p>
+<p>That females outnumber males in the U.S. is partly due to the marked imbalance in favor of women among senior citizens.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ratios</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">)</span>
@@ -1438,7 +1423,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/Example_Gender_Ratio_in_the_US_Population_34_0.png" src="../../../_images/Example_Gender_Ratio_in_the_US_Population_34_0.png" />
+<img alt="../../../_images/Example_Sex_Ratios_32_0.png" src="../../../_images/Example_Sex_Ratios_32_0.png" />
 </div>
 </div>
 </div>
@@ -1474,7 +1459,7 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../3/Example_Trends_in_the_Population_of_the_United_States.html" title="previous page">
+        <a class="left-prev" href="../3/Example_Population_Trends.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
