@@ -828,13 +828,13 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scatter-plots">
-   7.3.1. Scatter Plots
+  <a class="reference internal nav-link" href="#overlaid-scatter-plots">
+   7.3.1. Overlaid Scatter Plots
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#line-plots">
-   7.3.2. Line Plots
+  <a class="reference internal nav-link" href="#overlaid-line-plots">
+   7.3.2. Overlaid Line Plots
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -863,14 +863,13 @@
 <p><code class="docutils literal notranslate"><span class="pre">name_of_table.method(column_label_of_common_axis,</span> <span class="pre">array_of_labels_of_variables_to_plot)</span></code></p>
 <p>More commonly, we will first select only the columns needed for our graph, and then call the method by just specifying the variable on the common axis:</p>
 <p><code class="docutils literal notranslate"><span class="pre">name_of_table.method(column_label_of_common_axis)</span></code></p>
-<div class="section" id="scatter-plots">
-<h2><span class="section-number">7.3.1. </span>Scatter Plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Francis_Galton">Franics Galton</a> (1822-1911) was an English polymath who was a pioneer in the analysis of relations between numerical variables.</p>
-<p>Galton meticulously collected copious amounts of data, some of which we will analyze in this course. Here is a subset of Galton’s data on heights of parents and their children. Specifically, the population consists of 179 men who were the first-born in their families. The data are their own heights and the heights of their parents. All heights were measured in inches.</p>
+<div class="section" id="overlaid-scatter-plots">
+<h2><span class="section-number">7.3.1. </span>Overlaid Scatter Plots<a class="headerlink" href="#overlaid-scatter-plots" title="Permalink to this headline">¶</a></h2>
+<p>The table <code class="docutils literal notranslate"><span class="pre">sons_heights</span></code> is part of a historical data set on the heights of parents and their children. Specifically, the population consists of 179 men who were the first-born in their families. The data are their own heights and the heights of their parents. All heights were measured in inches.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heights</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;galton_subset.csv&#39;</span><span class="p">)</span>
-<span class="n">heights</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sons_heights</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;sons_heights.csv&#39;</span><span class="p">)</span>
+<span class="n">sons_heights</span>
 </pre></div>
 </div>
 </div>
@@ -919,7 +918,7 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">scatter</span></code> method allows us to visualize how the sons’ heights are related to the heights of both their parents. In the graph, the sons’ heights will form the common horizontal axis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heights</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;son&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sons_heights</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;son&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -928,20 +927,21 @@
 </div>
 </div>
 <p>Notice how we only specified the variable (sons’ heights) on the common horizontal axis. Python drew two scatter plots: one each for the relation between this variable and the other two.</p>
+<p>Each point represents a row of the table, that is, a “father, mother, son” trio. For all points, the horizontal axis represents the son’s height. In the blue points, the vertical axis represents the father’s height. In the gold points, the vertical axis represents the mother’s heights.</p>
 <p>Both the gold and the blue scatter plots slope upwards and show a positive association between the sons’ heights and the heights of both their parents. The blue (fathers) plot is in general higher than the gold, because the fathers were in general taller than the mothers.</p>
 </div>
-<div class="section" id="line-plots">
-<h2><span class="section-number">7.3.2. </span>Line Plots<a class="headerlink" href="#line-plots" title="Permalink to this headline">¶</a></h2>
-<p>Our next example involves data on children of more recent times. We will return to the Census data table <code class="docutils literal notranslate"><span class="pre">us_pop</span></code>, created below again for reference. From this, we will extract the counts of all children in each of the age categories 0 through 18 years.</p>
+<div class="section" id="overlaid-line-plots">
+<h2><span class="section-number">7.3.2. </span>Overlaid Line Plots<a class="headerlink" href="#overlaid-line-plots" title="Permalink to this headline">¶</a></h2>
+<p>Our next example involves data on children of more recent times. We will return to the Census data table <code class="docutils literal notranslate"><span class="pre">us_pop</span></code>, created below again for reference. From this table, we will extract the counts of all children in each of the age categories 0 through 18 years.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the full Census table</span>
-<span class="n">census_url</span> <span class="o">=</span> <span class="s1">&#39;http://www2.census.gov/programs-surveys/popest/datasets/2010-2015/national/asrh/nc-est2015-agesex-res.csv&#39;</span>
-<span class="n">full_census_table</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">census_url</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;http://www2.census.gov/programs-surveys/popest/technical-documentation/file-layouts/2010-2019/nc-est2019-agesex-res.csv&#39;</span>
+<span class="n">full_census_table</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
 <span class="c1"># Select columns from the full table and relabel some of them</span>
-<span class="n">partial_census_table</span> <span class="o">=</span> <span class="n">full_census_table</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;SEX&#39;</span><span class="p">,</span> <span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="s1">&#39;POPESTIMATE2010&#39;</span><span class="p">,</span> <span class="s1">&#39;POPESTIMATE2014&#39;</span><span class="p">])</span>
-<span class="n">us_pop</span> <span class="o">=</span> <span class="n">partial_census_table</span><span class="o">.</span><span class="n">relabeled</span><span class="p">(</span><span class="s1">&#39;POPESTIMATE2010&#39;</span><span class="p">,</span> <span class="s1">&#39;2010&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">relabeled</span><span class="p">(</span><span class="s1">&#39;POPESTIMATE2014&#39;</span><span class="p">,</span> <span class="s1">&#39;2014&#39;</span><span class="p">)</span>
+<span class="n">partial_census_table</span> <span class="o">=</span> <span class="n">full_census_table</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;SEX&#39;</span><span class="p">,</span> <span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="s1">&#39;POPESTIMATE2014&#39;</span><span class="p">,</span> <span class="s1">&#39;POPESTIMATE2019&#39;</span><span class="p">)</span>
+<span class="n">us_pop</span> <span class="o">=</span> <span class="n">partial_census_table</span><span class="o">.</span><span class="n">relabeled</span><span class="p">(</span><span class="s1">&#39;POPESTIMATE2014&#39;</span><span class="p">,</span> <span class="s1">&#39;2014&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">relabeled</span><span class="p">(</span><span class="s1">&#39;POPESTIMATE2019&#39;</span><span class="p">,</span> <span class="s1">&#39;2019&#39;</span><span class="p">)</span>
 
 <span class="c1"># Access the rows corresponding to all children, ages 0-18</span>
 <span class="n">children</span> <span class="o">=</span> <span class="n">us_pop</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;SEX&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">equal_to</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">below</span><span class="p">(</span><span class="mi">19</span><span class="p">))</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;SEX&#39;</span><span class="p">)</span>
@@ -953,71 +953,71 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>AGE</th> <th>2010</th> <th>2014</th>
+            <th>AGE</th> <th>2014</th> <th>2019</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>0   </td> <td>3951330</td> <td>3949775</td>
+            <td>0   </td> <td>3954787</td> <td>3783052</td>
         </tr>
         <tr>
-            <td>1   </td> <td>3957888</td> <td>3949776</td>
+            <td>1   </td> <td>3948891</td> <td>3829599</td>
         </tr>
         <tr>
-            <td>2   </td> <td>4090862</td> <td>3959664</td>
+            <td>2   </td> <td>3958711</td> <td>3922044</td>
         </tr>
         <tr>
-            <td>3   </td> <td>4111920</td> <td>4007079</td>
+            <td>3   </td> <td>4005928</td> <td>3998665</td>
         </tr>
         <tr>
-            <td>4   </td> <td>4077551</td> <td>4005716</td>
+            <td>4   </td> <td>4004032</td> <td>4043323</td>
         </tr>
         <tr>
-            <td>5   </td> <td>4064653</td> <td>4006900</td>
+            <td>5   </td> <td>4004576</td> <td>4028281</td>
         </tr>
         <tr>
-            <td>6   </td> <td>4073013</td> <td>4135930</td>
+            <td>6   </td> <td>4133372</td> <td>4017227</td>
         </tr>
         <tr>
-            <td>7   </td> <td>4043046</td> <td>4155326</td>
+            <td>7   </td> <td>4152666</td> <td>4022319</td>
         </tr>
         <tr>
-            <td>8   </td> <td>4025604</td> <td>4120903</td>
+            <td>8   </td> <td>4118349</td> <td>4066194</td>
         </tr>
         <tr>
-            <td>9   </td> <td>4125415</td> <td>4108349</td>
+            <td>9   </td> <td>4106068</td> <td>4061874</td>
         </tr>
         <tr>
-            <td>10  </td> <td>4187062</td> <td>4116942</td>
+            <td>10  </td> <td>4114558</td> <td>4060940</td>
         </tr>
         <tr>
-            <td>11  </td> <td>4115511</td> <td>4087402</td>
+            <td>11  </td> <td>4084457</td> <td>4189261</td>
         </tr>
         <tr>
-            <td>12  </td> <td>4113279</td> <td>4070682</td>
+            <td>12  </td> <td>4067187</td> <td>4208387</td>
         </tr>
         <tr>
-            <td>13  </td> <td>4119666</td> <td>4171030</td>
+            <td>13  </td> <td>4168095</td> <td>4175221</td>
         </tr>
         <tr>
-            <td>14  </td> <td>4145614</td> <td>4233839</td>
+            <td>14  </td> <td>4231353</td> <td>4164459</td>
         </tr>
         <tr>
-            <td>15  </td> <td>4231002</td> <td>4164796</td>
+            <td>15  </td> <td>4162828</td> <td>4175459</td>
         </tr>
         <tr>
-            <td>16  </td> <td>4313252</td> <td>4168559</td>
+            <td>16  </td> <td>4165925</td> <td>4150420</td>
         </tr>
         <tr>
-            <td>17  </td> <td>4376367</td> <td>4186513</td>
+            <td>17  </td> <td>4181940</td> <td>4142425</td>
         </tr>
         <tr>
-            <td>18  </td> <td>4491005</td> <td>4227920</td>
+            <td>18  </td> <td>4221344</td> <td>4255827</td>
         </tr>
     </tbody>
 </table></div></div>
 </div>
-<p>We can now draw two overlaid line plots, showing the numbers of children in the different age groups for each of the years 2010 and 2014. The method call is analogous to the <code class="docutils literal notranslate"><span class="pre">scatter</span></code> call in the previous example.</p>
+<p>We can now draw two overlaid line plots, showing the numbers of children in the different age groups for each of the years 2014 and 2019. The call is analogous to the <code class="docutils literal notranslate"><span class="pre">scatter</span></code> call in the previous example.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">children</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;AGE&#39;</span><span class="p">)</span>
@@ -1028,18 +1028,18 @@
 <img alt="../../../_images/Overlaid_Graphs_10_0.png" src="../../../_images/Overlaid_Graphs_10_0.png" />
 </div>
 </div>
-<p>On this scale, it’s important to remember that we only have data at ages 0, 1, 2, and so on; the graphs “join the dots” in between.</p>
-<p>The graphs cross each other in a few places: for example, there were more 4-year-olds in 2010 than in 2014, and there were more 14-year-olds in 2014 than in 2010.</p>
-<p>Of course, the 14-year-olds in 2014 mostly consist of the 10-year-olds in 2010. To see this, look at the gold graph at <code class="docutils literal notranslate"><span class="pre">AGE</span></code> 14 and the blue graph at <code class="docutils literal notranslate"><span class="pre">AGE</span></code> 10. Indeed, you will notice that the entire gold graph (2014) looks like the blue graph (2010) slid over to the right by 4 years. The slide is accompanied by a slight rise due to the net effect of children who entered the country between 2010 and 2014 outnumbering those who left. Fortunately at these ages there is not much loss of life.</p>
+<p>Though the horizontal axis labels include some half-integers, it’s important to remember that we only have data at ages 0, 1, 2, and so on. The line plots “join the dots” in between.</p>
+<p>The two graphs cross each other in a few places. For example, there were more 6-year-olds in 2014 than in 2019, and there were more 12-year-olds in 2019 than in 2014.</p>
+<p>Of course, the 12-year-olds in 2019 mostly consist of the children who were 7-year-olds in 2014. To see this on the plots, compare the gold graph at <code class="docutils literal notranslate"><span class="pre">AGE</span></code> 12 and the blue graph at <code class="docutils literal notranslate"><span class="pre">AGE</span></code> 7. You will notice that the gold graph (2019) looks very much like the blue graph (2014) slid over to the right by 5 years. The slide is accompanied by a slight rise due to the net effect of children who entered the country between 2014 and 2019 outnumbering those who left. Fortunately at these ages there is not much loss of life.</p>
 </div>
 <div class="section" id="bar-charts">
 <h2><span class="section-number">7.3.3. </span>Bar Charts<a class="headerlink" href="#bar-charts" title="Permalink to this headline">¶</a></h2>
-<p>For our final example of this section, we look at distributions of ethnicities of adults and children in California as well as in the entire United States.</p>
-<p>The Kaiser Family Foundation has complied Census data on the distribution of race and ethnicity in the U.S. The Foundation’s website provides compilations of data for <a class="reference external" href="http://kff.org/other/state-indicator/distribution-by-raceethnicity/">the entire U.S. population</a> in 2014, as well as for <a class="reference external" href="http://kff.org/other/state-indicator/children-by-raceethnicity/">U.S. children</a> who were younger than 18 years old that year.</p>
-<p>Here is a table adapted from their data for the United States and California. The columns represent everyone in the U.S.A., everyone in California, children in the U.S.A., and children in California. The body of the table contains proportions in the different categories. Each column shows the distribution of ethnicities in the group of people corresponding to that column. So in each column, the entries add up to 1.</p>
+<p>The Kaiser Family Foundation has complied Census data on the distribution of race and ethnicity in the U.S. The Foundation’s website provides compilations of data for <a class="reference external" href="http://kff.org/other/state-indicator/distribution-by-raceethnicity/">the entire U.S. population</a> in 2019, as well as for <a class="reference external" href="http://kff.org/other/state-indicator/children-by-raceethnicity/">U.S. children</a> who were younger than 18 years old that year.</p>
+<p>The table <code class="docutils literal notranslate"><span class="pre">usa_ca</span></code> is adapted from their data for the United States and California. The columns represent everyone in the U.S.A., everyone in California, children in the U.S.A., and children in California.</p>
+<p>The body of the table contains percents in the different categories. Each column shows the distribution of the <code class="docutils literal notranslate"><span class="pre">Ethnicity/Race</span></code> variable in the group of people corresponding to that column. So in each column, the entries add up to 100. The <code class="docutils literal notranslate"><span class="pre">API</span></code> category consists of Asians and Pacific Islanders including Native Hawaiians. The <code class="docutils literal notranslate"><span class="pre">Other</span></code> category includes Native Americans, Alaskan natives, and people who identify with multiple races.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usa_ca</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;usa_ca_2014.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usa_ca</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;usa_ca_2019.csv&#39;</span><span class="p">)</span>
 <span class="n">usa_ca</span>
 </pre></div>
 </div>
@@ -1048,30 +1048,33 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>Ethnicity</th> <th>USA All</th> <th>CA All</th> <th>USA Children</th> <th>CA Children</th>
+            <th>Ethnicity/Race</th> <th>USA All</th> <th>CA All</th> <th>USA Children</th> <th>CA Children</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>Black    </td> <td>0.12   </td> <td>0.05  </td> <td>0.14        </td> <td>0.05       </td>
+            <td>API           </td> <td>5.8    </td> <td>15.1  </td> <td>4.9         </td> <td>11.5       </td>
         </tr>
         <tr>
-            <td>Hispanic </td> <td>0.18   </td> <td>0.38  </td> <td>0.24        </td> <td>0.5        </td>
+            <td>Black         </td> <td>12.2   </td> <td>5.3   </td> <td>13.4        </td> <td>4.9        </td>
         </tr>
         <tr>
-            <td>White    </td> <td>0.62   </td> <td>0.39  </td> <td>0.52        </td> <td>0.29       </td>
+            <td>Hispanic      </td> <td>18.5   </td> <td>39.5  </td> <td>25.6        </td> <td>52.1       </td>
         </tr>
         <tr>
-            <td>Other    </td> <td>0.08   </td> <td>0.18  </td> <td>0.1         </td> <td>0.16       </td>
+            <td>White         </td> <td>60.1   </td> <td>36.4  </td> <td>50          </td> <td>25.5       </td>
+        </tr>
+        <tr>
+            <td>Other         </td> <td>3.4    </td> <td>3.7   </td> <td>6.1         </td> <td>6          </td>
         </tr>
     </tbody>
 </table></div></div>
 </div>
-<p>It is natural to want to compare these distributions. It makes sense to compare the columns directly, because all the entries are proportions and are therefore on the same scale.</p>
+<p>It is natural to want to compare these distributions. It makes sense to compare the columns directly, because all the entries are percents and are therefore on the same scale.</p>
 <p>The method <code class="docutils literal notranslate"><span class="pre">barh</span></code> allows us to visualize the comparisons by drawing multiple bar charts on the same axes. The call is analogous to those for <code class="docutils literal notranslate"><span class="pre">scatter</span></code> and <code class="docutils literal notranslate"><span class="pre">plot</span></code>: we have to specify the common axis of categories.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usa_ca</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="s1">&#39;Ethnicity&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usa_ca</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="s1">&#39;Ethnicity/Race&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1079,11 +1082,11 @@
 <img alt="../../../_images/Overlaid_Graphs_15_0.png" src="../../../_images/Overlaid_Graphs_15_0.png" />
 </div>
 </div>
-<p>While drawing the overlaid bar charts is straightforward, there is a bit too much information on this graph for us to be able to sort out similarities and differences between populations. It seems clear that the distributions of ethnicities for everyone in the U.S. and for children in the U.S. are more similar to each other than any other pair, but it’s much easier to compare the populations one pair at a time.</p>
+<p>While drawing the overlaid bar charts is straightforward, there is a bit too much information on this graph for us to be able to sort out similarities and differences between populations. It is much easier to compare the populations one pair at a time.</p>
 <p>Let’s start by comparing the entire populations of the U.S.A. and California.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usa_ca</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Ethnicity&#39;</span><span class="p">,</span> <span class="s1">&#39;USA All&#39;</span><span class="p">,</span> <span class="s1">&#39;CA All&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="s1">&#39;Ethnicity&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usa_ca</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Ethnicity/Race&#39;</span><span class="p">,</span> <span class="s1">&#39;USA All&#39;</span><span class="p">,</span> <span class="s1">&#39;CA All&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="s1">&#39;Ethnicity/Race&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1091,11 +1094,11 @@
 <img alt="../../../_images/Overlaid_Graphs_17_0.png" src="../../../_images/Overlaid_Graphs_17_0.png" />
 </div>
 </div>
-<p>The two distributions are quite different. California has higher proportions in the <code class="docutils literal notranslate"><span class="pre">Hispanic</span></code> and <code class="docutils literal notranslate"><span class="pre">Other</span></code> categories, and correspondingly lower proportions of <code class="docutils literal notranslate"><span class="pre">Black</span></code> and <code class="docutils literal notranslate"><span class="pre">White</span></code>. The differences are largely due to California’s geographical location and patterns of immigration, both historically and in more recent decades. For example, the <code class="docutils literal notranslate"><span class="pre">Other</span></code> category in California includes a significant proportion of Asians and Pacific Islanders.</p>
-<p>As you can see from the graph, almost 40% of the Californian population in 2014 was <code class="docutils literal notranslate"><span class="pre">Hispanic</span></code>. A comparison with the population of children in the state indicates that the <code class="docutils literal notranslate"><span class="pre">Hispanic</span></code> proportion is likely to be greater in future years. Among Californian children, 50% are in the <code class="docutils literal notranslate"><span class="pre">Hispanic</span></code> category.</p>
+<p>The two distributions are quite different. California has higher percents in the <code class="docutils literal notranslate"><span class="pre">API</span></code> and <code class="docutils literal notranslate"><span class="pre">Hispanic</span></code> categories, and correspondingly lower percents in the<code class="docutils literal notranslate"><span class="pre">Black</span></code> and <code class="docutils literal notranslate"><span class="pre">White</span></code> categories. The percents in the <code class="docutils literal notranslate"><span class="pre">Other</span></code> category are quite similar in the two populations. The differences are largely due to California’s geographical location and patterns of immigration and migration, both historically and in more recent decades.</p>
+<p>As you can see from the graph, almost 40% of the Californian population in 2019 was <code class="docutils literal notranslate"><span class="pre">Hispanic</span></code>. A comparison with the population of children in the state indicates that the <code class="docutils literal notranslate"><span class="pre">Hispanic</span></code> proportion is likely to be greater in future years. Among Californian children in 2019, more than 50% were in the <code class="docutils literal notranslate"><span class="pre">Hispanic</span></code> category.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usa_ca</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Ethnicity&#39;</span><span class="p">,</span> <span class="s1">&#39;CA All&#39;</span><span class="p">,</span> <span class="s1">&#39;CA Children&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="s1">&#39;Ethnicity&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usa_ca</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Ethnicity/Race&#39;</span><span class="p">,</span> <span class="s1">&#39;CA All&#39;</span><span class="p">,</span> <span class="s1">&#39;CA Children&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="s1">&#39;Ethnicity/Race&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1103,7 +1106,7 @@
 <img alt="../../../_images/Overlaid_Graphs_19_0.png" src="../../../_images/Overlaid_Graphs_19_0.png" />
 </div>
 </div>
-<p>More complex datasets naturally give rise to varied and interesting visualizations, including overlaid graphs of different kinds. To analyze such data, it helps to have some more skills in data manipulation, so that we can get the data into a form that allows us to use methods like those in this section. In the next chapter we will develop some of these skills.</p>
+<p>More complex data sets naturally give rise to varied and interesting visualizations, including overlaid graphs of different kinds. To analyze such data, it helps to have some more skills in data manipulation, so that we can get the data into a form that allows us to use methods like those in this section. In the next chapter we will develop some of these skills.</p>
 </div>
 </div>
 

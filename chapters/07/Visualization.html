@@ -841,7 +841,7 @@
 <h2>Scatter Plots and Line Graphs</h2><p>The table <code class="docutils literal notranslate"><span class="pre">actors</span></code> contains data on Hollywood actors, both male and female. The columns are:</p>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>** Column **</p></th>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
 <th class="head"><p>Contents</p></th>
 </tr>
 </thead>
@@ -867,7 +867,7 @@
 </tbody>
 </table>
 <p>In the calculation of the gross receipt, the data tabulators did not include movies where an actor had a cameo role or a speaking role that did not involve much screen time.</p>
-<p>The table has 50 rows, corresponding to the 50 top grossing actors. The table is already sorted by <code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">Gross</span></code>, so it is easy to see that Harrison Ford is the highest grossing actor. In total, his movies have brought in more money at domestic box office than the movies of any other actor.</p>
+<p>The table has 50 rows, corresponding to the 50 top grossing actors. The table is already sorted by <code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">Gross</span></code>, so it is easy to see that Harrison Ford is the highest grossing actor. At the time when the table was created, his movies had brought in more money at the domestic box office than the movies of any other actor in the table.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">actors</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;actors.csv&#39;</span><span class="p">)</span>
@@ -918,8 +918,8 @@
 <p>... (40 rows omitted)</p></div></div>
 </div>
 <p><strong>Terminology.</strong>
-A <em>variable</em> is a formal name for what we have been calling a “feature”, such as ‘number of movies.’ The term <em>variable</em> emphasizes that the feature can have different values for different individuals – the numbers of movies that actors have been in varies across all the actors.</p>
-<p>Variables that have numerical values, such as ‘number of movies’ or ‘average gross receipts per movie’ are called <em>quantitative</em> or <em>numerical</em> variables.</p>
+A <em>variable</em> is a formal name for what we have been calling a “feature” or “attribute”, such as ‘number of movies.’ The term <em>variable</em> emphasizes the point that a feature can have different values for different individuals. For example, the numbers of movies that actors have been in vary across all the actors.</p>
+<p>Variables that have numerical values and can be measured numerically, such as ‘number of movies’ or ‘average gross receipts per movie’ are called <em>quantitative</em> or <em>numerical</em> variables.</p>
 <h2>Scatter Plots</h2>
 <p>A <em>scatter plot</em> displays the relation between two numerical variables. You saw an example of a scatter plot in an early section where we looked at the number of periods and number of characters in two classic novels.</p>
 <p>The Table method <code class="docutils literal notranslate"><span class="pre">scatter</span></code> draws a scatter plot consisting of one point for each row of the table. Its first argument is the label of the column to be plotted on the horizontal axis, and its second argument is the label of the column on the vertical.</p>
@@ -1022,8 +1022,8 @@ A <em>variable</em> is a formal name for what we have been calling a “feature�
 <p>That’s <a class="reference external" href="https://en.wikipedia.org/wiki/Anthony_Daniels">Anthony Daniels</a> inside the metallic suit. He plays C-3PO.</p>
 <p>Mr. Daniels’ entire filmography (apart from cameos) consists of movies in the high-grossing Star Wars franchise. That explains both his high average receipt and his low number of movies.</p>
 <p>Variables such as genre and production budget have an effect on the association between the number of movies and the average receipt per movie. This example is a reminder that studying the association between two variables often involves understanding other related variables as well.</p>
-<h2>Line Graphs</h2>
-<p>Line graphs are among the most common visualizations and are often used to study chronological trends and patterns.</p>
+<h2>Line Plots</h2>
+<p>Line plots, sometimes known as line graphs, are among the most common visualizations. They are often used to study chronological trends and patterns.</p>
 <p>The table <code class="docutils literal notranslate"><span class="pre">movies_by_year</span></code> contains data on movies produced by U.S. studios in each of the years 1980 through 2015. The columns are:</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1095,7 +1095,7 @@ A <em>variable</em> is a formal name for what we have been calling a “feature�
 </table>
 <p>... (26 rows omitted)</p></div></div>
 </div>
-<p>The Table method <code class="docutils literal notranslate"><span class="pre">plot</span></code> produces a line graph. Its two arguments are the same as those for <code class="docutils literal notranslate"><span class="pre">scatter</span></code>: first the column on the horizontal axis, then the column on the vertical. Here is a line graph of the number of movies released each year over the years 1980 through 2015.</p>
+<p>The Table method <code class="docutils literal notranslate"><span class="pre">plot</span></code> produces a line plot. Its two arguments are the same as those for <code class="docutils literal notranslate"><span class="pre">scatter</span></code>: first the column on the horizontal axis, then the column on the vertical. Here is a line plot of the number of movies released each year over the years 1980 through 2015.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movies_by_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;Number of Movies&#39;</span><span class="p">)</span>
@@ -1139,7 +1139,7 @@ A <em>variable</em> is a formal name for what we have been calling a “feature�
 </div>
 <p>The total domestic gross receipt was higher in 2009 than in 2008, even though there was a financial crisis and a much smaller number of movies were released.</p>
 <p>One reason for this apparent contradiction is that people tend to go to the movies when there is a recession. <a class="reference external" href="http://www.nytimes.com/2009/03/01/movies/01films.html?_r=0">“In Downturn, Americans Flock to the Movies,”</a> said the New York Times in February 2009. The article quotes Martin Kaplan of the University of Southern California saying, “People want to forget their troubles, and they want to be with other people.” When holidays and expensive treats are unaffordable, movies provide welcome entertainment and relief.</p>
-<p>In 2009, another reason for high box office receipts was the movie Avatar and its 3D release. Not only was Avatar the #1 movie of 2009, it is also by some calculations the second highest grossing movie of all time, as we will see later.</p>
+<p>In 2009, another reason for high box office receipts was the movie Avatar and its 3D release. Not only was Avatar the #1 movie of 2009, it is also by some calculations one of the highest grossing movies of all time, as we will see later.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">century_21</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">equal_to</span><span class="p">(</span><span class="mi">2009</span><span class="p">))</span>
