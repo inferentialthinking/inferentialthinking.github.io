@@ -833,8 +833,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#features-of-categorical-distributions">
-   7.1.2. Features of Categorical Distributions
+  <a class="reference internal nav-link" href="#design-aspects-of-bar-charts">
+   7.1.2. Design Aspects of Bar Charts
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -843,8 +843,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#towards-numerical-variables">
-   7.1.4. Towards numerical variables
+  <a class="reference internal nav-link" href="#towards-quantitative-variables">
+   7.1.4. Towards Quantitative Variables
   </a>
  </li>
 </ul>
@@ -929,8 +929,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="features-of-categorical-distributions">
-<h2><span class="section-number">7.1.2. </span>Features of Categorical Distributions<a class="headerlink" href="#features-of-categorical-distributions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="design-aspects-of-bar-charts">
+<h2><span class="section-number">7.1.2. </span>Design Aspects of Bar Charts<a class="headerlink" href="#design-aspects-of-bar-charts" title="Permalink to this headline">¶</a></h2>
 <p>Apart from purely visual differences, there is an important fundamental distinction between bar charts and the two graphs that we saw in the previous sections. Those were the scatter plot and the line plot, both of which display two quantitative variables – the variables on both axes are quantitative. In contrast, the bar chart has categories on one axis and numerical quantities on the other.</p>
 <p>This has consequences for the chart. First, the width of each bar and the space between consecutive bars is entirely up to the person who is producing the graph, or to the program being used to produce it. Python made those choices for us. If you were to draw the bar graph by hand, you could make completely different choices and still have a perfectly correct bar graph, provided you drew all the bars with the same width and kept all the spaces the same.</p>
 <p>Most importantly, the bars can be drawn in any order. The categories “chocolate,” “vanilla,” and “strawberry” have no universal rank order, unlike for example the numbers 5, 7, and 10.</p>
@@ -950,11 +950,11 @@
 <div class="section" id="grouping-categorical-data">
 <h2><span class="section-number">7.1.3. </span>Grouping Categorical Data<a class="headerlink" href="#grouping-categorical-data" title="Permalink to this headline">¶</a></h2>
 <p>To construct the table <code class="docutils literal notranslate"><span class="pre">icecream</span></code>, someone had to look at all 30 cartons of ice-cream and count the number of each flavor. But if our table does not already include frequencies, we have to compute the frequencies before we can draw a bar chart. Here is an example where this is necessary.</p>
-<p>The table <code class="docutils literal notranslate"><span class="pre">top</span></code> consists of U.S.A.’s top grossing movies of all time. The first column contains the title of the movie; <em>Star Wars: The Force Awakens</em> has the top rank, with a box office gross amount of more than 900 million dollars in the United States. The second column contains the name of the studio that produced the movie. The third contains the domestic box office gross in dollars, and the fourth contains the  gross amount that would have been earned from ticket sales at 2016 prices. The fifth contains the release year of the movie.</p>
+<p>The table <code class="docutils literal notranslate"><span class="pre">top</span></code> consists of U.S.A.’s top grossing movies of all time, as of 2017. The first column contains the title of the movie; <em>Star Wars: The Force Awakens</em> has the top rank, with a box office gross amount of more than 900 million dollars in the United States. The second column contains the name of the studio that produced the movie. The third contains the domestic box office gross in dollars, and the fourth contains the  gross amount that would have been earned from ticket sales at 2016 prices. The fifth contains the year in which the movie was released.</p>
 <p>There are 200 movies on the list. Here are the top ten according to unadjusted gross receipts.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;top_movies.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;top_movies_2017.csv&#39;</span><span class="p">)</span>
 <span class="n">top</span>
 </pre></div>
 </div>
@@ -968,40 +968,40 @@
     </thead>
     <tbody>
         <tr>
-            <td>Star Wars: The Force Awakens             </td> <td>Buena Vista (Disney)</td> <td>906723418</td> <td>906723400       </td> <td>2015</td>
+            <td>Gone with the Wind              </td> <td>MGM            </td> <td>198676459</td> <td>1796176700      </td> <td>1939</td>
         </tr>
         <tr>
-            <td>Avatar                                   </td> <td>Fox                 </td> <td>760507625</td> <td>846120800       </td> <td>2009</td>
+            <td>Star Wars                       </td> <td>Fox            </td> <td>460998007</td> <td>1583483200      </td> <td>1977</td>
         </tr>
         <tr>
-            <td>Titanic                                  </td> <td>Paramount           </td> <td>658672302</td> <td>1178627900      </td> <td>1997</td>
+            <td>The Sound of Music              </td> <td>Fox            </td> <td>158671368</td> <td>1266072700      </td> <td>1965</td>
         </tr>
         <tr>
-            <td>Jurassic World                           </td> <td>Universal           </td> <td>652270625</td> <td>687728000       </td> <td>2015</td>
+            <td>E.T.: The Extra-Terrestrial     </td> <td>Universal      </td> <td>435110554</td> <td>1261085000      </td> <td>1982</td>
         </tr>
         <tr>
-            <td>Marvel's The Avengers                    </td> <td>Buena Vista (Disney)</td> <td>623357910</td> <td>668866600       </td> <td>2012</td>
+            <td>Titanic                         </td> <td>Paramount      </td> <td>658672302</td> <td>1204368000      </td> <td>1997</td>
         </tr>
         <tr>
-            <td>The Dark Knight                          </td> <td>Warner Bros.        </td> <td>534858444</td> <td>647761600       </td> <td>2008</td>
+            <td>The Ten Commandments            </td> <td>Paramount      </td> <td>65500000 </td> <td>1164590000      </td> <td>1956</td>
         </tr>
         <tr>
-            <td>Star Wars: Episode I - The Phantom Menace</td> <td>Fox                 </td> <td>474544677</td> <td>785715000       </td> <td>1999</td>
+            <td>Jaws                            </td> <td>Universal      </td> <td>260000000</td> <td>1138620700      </td> <td>1975</td>
         </tr>
         <tr>
-            <td>Star Wars                                </td> <td>Fox                 </td> <td>460998007</td> <td>1549640500      </td> <td>1977</td>
+            <td>Doctor Zhivago                  </td> <td>MGM            </td> <td>111721910</td> <td>1103564200      </td> <td>1965</td>
         </tr>
         <tr>
-            <td>Avengers: Age of Ultron                  </td> <td>Buena Vista (Disney)</td> <td>459005868</td> <td>465684200       </td> <td>2015</td>
+            <td>The Exorcist                    </td> <td>Warner Brothers</td> <td>232906145</td> <td>983226600       </td> <td>1973</td>
         </tr>
         <tr>
-            <td>The Dark Knight Rises                    </td> <td>Warner Bros.        </td> <td>448139099</td> <td>500961700       </td> <td>2012</td>
+            <td>Snow White and the Seven Dwarves</td> <td>Disney         </td> <td>184925486</td> <td>969010000       </td> <td>1937</td>
         </tr>
     </tbody>
 </table>
 <p>... (190 rows omitted)</p></div></div>
 </div>
-<p>The Disney subsidiary Buena Vista shows up frequently in the top ten, as do Fox and Warner Brothers. Which studios will appear most frequently if we look among all 200 rows?</p>
+<p>The studios MGM, Fox, Universal, and Paramount show up more than once in the top ten. Which studios will appear most frequently if we look among all 200 rows?</p>
 <p>To figure this out, first notice that all we need is a table with the movies and the studios; the other information is unnecessary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1010,10 +1010,15 @@
 </div>
 </div>
 </div>
-<p>The Table method <code class="docutils literal notranslate"><span class="pre">group</span></code> allows us to count how frequently each studio appears in the table, by calling each studio a category and assigning each row to one category. The <code class="docutils literal notranslate"><span class="pre">group</span></code> method takes as its argument the label of the column that contains the categories, and returns a table of counts of rows in each category. The column of counts is always called <code class="docutils literal notranslate"><span class="pre">count</span></code>, but you can change that if you like by using <code class="docutils literal notranslate"><span class="pre">relabeled</span></code>.</p>
+<p>The Table method <code class="docutils literal notranslate"><span class="pre">group</span></code> allows us to count how frequently each studio appears in the table, by calling each studio a category and collecting all the rows in each of these new categories.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">group</span></code> method takes as its argument the label of the column that contains the categories. It returns a table of counts of rows in each category.</p>
+<p>Thus <code class="docutils literal notranslate"><span class="pre">group</span></code> creates a distribution table that shows how the individuals (movies) are distributed among the categories (studios).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">group</span></code> method lists the categories in ascending order. Since our categories are studio names and therefore represented as strings, ascending order means alphabetical order.</p>
+<p>The column of counts is always called <code class="docutils literal notranslate"><span class="pre">count</span></code>, but you can change that if you like by using <code class="docutils literal notranslate"><span class="pre">relabeled</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movies_and_studios</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;Studio&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">studio_distribution</span> <span class="o">=</span> <span class="n">movies_and_studios</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;Studio&#39;</span><span class="p">)</span>
+<span class="n">studio_distribution</span>
 </pre></div>
 </div>
 </div>
@@ -1026,84 +1031,82 @@
     </thead>
     <tbody>
         <tr>
-            <td>AVCO                </td> <td>1    </td>
+            <td>AVCO       </td> <td>1    </td>
         </tr>
         <tr>
-            <td>Buena Vista (Disney)</td> <td>29   </td>
+            <td>Buena Vista</td> <td>35   </td>
         </tr>
         <tr>
-            <td>Columbia            </td> <td>10   </td>
+            <td>Columbia   </td> <td>9    </td>
         </tr>
         <tr>
-            <td>Disney              </td> <td>11   </td>
+            <td>Disney     </td> <td>11   </td>
         </tr>
         <tr>
-            <td>Dreamworks          </td> <td>3    </td>
+            <td>Dreamworks </td> <td>3    </td>
         </tr>
         <tr>
-            <td>Fox                 </td> <td>26   </td>
+            <td>Fox        </td> <td>24   </td>
         </tr>
         <tr>
-            <td>IFC                 </td> <td>1    </td>
+            <td>IFC        </td> <td>1    </td>
         </tr>
         <tr>
-            <td>Lionsgate           </td> <td>3    </td>
+            <td>Lionsgate  </td> <td>3    </td>
         </tr>
         <tr>
-            <td>MGM                 </td> <td>7    </td>
+            <td>MGM        </td> <td>7    </td>
         </tr>
         <tr>
-            <td>MPC                 </td> <td>1    </td>
+            <td>Metro      </td> <td>1    </td>
         </tr>
     </tbody>
 </table>
-<p>... (14 rows omitted)</p></div></div>
+<p>... (13 rows omitted)</p></div></div>
 </div>
-<p>Thus <code class="docutils literal notranslate"><span class="pre">group</span></code> creates a distribution table that shows how the individuals (movies) are distributed among the categories (studios).</p>
+<p>The table shows that there are 23 different studios and provides the count of movies released by each one. The total of the count is 200, the total number of movies.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">studio_distribution</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200
+</pre></div>
+</div>
+</div>
+</div>
 <p>We can now use this table, along with the graphing skills acquired above, to draw a bar chart that shows which studios are most frequent among the 200 highest grossing movies.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">studio_distribution</span> <span class="o">=</span> <span class="n">movies_and_studios</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;Studio&#39;</span><span class="p">)</span>
-<span class="n">studio_distribution</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="s1">&#39;Studio&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">studio_distribution</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="s1">&#39;Studio&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/Visualizing_Categorical_Distributions_19_0.png" src="../../../_images/Visualizing_Categorical_Distributions_19_0.png" />
+<img alt="../../../_images/Visualizing_Categorical_Distributions_21_0.png" src="../../../_images/Visualizing_Categorical_Distributions_21_0.png" />
 </div>
 </div>
-<p>Warner Brothers and Buena Vista are the most common studios among the top 200 movies. Warner Brothers produces the Harry Potter movies and Buena Vista produces Star Wars.</p>
-<p>Because total gross receipts are being measured in unadjusted dollars, it is not very surprising that the top movies are more frequently from recent years than from bygone decades. In absolute terms, movie tickets cost more now than they used to, and thus gross receipts are higher. This is borne out by a bar chart that show the distribution of the 200 movies by year of release.</p>
+<p>Buena Vista and Warner Brothers are the most common studios among the top 200 movies. Warner Brothers produces the Harry Potter movies and Buena Vista produces Star Wars.</p>
+</div>
+<div class="section" id="towards-quantitative-variables">
+<h2><span class="section-number">7.1.4. </span>Towards Quantitative Variables<a class="headerlink" href="#towards-quantitative-variables" title="Permalink to this headline">¶</a></h2>
+<p>Though years are numerical, we could treat the year of release as a categorical variable and plot the its distribution. That is, for every year we could find how many movies were released that year, and then draw the bar chart of that distribution.</p>
+<p>Let’s do that and just look at the 10 earliest years in the distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movies_and_years</span> <span class="o">=</span> <span class="n">top</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Title&#39;</span><span class="p">,</span> <span class="s1">&#39;Year&#39;</span><span class="p">)</span>
-<span class="n">movies_and_years</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+<span class="n">movies_and_years</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/Visualizing_Categorical_Distributions_22_0.png" src="../../../_images/Visualizing_Categorical_Distributions_22_0.png" />
+<img alt="../../../_images/Visualizing_Categorical_Distributions_24_0.png" src="../../../_images/Visualizing_Categorical_Distributions_24_0.png" />
 </div>
 </div>
-<p>All of the longest bars correspond to years after 2000. This is consistent with our observation that recent years should be among the most frequent.</p>
-</div>
-<div class="section" id="towards-numerical-variables">
-<h2><span class="section-number">7.1.4. </span>Towards numerical variables<a class="headerlink" href="#towards-numerical-variables" title="Permalink to this headline">¶</a></h2>
-<p>There is something unsettling about this chart. Though it does answer the question of which release years appear most frequently among the 200 top grossing movies, it doesn’t list all the years in chronological order. It is treating <code class="docutils literal notranslate"><span class="pre">Year</span></code> as a categorical variable.</p>
-<p>But years are fixed chronological units that do have an order. They also have fixed numerical spacings relative to each other. Let’s see what happens when we try to take that into account.</p>
-<p>By default, <code class="docutils literal notranslate"><span class="pre">barh</span></code> sorts the categories (years) from lowest to highest. So we will run the code without sorting by count.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movies_and_years</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/Visualizing_Categorical_Distributions_25_0.png" src="../../../_images/Visualizing_Categorical_Distributions_25_0.png" />
-</div>
-</div>
-<p>Now the years are in increasing order. But there is still something disquieting about this bar chart. The bars at 1921 and 1937 are just as far apart from each other as the bars at 1937 and 1939. The bar chart doesn’t show that none of the 200 movies were released in the years 1922 through 1936, nor in 1938. Such inconsistencies and omissions make the distribution in the early years hard to understand based on this visualization.</p>
-<p>The distribution of a categorical variable can be displayed using a bar chart. But if the variable is quantitative, then the numerical relations between its values have to be taken into account when we create visualizations. That is the topic of the next section.</p>
+<p>The years appear in increasing order because <code class="docutils literal notranslate"><span class="pre">group</span></code> sorts the categories from lowest to highest. That is important here because years have a chronological order that has to be maintained. But there is something disquieting about this bar chart. The bars at 1921 and 1937 are just as far apart from each other as the bars at 1937 and 1939. The bar chart doesn’t show that none of the 200 movies were released in the years 1922 through 1936, nor in 1938. Such inconsistencies and omissions make the distribution in the early years hard to understand based on this visualization.</p>
+<p>The distribution of a categorical variable can be displayed using a bar chart. But if the variable is not categorical but quantitative, then the numerical relations between its values have to be taken into account when we create visualizations. That is the topic of the next section.</p>
 </div>
 </div>
 

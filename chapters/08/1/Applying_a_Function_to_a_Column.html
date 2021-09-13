@@ -1054,9 +1054,8 @@
 </div>
 <div class="section" id="example-prediction">
 <h2><span class="section-number">8.1.3. </span>Example: Prediction<a class="headerlink" href="#example-prediction" title="Permalink to this headline">¶</a></h2>
-<p>Data Science is often used to make predictions about the future. If we are trying to predict an outcome for a particular individual – for example, how she will respond to a treatment, or whether he will buy a product – it is natural to base the prediction on the outcomes of other similar individuals.</p>
-<p>Charles Darwin’s cousin <a class="reference external" href="https://en.wikipedia.org/wiki/Francis_Galton">Sir Francis Galton</a> was a pioneer in using this idea to make predictions based on numerical data. He studied how physical characteristics are passed down from one generation to the next.</p>
-<p>The data below are Galton’s carefully collected measurements on the heights of parents and their adult children. Each row corresponds to one adult child. The variables are a numerical code for the family, the heights (in inches) of the father and mother, a “midparent height” which is a weighted average <a class="reference external" href="#footnotes">[1]</a> of the height of the two parents, the number of children in the family, as well as the child’s birth rank (1 = oldest), gender, and height.</p>
+<p>Data science is often used to make predictions about the future. If we are trying to predict an outcome for a particular individual – for example, how she will respond to a treatment, or whether he will buy a product – it is natural to base the prediction on the outcomes of other similar individuals.</p>
+<p>The table below is adapted from a historical data set on the heights of parents and their adult children. Each row corresponds to one adult child. The variables are a numerical code for the family, the heights (in inches) of the father and mother, a “midparent height” which is a weighted average <a class="reference external" href="#footnotes">[1]</a> of the height of the two parents, the number of children in the family, as well as the child’s birth rank (1 = oldest), sex (coded only as “male” or “female”), and height.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data on heights of parents and their adult children</span>
@@ -1107,11 +1106,17 @@
 </table>
 <p>... (924 rows omitted)</p></div></div>
 </div>
-<p>A primary reason for collecting the data was to be able to predict the adult height of a child born to parents similar to those in the dataset. Let us try to do this, using midparent height as the variable on which to base our prediction. Thus midparent height is our <em>predictor</em> variable.</p>
-<p>The table <code class="docutils literal notranslate"><span class="pre">heights</span></code> consists of just the midparent heights and child’s heights. The scatter plot of the two variables shows a positive association, as we would expect for these variables.</p>
+<p>A primary reason for collecting the data was to be able to predict the adult height of a child born to parents similar to those in the dataset. Let us try to do this, by using the simple average of the parents’ height as the variable on which to base our prediction.</p>
+<p>This parent average height is our <em>predictor</em> variable. In the cell below, its values are in the array <code class="docutils literal notranslate"><span class="pre">parent_averages</span></code>.</p>
+<p>The table <code class="docutils literal notranslate"><span class="pre">heights</span></code> consists of just the parent average heights and child heights. The scatter plot of the two variables shows a positive association as we would expect for these variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heights</span> <span class="o">=</span> <span class="n">family_heights</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">relabeled</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;MidParent&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">relabeled</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Child&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parent_averages</span> <span class="o">=</span> <span class="p">(</span><span class="n">family_heights</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;father&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">family_heights</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;mother&#39;</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">heights</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="s1">&#39;Parent Average&#39;</span><span class="p">,</span> <span class="n">parent_averages</span><span class="p">,</span>
+    <span class="s1">&#39;Child&#39;</span><span class="p">,</span> <span class="n">family_heights</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;childHeight&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="c1">#heights = family_heights.select(3, 7).relabeled(0, &#39;MidParent&#39;).relabeled(1, &#39;Child&#39;)</span>
 <span class="n">heights</span>
 </pre></div>
 </div>
@@ -1120,39 +1125,39 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>MidParent</th> <th>Child</th>
+            <th>Parent Average</th> <th>Child</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>75.43    </td> <td>73.2 </td>
+            <td>72.75         </td> <td>73.2 </td>
         </tr>
         <tr>
-            <td>75.43    </td> <td>69.2 </td>
+            <td>72.75         </td> <td>69.2 </td>
         </tr>
         <tr>
-            <td>75.43    </td> <td>69   </td>
+            <td>72.75         </td> <td>69   </td>
         </tr>
         <tr>
-            <td>75.43    </td> <td>69   </td>
+            <td>72.75         </td> <td>69   </td>
         </tr>
         <tr>
-            <td>73.66    </td> <td>73.5 </td>
+            <td>71            </td> <td>73.5 </td>
         </tr>
         <tr>
-            <td>73.66    </td> <td>72.5 </td>
+            <td>71            </td> <td>72.5 </td>
         </tr>
         <tr>
-            <td>73.66    </td> <td>65.5 </td>
+            <td>71            </td> <td>65.5 </td>
         </tr>
         <tr>
-            <td>73.66    </td> <td>65.5 </td>
+            <td>71            </td> <td>65.5 </td>
         </tr>
         <tr>
-            <td>72.06    </td> <td>71   </td>
+            <td>69.5          </td> <td>71   </td>
         </tr>
         <tr>
-            <td>72.06    </td> <td>68   </td>
+            <td>69.5          </td> <td>68   </td>
         </tr>
     </tbody>
 </table>
@@ -1168,17 +1173,17 @@
 <img alt="../../../_images/Applying_a_Function_to_a_Column_24_0.png" src="../../../_images/Applying_a_Function_to_a_Column_24_0.png" />
 </div>
 </div>
-<p>Now suppose Galton encountered a new couple, similar to those in his dataset, and wondered how tall their child would be. What would be a good way for him to go about predicting the child’s height, given that the midparent height was, say, 68 inches?</p>
-<p>One reasonable approach would be to base the prediction on all the points that correspond to a midparent height of around 68 inches. The prediction equals the average child’s height calculated from those points alone.</p>
-<p>Let’s pretend we are Galton and execute this plan. For now we will just make a reasonable definition of what “around 68 inches” means, and work with that. Later in the course we will examine the consequences of such choices.</p>
-<p>We will take “close” to mean “within half an inch”. The figure below shows all the points corresponding to a midparent height between 67.5 inches and 68.5 inches. These are all the points in the strip between the red lines. Each of these points corresponds to one child; our prediction of the height of the new couple’s child is the average height of all the children in the strip. That’s represented by the gold dot.</p>
+<p>Now suppose the researchers encountered a new couple, similar to those in this dataset, and wondered how tall their child would be. What would be a good way for him to go about predicting the child’s height, given that the parent average height was, say, 68 inches?</p>
+<p>One reasonable approach would be to base the prediction on all the points that correspond to a parent average height of around 68 inches. The prediction equals the average child’s height calculated from those points alone.</p>
+<p>Let’s execute this plan. For now we will just make a reasonable definition of what “around 68 inches” means, and work with that. Later in the course we will examine the consequences of such choices.</p>
+<p>We will take “close” to mean “within half an inch”. The figure below shows all the points corresponding to a parent average height between 67.5 inches and 68.5 inches. These are all the points in the strip between the red lines. Each of these points corresponds to one child; our prediction of the height of the new couple’s child is the average height of all the children in the strip. That’s represented by the gold dot.</p>
 <p>Ignore the code, and just focus on understanding the mental process of arriving at that gold dot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heights</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;MidParent&#39;</span><span class="p">)</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">67.5</span><span class="p">,</span> <span class="mf">67.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">85</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">68.5</span><span class="p">,</span> <span class="mf">68.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">85</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">68</span><span class="p">,</span> <span class="mf">66.24</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heights</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;Parent Average&#39;</span><span class="p">)</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">67.5</span><span class="p">,</span> <span class="mf">67.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">85</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">68.5</span><span class="p">,</span> <span class="mf">68.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">85</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">68</span><span class="p">,</span> <span class="mf">67.62</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1186,10 +1191,10 @@
 <img alt="../../../_images/Applying_a_Function_to_a_Column_26_0.png" src="../../../_images/Applying_a_Function_to_a_Column_26_0.png" />
 </div>
 </div>
-<p>In order to calculate exactly where the gold dot should be, we first need to indentify all the points in the strip. These correspond to the rows where <code class="docutils literal notranslate"><span class="pre">MidParent</span></code> is between 67.5 inches and 68.5 inches.</p>
+<p>In order to calculate exactly where the gold dot should be, we first need to indentify all the points in the strip. These correspond to the rows where <code class="docutils literal notranslate"><span class="pre">Parent</span> <span class="pre">Average</span></code> is between 67.5 inches and 68.5 inches.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">close_to_68</span> <span class="o">=</span> <span class="n">heights</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;MidParent&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mf">67.5</span><span class="p">,</span> <span class="mf">68.5</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">close_to_68</span> <span class="o">=</span> <span class="n">heights</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;Parent Average&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mf">67.5</span><span class="p">,</span> <span class="mf">68.5</span><span class="p">))</span>
 <span class="n">close_to_68</span>
 </pre></div>
 </div>
@@ -1198,74 +1203,74 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>MidParent</th> <th>Child</th>
+            <th>Parent Average</th> <th>Child</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>68.44    </td> <td>62   </td>
+            <td>68            </td> <td>74   </td>
         </tr>
         <tr>
-            <td>67.94    </td> <td>71.2 </td>
+            <td>68            </td> <td>70   </td>
         </tr>
         <tr>
-            <td>67.94    </td> <td>67   </td>
+            <td>68            </td> <td>68   </td>
         </tr>
         <tr>
-            <td>68.33    </td> <td>62.5 </td>
+            <td>68            </td> <td>67   </td>
         </tr>
         <tr>
-            <td>68.23    </td> <td>73   </td>
+            <td>68            </td> <td>67   </td>
         </tr>
         <tr>
-            <td>68.23    </td> <td>72   </td>
+            <td>68            </td> <td>66   </td>
         </tr>
         <tr>
-            <td>68.23    </td> <td>69   </td>
+            <td>68            </td> <td>63.5 </td>
         </tr>
         <tr>
-            <td>67.98    </td> <td>73   </td>
+            <td>68            </td> <td>63   </td>
         </tr>
         <tr>
-            <td>67.98    </td> <td>71   </td>
+            <td>67.5          </td> <td>65   </td>
         </tr>
         <tr>
-            <td>67.98    </td> <td>71   </td>
+            <td>68.1          </td> <td>62.7 </td>
         </tr>
     </tbody>
 </table>
-<p>... (121 rows omitted)</p></div></div>
+<p>... (175 rows omitted)</p></div></div>
 </div>
-<p>The predicted height of a child who has a midparent height of 68 inches is the average height of the children in these rows. That’s 66.24 inches.</p>
+<p>The predicted height of a child who has a parent average height of 68 inches is the average height of the children in these rows. That’s 67.62 inches.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">close_to_68</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Child&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">close_to_68</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Child&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>66.24045801526718
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>67.62
 </pre></div>
 </div>
 </div>
 </div>
-<p>We now have a way to predict the height of a child given any value of the midparent height near those in our dataset. We can define a function <code class="docutils literal notranslate"><span class="pre">predict_child</span></code> that does this. The body of the function consists of the code in the two cells above, apart from choices of names.</p>
+<p>We now have a way to predict the height of a child given any value of the parent average height near those in our dataset. We can define a function <code class="docutils literal notranslate"><span class="pre">predict_child</span></code> that does this. The body of the function consists of the code in the two cells above, apart from choices of names.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predict_child</span><span class="p">(</span><span class="n">mpht</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Predict the height of a child whose parents have a midparent height of mpht.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predict_child</span><span class="p">(</span><span class="n">p_avg</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Predict the height of a child whose parents have a parent average height of p_avg.</span>
 <span class="sd">    </span>
-<span class="sd">    The prediction is the average height of the children whose midparent height is</span>
-<span class="sd">    in the range mpht plus or minus 0.5.</span>
+<span class="sd">    The prediction is the average height of the children whose parent average height is</span>
+<span class="sd">    in the range p_avg plus or minus 0.5.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
-    <span class="n">close_points</span> <span class="o">=</span> <span class="n">heights</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;MidParent&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="n">mpht</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">mpht</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">close_points</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Child&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>                       
+    <span class="n">close_points</span> <span class="o">=</span> <span class="n">heights</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;Parent Average&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="n">p_avg</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">p_avg</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">close_points</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Child&#39;</span><span class="p">))</span>                     
 </pre></div>
 </div>
 </div>
 </div>
-<p>Given a midparent height of 68 inches, the function <code class="docutils literal notranslate"><span class="pre">predict_child</span></code> returns the same prediction (66.24 inches) as we got earlier. The advantage of defining the function is that we can easily change the value of the predictor and get a new prediction.</p>
+<p>Given a parent average height of 68 inches, the function <code class="docutils literal notranslate"><span class="pre">predict_child</span></code> returns the same prediction (67.62 inches) as we got earlier. The advantage of defining the function is that we can easily change the value of the predictor and get a new prediction.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predict_child</span><span class="p">(</span><span class="mi">68</span><span class="p">)</span>
@@ -1273,30 +1278,30 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>66.24045801526718
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>67.62
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predict_child</span><span class="p">(</span><span class="mi">74</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predict_child</span><span class="p">(</span><span class="mi">66</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>70.41578947368421
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>66.08640776699029
 </pre></div>
 </div>
 </div>
 </div>
-<p>How good are these predictions? We can get a sense of this by comparing the predictions with the data that we already have. To do this, we first apply the function <code class="docutils literal notranslate"><span class="pre">predict_child</span></code> to the column of <code class="docutils literal notranslate"><span class="pre">Midparent</span></code> heights, and collect the results in a new column called <code class="docutils literal notranslate"><span class="pre">Prediction</span></code>.</p>
+<p>How good are these predictions? We can get a sense of this by comparing the predictions with the data that we already have. To do this, we first apply the function <code class="docutils literal notranslate"><span class="pre">predict_child</span></code> to the column of <code class="docutils literal notranslate"><span class="pre">Parent</span> <span class="pre">Average</span></code> heights, and collect the results in a new column labeled <code class="docutils literal notranslate"><span class="pre">Prediction</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply predict_child to all the midparent heights</span>
 
 <span class="n">heights_with_predictions</span> <span class="o">=</span> <span class="n">heights</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
-    <span class="s1">&#39;Prediction&#39;</span><span class="p">,</span> <span class="n">heights</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">predict_child</span><span class="p">,</span> <span class="s1">&#39;MidParent&#39;</span><span class="p">)</span>
+    <span class="s1">&#39;Prediction&#39;</span><span class="p">,</span> <span class="n">heights</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">predict_child</span><span class="p">,</span> <span class="s1">&#39;Parent Average&#39;</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1312,48 +1317,48 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>MidParent</th> <th>Child</th> <th>Prediction</th>
+            <th>Parent Average</th> <th>Child</th> <th>Prediction</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>75.43    </td> <td>73.2 </td> <td>70.1      </td>
+            <td>72.75         </td> <td>73.2 </td> <td>70.1      </td>
         </tr>
         <tr>
-            <td>75.43    </td> <td>69.2 </td> <td>70.1      </td>
+            <td>72.75         </td> <td>69.2 </td> <td>70.1      </td>
         </tr>
         <tr>
-            <td>75.43    </td> <td>69   </td> <td>70.1      </td>
+            <td>72.75         </td> <td>69   </td> <td>70.1      </td>
         </tr>
         <tr>
-            <td>75.43    </td> <td>69   </td> <td>70.1      </td>
+            <td>72.75         </td> <td>69   </td> <td>70.1      </td>
         </tr>
         <tr>
-            <td>73.66    </td> <td>73.5 </td> <td>70.4158   </td>
+            <td>71            </td> <td>73.5 </td> <td>70.4158   </td>
         </tr>
         <tr>
-            <td>73.66    </td> <td>72.5 </td> <td>70.4158   </td>
+            <td>71            </td> <td>72.5 </td> <td>70.4158   </td>
         </tr>
         <tr>
-            <td>73.66    </td> <td>65.5 </td> <td>70.4158   </td>
+            <td>71            </td> <td>65.5 </td> <td>70.4158   </td>
         </tr>
         <tr>
-            <td>73.66    </td> <td>65.5 </td> <td>70.4158   </td>
+            <td>71            </td> <td>65.5 </td> <td>70.4158   </td>
         </tr>
         <tr>
-            <td>72.06    </td> <td>71   </td> <td>68.5025   </td>
+            <td>69.5          </td> <td>71   </td> <td>68.5025   </td>
         </tr>
         <tr>
-            <td>72.06    </td> <td>68   </td> <td>68.5025   </td>
+            <td>69.5          </td> <td>68   </td> <td>68.5025   </td>
         </tr>
     </tbody>
 </table>
 <p>... (924 rows omitted)</p></div></div>
 </div>
-<p>To see where the predictions lie relative to the observed data, we can draw overlaid scatter plots with <code class="docutils literal notranslate"><span class="pre">MidParent</span></code> as the common horizontal axis.</p>
+<p>To see where the predictions lie relative to the observed data, we can draw overlaid scatter plots with <code class="docutils literal notranslate"><span class="pre">Parent</span> <span class="pre">Average</span></code> as the common horizontal axis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heights_with_predictions</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;MidParent&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heights_with_predictions</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;Parent Average&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1361,14 +1366,26 @@
 <img alt="../../../_images/Applying_a_Function_to_a_Column_40_0.png" src="../../../_images/Applying_a_Function_to_a_Column_40_0.png" />
 </div>
 </div>
-<p>The graph of gold dots is called a <em>graph of averages,</em> because each gold dot is the center of a vertical strip like the one we drew earlier. Each one provides a prediction of a child’s height given the midparent height. For example, the scatter shows that for a midparent height of 72 inches, the predicted height of the child would be somewhere between 68 inches and 69 inches, and indeed <code class="docutils literal notranslate"><span class="pre">predict_child(72)</span></code> returns 68.5.</p>
-<p>Galton’s calculations and visualizations were very similar to ours, except that he didn’t have Python. He drew the graph of averages through the scatter diagram and noticed that it roughly followed a straight line. This straight line is now called the <em>regression line</em> and is one of the most common methods of making predictions. Galton’s friend, the mathematician Karl Pearson, used these analyses to formalize the notion of <em>correlation</em>.</p>
-<p>This example, like the one about John Snow’s analysis of cholera deaths, shows how some of the fundamental concepts of modern data science have roots going back more than a century. Galton’s methods such as the one we have used here are precursors to <em>nearest neighbor</em> prediction methods that now have powerful applications in diverse settings. The modern field of <em>machine learning</em> includes the automation of such methods to make predictions based on vast and rapidly evolving datasets.</p>
+<p>The graph of gold dots is called a <em>graph of averages,</em> because each gold dot is the center of a vertical strip like the one we drew earlier. Each one provides a prediction of a child’s height given the parent average height. For example, the scatter shows that for a parent average height of 65 inches, the predicted height of the child would be just above 65 inches, and indeed <code class="docutils literal notranslate"><span class="pre">predict_child(65)</span></code> evaluates to about 65.84.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predict_child</span><span class="p">(</span><span class="mi">65</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>65.83829787234043
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the graph of averages roughly follows a straight line. This straight line is now called the <em>regression line</em> and is one of the most common methods of making predictions. The calculation that we have just done is very similar to the calculation that led to the development of the regression method, using the same data.</p>
+<p>This example, like the one about John Snow’s analysis of cholera deaths, shows how some of the fundamental concepts of modern data science have roots going back a long way. The method used here was a precursor to <em>nearest neighbor</em> prediction methods that now have powerful applications in diverse settings. The modern field of <em>machine learning</em> includes the automation of such methods to make predictions based on vast and rapidly evolving datasets.</p>
 <p><a id='footnotes'></a></p>
 </div>
 <div class="section" id="footnotes">
 <h2><span class="section-number">8.1.4. </span>Footnotes<a class="headerlink" href="#footnotes" title="Permalink to this headline">¶</a></h2>
-<p>[1] Galton multiplied the heights of all the women by 1.08 before taking the average height of the men and the women. For a discussion of this, see <a class="reference external" href="http://chance.amstat.org/2013/09/1-pagano/">Chance</a>, a magazine published by the American Statistical Association.</p>
+<p>[1] The average is weighted slightly towards the women. The heights of all the women by 1.08 before taking the average height of the men and the women.</p>
 </div>
 </div>
 
