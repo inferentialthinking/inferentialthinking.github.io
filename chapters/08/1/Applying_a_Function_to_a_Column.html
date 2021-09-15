@@ -847,11 +847,6 @@
    8.1.3. Example: Prediction
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#footnotes">
-   8.1.4. Footnotes
-  </a>
- </li>
 </ul>
 
             </nav>
@@ -1055,11 +1050,11 @@
 <div class="section" id="example-prediction">
 <h2><span class="section-number">8.1.3. </span>Example: Prediction<a class="headerlink" href="#example-prediction" title="Permalink to this headline">¶</a></h2>
 <p>Data science is often used to make predictions about the future. If we are trying to predict an outcome for a particular individual – for example, how she will respond to a treatment, or whether he will buy a product – it is natural to base the prediction on the outcomes of other similar individuals.</p>
-<p>The table below is adapted from a historical data set on the heights of parents and their adult children. Each row corresponds to one adult child. The variables are a numerical code for the family, the heights (in inches) of the father and mother, a “midparent height” which is a weighted average <a class="reference external" href="#footnotes">[1]</a> of the height of the two parents, the number of children in the family, as well as the child’s birth rank (1 = oldest), sex (coded only as “male” or “female”), and height.</p>
+<p>The table below is adapted from a historical data set on the heights of parents and their adult children. Each row corresponds to one adult child. The variables are a numerical code for the family, the heights (in inches) of the father and mother, the number of children in the family, as well as the child’s birth rank (1 = oldest), sex (coded only as “male” or “female”), and height in inches.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data on heights of parents and their adult children</span>
-<span class="n">family_heights</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;family_heights.csv&#39;</span><span class="p">)</span>
+<span class="n">family_heights</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;family_heights.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">family_heights</span>
 </pre></div>
 </div>
@@ -1068,39 +1063,39 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>family</th> <th>father</th> <th>mother</th> <th>midparentHeight</th> <th>children</th> <th>childNum</th> <th>gender</th> <th>childHeight</th>
+            <th>family</th> <th>father</th> <th>mother</th> <th>children</th> <th>childNum</th> <th>gender</th> <th>childHeight</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>1     </td> <td>78.5  </td> <td>67    </td> <td>75.43          </td> <td>4       </td> <td>1       </td> <td>male  </td> <td>73.2       </td>
+            <td>1     </td> <td>78.5  </td> <td>67    </td> <td>4       </td> <td>1       </td> <td>male  </td> <td>73.2       </td>
         </tr>
         <tr>
-            <td>1     </td> <td>78.5  </td> <td>67    </td> <td>75.43          </td> <td>4       </td> <td>2       </td> <td>female</td> <td>69.2       </td>
+            <td>1     </td> <td>78.5  </td> <td>67    </td> <td>4       </td> <td>2       </td> <td>female</td> <td>69.2       </td>
         </tr>
         <tr>
-            <td>1     </td> <td>78.5  </td> <td>67    </td> <td>75.43          </td> <td>4       </td> <td>3       </td> <td>female</td> <td>69         </td>
+            <td>1     </td> <td>78.5  </td> <td>67    </td> <td>4       </td> <td>3       </td> <td>female</td> <td>69         </td>
         </tr>
         <tr>
-            <td>1     </td> <td>78.5  </td> <td>67    </td> <td>75.43          </td> <td>4       </td> <td>4       </td> <td>female</td> <td>69         </td>
+            <td>1     </td> <td>78.5  </td> <td>67    </td> <td>4       </td> <td>4       </td> <td>female</td> <td>69         </td>
         </tr>
         <tr>
-            <td>2     </td> <td>75.5  </td> <td>66.5  </td> <td>73.66          </td> <td>4       </td> <td>1       </td> <td>male  </td> <td>73.5       </td>
+            <td>2     </td> <td>75.5  </td> <td>66.5  </td> <td>4       </td> <td>1       </td> <td>male  </td> <td>73.5       </td>
         </tr>
         <tr>
-            <td>2     </td> <td>75.5  </td> <td>66.5  </td> <td>73.66          </td> <td>4       </td> <td>2       </td> <td>male  </td> <td>72.5       </td>
+            <td>2     </td> <td>75.5  </td> <td>66.5  </td> <td>4       </td> <td>2       </td> <td>male  </td> <td>72.5       </td>
         </tr>
         <tr>
-            <td>2     </td> <td>75.5  </td> <td>66.5  </td> <td>73.66          </td> <td>4       </td> <td>3       </td> <td>female</td> <td>65.5       </td>
+            <td>2     </td> <td>75.5  </td> <td>66.5  </td> <td>4       </td> <td>3       </td> <td>female</td> <td>65.5       </td>
         </tr>
         <tr>
-            <td>2     </td> <td>75.5  </td> <td>66.5  </td> <td>73.66          </td> <td>4       </td> <td>4       </td> <td>female</td> <td>65.5       </td>
+            <td>2     </td> <td>75.5  </td> <td>66.5  </td> <td>4       </td> <td>4       </td> <td>female</td> <td>65.5       </td>
         </tr>
         <tr>
-            <td>3     </td> <td>75    </td> <td>64    </td> <td>72.06          </td> <td>2       </td> <td>1       </td> <td>male  </td> <td>71         </td>
+            <td>3     </td> <td>75    </td> <td>64    </td> <td>2       </td> <td>1       </td> <td>male  </td> <td>71         </td>
         </tr>
         <tr>
-            <td>3     </td> <td>75    </td> <td>64    </td> <td>72.06          </td> <td>2       </td> <td>2       </td> <td>female</td> <td>68         </td>
+            <td>3     </td> <td>75    </td> <td>64    </td> <td>2       </td> <td>2       </td> <td>female</td> <td>68         </td>
         </tr>
     </tbody>
 </table>
@@ -1381,11 +1376,6 @@
 </div>
 <p>Notice that the graph of averages roughly follows a straight line. This straight line is now called the <em>regression line</em> and is one of the most common methods of making predictions. The calculation that we have just done is very similar to the calculation that led to the development of the regression method, using the same data.</p>
 <p>This example, like the one about John Snow’s analysis of cholera deaths, shows how some of the fundamental concepts of modern data science have roots going back a long way. The method used here was a precursor to <em>nearest neighbor</em> prediction methods that now have powerful applications in diverse settings. The modern field of <em>machine learning</em> includes the automation of such methods to make predictions based on vast and rapidly evolving datasets.</p>
-<p><a id='footnotes'></a></p>
-</div>
-<div class="section" id="footnotes">
-<h2><span class="section-number">8.1.4. </span>Footnotes<a class="headerlink" href="#footnotes" title="Permalink to this headline">¶</a></h2>
-<p>[1] The average is weighted slightly towards the women. The heights of all the women by 1.08 before taking the average height of the men and the women.</p>
 </div>
 </div>
 
