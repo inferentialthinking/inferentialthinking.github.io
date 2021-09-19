@@ -1063,7 +1063,7 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>family</th> <th>father</th> <th>mother</th> <th>children</th> <th>childNum</th> <th>gender</th> <th>childHeight</th>
+            <th>family</th> <th>father</th> <th>mother</th> <th>children</th> <th>childNum</th> <th>sex</th> <th>childHeight</th>
         </tr>
     </thead>
     <tbody>
@@ -1111,7 +1111,6 @@
     <span class="s1">&#39;Parent Average&#39;</span><span class="p">,</span> <span class="n">parent_averages</span><span class="p">,</span>
     <span class="s1">&#39;Child&#39;</span><span class="p">,</span> <span class="n">family_heights</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;childHeight&#39;</span><span class="p">)</span>
 <span class="p">)</span>
-<span class="c1">#heights = family_heights.select(3, 7).relabeled(0, &#39;MidParent&#39;).relabeled(1, &#39;Child&#39;)</span>
 <span class="n">heights</span>
 </pre></div>
 </div>
@@ -1160,7 +1159,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heights</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heights</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;Parent Average&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
