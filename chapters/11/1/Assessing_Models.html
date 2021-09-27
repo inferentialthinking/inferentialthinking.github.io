@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -75,6 +75,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../../_static/favicon.png" class="logo" alt="logo">
       
@@ -441,17 +445,17 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../10/1/Empirical_Distributions.html">
-     10.1. Empirical Distributions
+     10.2. Empirical Distributions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../10/2/Sampling_from_a_Population.html">
-     10.2. Sampling from a Population
+     10.3. Sampling from a Population
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../10/3/Empirical_Distribution_of_a_Statistic.html">
-     10.3. Empirical Distibution of a Statistic
+     10.4. Empirical Distibution of a Statistic
     </a>
    </li>
   </ul>
@@ -943,7 +947,6 @@
 <p>Sometimes, data scientists have to decide whether or not their models are good. In this section we will discuss two examples of making such decisions. In later sections we will use the methods developed here as the building blocks of a general framework for testing hypotheses.</p>
 <div class="section" id="jury-selection">
 <h2><span class="section-number">11.1.1. </span>Jury Selection<a class="headerlink" href="#jury-selection" title="Permalink to this headline">¶</a></h2>
-<p><em>Authors’ note: Data Science can be a powerful tool in illuminating racism and inequality in our society. And doing so requires exercising our best judgment and listening and course-correcting when matters are brought to our attention. A specific example has been removed from this section as we revisit its appropriateness and presentation. Thank you readers for calling our attention to it. We apologize for the hurt caused.</em></p>
 <p>Amendment VI of the United States Constitution states that, “In all criminal prosecutions, the accused shall enjoy the right to a speedy and public trial, by an impartial jury of the State and district wherein the crime shall have been committed.” One characteristic of an <em>impartial</em> jury is that it should be selected from a jury panel that is representative of the population of the relevant region. The jury panel is the group of people from which jurors are selected.</p>
 <p>The question of whether a jury panel is indeed representative of a region’s population has an important legal implication: one could question whether a particular jury is impartial if some group from the population was systematically underrepresented on the jury panel.</p>
 <p>Let’s consider a hypothetical county containing two cities: A and B. Let’s say that 26% of all eligible jurors live in A. Imagine there is a trial, and only 8 among 100 (8%) of the those selected for the jury panel are from A. The fairness of this discrepancy could certainly be called into question, especially if the accused is from A.</p>
@@ -1291,7 +1294,7 @@
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

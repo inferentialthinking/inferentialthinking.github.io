@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -75,6 +75,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../../_static/favicon.png" class="logo" alt="logo">
       
@@ -441,17 +445,17 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../10/1/Empirical_Distributions.html">
-     10.1. Empirical Distributions
+     10.2. Empirical Distributions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../10/2/Sampling_from_a_Population.html">
-     10.2. Sampling from a Population
+     10.3. Sampling from a Population
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../10/3/Empirical_Distribution_of_a_Statistic.html">
-     10.3. Empirical Distibution of a Statistic
+     10.4. Empirical Distibution of a Statistic
     </a>
    </li>
   </ul>
@@ -884,7 +888,7 @@ P(\mbox{an event doesn't happen}) ~=~ 1 - P(\mbox{the event happens})
 </div>
 <div class="section" id="when-all-outcomes-are-equally-likely">
 <h2><span class="section-number">9.5.2. </span>When All Outcomes are Equally Likely<a class="headerlink" href="#when-all-outcomes-are-equally-likely" title="Permalink to this headline">¶</a></h2>
-<p>If you are rolling an ordinary die, a natural assumption is that all six faces are equally likely. Then probabilities of how one roll comes out can be easily calculated as a ratio. For example, the chance that the die shows an even number is</p>
+<p>If you are rolling an ordinary die, a natural assumption is that all six faces are equally likely. Under this assumption, the probabilities of how one roll comes out can be easily calculated as a ratio. For example, the chance that the die shows an even number is</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\mbox{number of even faces}}{\mbox{number of all faces}}
@@ -898,14 +902,13 @@ P(\mbox{die shows a multiple of 3}) ~=~
 \frac{\#\{3, 6\}}{\#\{1, 2, 3, 4, 5, 6\}}
 ~=~ \frac{2}{6}
 \]</div>
-<p>In general,</p>
+<p>In general, <strong>if all outcomes are equally likely</strong>,</p>
 <div class="math notranslate nohighlight">
 \[
 P(\mbox{an event happens}) ~=~
 \frac{\#\{\mbox{outcomes that make the event happen}\}}
 {\#\{\mbox{all outcomes}\}}
 \]</div>
-<p>provided all the outcomes are equally likely.</p>
 <p>Not all random phenomena are as simple as one roll of a die. The two main rules of probability, developed below, allow mathematicians to find probabilities even in complex situations.</p>
 </div>
 <div class="section" id="when-two-events-must-both-happen">
@@ -966,7 +969,7 @@ P(\mbox{first way it can happen}) + P(\mbox{second way it can happen}) ~~~
 <p>Data scientists often work with random samples from populations. A question that sometimes arises is about the likelihood that a particular individual in the population is selected to be in the sample. To work out the chance, that individual is called a “success,” and the problem is to find the chance that the sample contains a success.</p>
 <p>To see how such chances might be calculated, we start with a simpler setting: tossing a coin two times.</p>
 <p>If you toss a coin twice, there are four equally likely outcomes: HH, HT, TH, and TT. We have abbreviated “Heads” to H and “Tails” to T. The chance of getting at least one head in two tosses is therefore 3/4.</p>
-<p>Another way of coming up with this answer is to work out what happens if you <em>don’t</em> get at least one head: both the tosses have to land tails. So</p>
+<p>Another way of coming up with this answer is to work out what happens if you <em>don’t</em> get at least one head. That is when both the tosses land tails. So</p>
 <div class="math notranslate nohighlight">
 \[
 P(\mbox{at least one head in two tosses}) ~=~ 1 - P(\mbox{both tails}) ~=~ 1 - \frac{1}{4}
@@ -988,7 +991,7 @@ P(\mbox{at least one head in 17 tosses}) ~=~ 1 - P(\mbox{all 17 are tails})
 <p>For example,</p>
 <div class="math notranslate nohighlight">
 \[
-P(\mbox{a single roll is not 6}) ~=~ P(1) + P(2) + P(3) + P(4) + P(5)
+P(\mbox{a single roll is not 6}) ~=~ 1 - P(6)
 ~=~ \frac{5}{6}
 \]</div>
 <p>Therefore,</p>
@@ -1065,7 +1068,7 @@ P(\mbox{at least one 6 in 17 rolls})
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/Finding_Probabilities_15_0.png" src="../../../_images/Finding_Probabilities_15_0.png" />
+<img alt="../../../_images/Finding_Probabilities_14_0.png" src="../../../_images/Finding_Probabilities_14_0.png" />
 </div>
 </div>
 <p>In 50 rolls, you are almost certain to get at least one 6.</p>
@@ -1145,7 +1148,7 @@ P(\mbox{at least one 6 in 17 rolls})
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

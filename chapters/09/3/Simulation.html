@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -73,6 +73,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../../_static/favicon.png" class="logo" alt="logo">
       
@@ -439,17 +443,17 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../10/1/Empirical_Distributions.html">
-     10.1. Empirical Distributions
+     10.2. Empirical Distributions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../10/2/Sampling_from_a_Population.html">
-     10.2. Sampling from a Population
+     10.3. Sampling from a Population
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../10/3/Empirical_Distribution_of_a_Statistic.html">
-     10.3. Empirical Distibution of a Statistic
+     10.4. Empirical Distibution of a Statistic
     </a>
    </li>
   </ul>
@@ -828,63 +832,19 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-1-what-to-simulate">
-   9.3.1. Step 1: What to Simulate
+  <a class="reference internal nav-link" href="#the-process">
+   9.3.1. The Process
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-2-simulating-one-value">
-   9.3.2. Step 2: Simulating One Value
+  <a class="reference internal nav-link" href="#example-number-of-heads-in-100-tosses">
+   9.3.2. Example: Number of Heads in 100 Tosses
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-3-number-of-repetitions">
-   9.3.3. Step 3: Number of Repetitions
+  <a class="reference internal nav-link" href="#example-moves-in-monopoly">
+   9.3.3. Example: Moves in Monopoly
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-4-coding-the-simulation">
-   9.3.4. Step 4: Coding the Simulation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#number-of-heads-in-100-tosses">
-   9.3.5. Number of Heads in 100 Tosses
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     9.3.5.1. Step 1: What to Simulate
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     9.3.5.2. Step 2: Simulating One Value
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     9.3.5.3. Step 3: Number of Repetitions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     9.3.5.4. Step 4: Coding the Simulation
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-more-compact-version-of-the-code">
-   9.3.6. A More Compact Version of the Code
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#moves-in-monopoly">
-     9.3.6.1. Moves in Monopoly
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -903,46 +863,38 @@
 <h1><span class="section-number">9.3. </span>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h1>
 <p>Simulation is the process of using a computer to mimic a physical experiment. In this class, those experiments will almost invariably involve chance.</p>
 <p>We have seen how to simulate the results of tosses of a coin. The steps in that simulation were examples of the steps that will constitute every simulation we do in this course. In this section we will set out those steps and follow them in examples.</p>
-<div class="section" id="step-1-what-to-simulate">
-<h2><span class="section-number">9.3.1. </span>Step 1: What to Simulate<a class="headerlink" href="#step-1-what-to-simulate" title="Permalink to this headline">¶</a></h2>
-<p>Specify the quantity you want to simulate. For example, you might decide that you want to simulate the outcomes of tosses of a coin.</p>
-</div>
-<div class="section" id="step-2-simulating-one-value">
-<h2><span class="section-number">9.3.2. </span>Step 2: Simulating One Value<a class="headerlink" href="#step-2-simulating-one-value" title="Permalink to this headline">¶</a></h2>
-<p>Figure out how to simulate <em>one</em> value of the quantity you specified in Step 1. In our example, you have to figure out how to simulate the outcome of <em>one</em> toss of a coin. If your quantity is more complicated, you might need several lines of code to come up with one simulated value.</p>
-</div>
-<div class="section" id="step-3-number-of-repetitions">
-<h2><span class="section-number">9.3.3. </span>Step 3: Number of Repetitions<a class="headerlink" href="#step-3-number-of-repetitions" title="Permalink to this headline">¶</a></h2>
-<p>Decide how many times you want to simulate the quantity. You will have to repeat Step 2 that many times. In one of our earlier examples we had decided to simulate the outcomes of 1000 tosses of a coin, and so we needed 1000 repetitions of generating the outcome of a single toss.</p>
-</div>
-<div class="section" id="step-4-coding-the-simulation">
-<h2><span class="section-number">9.3.4. </span>Step 4: Coding the Simulation<a class="headerlink" href="#step-4-coding-the-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Put it all together in code.</p>
+<div class="section" id="the-process">
+<h2><span class="section-number">9.3.1. </span>The Process<a class="headerlink" href="#the-process" title="Permalink to this headline">¶</a></h2>
+<p><strong>Step 1: What to Simulate</strong></p>
+<p>Decide which quantity you want to simulate. For example, you might decide that you want to simulate the outcomes of tosses of a coin. Each simulated value will be a Head or a Tail.</p>
+<p><strong>Step 2: Simulating One Value</strong></p>
+<p>Figure out how to simulate <em>one</em> value of the quantity you specified in Step 1. In our example, you have to figure out how to simulate the outcome of <em>one</em> toss of a coin. If your quantity is more complicated, you might need several lines of code to come up with one simulated value. Typically, we will define a function that returns the simulated value.</p>
+<p><strong>Step 3: Number of Repetitions</strong></p>
+<p>Decide how many times you want to simulate the quantity. You will have to repeat the simulation in Step 2 that many times. In one of our earlier examples we had decided to simulate the outcomes of 1000 tosses of a coin, and so we needed 1000 repetitions of generating the outcome of a single toss.</p>
+<p><strong>Step 4: Simulating Multiple Values</strong></p>
+<p>Finally, put it all together as follows.</p>
 <ul class="simple">
 <li><p>Create an empty array in which to collect all the simulated values. We will call this the collection array.</p></li>
 <li><p>Create a “repetitions sequence,” that is, a sequence whose length is the number of repetitions you specified in Step 3. For <code class="docutils literal notranslate"><span class="pre">n</span></code> repetitions we will almost always use the sequence <code class="docutils literal notranslate"><span class="pre">np.arange(n)</span></code>.</p></li>
 <li><p>Create a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. For each element of the repetitions sequence:</p>
 <ul>
-<li><p>Simulate <em>one</em> value based on the code you developed in Step 2.</p></li>
+<li><p>Simulate <em>one</em> value by using the function you wrote in Step 2.</p></li>
 <li><p>Augment the collection array with this simulated value.</p></li>
 </ul>
 </li>
 </ul>
 <p>That’s it! Once you have carried out the steps above, your simulation is done. The collection array contains all the simulated values.</p>
-<p>At this point you can use the collection array as you would any other array. You can visualize the distribution of the simulated values, count how many simulated values fall into a particular category, and so on.</p>
+<p>At this point you can use the collection array as you would any other array. You can count how many simulated values fall into a particular category, place the array in the column of a table and visualize the distribution of the simulated values, and so on.</p>
 </div>
-<div class="section" id="number-of-heads-in-100-tosses">
-<h2><span class="section-number">9.3.5. </span>Number of Heads in 100 Tosses<a class="headerlink" href="#number-of-heads-in-100-tosses" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="example-number-of-heads-in-100-tosses">
+<h2><span class="section-number">9.3.2. </span>Example: Number of Heads in 100 Tosses<a class="headerlink" href="#example-number-of-heads-in-100-tosses" title="Permalink to this headline">¶</a></h2>
 <p>It is natural to expect that in 100 tosses of a coin, there will be 50 heads, give or take a few.</p>
 <p>But how many is “a few”? What’s the chance of getting exactly 50 heads? Questions like these matter in data science not only because they are about interesting aspects of randomness, but also because they can be used in analyzing experiments where assignments to treatment and control groups are decided by the toss of a coin.</p>
 <p>In this example we will simulate the number of heads in 100 tosses of a coin. The histogram of our results will give us some insight into how many heads are likely.</p>
 <p>Let’s get started on the simulation, following the steps above.</p>
-<div class="section" id="id1">
-<h3><span class="section-number">9.3.5.1. </span>Step 1: What to Simulate<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><strong>Step 1: What to Simulate</strong></p>
 <p>The quantity we are going to simulate is the number of heads in 100 tosses.</p>
-</div>
-<div class="section" id="id2">
-<h3><span class="section-number">9.3.5.2. </span>Step 2: Simulating One Value<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><strong>Step 2: Simulating One Value</strong></p>
 <p>We have to figure out how to make one set of 100 tosses and count the number of heads. Let’s start by creating a coin.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -961,7 +913,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Heads&#39;, &#39;Heads&#39;, &#39;Tails&#39;, &#39;Heads&#39;, &#39;Tails&#39;, &#39;Heads&#39;, &#39;Tails&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Heads&#39;, &#39;Tails&#39;, &#39;Heads&#39;, &#39;Tails&#39;, &#39;Tails&#39;, &#39;Heads&#39;, &#39;Tails&#39;,
        &#39;Tails&#39;, &#39;Tails&#39;, &#39;Heads&#39;], dtype=&#39;&lt;U5&#39;)
 </pre></div>
 </div>
@@ -975,7 +927,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
@@ -990,48 +942,45 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>52
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46
 </pre></div>
 </div>
 </div>
 </div>
+<p>Since we will want to do this multiple times, let’s define a function that returns the simulated value of the number of heads. We can do this using the code developed in the cell above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one_simulated_value</span><span class="p">():</span>
+    <span class="n">outcomes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">coin</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">outcomes</span> <span class="o">==</span> <span class="s1">&#39;Heads&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="id3">
-<h3><span class="section-number">9.3.5.3. </span>Step 3: Number of Repetitions<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>How many repetitions we want is up to us. The more we use, the more reliable our simulations will be, but the longer it will take to run the code. Python is pretty fast at tossing coins. Let’s go for 10,000 repetitions. That means we are going to do the following 10,000 times:</p>
+</div>
+</div>
+<p><strong>Step 3: Number of Repetitions</strong></p>
+<p>How many repetitions we will use is up to us. The more we use, the more reliable our simulations will be, but the longer it will take to run the code. Python is pretty fast at tossing coins, so let’s go for 20,000 repetitions. That means we are going to do the following 20,000 times:</p>
 <ul class="simple">
 <li><p>Toss a coin 100 times and count the number of heads.</p></li>
 </ul>
 <p>That’s a lot of tossing! It’s good that we have Python to do it for us.</p>
-</div>
-<div class="section" id="id4">
-<h3><span class="section-number">9.3.5.4. </span>Step 4: Coding the Simulation<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>We are ready to write the code to execute the entire simulation.</p>
+<p><strong>Step 4: Simulating Multiple Values</strong></p>
+<p>We are ready to create an array of 20,000 simulated values of the number of heads in 100 tosses of a coin.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># An empty array to collect the simulated values</span>
-<span class="n">heads</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_repetitions</span> <span class="o">=</span> <span class="mi">20000</span>   <span class="c1"># number of repetitions</span>
 
-<span class="c1"># Repetitions sequence</span>
-<span class="n">num_repetitions</span> <span class="o">=</span> <span class="mi">10000</span>
-<span class="n">repetitions_sequence</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_repetitions</span><span class="p">)</span>
+<span class="n">heads</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span> <span class="c1"># empty collection array</span>
 
-<span class="c1"># for loop</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">repetitions_sequence</span><span class="p">:</span>
-    
-    <span class="c1"># simulate one value</span>
-    <span class="n">outcomes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">coin</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-    <span class="n">num_heads</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">outcomes</span> <span class="o">==</span> <span class="s1">&#39;Heads&#39;</span><span class="p">)</span>
-    
-    <span class="c1"># augment the collection array with the simulated value</span>
-    <span class="n">heads</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">heads</span><span class="p">,</span> <span class="n">num_heads</span><span class="p">)</span>  
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_repetitions</span><span class="p">):</span>   <span class="c1"># repeat the process num_repetitions times</span>
+    <span class="n">new_value</span> <span class="o">=</span> <span class="n">one_simulated_value</span><span class="p">()</span>  <span class="c1"># simulate one value using the function defined</span>
+    <span class="n">heads</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">heads</span><span class="p">,</span> <span class="n">new_value</span><span class="p">)</span> <span class="c1"># augment the collection array with the simulated value</span>
 
 <span class="c1"># That&#39;s it! The simulation is done.</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Check that the array <code class="docutils literal notranslate"><span class="pre">heads</span></code> contains 10,000 entries, one for each repetition of the experiment.</p>
+<p>Check that the array <code class="docutils literal notranslate"><span class="pre">heads</span></code> contains 20,000 entries, one for each repetition of the experiment.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">heads</span><span class="p">)</span>
@@ -1039,7 +988,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10000
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20000
 </pre></div>
 </div>
 </div>
@@ -1057,7 +1006,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulation_results</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulation_results</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1070,38 +1019,17 @@
     </thead>
     <tbody>
         <tr>
-            <td>1         </td> <td>46             </td>
+            <td>1         </td> <td>44             </td>
         </tr>
         <tr>
-            <td>2         </td> <td>57             </td>
+            <td>2         </td> <td>54             </td>
         </tr>
         <tr>
-            <td>3         </td> <td>51             </td>
-        </tr>
-        <tr>
-            <td>4         </td> <td>57             </td>
-        </tr>
-        <tr>
-            <td>5         </td> <td>45             </td>
-        </tr>
-        <tr>
-            <td>6         </td> <td>54             </td>
-        </tr>
-        <tr>
-            <td>7         </td> <td>57             </td>
-        </tr>
-        <tr>
-            <td>8         </td> <td>56             </td>
-        </tr>
-        <tr>
-            <td>9         </td> <td>44             </td>
-        </tr>
-        <tr>
-            <td>10        </td> <td>54             </td>
+            <td>3         </td> <td>44             </td>
         </tr>
     </tbody>
 </table>
-<p>... (9990 rows omitted)</p></div></div>
+<p>... (19997 rows omitted)</p></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1110,7 +1038,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/Simulation_17_0.png" src="../../../_images/Simulation_17_0.png" />
+<img alt="../../../_images/Simulation_19_0.png" src="../../../_images/Simulation_19_0.png" />
 </div>
 </div>
 <p>Each bin has width 1 and is centered at each value of the number of heads.</p>
@@ -1119,40 +1047,11 @@
 <p>While in theory it is <em>possible</em> that the number of heads can be anywhere between 0 and 100, the simulation shows that the range of <em>probable</em> values is much smaller.</p>
 <p>This is an instance of a more general phenomenon about the variability in coin tossing, as we will see later in the course.</p>
 </div>
-</div>
-<div class="section" id="a-more-compact-version-of-the-code">
-<h2><span class="section-number">9.3.6. </span>A More Compact Version of the Code<a class="headerlink" href="#a-more-compact-version-of-the-code" title="Permalink to this headline">¶</a></h2>
-<p>We wrote the code for the simulation to show each of the steps in detail. Here are the same steps written in a more compact form. You can see that the code starts out the same way as before, but then some steps are combined.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heads</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
-
-<span class="n">num_repetitions</span> <span class="o">=</span> <span class="mi">10000</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_repetitions</span><span class="p">):</span>
-    <span class="n">outcomes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">coin</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-    <span class="n">heads</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">heads</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">outcomes</span> <span class="o">==</span> <span class="s1">&#39;Heads&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heads</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([47., 41., 50., ..., 56., 56., 46.])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="moves-in-monopoly">
-<h3><span class="section-number">9.3.6.1. </span>Moves in Monopoly<a class="headerlink" href="#moves-in-monopoly" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="example-moves-in-monopoly">
+<h2><span class="section-number">9.3.3. </span>Example: Moves in Monopoly<a class="headerlink" href="#example-moves-in-monopoly" title="Permalink to this headline">¶</a></h2>
 <p>Each move in the game Monopoly is determined by the total number of spots of two rolls of a die. If you play Monopoly, what should you expect to get when you roll the die two times?</p>
-<p>We can explore this by simulating the sum of two rolls of a die. We will run the simulation 10,000 times as we did in the previous example. Notice that in this paragraph we have completed Steps 1 and 3 of our simulation process.</p>
-<p>Step 2 is the one in which we simulate one pair of rolls and add up the number of spots.</p>
+<p>We can explore this by simulating the sum of two rolls of a die. We will run the simulation 10,000 times. Notice that in this paragraph we have completed Steps 1 and 3 of our simulation process.</p>
+<p>Step 2 is the one in which we write a function to simulate the total number of spots in one pair of rolls. First, let’s plan our code. We will create an array containing the numbers 1 through 6, draw two times from the array at random with replacement, and add the two numbers drawn.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">die</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
@@ -1161,21 +1060,29 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
 </div>
 </div>
-<p>That simulates one value of the sum of two rolls. We are now all set to run the simulation according to the steps that are now familiar.</p>
+<p>We can use the array <code class="docutils literal notranslate"><span class="pre">die</span></code> and the expression above to define a function that simulates one move in Monopoly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moves</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one_simulated_move</span><span class="p">():</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">die</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can create an array of 10000 simulated Monopoly moves, by starting with an empty collection array and augmenting it by each new simulated move.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_repetitions</span> <span class="o">=</span> <span class="mi">10000</span>
 
-<span class="n">num_repetitions</span> <span class="o">=</span> <span class="mi">10000</span>
-
+<span class="n">moves</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_repetitions</span><span class="p">):</span>
-    <span class="n">one_move</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">die</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-    <span class="n">moves</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">moves</span><span class="p">,</span> <span class="n">one_move</span><span class="p">)</span>
+    <span class="n">new_move</span> <span class="o">=</span> <span class="n">one_simulated_move</span><span class="p">()</span>
+    <span class="n">moves</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">moves</span><span class="p">,</span> <span class="n">new_move</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1193,11 +1100,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/Simulation_27_0.png" src="../../../_images/Simulation_27_0.png" />
+<img alt="../../../_images/Simulation_28_0.png" src="../../../_images/Simulation_28_0.png" />
 </div>
 </div>
 <p>Seven is the most common value, with the frequencies falling off symmetrically on either side.</p>
-</div>
 </div>
 </div>
 
@@ -1253,7 +1159,7 @@
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

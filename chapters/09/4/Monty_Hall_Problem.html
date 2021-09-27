@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -73,6 +73,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../../_static/favicon.png" class="logo" alt="logo">
       
@@ -439,17 +443,17 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../10/1/Empirical_Distributions.html">
-     10.1. Empirical Distributions
+     10.2. Empirical Distributions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../10/2/Sampling_from_a_Population.html">
-     10.2. Sampling from a Population
+     10.3. Sampling from a Population
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../10/3/Empirical_Distribution_of_a_Statistic.html">
-     10.3. Empirical Distibution of a Statistic
+     10.4. Empirical Distibution of a Statistic
     </a>
    </li>
   </ul>
@@ -836,40 +840,6 @@
   <a class="reference internal nav-link" href="#simulation">
    9.4.2. Simulation
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-1-what-to-simulate">
-     9.4.2.1. Step 1: What to Simulate
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-2-simulating-one-play">
-     9.4.2.2. Step 2: Simulating One Play
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#the-goats">
-       9.4.2.2.1. The Goats
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#the-options">
-       9.4.2.2.2. The Options
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-3-number-of-repetitions">
-     9.4.2.3. Step 3: Number of Repetitions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-4-coding-the-simulation">
-     9.4.2.4. Step 4: Coding the Simulation
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#visualization">
@@ -919,8 +889,7 @@
 <div class="section" id="simulation">
 <h2><span class="section-number">9.4.2. </span>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h2>
 <p>The simulation will be more complex that those we have done so far. Let’s break it down.</p>
-<div class="section" id="step-1-what-to-simulate">
-<h3><span class="section-number">9.4.2.1. </span>Step 1: What to Simulate<a class="headerlink" href="#step-1-what-to-simulate" title="Permalink to this headline">¶</a></h3>
+<p><strong>Step 1: What to Simulate</strong></p>
 <p>For each play we will simulate what’s behind all three doors:</p>
 <ul class="simple">
 <li><p>the one the contestant first picks</p></li>
@@ -928,13 +897,9 @@
 <li><p>the remaining door</p></li>
 </ul>
 <p>So we will be keeping track of three quantitites, not just one.</p>
-</div>
-<div class="section" id="step-2-simulating-one-play">
-<h3><span class="section-number">9.4.2.2. </span>Step 2: Simulating One Play<a class="headerlink" href="#step-2-simulating-one-play" title="Permalink to this headline">¶</a></h3>
-<p>The bulk of our work consists of simulating one play of the game. This involves several pieces.</p>
-<div class="section" id="the-goats">
-<h4><span class="section-number">9.4.2.2.1. </span>The Goats<a class="headerlink" href="#the-goats" title="Permalink to this headline">¶</a></h4>
-<p>We start by setting up an array <code class="docutils literal notranslate"><span class="pre">goats</span></code> that contains unimaginative names for the two goats.</p>
+<p><strong>Step 2: Simulating One Play</strong></p>
+<p>As is often the case in simulating a game, the bulk of the work consists of simulating one play of the game. This involves several pieces.</p>
+<p><strong>The goats:</strong> We start by setting up an array <code class="docutils literal notranslate"><span class="pre">goats</span></code> that contains unimaginative names for the two goats.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">goats</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="s1">&#39;first goat&#39;</span><span class="p">,</span> <span class="s1">&#39;second goat&#39;</span><span class="p">)</span>
@@ -954,7 +919,6 @@
 </div>
 </div>
 </div>
-<p>Let’s confirm that the function works.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">other_goat</span><span class="p">(</span><span class="s1">&#39;first goat&#39;</span><span class="p">),</span> <span class="n">other_goat</span><span class="p">(</span><span class="s1">&#39;second goat&#39;</span><span class="p">),</span> <span class="n">other_goat</span><span class="p">(</span><span class="s1">&#39;watermelon&#39;</span><span class="p">)</span>
@@ -967,14 +931,18 @@
 </div>
 </div>
 </div>
-<p>The string <code class="docutils literal notranslate"><span class="pre">'watermelon'</span></code> is not the name of one of the goats, so when <code class="docutils literal notranslate"><span class="pre">'watermelon'</span></code> is the input then <code class="docutils literal notranslate"><span class="pre">other_goat</span></code> does nothing.</p>
-</div>
-<div class="section" id="the-options">
-<h4><span class="section-number">9.4.2.2.2. </span>The Options<a class="headerlink" href="#the-options" title="Permalink to this headline">¶</a></h4>
-<p>The array <code class="docutils literal notranslate"><span class="pre">hidden_behind_doors</span></code> contains the set of things that could be behind the doors.</p>
+<p>The string <code class="docutils literal notranslate"><span class="pre">watermelon</span></code> is not the name of one of the goats, so when <code class="docutils literal notranslate"><span class="pre">watermelon</span></code> is the input then <code class="docutils literal notranslate"><span class="pre">other_goat</span></code> does nothing.</p>
+<p><strong>The options:</strong> The array <code class="docutils literal notranslate"><span class="pre">hidden_behind_doors</span></code> contains the three things that are
+behind the doors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hidden_behind_doors</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">(</span><span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="s1">&#39;first goat&#39;</span><span class="p">,</span> <span class="s1">&#39;second goat&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hidden_behind_doors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">goats</span><span class="p">,</span> <span class="s1">&#39;car&#39;</span><span class="p">)</span>
+<span class="n">hidden_behind_doors</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;first goat&#39;, &#39;second goat&#39;, &#39;car&#39;], dtype=&#39;&lt;U11&#39;)
 </pre></div>
 </div>
 </div>
@@ -985,7 +953,7 @@
 <li><p>what Monty reveals when he opens a door</p></li>
 <li><p>what remains behind the other door</p></li>
 </ul>
-<p>The game starts with the contestant choosing one door at random. In doing so, the contestant makes a random choice from among the car, the first goat, and the second goat.</p>
+<p>The game starts with the contestant choosing one door at random. In doing so, the contestant makes a random choice from among the first goat, the second goat, and the car.</p>
 <p>If the contestant happens to pick one of the goats, then the other goat is revealed and the car is behind the remaining door.</p>
 <p>If the contestant happens to pick the car, then Monty reveals one of the goats and the other goat is behind the remaining door.</p>
 <div class="cell docutils container">
@@ -1017,36 +985,27 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;car&#39;, &#39;second goat&#39;, &#39;first goat&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;car&#39;, &#39;first goat&#39;, &#39;second goat&#39;]
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="step-3-number-of-repetitions">
-<h3><span class="section-number">9.4.2.3. </span>Step 3: Number of Repetitions<a class="headerlink" href="#step-3-number-of-repetitions" title="Permalink to this headline">¶</a></h3>
+<p><strong>Step 3: Number of Repetitions</strong></p>
 <p>To gauge the frequency with which the different results occur, we have to play the game many times and collect the results. Let’s run 10,000 repetitions.</p>
-</div>
-<div class="section" id="step-4-coding-the-simulation">
-<h3><span class="section-number">9.4.2.4. </span>Step 4: Coding the Simulation<a class="headerlink" href="#step-4-coding-the-simulation" title="Permalink to this headline">¶</a></h3>
-<p>It’s time to run the whole simulation.</p>
-<p>We will play the game 10,000 times and collect the results in a table. Each row of the table will contain the result of one play.</p>
+<p><strong>Step 4: Simulating Multiple Repetitions</strong></p>
+<p>It’s time to run the whole simulation. But unlike our previous simulations in which each simulation produced a single value, in this example we simulate a list of three values each time.</p>
+<p>We will treat this simulated list as a row of a table. So instead of starting with an empty array and augmenting it with each new simulated value, we will start with an empty table and
+augment the table with each new simulated row. Each row will contain the complete result of one play.</p>
 <p>One way to grow a table by adding a new row is to use the <code class="docutils literal notranslate"><span class="pre">append</span></code> method. If <code class="docutils literal notranslate"><span class="pre">my_table</span></code> is a table and <code class="docutils literal notranslate"><span class="pre">new_row</span></code> is a list containing the entries in a new row, then <code class="docutils literal notranslate"><span class="pre">my_table.append(new_row)</span></code> adds the new row to the bottom of <code class="docutils literal notranslate"><span class="pre">my_table</span></code>.</p>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">append</span></code> does not create a new table. It changes <code class="docutils literal notranslate"><span class="pre">my_table</span></code> to have one more row than it did before.</p>
-<p>First let’s create a table <code class="docutils literal notranslate"><span class="pre">games</span></code> that has three empty columns. We can do this by just specifying a list of the column labels, as follows.</p>
+<p>We will start with a collection table <code class="docutils literal notranslate"><span class="pre">games</span></code> that has three empty columns. We can do this by just specifying a list of the column labels in the same order in which <code class="docutils literal notranslate"><span class="pre">monty_hall_game</span></code> returns the result of one game.</p>
+<p>Now we can add 10,000 rows to <code class="docutils literal notranslate"><span class="pre">games</span></code>. Each row will represent the result of one play of Monty’s game.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">games</span> <span class="o">=</span> <span class="n">Table</span><span class="p">([</span><span class="s1">&#39;Guess&#39;</span><span class="p">,</span> <span class="s1">&#39;Revealed&#39;</span><span class="p">,</span> <span class="s1">&#39;Remaining&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Notice that we have chosen the order of the columns to be the same as the order in which <code class="docutils literal notranslate"><span class="pre">monty_hall_game</span></code> returns the result of one game.</p>
-<p>Now we can add 10,000 rows to <code class="docutils literal notranslate"><span class="pre">trials</span></code>. Each row will represent the result of one play of Monty’s game.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Play the game 10000 times and </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># empty collection table</span>
+<span class="n">games</span> <span class="o">=</span> <span class="n">Table</span><span class="p">([</span><span class="s1">&#39;Guess&#39;</span><span class="p">,</span> <span class="s1">&#39;Revealed&#39;</span><span class="p">,</span> <span class="s1">&#39;Remaining&#39;</span><span class="p">])</span>
+
+<span class="c1"># Play the game 10000 times and </span>
 <span class="c1"># record the results in the table games</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
@@ -1056,11 +1015,38 @@
 </div>
 </div>
 <p>The simulation is done. Notice how short the code is. The majority of the work was done in simulating the outcome of one game.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">games</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+    <thead>
+        <tr>
+            <th>Guess</th> <th>Revealed</th> <th>Remaining</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>first goat</td> <td>second goat</td> <td>car        </td>
+        </tr>
+        <tr>
+            <td>first goat</td> <td>second goat</td> <td>car        </td>
+        </tr>
+        <tr>
+            <td>car       </td> <td>first goat </td> <td>second goat</td>
+        </tr>
+    </tbody>
+</table>
+<p>... (9997 rows omitted)</p></div></div>
 </div>
 </div>
 <div class="section" id="visualization">
 <h2><span class="section-number">9.4.3. </span>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
 <p>To see whether the contestant should stick with her original choice or switch, let’s see how frequently the car is behind each of her two options.</p>
+<p>It is no surprise that the three doors appear about equally often as the contestant’s original guess.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original_choice</span> <span class="o">=</span> <span class="n">games</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;Guess&#39;</span><span class="p">)</span>
@@ -1077,17 +1063,18 @@
     </thead>
     <tbody>
         <tr>
-            <td>car        </td> <td>3358 </td>
+            <td>car        </td> <td>3319 </td>
         </tr>
         <tr>
-            <td>first goat </td> <td>3317 </td>
+            <td>first goat </td> <td>3311 </td>
         </tr>
         <tr>
-            <td>second goat</td> <td>3325 </td>
+            <td>second goat</td> <td>3370 </td>
         </tr>
     </tbody>
 </table></div></div>
 </div>
+<p>Once Monty has eliminated a goat, how often is the car behind the remaining door?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">remaining_door</span> <span class="o">=</span> <span class="n">games</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;Remaining&#39;</span><span class="p">)</span>
@@ -1104,13 +1091,13 @@
     </thead>
     <tbody>
         <tr>
-            <td>car        </td> <td>6642 </td>
+            <td>car        </td> <td>6681 </td>
         </tr>
         <tr>
-            <td>first goat </td> <td>1728 </td>
+            <td>first goat </td> <td>1676 </td>
         </tr>
         <tr>
-            <td>second goat</td> <td>1630 </td>
+            <td>second goat</td> <td>1643 </td>
         </tr>
     </tbody>
 </table></div></div>
@@ -1134,13 +1121,13 @@
     </thead>
     <tbody>
         <tr>
-            <td>car        </td> <td>3358         </td> <td>6642          </td>
+            <td>car        </td> <td>3319         </td> <td>6681          </td>
         </tr>
         <tr>
-            <td>first goat </td> <td>3317         </td> <td>1728          </td>
+            <td>first goat </td> <td>3311         </td> <td>1676          </td>
         </tr>
         <tr>
-            <td>second goat</td> <td>3325         </td> <td>1630          </td>
+            <td>second goat</td> <td>3370         </td> <td>1643          </td>
         </tr>
     </tbody>
 </table></div></div>
@@ -1212,7 +1199,7 @@
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
