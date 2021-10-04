@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10.2. Empirical Distributions &#8212; Computational and Inferential Thinking</title>
+    <title>10.1. Empirical Distributions &#8212; Computational and Inferential Thinking</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -54,7 +54,7 @@
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="10.3. Sampling from a Population" href="../2/Sampling_from_a_Population.html" />
+    <link rel="next" title="10.2. Sampling from a Population" href="../2/Sampling_from_a_Population.html" />
     <link rel="prev" title="10. Sampling and Empirical Distributions" href="../Sampling_and_Empirical_Distributions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -443,22 +443,22 @@
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     10.2. Empirical Distributions
+     10.1. Empirical Distributions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../2/Sampling_from_a_Population.html">
-     10.3. Sampling from a Population
+     10.2. Sampling from a Population
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../3/Empirical_Distribution_of_a_Statistic.html">
-     10.4. Empirical Distibution of a Statistic
+     10.3. Empirical Distibution of a Statistic
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../4/Random_Sampling_in_Python.html">
-     10.5. Random Sampling in Python
+     10.4. Random Sampling in Python
     </a>
    </li>
   </ul>
@@ -838,22 +838,22 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#a-probability-distribution">
-   10.2.1. A Probability Distribution
+   10.1.1. A Probability Distribution
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   10.2.2. Empirical Distributions
+   10.1.2. Empirical Distributions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#empirical-histograms">
-   10.2.3. Empirical Histograms
+   10.1.3. Empirical Histograms
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-law-of-averages">
-   10.2.4. The Law of Averages
+   10.1.4. The Law of Averages
   </a>
  </li>
 </ul>
@@ -870,7 +870,7 @@
   <div class="cell tag_remove-input docutils container">
 </div>
 <div class="section" id="empirical-distributions">
-<h1><span class="section-number">10.2. </span>Empirical Distributions<a class="headerlink" href="#empirical-distributions" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">10.1. </span>Empirical Distributions<a class="headerlink" href="#empirical-distributions" title="Permalink to this headline">¶</a></h1>
 <p>In data science, the word “empirical” means “observed”. Empirical distributions are distributions of observed data, such as data in random samples.</p>
 <p>In this section we will generate data and see what the empirical distribution looks like.</p>
 <p>Our setting is a simple experiment: rolling a die multiple times and keeping track of which face appears. The table <code class="docutils literal notranslate"><span class="pre">die</span></code> contains the numbers of spots on the faces of a die. All the numbers appear exactly once, as we are assuming that the die is fair.</p>
@@ -911,7 +911,7 @@
 </table></div></div>
 </div>
 <div class="section" id="a-probability-distribution">
-<h2><span class="section-number">10.2.1. </span>A Probability Distribution<a class="headerlink" href="#a-probability-distribution" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.1.1. </span>A Probability Distribution<a class="headerlink" href="#a-probability-distribution" title="Permalink to this headline">¶</a></h2>
 <p>The histogram below helps us visualize the fact that every face appears with probability 1/6. We say that the histogram shows the <em>distribution</em> of probabilities over all the possible faces. Since all the bars represent the same percent chance, the distribution is called <em>uniform on the integers 1 through 6.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -929,7 +929,7 @@
 <p>Before going further, let’s make sure that the numbers on the axes make sense. The probability of each face is 1/6, which is 16.67% when rounded to two decimal places. The width of each bin is 1 unit. So the height of each bar is 16.67% per unit. This agrees with the horizontal and vertical scales of the graph.</p>
 </div>
 <div class="section" id="id1">
-<h2><span class="section-number">10.2.2. </span>Empirical Distributions<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.1.2. </span>Empirical Distributions<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>The distribution above consists of the theoretical probability of each face. It is called a <em>probability distribution</em> and is not based on observed data. It can be studied and understood without any dice being rolled.</p>
 <p><em>Empirical distributions,</em> on the other hand, are distributions of observed data. They can be visualized by <em>empirical histograms</em>.</p>
 <p>Let us get some data by simulating rolls of a die. This can be done by sampling at random with replacement from the integers 1 through 6. We have used <code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code> for such simulations before. But now we will introduce a Table method for doing this. This will make it easier for us to use our familiar Table methods for visualization.</p>
@@ -993,7 +993,7 @@
 </div>
 </div>
 <div class="section" id="empirical-histograms">
-<h2><span class="section-number">10.2.3. </span>Empirical Histograms<a class="headerlink" href="#empirical-histograms" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.1.3. </span>Empirical Histograms<a class="headerlink" href="#empirical-histograms" title="Permalink to this headline">¶</a></h2>
 <p>Here is an empirical histogram of 10 rolls. It doesn’t look very much like the probability histogram above. Run the cell a few times to see how it varies.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1029,7 +1029,7 @@
 <p>As we increase the number of rolls in the simulation, the area of each bar gets closer to 16.67%, which is the area of each bar in the probability histogram.</p>
 </div>
 <div class="section" id="the-law-of-averages">
-<h2><span class="section-number">10.2.4. </span>The Law of Averages<a class="headerlink" href="#the-law-of-averages" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.1.4. </span>The Law of Averages<a class="headerlink" href="#the-law-of-averages" title="Permalink to this headline">¶</a></h2>
 <p>What we have observed above is an instance of a general rule called the <em>law of averages</em>:</p>
 <p>If a chance experiment is repeated independently and under identical conditions, then, in the long run, the proportion of times that an event occurs gets closer and closer to the theoretical probability of the event.</p>
 <p>For example, in the long run, the proportion of times the face with four spots appears gets closer and closer to 1/6.</p>
@@ -1080,7 +1080,7 @@
         <a class="right-next" href="../2/Sampling_from_a_Population.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">10.3. </span>Sampling from a Population</p>
+                <p class="prevnext-title"><span class="section-number">10.2. </span>Sampling from a Population</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

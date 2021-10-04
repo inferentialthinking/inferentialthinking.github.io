@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10.4. Empirical Distribution of a Statistic &#8212; Computational and Inferential Thinking</title>
+    <title>10.3. Empirical Distribution of a Statistic &#8212; Computational and Inferential Thinking</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -54,8 +54,8 @@
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="10.5. Random Sampling in Python" href="../4/Random_Sampling_in_Python.html" />
-    <link rel="prev" title="10.3. Sampling from a Population" href="../2/Sampling_from_a_Population.html" />
+    <link rel="next" title="10.4. Random Sampling in Python" href="../4/Random_Sampling_in_Python.html" />
+    <link rel="prev" title="10.2. Sampling from a Population" href="../2/Sampling_from_a_Population.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -443,22 +443,22 @@
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../1/Empirical_Distributions.html">
-     10.2. Empirical Distributions
+     10.1. Empirical Distributions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../2/Sampling_from_a_Population.html">
-     10.3. Sampling from a Population
+     10.2. Sampling from a Population
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     10.4. Empirical Distibution of a Statistic
+     10.3. Empirical Distibution of a Statistic
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../4/Random_Sampling_in_Python.html">
-     10.5. Random Sampling in Python
+     10.4. Random Sampling in Python
     </a>
    </li>
   </ul>
@@ -838,27 +838,27 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#parameter">
-   10.4.1. Parameter
+   10.3.1. Parameter
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#statistic">
-   10.4.2. Statistic
+   10.3.2. Statistic
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#simulating-a-statistic">
-   10.4.3. Simulating a Statistic
+   10.3.3. Simulating a Statistic
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#visualization">
-   10.4.4. Visualization
+   10.3.4. Visualization
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-power-of-simulation">
-   10.4.5. The Power of Simulation
+   10.3.5. The Power of Simulation
   </a>
  </li>
 </ul>
@@ -875,7 +875,7 @@
   <div class="cell tag_remove-input docutils container">
 </div>
 <div class="section" id="empirical-distribution-of-a-statistic">
-<h1><span class="section-number">10.4. </span>Empirical Distribution of a Statistic<a class="headerlink" href="#empirical-distribution-of-a-statistic" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">10.3. </span>Empirical Distribution of a Statistic<a class="headerlink" href="#empirical-distribution-of-a-statistic" title="Permalink to this headline">¶</a></h1>
 <p>The Law of Averages implies that with high probability, the empirical distribution of a large random sample will resemble the distribution of the population from which the sample was drawn.</p>
 <p>The resemblance is visible in two histograms: the empirical histogram of a large random sample is likely to resemble the histogram of the population.</p>
 <p>As a reminder, here is the histogram of the delays of all the flights in <code class="docutils literal notranslate"><span class="pre">united</span></code>, and an empirical histogram of the delays of a random sample of 1,000 of these flights.</p>
@@ -912,7 +912,7 @@
 </div>
 <p>The two histograms clearly resemble each other, though they are not identical.</p>
 <div class="section" id="parameter">
-<h2><span class="section-number">10.4.1. </span>Parameter<a class="headerlink" href="#parameter" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.3.1. </span>Parameter<a class="headerlink" href="#parameter" title="Permalink to this headline">¶</a></h2>
 <p>Frequently, we are interested in numerical quantities associated with a population.</p>
 <ul class="simple">
 <li><p>In a population of voters, what percent will vote for Candidate A?</p></li>
@@ -961,7 +961,7 @@
 </div>
 </div>
 <div class="section" id="statistic">
-<h2><span class="section-number">10.4.2. </span>Statistic<a class="headerlink" href="#statistic" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.3.2. </span>Statistic<a class="headerlink" href="#statistic" title="Permalink to this headline">¶</a></h2>
 <p>In many situations, we will be interested in figuring out the value of an unknown parameter. For this, we will rely on data from a large random sample drawn from the population.</p>
 <p>A <em>statistic</em> (note the singular!) is any number computed using the data in a sample. The sample median, therefore, is a statistic.</p>
 <p>Remember that <code class="docutils literal notranslate"><span class="pre">sample_1000</span></code> contains a random sample of 1000 flights from <code class="docutils literal notranslate"><span class="pre">united</span></code>. The observed value of the sample median is:</p>
@@ -997,7 +997,7 @@ A fundamental consideration in using any statistic based on a random sample is t
 <p>Let’s recall the main steps in a simulation.</p>
 </div>
 <div class="section" id="simulating-a-statistic">
-<h2><span class="section-number">10.4.3. </span>Simulating a Statistic<a class="headerlink" href="#simulating-a-statistic" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.3.3. </span>Simulating a Statistic<a class="headerlink" href="#simulating-a-statistic" title="Permalink to this headline">¶</a></h2>
 <p>We will simulate the sample median using the steps we set up in an earlier chapter when we started studying simulation. You can replace the sample size of 1000 by any other sample size, and the sample median by any other statistic.</p>
 <p><strong>Step 1: Decide which statistic to simulate.</strong> We have already decided that: we are going to simulate the median of a random sample of size 1000 drawn from the population of flight delays.</p>
 <p><strong>Step 2: Define a function that returns one simulated value of the statistic.</strong> Draw a random sample of size 1000 and compute the median of the sample. We did this in the code cell above. Here it is again, encapsulated in a function.</p>
@@ -1025,7 +1025,7 @@ A fundamental consideration in using any statistic based on a random sample is t
 <p>The simulation is done. All 5,000 simulated sample medians have been collected in the array <code class="docutils literal notranslate"><span class="pre">medians</span></code>. Now it’s time to visualize the results.</p>
 </div>
 <div class="section" id="visualization">
-<h2><span class="section-number">10.4.4. </span>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.3.4. </span>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
 <p>Here are the simulated random sample medians displayed in the table <code class="docutils literal notranslate"><span class="pre">simulated_medians</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1091,7 +1091,7 @@ A fundamental consideration in using any statistic based on a random sample is t
 <p>This is an example of how a statistic can provide a good estimate of a parameter.</p>
 </div>
 <div class="section" id="the-power-of-simulation">
-<h2><span class="section-number">10.4.5. </span>The Power of Simulation<a class="headerlink" href="#the-power-of-simulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.3.5. </span>The Power of Simulation<a class="headerlink" href="#the-power-of-simulation" title="Permalink to this headline">¶</a></h2>
 <p>If we could generate all possible random samples of size 1000, we would know all possible values of the statistic (the sample median), as well as the probabilities of all those values. We could visualize all the values and probabilities in the probability histogram of the statistic.</p>
 <p>But in many situations including this one, the number of all possible samples is large enough to exceed the capacity of the computer, and purely mathematical calculations of the probabilities can be intractably difficult.</p>
 <p>This is where empirical histograms come in.</p>
@@ -1134,7 +1134,7 @@ A fundamental consideration in using any statistic based on a random sample is t
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">10.3. </span>Sampling from a Population</p>
+                <p class="prevnext-title"><span class="section-number">10.2. </span>Sampling from a Population</p>
             </div>
         </a>
     </div>
@@ -1142,7 +1142,7 @@ A fundamental consideration in using any statistic based on a random sample is t
         <a class="right-next" href="../4/Random_Sampling_in_Python.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">10.5. </span>Random Sampling in Python</p>
+                <p class="prevnext-title"><span class="section-number">10.4. </span>Random Sampling in Python</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

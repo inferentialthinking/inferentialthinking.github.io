@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10.5. Random Sampling in Python &#8212; Computational and Inferential Thinking</title>
+    <title>10.4. Random Sampling in Python &#8212; Computational and Inferential Thinking</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -55,7 +55,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="11. Testing Hypotheses" href="../../11/Testing_Hypotheses.html" />
-    <link rel="prev" title="10.4. Empirical Distribution of a Statistic" href="../3/Empirical_Distribution_of_a_Statistic.html" />
+    <link rel="prev" title="10.3. Empirical Distribution of a Statistic" href="../3/Empirical_Distribution_of_a_Statistic.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -443,22 +443,22 @@
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../1/Empirical_Distributions.html">
-     10.2. Empirical Distributions
+     10.1. Empirical Distributions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../2/Sampling_from_a_Population.html">
-     10.3. Sampling from a Population
+     10.2. Sampling from a Population
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../3/Empirical_Distribution_of_a_Statistic.html">
-     10.4. Empirical Distibution of a Statistic
+     10.3. Empirical Distibution of a Statistic
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     10.5. Random Sampling in Python
+     10.4. Random Sampling in Python
     </a>
    </li>
   </ul>
@@ -838,17 +838,17 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#review-sampling-from-a-population-in-a-table">
-   10.5.1. Review: Sampling from a Population in a Table
+   10.4.1. Review: Sampling from a Population in a Table
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#review-sampling-from-a-population-in-an-array">
-   10.5.2. Review: Sampling from a Population in an Array
+   10.4.2. Review: Sampling from a Population in an Array
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sampling-from-a-categorical-distribution">
-   10.5.3. Sampling from a Categorical Distribution
+   10.4.3. Sampling from a Categorical Distribution
   </a>
  </li>
 </ul>
@@ -877,10 +877,10 @@
 </div>
 </div>
 <div class="section" id="random-sampling-in-python">
-<h1><span class="section-number">10.5. </span>Random Sampling in Python<a class="headerlink" href="#random-sampling-in-python" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">10.4. </span>Random Sampling in Python<a class="headerlink" href="#random-sampling-in-python" title="Permalink to this headline">¶</a></h1>
 <p>This section summarizes the ways you have learned to sample at random using Python, and introduces a new way.</p>
 <div class="section" id="review-sampling-from-a-population-in-a-table">
-<h2><span class="section-number">10.5.1. </span>Review: Sampling from a Population in a Table<a class="headerlink" href="#review-sampling-from-a-population-in-a-table" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.4.1. </span>Review: Sampling from a Population in a Table<a class="headerlink" href="#review-sampling-from-a-population-in-a-table" title="Permalink to this headline">¶</a></h2>
 <p>If you are sampling from a population of individuals whose data are represented in the rows of a table, then you can use the Table method <code class="docutils literal notranslate"><span class="pre">sample</span></code> to <a class="reference external" href="https://inferentialthinking.com/chapters/10/1/Empirical_Distributions.html#id1">randomly select rows</a> of the table. That is, you can use <code class="docutils literal notranslate"><span class="pre">sample</span></code> to select a random sample of individuals.</p>
 <p>By default, <code class="docutils literal notranslate"><span class="pre">sample</span></code> draws uniformly at random with replacement. This is a natural model for chance experiments such as rolling a die.</p>
 <div class="cell docutils container">
@@ -1045,7 +1045,7 @@
 <p>Since <code class="docutils literal notranslate"><span class="pre">sample</span></code> gives you the entire sample in the order in which the rows were selected, you can use Table methods on the sampled table to answer many questions about the sample. For example, you can find the number of times the die showed six spots, or the average number of movies in which the sampled actors appeared, or whether one two specified actors appeared in the sample. You might need multiple lines of code to get some of this information.</p>
 </div>
 <div class="section" id="review-sampling-from-a-population-in-an-array">
-<h2><span class="section-number">10.5.2. </span>Review: Sampling from a Population in an Array<a class="headerlink" href="#review-sampling-from-a-population-in-an-array" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.4.2. </span>Review: Sampling from a Population in an Array<a class="headerlink" href="#review-sampling-from-a-population-in-an-array" title="Permalink to this headline">¶</a></h2>
 <p>If you are sampling from a population of individuals whose data are represented as an array, you can use the NumPy function <code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code> to <a class="reference external" href="https://inferentialthinking.com/chapters/09/3/Simulation.html#example-number-of-heads-in-100-tosses">randomly select elements of the array</a>.</p>
 <p>By default, <code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code> samples at random with replacement.</p>
 <div class="cell docutils container">
@@ -1100,7 +1100,7 @@
 <p>Just as <code class="docutils literal notranslate"><span class="pre">sample</span></code> did, so also <code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code> gives you the entire sequence of sampled elements. You can use array operations to answer many questions about the sample. For example, you can find which actor was the second one to be drawn, or the number of faces of the die that appeared more than once. Some answers might need multiple lines of code.</p>
 </div>
 <div class="section" id="sampling-from-a-categorical-distribution">
-<h2><span class="section-number">10.5.3. </span>Sampling from a Categorical Distribution<a class="headerlink" href="#sampling-from-a-categorical-distribution" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.4.3. </span>Sampling from a Categorical Distribution<a class="headerlink" href="#sampling-from-a-categorical-distribution" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes we are interested in a categorical attribute of our sampled individuals. For example, we might be looking at whether a coin lands Heads or Tails. Or we might be interested in the political parties of randomly selected voters.</p>
 <p>In such cases, we frequently need the proportions of sampled voters in the different categories. If we have the entire sample, we can calculate these proportions. The function <code class="docutils literal notranslate"><span class="pre">sample_proportions</span></code> in the <code class="docutils literal notranslate"><span class="pre">datascience</span></code> library does that work for us. It is tailored for sampling at random with replacement from a categorical distribution and returns the proportions of sampled elements in each category.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">sample_proportions</span></code> function takes two arguments:</p>
@@ -1195,7 +1195,7 @@
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">10.4. </span>Empirical Distribution of a Statistic</p>
+                <p class="prevnext-title"><span class="section-number">10.3. </span>Empirical Distribution of a Statistic</p>
             </div>
         </a>
     </div>

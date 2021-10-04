@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="10.2. Empirical Distributions" href="1/Empirical_Distributions.html" />
+    <link rel="next" title="10.1. Empirical Distributions" href="1/Empirical_Distributions.html" />
     <link rel="prev" title="9.5. Finding Probabilities" href="../09/5/Finding_Probabilities.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -445,22 +445,22 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="1/Empirical_Distributions.html">
-     10.2. Empirical Distributions
+     10.1. Empirical Distributions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2/Sampling_from_a_Population.html">
-     10.3. Sampling from a Population
+     10.2. Sampling from a Population
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3/Empirical_Distribution_of_a_Statistic.html">
-     10.4. Empirical Distibution of a Statistic
+     10.3. Empirical Distibution of a Statistic
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="4/Random_Sampling_in_Python.html">
-     10.5. Random Sampling in Python
+     10.4. Random Sampling in Python
     </a>
    </li>
   </ul>
@@ -833,19 +833,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#convenience-samples">
-   10.1. Convenience Samples
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -1069,11 +1056,8 @@ ABC: 0
 <p>The first is random sampling with replacement, which (as we have seen earlier) is the default behavior of <code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code> when it samples from an array.</p>
 <p>The other, called a “simple random sample”, is a sample drawn at random <em>without</em> replacement. Sampled individuals are not replaced in the population before the next individual is drawn. This is the kind of sampling that happens when you deal a hand from a deck of cards, for example. To use <code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code> for simple random sampling, you must include the argument <code class="docutils literal notranslate"><span class="pre">replace=False</span></code>.</p>
 <p>In this chapter, we will use simulation to study the behavior of large samples drawn at random with or without replacement.</p>
-<div class="section" id="convenience-samples">
-<h2><span class="section-number">10.1. </span>Convenience Samples<a class="headerlink" href="#convenience-samples" title="Permalink to this headline">¶</a></h2>
-<p>Drawing a random sample requires care and precision. It is not haphazard even though that is a colloquial meaning of the word “random”. If you stand at a street corner and take as your sample the first ten people who pass by, you might think you’re sampling at random because you didn’t choose who walked by. But it’s not a random sample – it’s a <em>sample of convenience</em>. You didn’t know ahead of time the probability of each person entering the sample; perhaps you hadn’t even specified exactly who was in the population.</p>
-</div>
-<div class="toctree-wrapper compound">
+<h2>Convenience Samples</h2>
+Drawing a random sample requires care and precision. It is not haphazard even though that is a colloquial meaning of the word "random". If you stand at a street corner and take as your sample the first ten people who pass by, you might think you're sampling at random because you didn't choose who walked by. But it's not a random sample – it's a *sample of convenience*. You didn't know ahead of time the probability of each person entering the sample; perhaps you hadn't even specified exactly who was in the population.<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -1119,7 +1103,7 @@ ABC: 0
         <a class="right-next" href="1/Empirical_Distributions.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">10.2. </span>Empirical Distributions</p>
+                <p class="prevnext-title"><span class="section-number">10.1. </span>Empirical Distributions</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

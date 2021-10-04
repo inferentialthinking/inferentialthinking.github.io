@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10.3. Sampling from a Population &#8212; Computational and Inferential Thinking</title>
+    <title>10.2. Sampling from a Population &#8212; Computational and Inferential Thinking</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -54,8 +54,8 @@
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="10.4. Empirical Distribution of a Statistic" href="../3/Empirical_Distribution_of_a_Statistic.html" />
-    <link rel="prev" title="10.2. Empirical Distributions" href="../1/Empirical_Distributions.html" />
+    <link rel="next" title="10.3. Empirical Distribution of a Statistic" href="../3/Empirical_Distribution_of_a_Statistic.html" />
+    <link rel="prev" title="10.1. Empirical Distributions" href="../1/Empirical_Distributions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -443,22 +443,22 @@
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="../1/Empirical_Distributions.html">
-     10.2. Empirical Distributions
+     10.1. Empirical Distributions
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     10.3. Sampling from a Population
+     10.2. Sampling from a Population
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../3/Empirical_Distribution_of_a_Statistic.html">
-     10.4. Empirical Distibution of a Statistic
+     10.3. Empirical Distibution of a Statistic
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../4/Random_Sampling_in_Python.html">
-     10.5. Random Sampling in Python
+     10.4. Random Sampling in Python
     </a>
    </li>
   </ul>
@@ -838,12 +838,12 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#empirical-distribution-of-the-sample">
-   10.3.1. Empirical Distribution of the Sample
+   10.2.1. Empirical Distribution of the Sample
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#convergence-of-the-empirical-histogram-of-the-sample">
-   10.3.2. Convergence of the Empirical Histogram of the Sample
+   10.2.2. Convergence of the Empirical Histogram of the Sample
   </a>
  </li>
 </ul>
@@ -860,7 +860,7 @@
   <div class="cell tag_remove-input docutils container">
 </div>
 <div class="section" id="sampling-from-a-population">
-<h1><span class="section-number">10.3. </span>Sampling from a Population<a class="headerlink" href="#sampling-from-a-population" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">10.2. </span>Sampling from a Population<a class="headerlink" href="#sampling-from-a-population" title="Permalink to this headline">¶</a></h1>
 <p>The law of averages also holds when the random sample is drawn from individuals in a large population.</p>
 <p>As an example, we will study a population of flight delay times. The table <code class="docutils literal notranslate"><span class="pre">united</span></code> contains data for United Airlines domestic flights departing from San Francisco in the summer of 2015. The data are made publicly available by the <a class="reference external" href="http://www.transtats.bts.gov/Fields.asp?Table_ID=293">Bureau of Transportation Statistics</a> in the United States Department of Transportation.</p>
 <p>There are 13,825 rows, each corresponding to a flight. The columns are the date of the flight, the flight number, the destination airport code, and the departure delay time in minutes. Some delay times are negative: those flights left early.</p>
@@ -987,7 +987,7 @@
 </div>
 </div>
 <div class="section" id="empirical-distribution-of-the-sample">
-<h2><span class="section-number">10.3.1. </span>Empirical Distribution of the Sample<a class="headerlink" href="#empirical-distribution-of-the-sample" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.2.1. </span>Empirical Distribution of the Sample<a class="headerlink" href="#empirical-distribution-of-the-sample" title="Permalink to this headline">¶</a></h2>
 <p>Let us now think of the 13,825 flights as a population, and draw random samples from it with replacement. It is helpful to package our code into a function. The function <code class="docutils literal notranslate"><span class="pre">empirical_hist_delay</span></code> takes the sample size as its argument and draws an empiricial histogram of the results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1031,7 +1031,7 @@
 </div>
 </div>
 <div class="section" id="convergence-of-the-empirical-histogram-of-the-sample">
-<h2><span class="section-number">10.3.2. </span>Convergence of the Empirical Histogram of the Sample<a class="headerlink" href="#convergence-of-the-empirical-histogram-of-the-sample" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.2.2. </span>Convergence of the Empirical Histogram of the Sample<a class="headerlink" href="#convergence-of-the-empirical-histogram-of-the-sample" title="Permalink to this headline">¶</a></h2>
 <p>What we have observed in this section can be summarized as follows:</p>
 <p>For a large random sample, the empirical histogram of the sample resembles the histogram of the population, with high probability.</p>
 <p>This justifies the use of large random samples in statistical inference. The idea is that since a large random sample is likely to resemble the population from which it is drawn, quantities computed from the values in the sample are likely to be close to the corresponding quantities in the population.</p>
@@ -1072,7 +1072,7 @@
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">10.2. </span>Empirical Distributions</p>
+                <p class="prevnext-title"><span class="section-number">10.1. </span>Empirical Distributions</p>
             </div>
         </a>
     </div>
@@ -1080,7 +1080,7 @@
         <a class="right-next" href="../3/Empirical_Distribution_of_a_Statistic.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">10.4. </span>Empirical Distribution of a Statistic</p>
+                <p class="prevnext-title"><span class="section-number">10.3. </span>Empirical Distribution of a Statistic</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
