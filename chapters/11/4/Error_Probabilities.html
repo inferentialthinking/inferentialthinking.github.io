@@ -476,8 +476,8 @@
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../1/Assessing_Models.html">
-     11.1. Assessing Models
+    <a class="reference internal" href="../1/Assessing_a_Model.html">
+     11.1. Assessing a Model
     </a>
    </li>
    <li class="toctree-l2">
@@ -850,12 +850,19 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-cutoff-for-the-p-value-is-an-error-probability">
-   11.4.3. The Cutoff for the P-value is an Error Probability
+   11.4.3. The Cutoff for the p-value is an Error Probability
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#controlling-for-the-error">
+     11.4.3.1. Controlling for the Error
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-snooping-and-p-hacking">
-   11.4.4. Data Snooping and P-Hacking
+   11.4.4. Data Snooping and p-Hacking
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -885,23 +892,23 @@
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:right head"><p></p></th>
-<th class="text-align:center head"><p>Null is True</p></th>
-<th class="text-align:center head"><p>Alternative is True</p></th>
+<th class="text-align:left head"><p>Test Favors the Null</p></th>
+<th class="text-align:left head"><p>Test Favors the Alternative</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:right"><p><strong>Test Favors the Null</strong></p></td>
-<td class="text-align:center"><p>Correct result</p></td>
-<td class="text-align:center"><p>Error</p></td>
+<tr class="row-even"><td class="text-align:right"><p><strong>Null is True</strong></p></td>
+<td class="text-align:left"><p>Correct result</p></td>
+<td class="text-align:left"><p>Error</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p><strong>Test Favors the Alternative</strong></p></td>
-<td class="text-align:center"><p>Error</p></td>
-<td class="text-align:center"><p>Correct result</p></td>
+<tr class="row-odd"><td class="text-align:right"><p><strong>Alternative is True</strong></p></td>
+<td class="text-align:left"><p>Error</p></td>
+<td class="text-align:left"><p>Correct result</p></td>
 </tr>
 </tbody>
 </table>
 <p>In two out of the four cells of this table, the test result is wrong. One type of error occurs if the test favors the alternative hypothesis when in fact the null hypothesis is true. The other type of error occurs if the test favors the null hypothesis when in fact the alternative hypothesis is true.</p>
-<p>Since the null hypothesis is a completely specified chance model, we can estimate the chance of the first type of error. The answer turns out to be essentially the cutoff that we use for the P-value. Let’s see how.</p>
+<p>Since the null hypothesis is a completely specified chance model, the first type of error has a chance that we can estimate. The answer turns out to be essentially the cutoff that we use for the p-value. Let’s see how.</p>
 </div>
 <div class="section" id="the-chance-of-an-error">
 <h2><span class="section-number">11.4.2. </span>The Chance of an Error<a class="headerlink" href="#the-chance-of-an-error" title="Permalink to this headline">¶</a></h2>
@@ -920,23 +927,58 @@
 <img alt="../../../_images/Error_Probabilities_4_0.png" src="../../../_images/Error_Probabilities_4_0.png" />
 </div>
 </div>
-<p>The area to the right of 45 (where the gold line is) is about 5%. Large values of the test statistic favor the alternative. So if the test statistic comes out to be 45 or more, the test will conclude that the coin is unfair.</p>
-<p>However, as the figure shows, a fair coin can produce test statistics with values 45 or more. In fact it does so with chance about 5%.</p>
-<p>So <em>if the coin is fair</em> and our test uses a 5% cutoff for deciding whether it is fair or not, then there is about a 5% chance that the test will wrongly conclude that the coin is unfair.</p>
+<p>The area to the right of 45 (where the gold line is) is just under 5%.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">statistics</span> <span class="o">&gt;=</span> <span class="mi">45</span><span class="p">)</span> <span class="o">/</span> <span class="n">repetitions</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.04746
+</pre></div>
+</div>
+</div>
+</div>
+<p>Large values of the test statistic favor the alternative. So if you wanted to use a 5% cutoff for the p-value, your decision rule would be to conclude that the coin is unfair if the test statistic comes out to be 45 or more.</p>
+<p>However, as the figure shows, a fair coin can produce test statistics with values 45 or more. In fact it does so with chance approximately 5%.</p>
+<p>Summary: <em>If the coin is fair</em> and our test uses a 5% cutoff for deciding whether it is fair or not, then there is about a 5% chance that the test will wrongly conclude that the coin is unfair.</p>
 </div>
 <div class="section" id="the-cutoff-for-the-p-value-is-an-error-probability">
-<h2><span class="section-number">11.4.3. </span>The Cutoff for the P-value is an Error Probability<a class="headerlink" href="#the-cutoff-for-the-p-value-is-an-error-probability" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.4.3. </span>The Cutoff for the p-value is an Error Probability<a class="headerlink" href="#the-cutoff-for-the-p-value-is-an-error-probability" title="Permalink to this headline">¶</a></h2>
 <p>The example above is a special case of a general fact:</p>
-<p><strong>If you use a <span class="math notranslate nohighlight">\(p\)</span>% cutoff for the P-value, and the null hypothesis happens to be true, then there is about a <span class="math notranslate nohighlight">\(p\)</span>% chance that your test will conclude that the alternative is true.</strong></p>
-<p>The 1% cutoff is therefore more conservative than 5%. There is less chance of concluding “alternative” if the null happens to be true. For this reason, randomized controlled trials of medical treatments usually use 1% as the cutoff for deciding between the following two hypotheses:</p>
-<p><strong>Null Hypothesis.</strong> The treatment has no effect; observed differences between the outcomes of the treatment and control groups of patients are due to randomization.</p>
-<p><strong>Alternative Hypothesis.</strong> The treatment has an effect.</p>
-<p>The idea is to control the chance of concluding the treatment does something if in fact it does nothing. This reduces the risk of giving patients a useless treatment.</p>
-<p>Still, even if you set the cutoff to be as low as 1%, and the treatment does nothing, there is about a 1% chance of concluding that the treatment does something. This is due to chance variation. There is a small chance that data from random samples end up leading you astray.</p>
+<p><strong>If you use a <span class="math notranslate nohighlight">\(p\)</span>% cutoff for the p-value, and the null hypothesis happens to be true, then there is about a <span class="math notranslate nohighlight">\(p\)</span>% chance that your test will conclude that the alternative is true.</strong></p>
+<p>Here is the table of the four possible reality/test outcomes again. Probabilities in the top row are computed under the assumption that the null hypothesis is true. The p-value is the probability of the error shown in red.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p></p></th>
+<th class="text-align:left head"><p>Test Favors the Null</p></th>
+<th class="text-align:left head"><p>Test Favors the Alternative</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p><strong>Null is True</strong></p></td>
+<td class="text-align:left"><p>Correct result</p></td>
+<td class="text-align:left"><p><p style="color:red;"><b>Error</b></p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p><strong>Alternative is True</strong></p></td>
+<td class="text-align:left"><p>Error</p></td>
+<td class="text-align:left"><p>Correct result</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="controlling-for-the-error">
+<h3><span class="section-number">11.4.3.1. </span>Controlling for the Error<a class="headerlink" href="#controlling-for-the-error" title="Permalink to this headline">¶</a></h3>
+<p>The 1% cutoff is therefore more conservative than 5%. With the 1% cutoff there is less chance of concluding “alternative” if the null happens to be true. For this reason, randomized controlled trials of medical treatments usually use 1% as the cutoff for deciding between the following two hypotheses:</p>
+<p><strong>Null:</strong> The treatment has no effect; the observed differences between the outcomes of the treatment and control groups of patients are due to randomization.</p>
+<p><strong>Alternative:</strong> The treatment has an effect.</p>
+<p>The idea is to control the chance of concluding that the treatment does something if in fact it does nothing. This reduces the risk of giving patients a useless treatment.</p>
+<p>Still, even if you set the cutoff to be as low as 1%, and the treatment does nothing, there is about a 1% chance of concluding that the treatment does something. This is due to chance variation. There is a small chance that data from random samples end up leading you astray. The advantage of random sampling is that you can find that chance.</p>
+</div>
 </div>
 <div class="section" id="data-snooping-and-p-hacking">
-<h2><span class="section-number">11.4.4. </span>Data Snooping and P-Hacking<a class="headerlink" href="#data-snooping-and-p-hacking" title="Permalink to this headline">¶</a></h2>
-<p>The discussion above implies that if each of 100 different research groups runs a separate randomized controlled experiment about the effect of a treatment that in fact has no effect, and each experiment uses a 1% cutoff for the P-value, then by chance variation, one of the experiments is expected to wrongly conclude that the treatment does have an effect.</p>
+<h2><span class="section-number">11.4.4. </span>Data Snooping and p-Hacking<a class="headerlink" href="#data-snooping-and-p-hacking" title="Permalink to this headline">¶</a></h2>
+<p>The discussion above implies that if each of 100 different research groups runs a separate randomized controlled experiment about the effect of a treatment that in fact has no effect, and each experiment uses a 1% cutoff for the p-value, then by chance variation, one of the experiments is expected to wrongly conclude that the treatment does have an effect.</p>
 <p>Unfortunately, that could be the one that gets published. This is why it is important that experiments be <em>replicated</em>. That is, other researchers ought to be able to carry out the experiment and see if they get similar results.</p>
 <p>It is not uncommon for researchers to test multiple hypotheses using the same data. For example, in a randomized controlled trial about the effect of a drug, researchers might test whether the drug has an effect on various different diseases.</p>
 <p>Now suppose the drug has no effect on anything. Just by chance variation, a small percent of the tests might conclude that it does have an effect. So, when you read a study that uses tests of hypotheses and concludes that a treatment has an effect, always ask how many different effects were tested before the researchers found the one that was reported.</p>

@@ -57,7 +57,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="11.3. Decisions and Uncertainty" href="../3/Decisions_and_Uncertainty.html" />
-    <link rel="prev" title="11.1. Assessing Models" href="../1/Assessing_Models.html" />
+    <link rel="prev" title="11.1. Assessing a Model" href="../1/Assessing_a_Model.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -476,8 +476,8 @@
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../1/Assessing_Models.html">
-     11.1. Assessing Models
+    <a class="reference internal" href="../1/Assessing_a_Model.html">
+     11.1. Assessing a Model
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -844,48 +844,55 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jury-panels">
-   11.2.2. Jury Panels
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#composition-of-panels-in-alameda-county">
-   11.2.3. Composition of Panels in Alameda County
+   11.2.2. Composition of Panels in Alameda County
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comparison-with-panels-selected-at-random">
-   11.2.4. Comparison with Panels Selected at Random
+   11.2.3. Comparison with Panels Selected at Random
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#a-new-statistic-the-distance-between-two-distributions">
-   11.2.5. A New Statistic: The Distance between Two Distributions
+   11.2.4. A New Statistic: The Distance between Two Distributions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#simulating-one-value-of-the-statistic">
-   11.2.6. Simulating One Value of the Statistic
+  <a class="reference internal nav-link" href="#simulating-the-statistic-under-the-model">
+   11.2.5. Simulating the Statistic Under the Model
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#predicting-the-statistic-under-the-model-of-random-selection">
-   11.2.7. Predicting the Statistic Under the Model of Random Selection
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulating-one-value-of-the-statistic">
+     11.2.5.1. Simulating One Value of the Statistic
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulating-multiple-values-of-the-statistic">
+     11.2.5.2. Simulating Multiple Values of the Statistic
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#assessing-the-model-of-random-selection">
-   11.2.8. Assessing the Model of Random Selection
+   11.2.6. Assessing the Model of Random Selection
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#some-possible-explanations-for-the-differences">
-   11.2.9. Some Possible Explanations for the Differences
+  <a class="reference internal nav-link" href="#reasons-for-the-bias">
+   11.2.7. Reasons for the Bias
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#questions-about-the-data">
-   11.2.10. Questions about the Data
+  <a class="reference internal nav-link" href="#data-quality">
+   11.2.8. Data Quality
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   11.2.9. Conclusion
   </a>
  </li>
 </ul>
@@ -901,32 +908,27 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="cell tag_remove-input docutils container">
-</div>
 <div class="section" id="multiple-categories">
 <h1><span class="section-number">11.2. </span>Multiple Categories<a class="headerlink" href="#multiple-categories" title="Permalink to this headline">¶</a></h1>
-<p>We have developed a way of assessing models about chance processes that generate data in two categories. The method extends to models involving data in multiple categories. The process of assessment is the same as before, the only difference being that we have to come up with a new statistic to simulate.</p>
-<p>Let’s do this in an example that addresses the same kind of question that was raised in the case of Robert Swain’s jury panel. This time, the data are more recent.</p>
+<p>Whether jury panels are representative of the eligible population continues to be an important question. We will address it in the context of more recent panels than that of Robert Swain in the 1960s.</p>
+<p>The general process of assessment will be the same as before. But this time we will consider panelists in multiple racial and ethnic categories, not just two. From a technical perspective, this will mean that we have to come up with a new statistic to simulate. Once we have simulated it and arrived at a conclusion, we will examine some of the underlying causes of the discrepancies that we observe.</p>
 <div class="section" id="jury-selection-in-alameda-county">
 <h2><span class="section-number">11.2.1. </span>Jury Selection in Alameda County<a class="headerlink" href="#jury-selection-in-alameda-county" title="Permalink to this headline">¶</a></h2>
-<p>In 2010, the American Civil Liberties Union (ACLU) of Northern California presented a <a class="reference external" href="https://www.aclunc.org/sites/default/files/racial_and_ethnic_disparities_in_alameda_county_jury_pools.pdf">report</a> on jury selection in Alameda County, California. The report concluded that certain ethnic groups are underrepresented among jury panelists in Alameda County, and suggested some reforms of the process by which eligible jurors are assigned to panels. In this section, we will perform our own analysis of the data and examine some questions that arise as a result.</p>
-<p>Some details about jury panels and juries will be helpful in interpreting the results of our analysis.</p>
-</div>
-<div class="section" id="jury-panels">
-<h2><span class="section-number">11.2.2. </span>Jury Panels<a class="headerlink" href="#jury-panels" title="Permalink to this headline">¶</a></h2>
-<p>A jury panel is a group of people chosen to be prospective jurors; the final trial jury is selected from among them. Jury panels can consist of a few dozen people or several thousand, depending on the trial. By law, a jury panel is supposed to be representative of the community in which the trial is taking place. Section 197 of California’s Code of Civil Procedure says, “All persons selected for jury service shall be selected at random, from a source or sources inclusive of a representative cross section of the population of the area served by the court.”</p>
-<p>The final jury is selected from the panel by deliberate inclusion or exclusion. The law allows potential jurors to be excused for medical reasons; lawyers on both sides may strike a certain number of potential jurors from the list in what are called “peremptory challenges”; the trial judge might make a selection based on questionnaires filled out by the panel; and so on. But the initial panel is supposed to resemble a random sample of the population of eligible jurors.</p>
+<p>In 2010, the American Civil Liberties Union (ACLU) of Northern California presented a <a class="reference external" href="https://www.aclunc.org/sites/default/files/racial_and_ethnic_disparities_in_alameda_county_jury_pools.pdf">report</a> on jury selection in Alameda County, California. The report concluded that certain racial and ethnic groups are underrepresented among jury panelists in Alameda County, and suggested some reforms of the process by which eligible jurors are assigned to panels. In this section, we will analyze the data provided by the ACLU.</p>
+<p>As you saw in the previous section, trial jurors are selected from a larger jury panel. By law, the jury panel is supposed to be representative of the population of eligible jurors. In California, the word “representative” is clearly defined as “selected at random.” Section 197 of California’s Code of Civil Procedure says, “All persons selected for jury service shall be selected at random, from a source or sources inclusive of a representative cross section of the population of the area served by the court.”</p>
+<p>Here “selected for jury service” means being selected to be on the jury panel.</p>
 </div>
 <div class="section" id="composition-of-panels-in-alameda-county">
-<h2><span class="section-number">11.2.3. </span>Composition of Panels in Alameda County<a class="headerlink" href="#composition-of-panels-in-alameda-county" title="Permalink to this headline">¶</a></h2>
-<p>The focus of the study by the ACLU of Northern California was the ethnic composition of jury panels in Alameda County. The ACLU compiled data on the ethnic composition of the jury panels in 11 felony trials in Alameda County in the years 2009 and 2010. In those panels, the total number of people who reported for jury service was 1,453. The ACLU gathered demographic data on all of these prosepctive jurors, and compared those data with the composition of all eligible jurors in the county.</p>
-<p>The data are tabulated below in a table called <code class="docutils literal notranslate"><span class="pre">jury</span></code>. For each ethnicity, the first value is the proportion of all eligible juror candidates of that ethnicity. The second value is the proportion of people of that ethnicity among those who appeared for the process of selection into the jury.</p>
+<h2><span class="section-number">11.2.2. </span>Composition of Panels in Alameda County<a class="headerlink" href="#composition-of-panels-in-alameda-county" title="Permalink to this headline">¶</a></h2>
+<p>The focus of the study by the ACLU of Northern California was the racial and ethnic composition of jury panels in Alameda County. The ACLU compiled data on the composition of the jury panels in 11 felony trials in Alameda County in the years 2009 and 2010. In those panels, the total number of people who reported for jury service was 1453. The ACLU gathered demographic data on all of these prosepctive jurors, and compared those data with the composition of all eligible jurors in the county.</p>
+<p>The data are tabulated below in a table called <code class="docutils literal notranslate"><span class="pre">jury</span></code>. In each category, the first numerical value is the proportion of all eligible juror candidates in that category. The second value is the proportion of people in that category among those who appeared for the process of selection into the jury.</p>
+<p>The labels for the different categories are taken from the ACLU report, which says, “The category “other” includes people who identified as mixed race without identifying one primary racial identity, and individuals who did not identify a race or ethnicity.” The label <code class="docutils literal notranslate"><span class="pre">Asian/PI</span></code> means “Asian or Pacific Islander.” The label <code class="docutils literal notranslate"><span class="pre">Black/AA</span></code> means “Black or African-American.”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jury</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
-    <span class="s1">&#39;Ethnicity&#39;</span><span class="p">,</span> <span class="n">make_array</span><span class="p">(</span><span class="s1">&#39;Asian&#39;</span><span class="p">,</span> <span class="s1">&#39;Black&#39;</span><span class="p">,</span> <span class="s1">&#39;Latino&#39;</span><span class="p">,</span> <span class="s1">&#39;White&#39;</span><span class="p">,</span> <span class="s1">&#39;Other&#39;</span><span class="p">),</span>
-    <span class="s1">&#39;Eligible&#39;</span><span class="p">,</span> <span class="n">make_array</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.18</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.54</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span>
-    <span class="s1">&#39;Panels&#39;</span><span class="p">,</span> <span class="n">make_array</span><span class="p">(</span><span class="mf">0.26</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.54</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">)</span>
+    <span class="s1">&#39;Ethnicity&#39;</span><span class="p">,</span> <span class="n">make_array</span><span class="p">(</span><span class="s1">&#39;Asian/PI&#39;</span><span class="p">,</span> <span class="s1">&#39;Black/AA&#39;</span><span class="p">,</span> <span class="s1">&#39;Caucasian&#39;</span><span class="p">,</span> <span class="s1">&#39;Hispanic&#39;</span><span class="p">,</span> <span class="s1">&#39;Other&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;Eligible&#39;</span><span class="p">,</span> <span class="n">make_array</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.18</span><span class="p">,</span> <span class="mf">0.54</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span>
+    <span class="s1">&#39;Panels&#39;</span><span class="p">,</span> <span class="n">make_array</span><span class="p">(</span><span class="mf">0.26</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.54</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="n">jury</span>
@@ -942,16 +944,16 @@
     </thead>
     <tbody>
         <tr>
-            <td>Asian    </td> <td>0.15    </td> <td>0.26  </td>
+            <td>Asian/PI </td> <td>0.15    </td> <td>0.26  </td>
         </tr>
         <tr>
-            <td>Black    </td> <td>0.18    </td> <td>0.08  </td>
+            <td>Black/AA </td> <td>0.18    </td> <td>0.08  </td>
         </tr>
         <tr>
-            <td>Latino   </td> <td>0.12    </td> <td>0.08  </td>
+            <td>Caucasian</td> <td>0.54    </td> <td>0.54  </td>
         </tr>
         <tr>
-            <td>White    </td> <td>0.54    </td> <td>0.54  </td>
+            <td>Hispanic </td> <td>0.12    </td> <td>0.08  </td>
         </tr>
         <tr>
             <td>Other    </td> <td>0.01    </td> <td>0.04  </td>
@@ -959,7 +961,8 @@
     </tbody>
 </table></div></div>
 </div>
-<p>Some ethnicities are overrepresented and some are underrepresented on the jury panels in the study. A bar chart is helpful for visualizing the differences.</p>
+<p>Some ethnicities are overrepresented and some are underrepresented on the jury panels in the study. In particular, panelists in the Black/AA and Hispanic categories are underrepresented.</p>
+<p>A bar chart is helpful for visualizing the differences.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jury</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="s1">&#39;Ethnicity&#39;</span><span class="p">)</span>
@@ -967,12 +970,12 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/Multiple_Categories_8_0.png" src="../../../_images/Multiple_Categories_8_0.png" />
+<img alt="../../../_images/Multiple_Categories_6_0.png" src="../../../_images/Multiple_Categories_6_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="comparison-with-panels-selected-at-random">
-<h2><span class="section-number">11.2.4. </span>Comparison with Panels Selected at Random<a class="headerlink" href="#comparison-with-panels-selected-at-random" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.2.3. </span>Comparison with Panels Selected at Random<a class="headerlink" href="#comparison-with-panels-selected-at-random" title="Permalink to this headline">¶</a></h2>
 <p>What if we select a random sample of 1,453 people from the population of eligible jurors? Will the distribution of their ethnicities look like the distribution of the panels above?</p>
 <p>We can answer these questions by using <code class="docutils literal notranslate"><span class="pre">sample_proportions</span></code> and augmenting the <code class="docutils literal notranslate"><span class="pre">jury</span></code> table with a column of the proportions in our sample.</p>
 <p><strong>Technical note.</strong> Random samples of prospective jurors would be selected without replacement. However, when the size of a sample is small relative to the size of the population, sampling without replacement resembles sampling with replacement; the proportions in the population don’t change much between draws. The population of eligible jurors in Alameda County is over a million, and compared to that, a sample size of about 1500 is quite small. We will therefore sample with replacement.</p>
@@ -995,25 +998,24 @@
     </thead>
     <tbody>
         <tr>
-            <td>Asian    </td> <td>0.15    </td> <td>0.26  </td> <td>0.13627      </td>
+            <td>Asian/PI </td> <td>0.15    </td> <td>0.26  </td> <td>0.14384      </td>
         </tr>
         <tr>
-            <td>Black    </td> <td>0.18    </td> <td>0.08  </td> <td>0.18307      </td>
+            <td>Black/AA </td> <td>0.18    </td> <td>0.08  </td> <td>0.163799     </td>
         </tr>
         <tr>
-            <td>Latino   </td> <td>0.12    </td> <td>0.08  </td> <td>0.130076     </td>
+            <td>Caucasian</td> <td>0.54    </td> <td>0.54  </td> <td>0.538197     </td>
         </tr>
         <tr>
-            <td>White    </td> <td>0.54    </td> <td>0.54  </td> <td>0.544391     </td>
+            <td>Hispanic </td> <td>0.12    </td> <td>0.08  </td> <td>0.143152     </td>
         </tr>
         <tr>
-            <td>Other    </td> <td>0.01    </td> <td>0.04  </td> <td>0.00619408   </td>
+            <td>Other    </td> <td>0.01    </td> <td>0.04  </td> <td>0.0110117    </td>
         </tr>
     </tbody>
 </table></div></div>
 </div>
-<p>The distribution of the random sample is quite close to the distribution of the eligible population, unlike the distribution of the panels.</p>
-<p>As always, it helps to visualize.</p>
+<p>The distribution of the random sample is quite close to the distribution of the eligible population, unlike the distribution of the panels. As always, it helps to visualize.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">panels_and_sample</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="s1">&#39;Ethnicity&#39;</span><span class="p">)</span>
@@ -1021,15 +1023,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/Multiple_Categories_12_0.png" src="../../../_images/Multiple_Categories_12_0.png" />
+<img alt="../../../_images/Multiple_Categories_10_0.png" src="../../../_images/Multiple_Categories_10_0.png" />
 </div>
 </div>
 <p>The bar chart shows that the distribution of the random sample resembles the eligible population but the distribution of the panels does not.</p>
 <p>To assess whether this observation is particular to one random sample or more general, we can  simulate multiple panels under the model of random selection and see what the simulations predict. But we won’t be able to look at thousands of bar charts like the one above. We need a statistic that will help us assess whether or not the model or random selection is supported by the data.</p>
 </div>
 <div class="section" id="a-new-statistic-the-distance-between-two-distributions">
-<h2><span class="section-number">11.2.5. </span>A New Statistic: The Distance between Two Distributions<a class="headerlink" href="#a-new-statistic-the-distance-between-two-distributions" title="Permalink to this headline">¶</a></h2>
-<p>We know how to measure how different two numbers are – if the numbers are <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, the distance between them is <span class="math notranslate nohighlight">\(\vert x-y \vert\)</span>. Now we have to quantify the distance between two distributions. For example, we have to measure the distance between the blue and gold distributions below.</p>
+<h2><span class="section-number">11.2.4. </span>A New Statistic: The Distance between Two Distributions<a class="headerlink" href="#a-new-statistic-the-distance-between-two-distributions" title="Permalink to this headline">¶</a></h2>
+<p>We know how to measure how different two numbers are: if the numbers are <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, the distance between them is <span class="math notranslate nohighlight">\(\vert x-y \vert\)</span>. Now we have to quantify the distance between two distributions. For example, we have to measure the distance between the blue and gold distributions below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jury</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="s1">&#39;Ethnicity&#39;</span><span class="p">)</span>
@@ -1037,11 +1039,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/Multiple_Categories_16_0.png" src="../../../_images/Multiple_Categories_16_0.png" />
+<img alt="../../../_images/Multiple_Categories_14_0.png" src="../../../_images/Multiple_Categories_14_0.png" />
 </div>
 </div>
-<p>For this we will compute a quantity called the <em>total variation distance</em> between two distributions. The calculation is as an extension of the calculation of the distance between two numbers.</p>
-<p>To compute the total variation distance, we first take the difference between the two proportions in each category.</p>
+<p>For this we will compute a quantity called the <em>total variation distance</em> between two distributions. The calculation is as an extension of how we find the distance between two numbers.</p>
+<p>To compute the total variation distance, we first find the difference between the two proportions in each category.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Augment the table with a column of differences between proportions</span>
@@ -1062,16 +1064,16 @@
     </thead>
     <tbody>
         <tr>
-            <td>Asian    </td> <td>0.15    </td> <td>0.26  </td> <td>0.11      </td>
+            <td>Asian/PI </td> <td>0.15    </td> <td>0.26  </td> <td>0.11      </td>
         </tr>
         <tr>
-            <td>Black    </td> <td>0.18    </td> <td>0.08  </td> <td>-0.1      </td>
+            <td>Black/AA </td> <td>0.18    </td> <td>0.08  </td> <td>-0.1      </td>
         </tr>
         <tr>
-            <td>Latino   </td> <td>0.12    </td> <td>0.08  </td> <td>-0.04     </td>
+            <td>Caucasian</td> <td>0.54    </td> <td>0.54  </td> <td>0         </td>
         </tr>
         <tr>
-            <td>White    </td> <td>0.54    </td> <td>0.54  </td> <td>0         </td>
+            <td>Hispanic </td> <td>0.12    </td> <td>0.08  </td> <td>-0.04     </td>
         </tr>
         <tr>
             <td>Other    </td> <td>0.01    </td> <td>0.04  </td> <td>0.03      </td>
@@ -1081,7 +1083,7 @@
 </div>
 <p>Take a look at the column <code class="docutils literal notranslate"><span class="pre">Difference</span></code> and notice that the sum of its entries is 0: the positive entries add up to 0.14, exactly canceling the total of the negative entries which is -0.14.</p>
 <p>This is numerical evidence of the fact that in the bar chart, the gold bars exceed the blue bars by exactly as much as the blue bars exceed the gold. The proportions in each of the two columns <code class="docutils literal notranslate"><span class="pre">Panels</span></code> and <code class="docutils literal notranslate"><span class="pre">Eligible</span></code> add up to 1, and so the give-and-take between their entries must add up to 0.</p>
-<p>To avoid the cancellation, we drop the negative signs and then add all the entries. But this gives us two times the total of the positive entries (equivalently, two times the total of the negative entries, with the sign removed). So we divide the sum by 2.</p>
+<p>To avoid the cancellation, we drop the negative signs and then add all the entries. But this gives us two times the total of the positive entries (equivalently, two times the total of the negative entries, with the sign removed). We don’t need that doubling, so we divide the sum by 2.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jury_with_diffs</span> <span class="o">=</span> <span class="n">jury_with_diffs</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
@@ -1101,16 +1103,16 @@
     </thead>
     <tbody>
         <tr>
-            <td>Asian    </td> <td>0.15    </td> <td>0.26  </td> <td>0.11      </td> <td>0.11               </td>
+            <td>Asian/PI </td> <td>0.15    </td> <td>0.26  </td> <td>0.11      </td> <td>0.11               </td>
         </tr>
         <tr>
-            <td>Black    </td> <td>0.18    </td> <td>0.08  </td> <td>-0.1      </td> <td>0.1                </td>
+            <td>Black/AA </td> <td>0.18    </td> <td>0.08  </td> <td>-0.1      </td> <td>0.1                </td>
         </tr>
         <tr>
-            <td>Latino   </td> <td>0.12    </td> <td>0.08  </td> <td>-0.04     </td> <td>0.04               </td>
+            <td>Caucasian</td> <td>0.54    </td> <td>0.54  </td> <td>0         </td> <td>0                  </td>
         </tr>
         <tr>
-            <td>White    </td> <td>0.54    </td> <td>0.54  </td> <td>0         </td> <td>0                  </td>
+            <td>Hispanic </td> <td>0.12    </td> <td>0.08  </td> <td>-0.04     </td> <td>0.04               </td>
         </tr>
         <tr>
             <td>Other    </td> <td>0.01    </td> <td>0.04  </td> <td>0.03      </td> <td>0.03               </td>
@@ -1131,14 +1133,15 @@
 </div>
 </div>
 <p>This quantity 0.14 is the <em>total variation distance</em> (TVD) between the distribution of ethnicities in the eligible juror population and the distribution in the panels.</p>
-<p>We could have obtained the same result by just adding the positive differences. But our method of including all the absolute differences eliminates the need to keep track of which differences are positive and which are not.</p>
+<p>In general, the total variation distance between two distributions measures how close the distributions are. The larger the TVD, the more different the two distributions appear.</p>
+<p><strong>Technical Note:</strong> We could have obtained the same result by just adding the positive differences. But our method of including all the absolute differences eliminates the need to keep track of which differences are positive and which are not.</p>
+<p>We will use the total variation distance between distributions as the statistic to simulate under the assumption of random selection. Large values of the distance will be evidence against random selection.</p>
 </div>
-<div class="section" id="simulating-one-value-of-the-statistic">
-<h2><span class="section-number">11.2.6. </span>Simulating One Value of the Statistic<a class="headerlink" href="#simulating-one-value-of-the-statistic" title="Permalink to this headline">¶</a></h2>
-<p>We will use the total variation distance between distributions as the statistic to simulate. It will help us decide whether the model of random selection is good, because large values of the distance will be evidence against the model.</p>
-<p>Keep in mind that <strong>the observed value of our statistic is 0.14</strong>, calculated above.</p>
-<p>Since we are going to be computing total variation distance repeatedly, we will write a function to compute it.</p>
-<p>The function <code class="docutils literal notranslate"><span class="pre">total_variation_distance</span></code> returns the TVD between distributions in two arrays.</p>
+<div class="section" id="simulating-the-statistic-under-the-model">
+<h2><span class="section-number">11.2.5. </span>Simulating the Statistic Under the Model<a class="headerlink" href="#simulating-the-statistic-under-the-model" title="Permalink to this headline">¶</a></h2>
+<p>To see how the TVD varies across random samples, we will simulate it repeatedly under the model of random selection from the eligible population.</p>
+<p>Let’s organize our calculation. Since we are going to be computing total variation distance repeatedly, we will first write a function that computes it for two given distributions.</p>
+<p>The function <code class="docutils literal notranslate"><span class="pre">total_variation_distance</span></code> takes two arrays containing the distributions to compare, and returns the TVD between them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">total_variation_distance</span><span class="p">(</span><span class="n">distribution_1</span><span class="p">,</span> <span class="n">distribution_2</span><span class="p">):</span>
@@ -1147,7 +1150,7 @@
 </div>
 </div>
 </div>
-<p>This function will help us calculate our statistic in each repetition of the simulation. But first, let’s check that it gives the right answer when we use it to compute the distance between the blue (eligible) and gold (panels) distributions above.</p>
+<p>This function will help us calculate our statistic in each repetition of the simulation. But first let’s check that it gives the right answer when we use it to compute the distance between the blue (eligible) and gold (panels) distributions above. These are the distribution in the ACLU study.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_variation_distance</span><span class="p">(</span><span class="n">jury</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Panels&#39;</span><span class="p">),</span> <span class="n">jury</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Eligible&#39;</span><span class="p">))</span>
@@ -1161,7 +1164,8 @@
 </div>
 </div>
 <p>This agrees with the value that we computed directly without using the function.</p>
-<p>In the cell below we use the function to compute the TVD between the distributions of the eligible jurors and one random sample. This is the code for simulating one value of our statistic. Recall that <code class="docutils literal notranslate"><span class="pre">eligible_population</span></code> is the array containing the distribution of the eligible jurors.</p>
+<p>In the cell below we use the function to compute the TVD between the distributions of the eligible jurors and one random sample. Recall that <code class="docutils literal notranslate"><span class="pre">eligible_population</span></code> is the array containing the distribution of the eligible jurors, and that our sample size is 1453.</p>
+<p>In the first line, we use <code class="docutils literal notranslate"><span class="pre">sample_proportions</span></code> to generate a random sample from the eligible population. In the next line we use <code class="docutils literal notranslate"><span class="pre">total_variation_distance</span></code> to compute the TVD between the distributions in the random sample and the eligible population.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_distribution</span> <span class="o">=</span> <span class="n">sample_proportions</span><span class="p">(</span><span class="mi">1453</span><span class="p">,</span> <span class="n">eligible_population</span><span class="p">)</span>
@@ -1170,18 +1174,17 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.018795595320027513
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.018265657260839632
 </pre></div>
 </div>
 </div>
 </div>
-<p>Notice that the distance is quite a bit smaller than 0.14, the distance between the distribution of the panels and the eligible jurors.</p>
+<p>Run the cell a few times and notice that the distances are quite a bit smaller than 0.14, the distance between the distribution of the panels and the eligible jurors.</p>
 <p>We are now ready to run a simulation to assess the model of random selection.</p>
-</div>
-<div class="section" id="predicting-the-statistic-under-the-model-of-random-selection">
-<h2><span class="section-number">11.2.7. </span>Predicting the Statistic Under the Model of Random Selection<a class="headerlink" href="#predicting-the-statistic-under-the-model-of-random-selection" title="Permalink to this headline">¶</a></h2>
-<p>The total variation distance between the distributions of the random sample and the eligible jurors is the statistic that we are using to measure the distance between the two distributions. By repeating the process of sampling, we can see how much the statistic varies across different random samples.</p>
-<p>The code below simulates the statistic based on a large number of replications of the random sampling process, following our usual sequence of steps for simulation. We first define a function that returns one simulated value of the total variation distance under the hypothesis of random selection. Then we use our function in a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to create an array <code class="docutils literal notranslate"><span class="pre">tvds</span></code> consisting of 5,000 such distances.</p>
+<div class="section" id="simulating-one-value-of-the-statistic">
+<h3><span class="section-number">11.2.5.1. </span>Simulating One Value of the Statistic<a class="headerlink" href="#simulating-one-value-of-the-statistic" title="Permalink to this headline">¶</a></h3>
+<p>In the same way that we start every simulation, let’s define a function <code class="docutils literal notranslate"><span class="pre">one_simulated_tvd</span></code> that returns one simulated value of the total variation distance under the hypothesis of random selection.</p>
+<p>The code in the body of the definition is based on the cell above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulate one simulated value of </span>
@@ -1196,10 +1199,13 @@
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="simulating-multiple-values-of-the-statistic">
+<h3><span class="section-number">11.2.5.2. </span>Simulating Multiple Values of the Statistic<a class="headerlink" href="#simulating-multiple-values-of-the-statistic" title="Permalink to this headline">¶</a></h3>
+<p>Now we can apply the familiar process of using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to create an array consisting of 5000 such distances.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tvds</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
-
 <span class="n">repetitions</span> <span class="o">=</span> <span class="mi">5000</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
     <span class="n">tvds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tvds</span><span class="p">,</span> <span class="n">one_simulated_tvd</span><span class="p">())</span>
@@ -1207,10 +1213,21 @@
 </div>
 </div>
 </div>
-<p>The empirical histogram of the simulated distances shows that drawing 1453 jurors at random from the pool of eligible candidates results in a distribution that rarely deviates from the eligible jurors’ race distribution by more than about 0.05.</p>
+</div>
+</div>
+<div class="section" id="assessing-the-model-of-random-selection">
+<h2><span class="section-number">11.2.6. </span>Assessing the Model of Random Selection<a class="headerlink" href="#assessing-the-model-of-random-selection" title="Permalink to this headline">¶</a></h2>
+<p>Here is the empirical histogram of the simulated distances. It shows that if you draw 1453 panelists at random from the pool of eligible candidates, then the distance between the distributions of the panelists and the eligible population is rarely more than about 0.05.</p>
+<p>The panels in the study, however, were not quite so similar to the eligible population. The total variation distance between the panels and the population was 0.14, shown as the red dot on the horizontal axis. It is far beyond the tail of the histogram and does not look at all like a typical distance between the distributions of a random sample and the eligible population.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;TVD&#39;</span><span class="p">,</span> <span class="n">tvds</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">))</span>
+
+<span class="c1"># Plotting parameters; you can ignore this code</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Prediction Assuming Random Selection&#39;</span><span class="p">)</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">)</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mf">0.14</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1218,28 +1235,38 @@
 <img alt="../../../_images/Multiple_Categories_34_0.png" src="../../../_images/Multiple_Categories_34_0.png" />
 </div>
 </div>
+<p>The simulation shows that the composition of the panels in the ACLU study is not consistent with the model of random selection. Our analysis supports the ACLU’s conclusion that the panels were not representative of the distribution provided for the eligible jurors.</p>
 </div>
-<div class="section" id="assessing-the-model-of-random-selection">
-<h2><span class="section-number">11.2.8. </span>Assessing the Model of Random Selection<a class="headerlink" href="#assessing-the-model-of-random-selection" title="Permalink to this headline">¶</a></h2>
-<p>The panels in the study, however, were not quite so similar to the eligible population. The total variation distance between the panels and the population was 0.14, which is far out in the tail of the histogram above. It does not look at all like a typical distance between a random sample and the eligible population.</p>
-<p>The data in the panels is not consistent with the predicted values of the statistic based on the model of random selection. So our analysis supports the ACLU’s calculation that the panels were not representative of the distribution provided for the eligible jurors.</p>
+<div class="section" id="reasons-for-the-bias">
+<h2><span class="section-number">11.2.7. </span>Reasons for the Bias<a class="headerlink" href="#reasons-for-the-bias" title="Permalink to this headline">¶</a></h2>
+<p>As with most such analyses, ours doesn’t say <em>why</em> the distributions are different. But those reasons are important to understand. If jury panels don’t represent the population of eligible jurors, that can have a major effect on due process and the fairness of jury trials.</p>
+<p>The ACLU report discusses several possible reasons for the discrepancies and suggests some remedies. Some are purely practical but have a big impact. For example, while we can take for granted the high quality of random sampling in Python, the panel selection used other software. The ACLU’s examination revealed that the software didn’t work well, contributing to biased selection. Using better software is a clear remedy.</p>
+<p>More significantly, Alameda County jury panels are not selected from the entire eligible population. The <a class="reference external" href="http://www.alameda.courts.ca.gov/pages.aspx/faqs">website</a> of the Superior Court of Alameda County says, “The objective of the court is to provide an accurate cross-section of the county’s population. The names of jurors are selected at random from everyone who is a registered voter and/or has a driver’s license or identification card issued by the Department of Motor Vehicles.”</p>
+<p>This process excludes eligible jurors who are not on those lists. Having state-issued ID or being registered to vote is most likely associated with income and hence also with race and ethnicity due to historical bias against Black and Hispanic communities. This leads to underrepresentation of those groups on the panels.</p>
+<p>Those on the list have to be reached in order to inform them of their jury summons. But people in under-resourced communities don’t always have fixed addresses. Out-of-date address records, lack of cross-checking with other lists such as those of the utilities, and so on can all contribute to biased selection.</p>
+<p>Once reached, the potential panelists still have to be able to appear. The first day of jury service is not compensated, and compensation for subsequent days is $15 per day. While employers are required by law to excuse employees who have jury duty, they are not required to provide compensation, and some employers don’t. In a region as expensive as the Bay Area, this can become a reason for panelists not to respond to jury summons. Though jurors can be excused for severe economic hardship, even the process of requesting to be excused can be out of reach for some jurors. Across the Bay, city leaders in San Francisco are attempting to reduce this form of bias by piloting a <a class="reference external" href="https://sftreasurer.org/new-ca-bill-pilots-higher-compensation-low-income-jurors-san-francisco">program</a> that provides compensation of $100 per day to low-income jurors.</p>
 </div>
-<div class="section" id="some-possible-explanations-for-the-differences">
-<h2><span class="section-number">11.2.9. </span>Some Possible Explanations for the Differences<a class="headerlink" href="#some-possible-explanations-for-the-differences" title="Permalink to this headline">¶</a></h2>
-<p>As with most such analyses, however, our analysis does not say <em>why</em> the distributions are different or what the difference might imply.</p>
-<p>The ACLU report discusses several possible reasons for the discrepancies. For example, some minority groups were underrepresented on the records of voter registration and of the Department of Motor Vehicles, the two main sources from which jurors are selected. At the time of the study, the county did not have an effective process for following up on prospective jurors who had been called but had failed to appear. The ACLU listed several other reasons as well. Whatever the reasons, it seems clear that the composition of the jury panels was different from what we would have expected in a random sample from the distribution in the <code class="docutils literal notranslate"><span class="pre">Eligible</span></code> column.</p>
+<div class="section" id="data-quality">
+<h2><span class="section-number">11.2.8. </span>Data Quality<a class="headerlink" href="#data-quality" title="Permalink to this headline">¶</a></h2>
+<p>We have developed a technique that helps us decide whether one distribution looks like a random sample from another. But we should examine our data sources to better understand exactly what we can conclude from our analysis. Good data science includes a thoughtful examination of how the data were gathered.</p>
+<p><strong>Eligible Jurors.</strong> It is important to keep in mind that not everyone is eligible to serve on a jury. On its <a class="reference external" href="http://www.alameda.courts.ca.gov/pages.aspx/jury-duty-overview">website</a>, the Superior Court of Alameda County says, “You may be called to serve if you are 18 years old, a U.S. citizen and a resident of the county or district where summoned. You must be able to understand English, and be physically and mentally capable of serving. In addition, you must not have served as any kind of juror in the past 12 months, nor have been convicted of a felony.”</p>
+<p>Though the Census is a natural source of demographic information, the Census doesn’t collect data on all these categories. Thus the ACLU had to obtain the demographics of eligible jurors in some other way.</p>
+<p>What they used was a set of estimates that had been developed by a San Diego State University professor for an Alameda County trial in 2002. Those estimates were based on the 2000 Census and also took into account the criteria required for eligibility as a juror.</p>
+<p>So we have to keep in mind that the distribution that we used for the eligible population is itself an estimate and is therefore subject to error. Moreover, as the ACLU noted, using estimates based on the 2000 Census for populations in 2010 might not be accurate due to the changing demographics in California.</p>
+<p>Thus the distribution used for the population of eligible jurors might not be accurate.</p>
+<p><strong>Panels.</strong> It is not clear from the report exactly how the 1453 panelists were classified into the different ethnic categories. The report says only that “attorneys … cooperated in collecting jury pool data”.</p>
+<p>Significant social, cultural, and political factors affect who gets classified or self-classifies into each ethnic category. It is also not clear if the definitions of those categories in the panels were the same as those used in the estimates of the distribution of eligible jurors. This raises questions about the correspondence between the two distributions being compared.</p>
+<p>Moreover, the data on panelists was obtained from those who reported for service. As we have discussed, not all panelists do so. The reasons for not reporting are associated with race and ethnicity, and disproportionately affect panelists from under-resourced communities.</p>
+<p>Responding to jury summons is required by law. But as the ACLU noted, at the time of the study Alameda County did not have an effective process for following up on prospective jurors who had been called but had failed to appear. The ACLU recommended the creation of “a failure to appear program that requires, at a minimum, the issuance of a second notice to prospective jurors.”</p>
+<p>Indeed, following up on non-respondents would reduce bias. For our analysis, we must acknowledge that we don’t have the data needed to fill in the demographic information for panelists who were selected but did not report for service.</p>
 </div>
-<div class="section" id="questions-about-the-data">
-<h2><span class="section-number">11.2.10. </span>Questions about the Data<a class="headerlink" href="#questions-about-the-data" title="Permalink to this headline">¶</a></h2>
-<p>We have developed a powerful technique that helps decide whether one distribution looks like a random sample from another. But data science is about more than techniques. In particular, data science always involves a thoughtful examination of how the data were gathered.</p>
-<p><strong>Eligible Jurors.</strong> First, it is important to remember that not everyone is eligible to serve on a jury. On its <a class="reference external" href="http://www.alameda.courts.ca.gov/pages.aspx/jury-duty-overview">website</a>, the Superior Court of Alameda County says, “You may be called to serve if you are 18 years old, a U.S. citizen and a resident of the county or district where summoned. You must be able to understand English, and be physically and mentally capable of serving. In addition, you must not have served as any kind of juror in the past 12 months, nor have been convicted of a felony.”</p>
-<p>The Census doesn’t maintain records of the populations in all these categories. Thus the ACLU had to obtain the demographics of eligible jurors in some other way. Here is their own description of the process they followed and some flaws that it might contain.</p>
-<p>“For the purpose of determining the demographics of Alameda County’s jury eligible population, we used a declaration that was prepared for the Alameda County trial of People v. Stuart Alexander in 2002. In the declaration, Professor Weeks, a demographer at San Diego State University, estimated the jury eligible population for Alameda County, using the 2000 Census data. To arrive at this estimate, Professor Weeks took into account the number of people who are not eligible for jury services because they do not speak English, are not citizens, are under 18, or have a felony conviction. Thus, his estimate should be an accurate assessment of who is actually eligible for jury service in Alameda County, much more so than simply reviewing the Census report of the race and ethnicity of all people living in Alameda County. It should be noted, however, that the Census data on which Professor Weeks relied is now ten years old and the demographics of the county may have changed by two or three percent in some categories.”</p>
-<p>Thus the distribution of ethnicities of eligible jurors used in the analysis is itself an estimate and might be somewhat out of date.</p>
-<p><strong>Panels.</strong> In addition, panels aren’t selected from the entire eligible population. The Superior Court of Alameda County says, “The objective of the court is to provide an accurate cross-section of the county’s population. The names of jurors are selected at random from everyone who is a registered voter and/or has a driver’s license or identification card issued by the Department of Motor Vehicles.”</p>
-<p>All of this raises complex questions about how to accurately estimate the ethnic composition of eligible jurors in Alameda County.</p>
-<p>It is not clear exactly how the 1453 panelists were classified into the different ethnic categories (the ACLU report says that “attorneys … cooperated in collecting jury pool data”). There are serious social, cultural, and political factors that affect who gets classified or self-classifies into each ethnic category. We also don’t know whether the definitions of those categories in the panels are the same as those used by Professor Weeks who in turn used Census categories in his estimation process. Thus there are also questions about the correspondence between the two distributions being compared.</p>
-<p>Thus, while we have a clear conclusion about the data in our table – the panels do not look like a random sample from the distribution provided for eligible jurors – questions about the nature of the data prevent us from concluding anything broader.</p>
+<div class="section" id="conclusion">
+<h2><span class="section-number">11.2.9. </span>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>Because of the discussion above, it is important for us to be precise about what we can conclude from our analysis.</p>
+<ul class="simple">
+<li><p>We can conclude that the distribution provided for the panelists who reported for service does not look like a random sample from the estimated distribution in the eligible population.</p></li>
+</ul>
+<p>Our discussion, like the discussion in the ACLU report, sets out reasons for some of the differences observed between the two distributions and for why summoned panelists might nor report. Almost all the reasons have their roots in historical racial bias in society, and are examples of the lasting negative consequences of that bias.</p>
 </div>
 </div>
 
@@ -1273,11 +1300,11 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../1/Assessing_Models.html" title="previous page">
+        <a class="left-prev" href="../1/Assessing_a_Model.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">11.1. </span>Assessing Models</p>
+                <p class="prevnext-title"><span class="section-number">11.1. </span>Assessing a Model</p>
             </div>
         </a>
     </div>

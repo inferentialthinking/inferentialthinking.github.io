@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>11.1. Assessing Models &#8212; Computational and Inferential Thinking</title>
+    <title>11.1. Assessing a Model &#8212; Computational and Inferential Thinking</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -43,8 +43,6 @@
     <script src="../../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -52,7 +50,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://inferentialthinking.org/chapters/11/1/Assessing_Models.html" />
+    <link rel="canonical" href="https://inferentialthinking.org/chapters/11/1/Assessing_a_Model.html" />
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -477,7 +475,7 @@
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     11.1. Assessing Models
+     11.1. Assessing a Model
     </a>
    </li>
    <li class="toctree-l2">
@@ -772,7 +770,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/chapters/11/1/Assessing_Models.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/chapters/11/1/Assessing_a_Model.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -810,14 +808,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/11/1/Assessing_Models.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/11/1/Assessing_a_Model.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/data-8/textbook&urlpath=tree/textbook/chapters/11/1/Assessing_Models.ipynb&branch=main"><button type="button"
+        <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/data-8/textbook&urlpath=tree/textbook/chapters/11/1/Assessing_a_Model.ipynb&branch=main"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../../_static/images/logo_jupyterhub.svg"
@@ -842,96 +840,63 @@
   <a class="reference internal nav-link" href="#jury-selection">
    11.1.1. Jury Selection
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-model-of-random-selection">
+   11.1.2. A Model of Random Selection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-statistic">
+   11.1.3. The Statistic
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulating-the-statistic-under-the-model">
+   11.1.4. Simulating the Statistic Under the Model
+  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-model">
-     11.1.1.1. A Model
+    <a class="reference internal nav-link" href="#simulating-one-value-of-the-statistic">
+     11.1.4.1. Simulating One Value of the Statistic
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-statistic">
-     11.1.1.2. The Statistic
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#predicting-the-statistic-under-the-model">
-     11.1.1.3. Predicting the Statistic Under the Model
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#generating-one-value-of-the-statistic">
-       11.1.1.3.1. Generating One Value of the Statistic
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#running-the-simulation">
-       11.1.1.3.2. Running the Simulation
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-prediction">
-     11.1.1.4. The Prediction
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#comparing-the-prediction-and-the-data">
-     11.1.1.5. Comparing the Prediction and the Data
+    <a class="reference internal nav-link" href="#simulating-multiple-values-of-the-statistic">
+     11.1.4.2. Simulating Multiple Values of the Statistic
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mendel-s-pea-flowers">
-   11.1.2. Mendel’s Pea Flowers
+  <a class="reference internal nav-link" href="#the-prediction-under-the-model-of-random-selection">
+   11.1.5. The Prediction Under the Model of Random Selection
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mendel-s-model">
-     11.1.2.1. Mendel’s Model
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#approach-to-assessment">
-       11.1.2.1.1. Approach to Assessment
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     11.1.2.2. The Statistic
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     11.1.2.3. Predicting the Statistic Under the Model
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id3">
-       11.1.2.3.1. Generating One Value of the Statistic
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id4">
-       11.1.2.3.2. Running the Simulation
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     11.1.2.4. The Prediction
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     11.1.2.5. Comparing the Prediction and the Data
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparing-the-prediction-and-the-data">
+   11.1.6. Comparing the Prediction and the Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion-of-the-data-analysis">
+   11.1.7. Conclusion of the Data Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistical-bias">
+   11.1.8. Statistical Bias
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#racial-bias">
+   11.1.9. Racial Bias
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading">
+   11.1.10. Further Reading
+  </a>
  </li>
 </ul>
 
@@ -946,94 +911,84 @@
                 
   <div class="cell tag_remove_input docutils container">
 </div>
-<div class="section" id="assessing-models">
-<h1><span class="section-number">11.1. </span>Assessing Models<a class="headerlink" href="#assessing-models" title="Permalink to this headline">¶</a></h1>
-<p>In data science, a “model” is a set of assumptions about data. Often, models include assumptions about chance processes used to generate data.</p>
-<p>Sometimes, data scientists have to decide whether or not their models are good. In this section we will discuss two examples of making such decisions. In later sections we will use the methods developed here as the building blocks of a general framework for testing hypotheses.</p>
+<div class="section" id="assessing-a-model">
+<h1><span class="section-number">11.1. </span>Assessing a Model<a class="headerlink" href="#assessing-a-model" title="Permalink to this headline">¶</a></h1>
+<p>In data science, a <em>model</em> is a set of assumptions about data. Often, models include assumptions about chance processes used to generate data.</p>
+<p>Sometimes, data scientists have to decide whether or not a model is good. In this section we will discuss an example of making such a decision.</p>
 <div class="section" id="jury-selection">
 <h2><span class="section-number">11.1.1. </span>Jury Selection<a class="headerlink" href="#jury-selection" title="Permalink to this headline">¶</a></h2>
-<p>Amendment VI of the United States Constitution states that, “In all criminal prosecutions, the accused shall enjoy the right to a speedy and public trial, by an impartial jury of the State and district wherein the crime shall have been committed.” One characteristic of an <em>impartial</em> jury is that it should be selected from a jury panel that is representative of the population of the relevant region. The jury panel is the group of people from which jurors are selected.</p>
-<p>The question of whether a jury panel is indeed representative of a region’s population has an important legal implication: one could question whether a particular jury is impartial if some group from the population was systematically underrepresented on the jury panel.</p>
-<p>Let’s consider a hypothetical county containing two cities: A and B. Let’s say that 26% of all eligible jurors live in A. Imagine there is a trial, and only 8 among 100 (8%) of the those selected for the jury panel are from A. The fairness of this discrepancy could certainly be called into question, especially if the accused is from A.</p>
-<p>One might assert that the difference between 26% and 8% is small and might result from chance alone, rather than a systemic bias against selecting jurors from A. But is this assertion reasonable? If jury panelists were selected at random from the county’s eligible population, there would not be exactly 26 jurors from A on every 100-person jury panel, but only 8 would perhaps seem too low.</p>
-<div class="section" id="a-model">
-<h3><span class="section-number">11.1.1.1. </span>A Model<a class="headerlink" href="#a-model" title="Permalink to this headline">¶</a></h3>
-<p>One view of the data – a model, in other words – is that the panel was selected at random and ended up with a small number of jurors from A just due to chance.</p>
-<p>The model specifies the details of a chance process. It says the data are like a random sample from a population in which 26% of the people are from A. We are in a good position to assess this model, because:</p>
+<p>Data science can be a powerful tool for exposing racism and inequality in our society. This section is about a case where data provided evidence of racial bias in jury selection.</p>
+<p>Amendment VI of the United States Constitution states that, “In all criminal prosecutions, the accused shall enjoy the right to a speedy and public trial, by an impartial jury of the State and district wherein the crime shall have been committed.”</p>
+<p>One characteristic of an <em>impartial</em> jury is that it should be selected from a jury panel that is representative of the population of the relevant region. A jury panel is a group of people chosen to be prospective jurors. The final trial jury is selected from among them by deliberate inclusion or exclusion, and as a result can have any composition. But the larger panel from which the trial jurors are drawn must be representative of the population.</p>
+<p>The question of whether a jury panel is indeed representative of a region’s population has an important legal implication. If some group in the population was systematically underrepresented on the jury panel, that could raise a question about whether the jury was impartial and hence whether the defendant received due process.</p>
+<p>That was the question in the Supreme Court case of Robert Swain, a Black man convicted in Talladega County, Alabama, in 1962. He appealed his indictment all the way to the U.S. Supreme Court on the grounds that Black people were systematically excluded from juries in Talladega County. The Supreme Court denied his appeal and Robert Swain was later sentenced to life imprisonment.</p>
+<p>However, our analysis below shows that the data are not in agreement with conclusions drawn by the Court. On the contrary, the data point to bias in the jury selection process. This bias in the criminal justice system reflected the widespread prejudice and injustice prevalent against Black people at the time.</p>
+<p>We will start by looking at the numerical details. At the time of the trial, only men aged 21 or more were eligible to serve on juries in Talladega County. In that population, 26% of the men were Black. As is common in jury trials, the jurors in the trial of Robert Swain were selected from a panel of people who were supposed to be representative of the population of eligible jurors. But only eight men among the panel of 100 men (that is, 8%) were Black.</p>
+<p>As part of his appeal, Robert Swain questioned this discrepancy. Moreover, he pointed out that all Talladega County jury panels for the past 10 years had contained only a small percent of Black panelists.</p>
+<p>The U.S. Supreme Court reviewed the appeal and concluded, “the overall percentage disparity has been small.” But was this assertion reasonable? If jury panelists were selected at random from the county’s eligible population, there would be some chance variation. We wouldn’t get exactly 26 Black panelists on every 100-person panel. But would we expect as few as eight?</p>
+<p>The answer is no. We will establish that and then discuss some of the many biases involved.</p>
+</div>
+<div class="section" id="a-model-of-random-selection">
+<h2><span class="section-number">11.1.2. </span>A Model of Random Selection<a class="headerlink" href="#a-model-of-random-selection" title="Permalink to this headline">¶</a></h2>
+<p>One view of the data – a model, in other words – is that the panel was selected at random and ended up with a small number of Black panelists just due to chance.</p>
+<p>Since the panel was supposed to resemble the population of all eligible jurors, the model of random selection is important to assess. Let’s see if it stands up to scrutiny.</p>
+<p>The model specifies the details of a chance process. It says the data are like a random sample from a population in which 26% of the people are Black. We are in a good position to assess this model for the following reasons.</p>
 <ul class="simple">
-<li><p>We can simulate data based on the model. That is, we can simulate drawing at random from a population of whom 26% are from A.</p></li>
-<li><p>Our simulation will show what a panel <em>would</em> look like <em>if</em> it were selected at random.</p></li>
+<li><p>We can simulate data based on the model. That is, we can simulate drawing at random from a population of whom 26% are Black.</p></li>
+<li><p>Our simulation will show what a panel would be like <em><strong>if</strong></em> it were selected at random.</p></li>
 <li><p>We can then compare the results of the simulation with the composition of an actual jury panel.</p></li>
-<li><p>If the results of our simulation are not consistent with the composition of the panel, that will be evidence against the model of random selection, and therefore evidence against the fairness of the trial itself.</p></li>
+<li><p>If the results of our simulation are not consistent with the composition of the panel in the trial, that will be evidence against the model of random selection. Therefore, it will be evidence against the fairness of the trial.</p></li>
 </ul>
-<p>Let’s go through the process in detail.</p>
+<p>Let’s go through the process step by step.</p>
 </div>
 <div class="section" id="the-statistic">
-<h3><span class="section-number">11.1.1.2. </span>The Statistic<a class="headerlink" href="#the-statistic" title="Permalink to this headline">¶</a></h3>
-<p>First, we have to choose a statistic to simulate. The statistic has to be able to help us decide between the model and alternative views about the data. The model says the panel was drawn at random. The alternative viewpoint is that the panel was not drawn at random because it contained too few jurors from A. A natural statistic, then, is the number of panelists from A. Small values of the statistic will favor the alternative viewpoint.</p>
+<h2><span class="section-number">11.1.3. </span>The Statistic<a class="headerlink" href="#the-statistic" title="Permalink to this headline">¶</a></h2>
+<p>First, we have to choose a statistic to simulate. The statistic has to be able to help us decide between the model and alternative views about the data. The model says the panel was drawn at random from the eligible population. The alternative viewpoint is the case for Robert Swain, which is that the panel contained too few Black panelists to have been drawn at random. A natural statistic, then, is the number or <em>count</em> of Black panelists in the sample. Small values of the statistic will favor Robert Swain’s viewpoint.</p>
 </div>
-<div class="section" id="predicting-the-statistic-under-the-model">
-<h3><span class="section-number">11.1.1.3. </span>Predicting the Statistic Under the Model<a class="headerlink" href="#predicting-the-statistic-under-the-model" title="Permalink to this headline">¶</a></h3>
-<p>If the model were true, how big would the statistic typically be? To answer that, we have to start by working out the details of the simulation.</p>
-<div class="section" id="generating-one-value-of-the-statistic">
-<h4><span class="section-number">11.1.1.3.1. </span>Generating One Value of the Statistic<a class="headerlink" href="#generating-one-value-of-the-statistic" title="Permalink to this headline">¶</a></h4>
-<p>First let’s figure out how to simulate one value of the statistic. For this, we have to sample 100 times at random from the population of eligible jurors and count the number of people from A we get.</p>
-<p>One way is to set up a table representing the eligible population and use <code class="docutils literal notranslate"><span class="pre">sample</span></code> as we did in the previous chapter. But there is also a quicker way, using a <code class="docutils literal notranslate"><span class="pre">datascience</span></code> function tailored for sampling at random from categorical distributions. We will use it several times in this chapter.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">sample_proportions</span></code> function in the <code class="docutils literal notranslate"><span class="pre">datascience</span></code> library takes two arguments:</p>
-<ul class="simple">
-<li><p>the sample size</p></li>
-<li><p>the distribution of the categories in the population, as a list or array of proportions that add up to 1</p></li>
-</ul>
-<p>It returns an array containing the distribution of the categories in a random sample of the given size taken from the population. That’s an array consisting of the sample proportions in all the different categories.</p>
-<p>To see how to use this, remember that according to our model, the panel is selected at random from a population of eligible jurors among whom 26% were from A and 74% were from B. Thus the distribution of the two categories can be represented as the list <code class="docutils literal notranslate"><span class="pre">[0.26,</span> <span class="pre">0.74]</span></code>, which we have assigned to the name <code class="docutils literal notranslate"><span class="pre">eligible_population</span></code>. Now let’s sample at random 100 times from this distribution, and see what proportions of the two categories we get in our sample.</p>
+<div class="section" id="simulating-the-statistic-under-the-model">
+<h2><span class="section-number">11.1.4. </span>Simulating the Statistic Under the Model<a class="headerlink" href="#simulating-the-statistic-under-the-model" title="Permalink to this headline">¶</a></h2>
+<p>If the model were true, how big would the statistic typically be? To answer that, will simulate the statistic under the assumption of random selection and look at the distribution of the results.</p>
+<div class="section" id="simulating-one-value-of-the-statistic">
+<h3><span class="section-number">11.1.4.1. </span>Simulating One Value of the Statistic<a class="headerlink" href="#simulating-one-value-of-the-statistic" title="Permalink to this headline">¶</a></h3>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">sample_proportions</span></code> to simulate one value of the statistic. The sample size is 100, the size of the panel. The distribution from which we will sample is the distribution in the population of eligible jurors. Since 26% of them were Black, we will sample from the distribution specified by the proportions [0.26, 0.74].</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eligible_population</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.26</span><span class="p">,</span> <span class="mf">0.74</span><span class="p">]</span>
-<span class="n">sample_proportions</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">eligible_population</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_size</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">eligible_population</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.26</span><span class="p">,</span> <span class="mf">0.74</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The categories in the output array of <code class="docutils literal notranslate"><span class="pre">sample_proportions</span></code> are in the same order as in the input array. So the proportion of Black panelists in the random sample is <code class="docutils literal notranslate"><span class="pre">item(0)</span></code> of the output array. Run the cell below a few times to see how the sample proportion of Black jurors varies in a randomly selected panel. Do you see any values as low as 0.08?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_proportions</span><span class="p">(</span><span class="n">sample_size</span><span class="p">,</span> <span class="n">eligible_population</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.21, 0.79])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.27
 </pre></div>
 </div>
 </div>
 </div>
-<p>That was easy! The proportion from A in the random sample is <code class="docutils literal notranslate"><span class="pre">item(0)</span></code> of the output array.</p>
-<p>Because there are 100 panelists in the sample, the number in each category is 100 times the proportion. So we can just as easily simulate counts instead of proportions, and access the count directly.</p>
-<p>Run the cell a few times to see how the output varies.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># count of jurors from A in a simulated panel</span>
-
-<span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">sample_proportions</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">eligible_population</span><span class="p">))</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30.0
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="running-the-simulation">
-<h4><span class="section-number">11.1.1.3.2. </span>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h4>
-<p>To get a sense of the variability without running the cell over and over, let’s generate 10,000 simulated values of the count.</p>
-<p>The code follows the same steps that we have used in every simulation. First, we define a function to simulate one value of the count, using the code we wrote above.</p>
+<p>The count in each category is the sample size times the corresponding proportion. So we can just as easily simulate counts instead of proportions.</p>
+<p>Let’s define a function that does this. The function will draw a panel at random and return the number of panelists who are Black.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one_simulated_count</span><span class="p">():</span>
-    <span class="k">return</span> <span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">sample_proportions</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">eligible_population</span><span class="p">))</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sample_size</span> <span class="o">*</span> <span class="n">sample_proportions</span><span class="p">(</span><span class="n">sample_size</span><span class="p">,</span> <span class="n">eligible_population</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Next, we create an array of 10,000 simulated counts by using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
+</div>
+<div class="section" id="simulating-multiple-values-of-the-statistic">
+<h3><span class="section-number">11.1.4.2. </span>Simulating Multiple Values of the Statistic<a class="headerlink" href="#simulating-multiple-values-of-the-statistic" title="Permalink to this headline">¶</a></h3>
+<p>The focus of our analysis is the variability in the counts. Let’s generate 10,000 simulated values of the count and see how they vary. As usual, we will do this by using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and collecting all the simulated counts in an array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
-
 <span class="n">repetitions</span> <span class="o">=</span> <span class="mi">10000</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
     <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">one_simulated_count</span><span class="p">())</span>
@@ -1043,9 +998,9 @@
 </div>
 </div>
 </div>
-<div class="section" id="the-prediction">
-<h3><span class="section-number">11.1.1.4. </span>The Prediction<a class="headerlink" href="#the-prediction" title="Permalink to this headline">¶</a></h3>
-<p>To interpret the results of our simulation, we start as usual by visualizing the results by an empirical histogram.</p>
+<div class="section" id="the-prediction-under-the-model-of-random-selection">
+<h2><span class="section-number">11.1.5. </span>The Prediction Under the Model of Random Selection<a class="headerlink" href="#the-prediction-under-the-model-of-random-selection" title="Permalink to this headline">¶</a></h2>
+<p>To interpret the results of our simulation, we can visualize the results in an empirical histogram of the simulated counts.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
@@ -1055,195 +1010,65 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/Assessing_Models_11_0.png" src="../../../_images/Assessing_Models_11_0.png" />
+<img alt="../../../_images/Assessing_a_Model_12_0.png" src="../../../_images/Assessing_a_Model_12_0.png" />
 </div>
 </div>
-<p>The histogram tells us what the model of random selection predicts about our statistic, the count of jurors from A in the sample.</p>
-<p>To generate each simulated count, we drew 100 times at random from a population in which 26% were from A. So, as you would expect, most of the simulated counts are around 26. They are not exactly 26: there is some variation. The counts range from about 10 to about 45.</p>
+<p>The histogram shows us what the model of random selection predicts about our statistic, the number of Black panelists in the sample.</p>
+<p>To generate each simulated count, we drew 100 times at random from a population in which 26% were Black. So, as you would expect, most of the simulated counts are around 26. They are not exactly 26: there is some variation. The counts range from about 15 to about 40.</p>
 </div>
 <div class="section" id="comparing-the-prediction-and-the-data">
-<h3><span class="section-number">11.1.1.5. </span>Comparing the Prediction and the Data<a class="headerlink" href="#comparing-the-prediction-and-the-data" title="Permalink to this headline">¶</a></h3>
-<p>Though the simulated counts are quite varied, very few of them came out to be eight or less. The value eight is far out in the left hand tail of the histogram. It’s the red dot on the horizontal axis of the histogram.</p>
+<h2><span class="section-number">11.1.6. </span>Comparing the Prediction and the Data<a class="headerlink" href="#comparing-the-prediction-and-the-data" title="Permalink to this headline">¶</a></h2>
+<p>In the panel selected for the trial, there were eight Black panelists. The histogram of simulated counts is redrawn below with value eight shown as a red dot on the horizontal axis. The dot is very far out in the left hand tail of the histogram. Very few of the 10,000 counts simulated by random selection came out to be eight or less.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
     <span class="s1">&#39;Count in a Random Sample&#39;</span><span class="p">,</span> <span class="n">counts</span>
 <span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">5.5</span><span class="p">,</span> <span class="mf">46.6</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">);</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.09</span><span class="p">)</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/Assessing_Models_14_0.png" src="../../../_images/Assessing_Models_14_0.png" />
-</div>
-</div>
-<p>The simulation shows that if we select a panel of 100 jurors at random from the eligible population, we are very unlikely to get counts of jurors from A as low as the eight that we observed on the jury panel. This is evidence that the model of random selection of the jurors in the panel is not consistent with the data from the panel.</p>
-<p>When the data and a model are inconsistent, the model is hard to justify. After all, the data are real. The model is just a set of assumptions. When assumptions are at odds with reality, we have to question those assumptions.</p>
-<p>While it is <em>possible</em> that the panel could have been generated by chance, our simulation demonstrates that it is very unlikely. Reality is very much at odds with the model assumptions, so the most reasonable conclusion is that the assumptions are wrong. This jury panel was not selected by random sampling, but instead by some process with systemic bias, and the difference between 26% and 8% is not so small as to be explained well by chance alone.</p>
-<p>This method of assessing models is very general. Here is an example in which we use it to assess a model in a completely different setting.</p>
-</div>
-</div>
-<div class="section" id="mendel-s-pea-flowers">
-<h2><span class="section-number">11.1.2. </span>Mendel’s Pea Flowers<a class="headerlink" href="#mendel-s-pea-flowers" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Gregor_Mendel">Gregor Mendel</a> (1822-1884) was an Austrian monk who is widely recognized as the founder of the modern field of genetics. Mendel performed careful and large-scale experiments on plants to come up with fundamental laws of genetics.</p>
-<p>Many of his experiments were on varieties of pea plants. He formulated sets of assumptions about each variety; these were his models. He then tested the validity of his models by growing the plants and gathering data.</p>
-<p>Let’s analyze the data from one such experiment to see if Mendel’s model was good.</p>
-<p>In a particular variety, each plant has either purple flowers or white. The color in each plant is unaffected by the colors in other plants. Mendel hypothesized that the plants should bear purple or white flowers at random, in the ratio 3:1.</p>
-<div class="section" id="mendel-s-model">
-<h3><span class="section-number">11.1.2.1. </span>Mendel’s Model<a class="headerlink" href="#mendel-s-model" title="Permalink to this headline">¶</a></h3>
-<p>For every plant, there is a 75% chance that it will have purple flowers, and a 25% chance that the flowers will be white, regardless of the colors in all the other plants.</p>
-<div class="section" id="approach-to-assessment">
-<h4><span class="section-number">11.1.2.1.1. </span>Approach to Assessment<a class="headerlink" href="#approach-to-assessment" title="Permalink to this headline">¶</a></h4>
-<p>To go about assessing Mendel’s model, we can simulate plants under the assumptions of the model and see what it predicts. Then we will be able to compare the predictions with the data that Mendel recorded.</p>
-</div>
-</div>
-<div class="section" id="id1">
-<h3><span class="section-number">11.1.2.2. </span>The Statistic<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>Our goal is to see whether or not Mendel’s model is good. We need to simulate a statistic that will help us make this decision.</p>
-<p>If the model is good, the percent of purple-flowering plants in the sample should be close to 75%. If the model is not good, the percent purple-flowering will be away from 75%. It may be higher, or lower; the direction doesn’t matter.</p>
-<p>The key for us is the <em>distance</em> between 75% and the percent of purple-flowering plants in the sample. Big distances are evidence that the model isn’t good.</p>
-<p>Our statistic, therefore, is the <strong>distance between the sample percent and 75%</strong>:</p>
-<div class="math notranslate nohighlight">
-\[
-\big{\vert} \text{sample percent of purple-flowering plants} - 75 \big{\vert}
-\]</div>
-</div>
-<div class="section" id="id2">
-<h3><span class="section-number">11.1.2.3. </span>Predicting the Statistic Under the Model<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<p>To see how big the distance would be if Mendel’s model were true, we can use <code class="docutils literal notranslate"><span class="pre">sample_proportions</span></code> to simulate the distance under the assumptions of the model.</p>
-<p>First, we have to figure out how many times to sample. To do this, remember that we are going to compare our simulation with Mendel’s plants. So we should simulate the same number of plants that he had.</p>
-<p>Mendel grew a lot of plants. There were 929 plants of the variety corresponding to this model. So we have to sample 929 times.</p>
-<div class="section" id="id3">
-<h4><span class="section-number">11.1.2.3.1. </span>Generating One Value of the Statistic<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
-<p>The steps in the calculation:</p>
-<ul class="simple">
-<li><p>Sample 929 times at random from the distribution specified by the model and find the sample proportion in the purple-flowering category.</p></li>
-<li><p>Multiply the proportion by 100 to get a pecent.</p></li>
-<li><p>Subtract 75 and take the absolute value of the difference.</p></li>
-</ul>
-<p>That’s the statistic: the distance between the sample percent and 75.</p>
-<p>We will start by defining a function that takes a proportion and returns the absolute difference between the corresponding percent and 75.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance_from_75</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">p</span> <span class="o">-</span> <span class="mi">75</span><span class="p">)</span>
-</pre></div>
+<img alt="../../../_images/Assessing_a_Model_15_0.png" src="../../../_images/Assessing_a_Model_15_0.png" />
 </div>
 </div>
 </div>
-<p>To simulate one value of the distance between the sample percent of purple-flowering plants and 75%, under the assumptions of Mendel’s model, we have to first simulate the proportion of purple-flowering plants among 929 plants under the assumption of the model, and then calculate the discrepancy from 75%.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_proportions</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]</span>
-</pre></div>
+<div class="section" id="conclusion-of-the-data-analysis">
+<h2><span class="section-number">11.1.7. </span>Conclusion of the Data Analysis<a class="headerlink" href="#conclusion-of-the-data-analysis" title="Permalink to this headline">¶</a></h2>
+<p>The graph above is a visual display of bias in the selection process. It shows that if we select a panel of size 100 at random from the eligible population, we are very unlikely to get counts of Black panelists that are as low as the eight that were observed on the panel in the trial.</p>
+<p>This is evidence that the model of random selection of the jurors in the panel is not consistent with the data from the panel. While it is <em>possible</em> that the panel could have been generated by chance, our simulation demonstrates that it is hugely unlikely.</p>
+<p>The reality of the trial panel is very much at odds with the model’s assumption of random selection from the eligible population. When the data and a model are inconsistent, the model is hard to justify. After all, the data are real. The model is just a set of assumptions. When assumptions are at odds with reality, we must question those assumptions.</p>
+<p>Therefore the most reasonable conclusion is that the assumption of random selection is unjustified for this jury panel. In other words, the most reasonable conclusion is that the jury panel was <em>not</em> selected by random sampling from the population of eligible jurors. Notwithstanding the opinion of the Supreme Court, the difference between 26% and 8% is not so small as to be explained well by chance alone.</p>
 </div>
+<div class="section" id="statistical-bias">
+<h2><span class="section-number">11.1.8. </span>Statistical Bias<a class="headerlink" href="#statistical-bias" title="Permalink to this headline">¶</a></h2>
+<p>The analysis above provides quantitative evidence of unfairness in Robert Swain’s trial. The data support his position that he was denied the impartial jury to which he was entitled by the U.S. Constitution.</p>
+<p>Additional data show that the exclusion of Black panelists was pervasive. The Supreme Court judgment, written in 1965, includes evidence provided by Robert Swain that “only 10 to 15% of … jury panels drawn from the jury box since 1953 have been [Black], there having been only one case in which the percentage was as high as 23%.” Look at where 10% and 15% lie on the horizontal axis of the histogram above. Values like that are also highly unlikely under random selection from the eligible population.</p>
+<p>When a process produces errors that are systematically in one direction – such as the percentage of Black panelists always being lower than expected – then data scientists say the process is <em>biased</em>. Quantification of such bias is an important responsibility of data science.</p>
+<p>Arguments such as the one in this section are now more frequently presented in courts of law. In the 1960s, the Supreme Court looked at the data but drew the wrong conclusion that “the overall percentage disparity has been small.” For the meaning of “small,” it was wrong to rely on what simply seemed reasonable to the majority of the Court. Views on what was reasonable were not only purely subjective, they were also vulnerable to the influence of pervasive racial prejudice. If arguments in the case had included the quantitative analysis of this section, the Court might not have concluded that the percentage disparity was small.</p>
 </div>
+<div class="section" id="racial-bias">
+<h2><span class="section-number">11.1.9. </span>Racial Bias<a class="headerlink" href="#racial-bias" title="Permalink to this headline">¶</a></h2>
+<p>The statistical bias in the selection process was born out of deep-seated racial bias in the legal system of the time.</p>
+<p>For example, the Supreme Court judgment says that Talladega County jury panels were selected from a jury roll of names that the jury commissioners acquired from “city directories, registration lists, club and church lists, conversations with other persons in the community, both white and [not white], and personal and business acquaintances.” This process was clearly biased against Black people and in favor of people in the commissioners’ social and professional circles. Such systematic exclusion of Black people from the jury rolls meant that very few Black people were selected for the jury panels.</p>
+<p>Even when there were Black panelists, they typically did not make it into the final jury. Of the eight Black men on Robert Swain’s jury panel, two were excused and six were eliminated by the prosecution in a process called a <em>peremptory challenge</em>. In this process, lawyers for both sides could exclude or <em>strike</em> a certain number of panelists without giving a reason.</p>
+<p>Arguing against the unfairness of peremptory challenges was a significant part of Robert Swain’s appeal. He noted that “prosecutors have consistently and systematically exercised their strikes to prevent any and all [Black panelists] from serving on the [jury] itself.” The Court acknowledged that there had never been a Black juror in any civil or criminal case in Talladega County. But it still denied the appeal.</p>
+<p>Racial bias in the legal system derived from bias in society. Prejudice and injustice against Black people had been so prevalent for so long that in many parts of society it had become almost a normal way to think and act. As members of society, the Justices of the Supreme Court were not immune to this. The Court majority presented their decision as the most appropriate and logical interpretation of the law. But it was not. The Court’s decision on peremptory challenges was eventually reversed after legal battles that lasted 20 years.</p>
+<p>Robert Swain fought a criminal justice system that was stacked against him. Here, we have been able to expose just one aspect of the systemic bias and racism that he faced and that so many other Black people have fought against. For many, the fight continues to this day. We believe that data science can be a powerful ally.</p>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proportion_purple_in_sample</span> <span class="o">=</span> <span class="n">sample_proportions</span><span class="p">(</span><span class="mi">929</span><span class="p">,</span> <span class="n">model_proportions</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">distance_from_75</span><span class="p">(</span><span class="n">proportion_purple_in_sample</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5113024757804112
-</pre></div>
-</div>
-</div>
-</div>
-<p>That’s one simulated value of the distance between the sample percent of purple-flowering plants and 75% as predicted by Mendel’s model.</p>
-</div>
-<div class="section" id="id4">
-<h4><span class="section-number">11.1.2.3.2. </span>Running the Simulation<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
-<p>To get a sense of how variable the distance could be, we have to simulate it many more times.</p>
-<p>We will generate 10,000 values of the distance. As before, we will first use the code we developed above to define a function that returns one simulated value Mendel’s hypothesis.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one_simulated_distance</span><span class="p">():</span>
-    <span class="n">proportion_purple_in_sample</span> <span class="o">=</span> <span class="n">sample_proportions</span><span class="p">(</span><span class="mi">929</span><span class="p">,</span> <span class="n">model_proportions</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">distance_from_75</span><span class="p">(</span><span class="n">proportion_purple_in_sample</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Next, we will use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to create 10,000 such simulated distances.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distances</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
-
-<span class="n">repetitions</span> <span class="o">=</span> <span class="mi">10000</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
-    <span class="n">distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="n">one_simulated_distance</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="id5">
-<h3><span class="section-number">11.1.2.4. </span>The Prediction<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p>The empirical histogram of the simulated values shows the distribution of the distance as predicted by Mendel’s model.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
-    <span class="s1">&#39;Distance between Sample </span><span class="si">% a</span><span class="s1">nd 75%&#39;</span><span class="p">,</span> <span class="n">distances</span>
-<span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/Assessing_Models_29_0.png" src="../../../_images/Assessing_Models_29_0.png" />
-</div>
-</div>
-<p>Look on the horizontal axis to see the typical values of the distance, as predicted by the model. They are rather small. For example, a high proportion of the distances are in the range 0 to 1, meaning that for a high proportion of the samples, the percent of purple-flowering plants is within 1% of 75%, that is, the sample percent is in the range 74% to 76%.</p>
-</div>
-<div class="section" id="id6">
-<h3><span class="section-number">11.1.2.5. </span>Comparing the Prediction and the Data<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
-<p>To assess the model, we have to compare this prediction with the data. Mendel recorded the number of purple and white flowering plants. Among the 929 plants that he grew, 705 were purple flowering. That’s just about 75.89%.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">705</span> <span class="o">/</span> <span class="mi">929</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7588805166846071
-</pre></div>
-</div>
-</div>
-</div>
-<p>So the observed value of our statistic – the distance between Mendel’s sample percent and 75 – is about 0.89:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">observed_statistic</span> <span class="o">=</span> <span class="n">distance_from_75</span><span class="p">(</span><span class="mi">705</span><span class="o">/</span><span class="mi">929</span><span class="p">)</span>
-<span class="n">observed_statistic</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8880516684607045
-</pre></div>
-</div>
-</div>
-</div>
-<p>Just by eye, locate roughly where 0.89 is on the horizontal axis of the histogram. You will see that it is clearly in the heart of the distribution predicted by Mendel’s model.</p>
-<p>The cell below redraws the histogram with the observed value plotted on the horizontal axis.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
-    <span class="s1">&#39;Distance between Sample </span><span class="si">% a</span><span class="s1">nd 75%&#39;</span><span class="p">,</span> <span class="n">distances</span>
-<span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
-<span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">observed_statistic</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/Assessing_Models_36_0.png" src="../../../_images/Assessing_Models_36_0.png" />
-</div>
-</div>
-<p>The observed statistic is like a typical distance predicted by the model. By this measure, the data are consistent with the histogram that we generated under the assumptions of Mendel’s model. This is evidence in favor of the model.</p>
-</div>
+<div class="section" id="further-reading">
+<h2><span class="section-number">11.1.10. </span>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<p>Robert Swain was represented in the U.S. Supreme Court by <a class="reference external" href="https://en.wikipedia.org/wiki/Constance_Baker_Motley">Constance Baker Motley</a>, the first African-American woman to argue a case in that Court. She argued 10 cases in the Supreme Court and lost only one – Robert Swain’s case in 1965.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Thurgood_Marshall">Thurgood Marshall</a>, who in 1967 became the first African-American Supreme Court Justice, had studied the Court’s decision in Robert Swain’s case and pressed for eliminating peremptory challenges that were based on race alone. This was achieved in the 1986 Supreme Court case <a class="reference external" href="https://supreme.justia.com/cases/federal/us/476/79/">Batson v. Kentucky</a>.</p>
+<p>But Marshall had concerns about the efficacy of the Batson decision. He anticipated that some legal teams would circumvent it by finding ostensibly race-neutral ways to exclude Black jurors. In his <a class="reference external" href="https://supreme.justia.com/cases/federal/us/476/79/#tab-opinion-1956655">opinion</a> concurring with the majority of the Court, he recommended going further and banning peremptory challenges altogether. His concluding words were, “I applaud the Court’s holding that the racially discriminatory use of peremptory challenges violates the Equal Protection Clause, and I join the Court’s opinion. However, only by banning peremptories entirely can such discrimination be ended.” Thurgood Marshall’s concerns were prescient, as you will see in some of the readings below.</p>
+<p>In 2013, Constance Baker Motley was posthumously awarded a <a class="reference external" href="https://www.congress.gov/bill/113th-congress/house-bill/3097/text?r=5&amp;s=1">Congressional gold medal</a> “in recognition of her enduring contributions and service to the United States.” In support of the award, members of the House of Representatives wrote, “Constance Baker Motley’s only loss before the United States Supreme Court was in Swain v. Alabama, 380 U.S. 202 (1965), a case in which the Court refused to proscribe race-based peremptory challenges in cases involving African-American defendants and which was later reversed in Batson v. Kentucky, 476 U.S. 79 (1986), on grounds that had been largely asserted by Constance Baker Motley in the Swain case.”</p>
+<p>Thurgood Marshall and Constance Baker Motley had other connections. For example, as a student at Columbia Law School, Baker Motley worked as a law clerk for Marshall. Some years later she wrote the original complaint in the landmark civil rights case Brown v. Board of Education in Topeka, which was won by Thurgood Marshall in 1954.</p>
+<p>The <a class="reference external" href="https://www.naacpldf.org/">NAACP Legal Defense and Educational Fund</a> argued Robert <a class="reference external" href="https://www.naacpldf.org/press-release/ldf-marks-anniversary-of-batson-decision-reaffirms-importance-of-impartial-jury-selection/">Swain’s case</a> and later supported the Batson case.</p>
+<p>In spite of the Batson decision, racial bias in jury selection persists. Legal scholar and Berkeley Law School alum <a class="reference external" href="https://www.thehistorymakers.org/biography/robert-lewis-harris">Richard L. Harris Jr.</a> has provided a <a class="reference external" href="https://scholarship.law.wm.edu/cgi/viewcontent.cgi?article=1944&amp;context=wmlr">detailed account</a> of the biases that are perpetuated by peremptory challenges.</p>
+<p>In their 2020 report <a class="reference external" href="http://www.clrc.ca.gov/CRPC/Pub/Panelist_Materials/PM-20210325-Semel.pdf">Whitewashing the Jury Box</a>: How California Perpetuates the Discriminatory Exclusion of Black and Latinx Jurors,
+<a class="reference external" href="https://www.law.berkeley.edu/our-faculty/faculty-profiles/elisabeth-semel/">Professor Elisabeth Semel</a> and co-authors in the Berkeley Law Death Penalty Clinic describe how Thurgood Marshall’s concerns about the effectiveness of the Batson ruling are justified by experience in Californian courts.</p>
+<p>The U.S. Supreme Court <a class="reference external" href="https://supreme.justia.com/cases/federal/us/380/202/">judgment</a> in the case Swain v. Alabama can be distressing to read. We have included it because some excerpts are quoted in the section.</p>
 </div>
 </div>
 
