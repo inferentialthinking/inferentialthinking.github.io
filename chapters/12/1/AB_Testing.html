@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="12.2. Deflategate" href="../2/Deflategate.html" />
+    <link rel="next" title="13. Estimation" href="../../13/Estimation.html" />
     <link rel="prev" title="12. Comparing Two Samples" href="../Comparing_Two_Samples.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -510,16 +510,6 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      12.1. A/B Testing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../2/Deflategate.html">
-     12.2. Deflategate
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../3/Causality.html">
-     12.3. Causality
     </a>
    </li>
   </ul>
@@ -1038,17 +1028,20 @@
 </div>
 </div>
 </div>
-<p>We are going compute such differences repeatedly in our simulations below, so we will define a function to do the job. The function takes three arguments:</p>
+<p>We are going compute such differences repeatedly in our simulations below, so we will define a function to do the job. The function takes two arguments:</p>
 <ul class="simple">
 <li><p>the name of the table of data</p></li>
-<li><p>the label of the column that contains the numerical variable whose average is of interest</p></li>
 <li><p>the label of the column that contains the Boolean variable for grouping</p></li>
 </ul>
 <p>It returns the difference between the means of the <code class="docutils literal notranslate"><span class="pre">True</span></code> group and the <code class="docutils literal notranslate"><span class="pre">False</span></code> group.</p>
+<p>You will soon see why we are specifying the two arguments. For now, just check that the function returns what it should.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">difference_of_means</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">group_label</span><span class="p">):</span>
-    <span class="n">reduced</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">group_label</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">difference_of_means</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">group_label</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Takes: name of table,</span>
+<span class="sd">    column label that indicates the group to which the row belongs</span>
+<span class="sd">    Returns: Difference of mean birth weights of the two groups&quot;&quot;&quot;</span>
+    <span class="n">reduced</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Birth Weight&#39;</span><span class="p">,</span> <span class="n">group_label</span><span class="p">)</span>
     <span class="n">means_table</span> <span class="o">=</span> <span class="n">reduced</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="n">group_label</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">)</span>
     <span class="n">means</span> <span class="o">=</span> <span class="n">means_table</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">means</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">means</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -1056,10 +1049,10 @@
 </div>
 </div>
 </div>
-<p>To check that the function is working, let’s use it to calculate the observed difference between the means of the two groups in the sample.</p>
+<p>To check that the function is working, let’s use it to calculate the observed difference between the mean birth weights of the two groups in the sample.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">difference_of_means</span><span class="p">(</span><span class="n">births</span><span class="p">,</span> <span class="s1">&#39;Birth Weight&#39;</span><span class="p">,</span> <span class="s1">&#39;Maternal Smoker&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">difference_of_means</span><span class="p">(</span><span class="n">births</span><span class="p">,</span> <span class="s1">&#39;Maternal Smoker&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1075,8 +1068,9 @@
 <h2><span class="section-number">12.1.4. </span>Predicting the Statistic Under the Null Hypothesis<a class="headerlink" href="#predicting-the-statistic-under-the-null-hypothesis" title="Permalink to this headline">¶</a></h2>
 <p>To see how the statistic should vary under the null hypothesis, we have to figure out how to simulate the statistic under that hypothesis. A clever method based on <em>random permutations</em> does just that.</p>
 <p>If there were no difference between the two distributions in the underlying population, then whether a birth weight has the label <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> with respect to maternal smoking should make no difference to the average. The idea, then, is to shuffle all the labels randomly among the mothers. This is called <em>random permutation</em>.</p>
+<p>Shuffling ensures that the count of <code class="docutils literal notranslate"><span class="pre">True</span></code> labels does not change, and nor does the count of <code class="docutils literal notranslate"><span class="pre">False</span></code> labels. This is important for the comparability of the simulated differences of means and the original difference of means. We will see later in the course that the sample size affects the variability of a sample mean.</p>
 <p>Take the difference of the two new group means: the mean weight of the babies whose mothers have been randomly labeled smokers and the mean weight of the babies of the remaining mothers who have all been randomly labeled non-smokers. This is a simulated value of the test statistic under the null hypothesis.</p>
-<p>Let’s see how to do this. It’s always a good idea to start with the data.</p>
+<p>Let’s see how to do this. It’s always a good idea to start with the data. We have reduced the table to have just the columns that we need.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smoking_and_birthweight</span>
@@ -1150,13 +1144,13 @@
     </thead>
     <tbody>
         <tr>
-            <td>False          </td> <td>120         </td> <td>False         </td>
+            <td>False          </td> <td>120         </td> <td>True          </td>
         </tr>
         <tr>
-            <td>False          </td> <td>113         </td> <td>True          </td>
+            <td>False          </td> <td>113         </td> <td>False         </td>
         </tr>
         <tr>
-            <td>True           </td> <td>128         </td> <td>True          </td>
+            <td>True           </td> <td>128         </td> <td>False         </td>
         </tr>
         <tr>
             <td>True           </td> <td>108         </td> <td>True          </td>
@@ -1168,16 +1162,16 @@
             <td>False          </td> <td>138         </td> <td>False         </td>
         </tr>
         <tr>
-            <td>False          </td> <td>132         </td> <td>False         </td>
+            <td>False          </td> <td>132         </td> <td>True          </td>
         </tr>
         <tr>
             <td>False          </td> <td>120         </td> <td>False         </td>
         </tr>
         <tr>
-            <td>True           </td> <td>143         </td> <td>False         </td>
+            <td>True           </td> <td>143         </td> <td>True          </td>
         </tr>
         <tr>
-            <td>False          </td> <td>140         </td> <td>True          </td>
+            <td>False          </td> <td>140         </td> <td>False         </td>
         </tr>
     </tbody>
 </table>
@@ -1187,7 +1181,7 @@
 <p>Let’s see how different the average weights are in the two randomly labeled groups.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shuffled_only</span> <span class="o">=</span> <span class="n">original_and_shuffled</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Maternal Smoker&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shuffled_only</span> <span class="o">=</span> <span class="n">original_and_shuffled</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Birth Weight&#39;</span><span class="p">,</span><span class="s1">&#39;Shuffled Label&#39;</span><span class="p">)</span>
 <span class="n">shuffled_group_means</span> <span class="o">=</span> <span class="n">shuffled_only</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;Shuffled Label&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">)</span>
 <span class="n">shuffled_group_means</span>
 </pre></div>
@@ -1202,10 +1196,10 @@
     </thead>
     <tbody>
         <tr>
-            <td>False         </td> <td>119.386             </td>
+            <td>False         </td> <td>119.277             </td>
         </tr>
         <tr>
-            <td>True          </td> <td>119.582             </td>
+            <td>True          </td> <td>119.752             </td>
         </tr>
     </tbody>
 </table></div></div>
@@ -1213,19 +1207,19 @@
 <p>The averages of the two randomly selected groups are quite a bit closer than the averages of the two original groups. We can use our function <code class="docutils literal notranslate"><span class="pre">difference_of_means</span></code> to find the two differences.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">difference_of_means</span><span class="p">(</span><span class="n">original_and_shuffled</span><span class="p">,</span> <span class="s1">&#39;Birth Weight&#39;</span><span class="p">,</span> <span class="s1">&#39;Shuffled Label&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">difference_of_means</span><span class="p">(</span><span class="n">original_and_shuffled</span><span class="p">,</span> <span class="s1">&#39;Shuffled Label&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.19568536039123785
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4747109100050153
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">difference_of_means</span><span class="p">(</span><span class="n">original_and_shuffled</span><span class="p">,</span> <span class="s1">&#39;Birth Weight&#39;</span><span class="p">,</span> <span class="s1">&#39;Maternal Smoker&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">difference_of_means</span><span class="p">(</span><span class="n">original_and_shuffled</span><span class="p">,</span> <span class="s1">&#39;Maternal Smoker&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1236,21 +1230,22 @@
 </div>
 </div>
 <p>But could a different shuffle have resulted in a larger difference between the group averages? To get a sense of the variability, we must simulate the difference many times.</p>
-<p>As always, we will start by defining a function that simulates one value of the test statistic under the null hypothesis. This is just a matter of collecting the code that we wrote above. But because we will later want to use the same process for comparing means of other variables, we will define a function that takes three arguments:</p>
-<ul class="simple">
-<li><p>the name of the table of data</p></li>
-<li><p>the label of the column that contains the numerical variable</p></li>
-<li><p>the label of the column that contains the Boolean variable for grouping</p></li>
-</ul>
-<p>It returns the difference between the means of two groups formed by randomly shuffling all the labels.</p>
+<p>As always, we will start by defining a function that simulates one value of the test statistic under the null hypothesis. This is just a matter of collecting the code that we wrote above.</p>
+<p>The function is called <code class="docutils literal notranslate"><span class="pre">one_simulated_difference_of_means</span></code>. It takes no arguments, and returns the difference between the mean birth weights of two groups formed by randomly shuffling all the labels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one_simulated_difference</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">group_label</span><span class="p">):</span>
-    <span class="n">shuffled_labels</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">with_replacement</span> <span class="o">=</span> <span class="kc">False</span>
-                                                    <span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="n">group_label</span><span class="p">)</span>
-    <span class="n">shuffled_table</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">label</span><span class="p">)</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one_simulated_difference_of_means</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Returns: Difference between mean birthweights</span>
+<span class="sd">    of babies of smokers and non-smokers after shuffling labels&quot;&quot;&quot;</span>
+    
+    <span class="c1"># array of shuffled labels</span>
+    <span class="n">shuffled_labels</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">with_replacement</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Maternal Smoker&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># table of birth weights and shuffled labels</span>
+    <span class="n">shuffled_table</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Birth Weight&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
         <span class="s1">&#39;Shuffled Label&#39;</span><span class="p">,</span> <span class="n">shuffled_labels</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">difference_of_means</span><span class="p">(</span><span class="n">shuffled_table</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="s1">&#39;Shuffled Label&#39;</span><span class="p">)</span>   
+    
+    <span class="k">return</span> <span class="n">difference_of_means</span><span class="p">(</span><span class="n">shuffled_table</span><span class="p">,</span> <span class="s1">&#39;Shuffled Label&#39;</span><span class="p">)</span>   
 </pre></div>
 </div>
 </div>
@@ -1258,12 +1253,12 @@
 <p>Run the cell below a few times to see how the output changes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_simulated_difference</span><span class="p">(</span><span class="n">births</span><span class="p">,</span> <span class="s1">&#39;Birth Weight&#39;</span><span class="p">,</span> <span class="s1">&#39;Maternal Smoker&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_simulated_difference_of_means</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5569876746347404
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.058299434770034964
 </pre></div>
 </div>
 </div>
@@ -1271,14 +1266,14 @@
 </div>
 <div class="section" id="permutation-test">
 <h2><span class="section-number">12.1.5. </span>Permutation Test<a class="headerlink" href="#permutation-test" title="Permalink to this headline">¶</a></h2>
-<p>Tests based on random permutations of the data are called <em>permutation tests</em>. We are performing one in this example. In the cell below, we will simulate our test statistic – the difference between the averages of the two groups – many times and collect the differences in an array.</p>
+<p>Tests based on random permutations of the data are called <em>permutation tests</em>. We are performing one in this example. In the cell below, we will simulate our test statistic – the difference between the average birth weight of the two randomly formed groups – many times and collect the differences in an array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">differences</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
 
 <span class="n">repetitions</span> <span class="o">=</span> <span class="mi">5000</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
-    <span class="n">new_difference</span> <span class="o">=</span> <span class="n">one_simulated_difference</span><span class="p">(</span><span class="n">births</span><span class="p">,</span> <span class="s1">&#39;Birth Weight&#39;</span><span class="p">,</span> <span class="s1">&#39;Maternal Smoker&#39;</span><span class="p">)</span>
+    <span class="n">new_difference</span> <span class="o">=</span> <span class="n">one_simulated_difference_of_means</span><span class="p">()</span>
     <span class="n">differences</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">differences</span><span class="p">,</span> <span class="n">new_difference</span><span class="p">)</span>                               
 </pre></div>
 </div>
@@ -1304,14 +1299,14 @@
 <img alt="../../../_images/AB_Testing_36_1.png" src="../../../_images/AB_Testing_36_1.png" />
 </div>
 </div>
-<p>Notice how the distribution is centered around 0. This makes sense, because under the null hypothesis the two groups should have roughly the same average. Therefore the difference between the group averages should be around 0.</p>
+<p>Notice how the distribution is centered roughly around 0. This makes sense, because under the null hypothesis the two groups should have roughly the same average. Therefore the difference between the group averages should be around 0.</p>
 <p>The observed difference in the original sample is about <span class="math notranslate nohighlight">\(-9.27\)</span> ounces, which doesn’t even appear on the horizontal scale of the histogram. The observed value of the statistic and the predicted behavior of the statistic under the null hypothesis are inconsistent.</p>
-<p>The conclusion of the test is that the data favor the alternative over the null. The average birth weight of babies born to mothers who smoke is less than the average birth weight of babies born to non-smokers.</p>
-<p>If you want to compute an empirical P-value, remember that low values of the statistic favor the alternative hypothesis.</p>
+<p>The conclusion of the test is that the data favor the alternative over the null. It supports the hypothesis that the average birth weight of babies born to mothers who smoke is less than the average birth weight of babies born to non-smokers.</p>
+<p>If you want to compute an empirical p-value, remember that low values of the statistic favor the alternative hypothesis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empirical_P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">differences</span> <span class="o">&lt;=</span> <span class="n">observed_difference</span><span class="p">)</span> <span class="o">/</span> <span class="n">repetitions</span>
-<span class="n">empirical_P</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empirical_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">differences</span> <span class="o">&lt;=</span> <span class="n">observed_difference</span><span class="p">)</span> <span class="o">/</span> <span class="n">repetitions</span>
+<span class="n">empirical_p</span>
 </pre></div>
 </div>
 </div>
@@ -1321,7 +1316,7 @@
 </div>
 </div>
 </div>
-<p>The empirical P-value is 0, meaning that none of the 5,000 permuted samples resulted in a difference of -9.27 or lower. This is only an approximation. The exact chance of getting a difference in that range is not 0 but it is vanishingly small.</p>
+<p>The empirical p-value is 0, meaning that none of the 5,000 permuted samples resulted in a difference of -9.27 or lower. This is only an approximation. The exact chance of getting a difference in that range is not 0. But it is vanishingly small, according to our simulation, and therefore we can reject the null hypothesis.</p>
 </div>
 <div class="section" id="another-permutation-test">
 <h2><span class="section-number">12.1.7. </span>Another Permutation Test<a class="headerlink" href="#another-permutation-test" title="Permalink to this headline">¶</a></h2>
@@ -1338,9 +1333,24 @@
 </div>
 </div>
 <p>The observed difference between the average ages is about <span class="math notranslate nohighlight">\(-0.8\)</span> years.</p>
+<p>Let’s rewrite the code that compared the birth weights so that it now compares the ages of the smokers and non-smokers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">observed_age_difference</span> <span class="o">=</span> <span class="n">difference_of_means</span><span class="p">(</span><span class="n">births</span><span class="p">,</span> <span class="s1">&#39;Maternal Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Maternal Smoker&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">difference_of_means</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">group_label</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Takes: name of table,</span>
+<span class="sd">    column label that indicates the group to which the row belongs</span>
+<span class="sd">    Returns: Difference of mean ages of the two groups&quot;&quot;&quot;</span>
+    <span class="n">reduced</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Maternal Age&#39;</span><span class="p">,</span> <span class="n">group_label</span><span class="p">)</span>
+    <span class="n">means_table</span> <span class="o">=</span> <span class="n">reduced</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="n">group_label</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">)</span>
+    <span class="n">means</span> <span class="o">=</span> <span class="n">means_table</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">means</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">means</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">observed_age_difference</span> <span class="o">=</span> <span class="n">difference_of_means</span><span class="p">(</span><span class="n">births</span><span class="p">,</span> <span class="s1">&#39;Maternal Smoker&#39;</span><span class="p">)</span>
 <span class="n">observed_age_difference</span>
 </pre></div>
 </div>
@@ -1354,13 +1364,32 @@
 <p>Remember that the difference is calculated as the mean age of the smokers minus the mean age of the non-smokers. The negative sign shows that the smokers are younger on average.</p>
 <p>Is this difference due to chance, or does it reflect an underlying difference in the population?</p>
 <p>As before, we can use a permutation test to answer this question. If the underlying distributions of ages in the two groups are the same, then the empirical distribution of the difference based on permuted samples will predict how the statistic should vary due to chance.</p>
+<p>We will follow the same process as in any simulation. We will start by writing a function that returns one simulated value of the difference between means, and then write a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to simulate numerous such values and collect them in an array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one_simulated_difference_of_means</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Returns: Difference between mean ages</span>
+<span class="sd">    of smokers and non-smokers after shuffling labels&quot;&quot;&quot;</span>
+    
+    <span class="c1"># array of shuffled labels</span>
+    <span class="n">shuffled_labels</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">with_replacement</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Maternal Smoker&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># table of ages and shuffled labels</span>
+    <span class="n">shuffled_table</span> <span class="o">=</span> <span class="n">births</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Maternal Age&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
+        <span class="s1">&#39;Shuffled Label&#39;</span><span class="p">,</span> <span class="n">shuffled_labels</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">difference_of_means</span><span class="p">(</span><span class="n">shuffled_table</span><span class="p">,</span> <span class="s1">&#39;Shuffled Label&#39;</span><span class="p">)</span>   
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age_differences</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
 
 <span class="n">repetitions</span> <span class="o">=</span> <span class="mi">5000</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
-    <span class="n">new_difference</span> <span class="o">=</span> <span class="n">one_simulated_difference</span><span class="p">(</span><span class="n">births</span><span class="p">,</span> <span class="s1">&#39;Maternal Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Maternal Smoker&#39;</span><span class="p">)</span>
+    <span class="n">new_difference</span> <span class="o">=</span> <span class="n">one_simulated_difference_of_means</span><span class="p">()</span>
     <span class="n">age_differences</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">age_differences</span><span class="p">,</span> <span class="n">new_difference</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1369,8 +1398,12 @@
 <p>The observed difference is in the tail of the empirical distribution of the differences simulated under the null hypothesis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;Difference Between Group Means&#39;</span><span class="p">,</span> <span class="n">age_differences</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
-<span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">observed_age_difference</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
+    <span class="s1">&#39;Difference Between Group Means&#39;</span><span class="p">,</span> <span class="n">age_differences</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+    <span class="n">right_end</span> <span class="o">=</span> <span class="n">observed_age_difference</span><span class="p">)</span>
+<span class="c1"># Plotting parameters; you can ignore the code below</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">observed_age_difference</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">plots</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Prediction Under the Null Hypothesis&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Observed Difference:&#39;</span><span class="p">,</span> <span class="n">observed_age_difference</span><span class="p">)</span>
 </pre></div>
@@ -1380,24 +1413,25 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Observed Difference: -0.8076725017901509
 </pre></div>
 </div>
-<img alt="../../../_images/AB_Testing_47_1.png" src="../../../_images/AB_Testing_47_1.png" />
+<img alt="../../../_images/AB_Testing_50_1.png" src="../../../_images/AB_Testing_50_1.png" />
 </div>
 </div>
-<p>The empirical P-value of the test is the proportion of simulated differences that were equal to or less than the observed difference. This is because low values of the difference favor the alternative hypothesis that the smokers were younger on average.</p>
+<p>Once again, the empirical distribution of the simulated differences is centered roughly around 0, because the simulation is under the null hypothesis that there is no difference between the distributions of the two groups.</p>
+<p>The empirical p-value of the test is the proportion of simulated differences that were equal to or less than the observed difference. This is because low values of the difference favor the alternative hypothesis that the smokers were younger on average.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empirical_P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">age_differences</span> <span class="o">&lt;=</span> <span class="n">observed_age_difference</span><span class="p">)</span> <span class="o">/</span> <span class="mi">5000</span>
-<span class="n">empirical_P</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empirical_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">age_differences</span> <span class="o">&lt;=</span> <span class="n">observed_age_difference</span><span class="p">)</span> <span class="o">/</span> <span class="mi">5000</span>
+<span class="n">empirical_p</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.011
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0108
 </pre></div>
 </div>
 </div>
 </div>
-<p>The empirical P-value is around 1% and therefore the result is statistically significant. The test supports the hypothesis that the smokers were younger on average.</p>
+<p>The empirical p-value is around 1% and therefore the result is statistically significant. The test supports the hypothesis that the smokers were younger on average.</p>
 </div>
 </div>
 
@@ -1440,10 +1474,10 @@
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="../2/Deflategate.html" title="next page">
+        <a class="right-next" href="../../13/Estimation.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">12.2. </span>Deflategate</p>
+                <p class="prevnext-title"><span class="section-number">13. </span>Estimation</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

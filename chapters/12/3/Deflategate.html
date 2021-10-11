@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>12.2. Deflategate &#8212; Computational and Inferential Thinking</title>
+    <title>Deflategate &#8212; Computational and Inferential Thinking</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -50,12 +50,10 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://inferentialthinking.org/chapters/12/2/Deflategate.html" />
+    <link rel="canonical" href="https://inferentialthinking.org/chapters/12/3/Deflategate.html" />
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="12.3. Causality" href="../3/Causality.html" />
-    <link rel="prev" title="12.1. A/B Testing" href="../1/AB_Testing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -89,7 +87,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../01/what-is-data-science.html">
    1. Data Science
@@ -495,29 +493,19 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Comparing_Two_Samples.html">
    12. Comparing Two Samples
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
   <label for="toctree-checkbox-16">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../1/AB_Testing.html">
      12.1. A/B Testing
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     12.2. Deflategate
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../3/Causality.html">
-     12.3. Causality
     </a>
    </li>
   </ul>
@@ -770,7 +758,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/chapters/12/2/Deflategate.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/chapters/12/3/Deflategate.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -808,14 +796,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/12/2/Deflategate.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/12/3/Deflategate.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/data-8/textbook&urlpath=tree/textbook/chapters/12/2/Deflategate.ipynb&branch=main"><button type="button"
+        <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/data-8/textbook&urlpath=tree/textbook/chapters/12/3/Deflategate.ipynb&branch=main"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../../../_static/images/logo_jupyterhub.svg"
@@ -838,27 +826,27 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-hypotheses">
-   12.2.1. The Hypotheses
+   The Hypotheses
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#test-statistic">
-   12.2.2. Test Statistic
+   Test Statistic
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#predicting-the-statistic-under-the-null-hypothesis">
-   12.2.3. Predicting the Statistic Under the Null Hypothesis
+   Predicting the Statistic Under the Null Hypothesis
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#permutation-test">
-   12.2.4. Permutation Test
+   Permutation Test
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#conclusion-of-the-test">
-   12.2.5. Conclusion of the Test
+   Conclusion of the Test
   </a>
  </li>
 </ul>
@@ -875,7 +863,7 @@
   <div class="cell tag_remove-input docutils container">
 </div>
 <div class="section" id="deflategate">
-<h1><span class="section-number">12.2. </span>Deflategate<a class="headerlink" href="#deflategate" title="Permalink to this headline">¶</a></h1>
+<h1>Deflategate<a class="headerlink" href="#deflategate" title="Permalink to this headline">¶</a></h1>
 <p>On January 18, 2015, the Indianapolis Colts and the New England Patriots played the American Football Conference (AFC) championship game to determine which of those teams would play in the Super Bowl. After the game, there were allegations that the Patriots’ footballs had not been inflated as much as the regulations required; they were softer. This could be an advantage, as softer balls might be easier to catch.</p>
 <p>For several weeks, the world of American football was consumed by accusations, denials, theories, and suspicions: the press labeled the topic Deflategate, after the Watergate political scandal of the 1970’s. The National Football League (NFL) commissioned an independent analysis. In this example, we will perform our own analysis of the data.</p>
 <p>Pressure is often measured in pounds per square inch (psi). NFL rules stipulate that game balls must be inflated to have pressures in the range 12.5 psi and 13.5 psi. Each team plays with 12 balls. Teams have the responsibility of maintaining the pressure in their own footballs, but game officials inspect the balls. Before the start of the AFC game, all the Patriots’ balls were at about 12.5 psi. Most of the Colts’ balls were at about 13.0 psi. However, these pre-game data were not recorded.</p>
@@ -1134,12 +1122,12 @@
 <p>The average drop for the Patriots was about 1.2 psi compared to about 0.47 psi for the Colts.</p>
 <p>The question now is why the Patriots’ footballs had a larger drop in pressure, on average, than the Colts footballs. Could it be due to chance?</p>
 <div class="section" id="the-hypotheses">
-<h2><span class="section-number">12.2.1. </span>The Hypotheses<a class="headerlink" href="#the-hypotheses" title="Permalink to this headline">¶</a></h2>
+<h2>The Hypotheses<a class="headerlink" href="#the-hypotheses" title="Permalink to this headline">¶</a></h2>
 <p>How does chance come in here? Nothing was being selected at random. But we can make a chance model by hypothesizing that the 11 Patriots’ drops look like a random sample of 11 out of all the 15 drops, with the Colts’ drops being the remaining four. That’s a completely specified chance model under which we can simulate data. So it’s the <strong>null hypothesis</strong>.</p>
 <p>For the alternative, we can take the position that the Patriots’ drops are too large, on average, to resemble a random sample drawn from all the drops.</p>
 </div>
 <div class="section" id="test-statistic">
-<h2><span class="section-number">12.2.2. </span>Test Statistic<a class="headerlink" href="#test-statistic" title="Permalink to this headline">¶</a></h2>
+<h2>Test Statistic<a class="headerlink" href="#test-statistic" title="Permalink to this headline">¶</a></h2>
 <p>A natural statistic is the difference between the two average drops, which we will compute as “average drop for Patriots - average drop for Colts”. Large values of this statistic will favor the alternative hypothesis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1157,18 +1145,16 @@
 </div>
 </div>
 <p>This positive difference reflects the fact that the average drop in pressure of the Patriots’ footballs was greater than that of the Colts.</p>
-<p>The function <code class="docutils literal notranslate"><span class="pre">difference_of_means</span></code> takes three arguments:</p>
+<p>Just as we did in the previous section, we will write a function to calculate the difference between the mean drops in the two groups. The function <code class="docutils literal notranslate"><span class="pre">difference_of_means</span></code> takes two arguments:</p>
 <ul class="simple">
 <li><p>the name of the table of data</p></li>
-<li><p>the label of the column containing the numerical variable whose average is of interest</p></li>
 <li><p>the label of the column containing the two group labels</p></li>
 </ul>
-<p>It returns the difference between the means of the two groups.</p>
-<p>We have defined this function in an earlier section. The definition is repeated here for ease of reference.</p>
+<p>It returns the difference between the mean drops of the two groups. We will calculate the difference as the Patriots’ drops minus the Colts’ drops as before.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">difference_of_means</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">group_label</span><span class="p">):</span>
-    <span class="n">reduced</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">group_label</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">difference_of_means</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">group_label</span><span class="p">):</span>
+    <span class="n">reduced</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Pressure Drop&#39;</span><span class="p">,</span> <span class="n">group_label</span><span class="p">)</span>
     <span class="n">means_table</span> <span class="o">=</span> <span class="n">reduced</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="n">group_label</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">)</span>
     <span class="n">means</span> <span class="o">=</span> <span class="n">means_table</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">means</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">means</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -1178,7 +1164,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">difference_of_means</span><span class="p">(</span><span class="n">football</span><span class="p">,</span> <span class="s1">&#39;Pressure Drop&#39;</span><span class="p">,</span> <span class="s1">&#39;Team&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">difference_of_means</span><span class="p">(</span><span class="n">football</span><span class="p">,</span> <span class="s1">&#39;Team&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1188,10 +1174,10 @@
 </div>
 </div>
 </div>
-<p>Notice that the difference has been calculated as Patriots’ drops minus Colts’ drops as before.</p>
+<p>This is the same as the value we found earlier as the <code class="docutils literal notranslate"><span class="pre">observed_difference</span></code>.</p>
 </div>
 <div class="section" id="predicting-the-statistic-under-the-null-hypothesis">
-<h2><span class="section-number">12.2.3. </span>Predicting the Statistic Under the Null Hypothesis<a class="headerlink" href="#predicting-the-statistic-under-the-null-hypothesis" title="Permalink to this headline">¶</a></h2>
+<h2>Predicting the Statistic Under the Null Hypothesis<a class="headerlink" href="#predicting-the-statistic-under-the-null-hypothesis" title="Permalink to this headline">¶</a></h2>
 <p>If the null hypothesis were true, then it shouldn’t matter which footballs are labeled Patriots and which are labeled Colts. The distributions of the two sets of drops would be the same. We can simulate this by randomly shuffling the team labels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1213,13 +1199,13 @@
             <td>Patriots</td> <td>0.85         </td> <td>Patriots      </td>
         </tr>
         <tr>
-            <td>Patriots</td> <td>1.475        </td> <td>Patriots      </td>
+            <td>Patriots</td> <td>1.475        </td> <td>Colts         </td>
         </tr>
         <tr>
-            <td>Patriots</td> <td>1.175        </td> <td>Patriots      </td>
+            <td>Patriots</td> <td>1.175        </td> <td>Colts         </td>
         </tr>
         <tr>
-            <td>Patriots</td> <td>1.65         </td> <td>Patriots      </td>
+            <td>Patriots</td> <td>1.65         </td> <td>Colts         </td>
         </tr>
         <tr>
             <td>Patriots</td> <td>1.225        </td> <td>Patriots      </td>
@@ -1228,7 +1214,7 @@
             <td>Patriots</td> <td>0.725        </td> <td>Patriots      </td>
         </tr>
         <tr>
-            <td>Patriots</td> <td>0.425        </td> <td>Colts         </td>
+            <td>Patriots</td> <td>0.425        </td> <td>Patriots      </td>
         </tr>
         <tr>
             <td>Patriots</td> <td>1.175        </td> <td>Patriots      </td>
@@ -1237,16 +1223,16 @@
             <td>Patriots</td> <td>1.35         </td> <td>Patriots      </td>
         </tr>
         <tr>
-            <td>Patriots</td> <td>1.8          </td> <td>Colts         </td>
+            <td>Patriots</td> <td>1.8          </td> <td>Patriots      </td>
         </tr>
         <tr>
-            <td>Patriots</td> <td>1.375        </td> <td>Patriots      </td>
+            <td>Patriots</td> <td>1.375        </td> <td>Colts         </td>
         </tr>
         <tr>
-            <td>Colts   </td> <td>0.475        </td> <td>Colts         </td>
+            <td>Colts   </td> <td>0.475        </td> <td>Patriots      </td>
         </tr>
         <tr>
-            <td>Colts   </td> <td>0.475        </td> <td>Colts         </td>
+            <td>Colts   </td> <td>0.475        </td> <td>Patriots      </td>
         </tr>
         <tr>
             <td>Colts   </td> <td>0.275        </td> <td>Patriots      </td>
@@ -1260,19 +1246,19 @@
 <p>How do all the group averages compare?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">difference_of_means</span><span class="p">(</span><span class="n">original_and_shuffled</span><span class="p">,</span> <span class="s1">&#39;Pressure Drop&#39;</span><span class="p">,</span> <span class="s1">&#39;Shuffled Label&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">difference_of_means</span><span class="p">(</span><span class="n">original_and_shuffled</span><span class="p">,</span> <span class="s1">&#39;Shuffled Label&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.29034090909090904
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.5619318181818183
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">difference_of_means</span><span class="p">(</span><span class="n">original_and_shuffled</span><span class="p">,</span> <span class="s1">&#39;Pressure Drop&#39;</span><span class="p">,</span> <span class="s1">&#39;Team&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">difference_of_means</span><span class="p">(</span><span class="n">original_and_shuffled</span><span class="p">,</span> <span class="s1">&#39;Team&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1285,29 +1271,30 @@
 <p>The two teams’ average drop values are closer when the team labels are randomly assigned to the footballs than they were for the two groups actually used in the game.</p>
 </div>
 <div class="section" id="permutation-test">
-<h2><span class="section-number">12.2.4. </span>Permutation Test<a class="headerlink" href="#permutation-test" title="Permalink to this headline">¶</a></h2>
-<p>It’s time for a step that is now familiar. We will do repeated simulations of the test statistic under the null hypothesis, by repeatedly permuting the footballs and assigning random sets to the two teams.</p>
-<p>Once again, we will use the function <code class="docutils literal notranslate"><span class="pre">one_simulated_difference</span></code> defined in an earlier section as follows.</p>
+<h2>Permutation Test<a class="headerlink" href="#permutation-test" title="Permalink to this headline">¶</a></h2>
+<p>It’s time for a step that is now familiar. We will repeatedly simulate of the test statistic under the null hypothesis.</p>
+<p>by repeatedly permuting the footballs and assigning random sets to the two teams.</p>
+<p>As usual, we  will start by writing a function <code class="docutils literal notranslate"><span class="pre">one_simulated_difference</span></code> that returns one simulated value of the difference between the mean pressure drops of the groups labeled Patriots and Colts after randomly permuting the team labels of the footballs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one_simulated_difference</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">group_label</span><span class="p">):</span>
-    <span class="n">shuffled_labels</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">with_replacement</span> <span class="o">=</span> <span class="kc">False</span>
-                                                    <span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="n">group_label</span><span class="p">)</span>
-    <span class="n">shuffled_table</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">label</span><span class="p">)</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one_simulated_difference</span><span class="p">():</span>
+    <span class="n">shuffled_labels</span> <span class="o">=</span> <span class="n">football</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">with_replacement</span> <span class="o">=</span> <span class="kc">False</span>
+                                                    <span class="p">)</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Team&#39;</span><span class="p">)</span>
+    <span class="n">shuffled_table</span> <span class="o">=</span> <span class="n">football</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Pressure Drop&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
         <span class="s1">&#39;Shuffled Label&#39;</span><span class="p">,</span> <span class="n">shuffled_labels</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">difference_of_means</span><span class="p">(</span><span class="n">shuffled_table</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="s1">&#39;Shuffled Label&#39;</span><span class="p">)</span>   
+    <span class="k">return</span> <span class="n">difference_of_means</span><span class="p">(</span><span class="n">shuffled_table</span><span class="p">,</span> <span class="s1">&#39;Shuffled Label&#39;</span><span class="p">)</span>   
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can now use this function to create an array <code class="docutils literal notranslate"><span class="pre">differences</span></code> that contains 10,000 values of the test statistic simulated under the null hypothesis.</p>
+<p>We can now use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and this function to create an array <code class="docutils literal notranslate"><span class="pre">differences</span></code> that contains 10,000 values of the test statistic simulated under the null hypothesis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">differences</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
 
 <span class="n">repetitions</span> <span class="o">=</span> <span class="mi">10000</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
-    <span class="n">new_difference</span> <span class="o">=</span> <span class="n">one_simulated_difference</span><span class="p">(</span><span class="n">football</span><span class="p">,</span> <span class="s1">&#39;Pressure Drop&#39;</span><span class="p">,</span> <span class="s1">&#39;Team&#39;</span><span class="p">)</span>
+    <span class="n">new_difference</span> <span class="o">=</span> <span class="n">one_simulated_difference</span><span class="p">()</span>
     <span class="n">differences</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">differences</span><span class="p">,</span> <span class="n">new_difference</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1315,39 +1302,42 @@
 </div>
 </div>
 <div class="section" id="conclusion-of-the-test">
-<h2><span class="section-number">12.2.5. </span>Conclusion of the Test<a class="headerlink" href="#conclusion-of-the-test" title="Permalink to this headline">¶</a></h2>
+<h2>Conclusion of the Test<a class="headerlink" href="#conclusion-of-the-test" title="Permalink to this headline">¶</a></h2>
 <p>To calculate the empirical P-value, it’s important to recall the alternative hypothesis, which is that the Patriots’ drops are too large to be the result of chance variation alone.</p>
-<p>Larger drops for the Patriots favor the alternative hypothesis. So the P-value is the chance (computed under the null hypothesis) of getting a test statistic equal to our observed value of 0.733522727272728 or larger.</p>
+<p>Larger drops for the Patriots favor the alternative hypothesis. So the p-value is the chance (computed under the null hypothesis) of getting a test statistic equal to our observed value of 0.733522727272728 or larger.</p>
+<p>The figure below visualizes this calculation. It consists of the empirical distribution of the test statistic under the null hypothesis, with the observed statistic marked in red on the horizontal axis and the area corresponding to the p-value shaded in gold.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empirical_P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">differences</span> <span class="o">&gt;=</span> <span class="n">observed_difference</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10000</span>
-<span class="n">empirical_P</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0032
-</pre></div>
-</div>
-</div>
-</div>
-<p>That’s a pretty small P-value. To visualize this, here is the empirical distribution of the test statistic under the null hypothesis, with the observed statistic marked on the horizontal axis.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;Difference Between Group Averages&#39;</span><span class="p">,</span> <span class="n">differences</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
-<span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">observed_difference</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
+    <span class="s1">&#39;Difference Between Group Averages&#39;</span><span class="p">,</span> <span class="n">differences</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+    <span class="n">left_end</span> <span class="o">=</span> <span class="n">observed_difference</span>
+<span class="p">)</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">)</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">observed_difference</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">plots</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Prediction Under the Null Hypothesis&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Observed Difference:&#39;</span><span class="p">,</span> <span class="n">observed_difference</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Empirical P-value:&#39;</span><span class="p">,</span> <span class="n">empirical_P</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Observed Difference: 0.733522727272728
-Empirical P-value: 0.0032
 </pre></div>
 </div>
-<img alt="../../../_images/Deflategate_31_1.png" src="../../../_images/Deflategate_31_1.png" />
+<img alt="../../../_images/Deflategate_29_1.png" src="../../../_images/Deflategate_29_1.png" />
+</div>
+</div>
+<p>By eye, the p-value looks pretty small. We can confirm this by a calculation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empirical_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">differences</span> <span class="o">&gt;=</span> <span class="n">observed_difference</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10000</span>
+<span class="n">empirical_p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0026
+</pre></div>
+</div>
 </div>
 </div>
 <p>As in previous examples of this test, the bulk of the distribution is centered around 0. Under the null hypothesis, the Patriots’ drops are a random sample of all 15 drops, and therefore so are the Colts’. Therefore the two sets of drops should be about equal on average, and therefore their difference should be around 0.</p>
@@ -1376,7 +1366,7 @@ Empirical P-value: 0.0032
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./chapters/12/2"
+            path: "./chapters/12/3"
         },
         predefinedOutput: true
     }
@@ -1392,24 +1382,6 @@ Empirical P-value: 0.0032
 
 <div class='prev-next-bottom'>
     
-    <div id="prev">
-        <a class="left-prev" href="../1/AB_Testing.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">12.1. </span>A/B Testing</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="../3/Causality.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">12.3. </span>Causality</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         
