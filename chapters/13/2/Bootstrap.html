@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -34,17 +34,17 @@
     
   <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -857,18 +857,23 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-the-bootstrap-works">
+   13.2.5. Why the Bootstrap Works
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#a-resampled-median">
-   13.2.5. A Resampled Median
+   13.2.6. A Resampled Median
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bootstrap-empirical-distribution-of-the-sample-median">
-   13.2.6. Bootstrap Empirical Distribution of the Sample Median
+   13.2.7. Bootstrap Empirical Distribution of the Sample Median
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#do-the-estimates-capture-the-parameter">
-   13.2.7. Do the Estimates Capture the Parameter?
+   13.2.8. Do the Estimates Capture the Parameter?
   </a>
  </li>
 </ul>
@@ -884,7 +889,7 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="the-bootstrap">
+<div class="tex2jax_ignore mathjax_ignore section" id="the-bootstrap">
 <h1><span class="section-number">13.2. </span>The Bootstrap<a class="headerlink" href="#the-bootstrap" title="Permalink to this headline">¶</a></h1>
 <p>A data scientist is using the data in a random sample to estimate an unknown parameter. She uses the sample to calculate the value of a statistic that she will use as her estimate.</p>
 <p>Once she has calculated the observed value of her statistic, she could just present it as her estimate and go on her merry way. But she’s a data scientist. She knows that her random sample is just one of numerous possible random samples, and thus her estimate is just one of numerous plausible estimates.</p>
@@ -895,17 +900,17 @@
 <div class="section" id="employee-compensation-in-the-city-of-san-francisco">
 <h2><span class="section-number">13.2.1. </span>Employee Compensation in the City of San Francisco<a class="headerlink" href="#employee-compensation-in-the-city-of-san-francisco" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://data.sfgov.org">SF OpenData</a> is a website where the City and County of San Francisco make some of their data publicly available. One of the data sets contains compensation data for employees of the City. These include medical professionals at City-run hospitals, police officers, fire fighters, transportation workers, elected officials, and all other employees of the City.</p>
-<p>Compensation data for the calendar year 2015 are in the table <code class="docutils literal notranslate"><span class="pre">sf2015</span></code>.</p>
+<p>Compensation data for the calendar year 2019 are in the table <code class="docutils literal notranslate"><span class="pre">sf2019</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf2015</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;san_francisco_2015.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf2019</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;san_francisco_2019.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf2015</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf2019</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -913,48 +918,27 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>Year Type</th> <th>Year</th> <th>Organization Group Code</th> <th>Organization Group</th> <th>Department Code</th> <th>Department</th> <th>Union Code</th> <th>Union</th> <th>Job Family Code</th> <th>Job Family</th> <th>Job Code</th> <th>Job</th> <th>Employee Identifier</th> <th>Salaries</th> <th>Overtime</th> <th>Other Salaries</th> <th>Total Salary</th> <th>Retirement</th> <th>Health/Dental</th> <th>Other Benefits</th> <th>Total Benefits</th> <th>Total Compensation</th>
+            <th>Organization Group</th> <th>Department</th> <th>Job Family</th> <th>Job</th> <th>Salary</th> <th>Overtime</th> <th>Benefits</th> <th>Total Compensation</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>Calendar </td> <td>2015</td> <td>2                      </td> <td>Public Works, Transportation & Commerce </td> <td>WTR            </td> <td>PUC Water Department                  </td> <td>21        </td> <td>Prof & Tech Engineers - Miscellaneous, Local 21   </td> <td>2400           </td> <td>Lab, Pharmacy & Med Techs    </td> <td>2481    </td> <td>Water Qualitytech I/II        </td> <td>21538              </td> <td>82146   </td> <td>0       </td> <td>0             </td> <td>82146       </td> <td>16942.2   </td> <td>12340.9      </td> <td>6337.73       </td> <td>35620.8       </td> <td>117767            </td>
+            <td>Public Protection </td> <td>Adult Probation</td> <td>Information Systems</td> <td>IS Trainer-Journey        </td> <td>91332 </td> <td>0       </td> <td>40059   </td> <td>131391            </td>
         </tr>
         <tr>
-            <td>Calendar </td> <td>2015</td> <td>2                      </td> <td>Public Works, Transportation & Commerce </td> <td>DPW            </td> <td>General Services Agency - Public Works</td> <td>12        </td> <td>Carpet, Linoleum and Soft Tile Workers, Local 12  </td> <td>7300           </td> <td>Journeyman Trade             </td> <td>7393    </td> <td>Soft Floor Coverer            </td> <td>5459               </td> <td>32165.8 </td> <td>973.19  </td> <td>848.96        </td> <td>33987.9     </td> <td>0         </td> <td>4587.51      </td> <td>2634.42       </td> <td>7221.93       </td> <td>41209.8           </td>
+            <td>Public Protection </td> <td>Adult Probation</td> <td>Information Systems</td> <td>IS Engineer-Assistant     </td> <td>123241</td> <td>0       </td> <td>49279   </td> <td>172520            </td>
         </tr>
         <tr>
-            <td>Calendar </td> <td>2015</td> <td>4                      </td> <td>Community Health                        </td> <td>DPH            </td> <td>Public Health                         </td> <td>790       </td> <td>SEIU - Miscellaneous, Local 1021                  </td> <td>1600           </td> <td>Payroll, Billing & Accounting</td> <td>1636    </td> <td>Health Care Billing Clerk 2   </td> <td>41541              </td> <td>71311   </td> <td>5757.98 </td> <td>0             </td> <td>77069       </td> <td>14697.6   </td> <td>12424.5      </td> <td>6370.06       </td> <td>33492.2       </td> <td>110561            </td>
-        </tr>
-        <tr>
-            <td>Calendar </td> <td>2015</td> <td>4                      </td> <td>Community Health                        </td> <td>DPH            </td> <td>Public Health                         </td> <td>351       </td> <td>Municipal Executive Association - Miscellaneous   </td> <td>0900           </td> <td>Management                   </td> <td>2620    </td> <td>Food Service Mgr Administrator</td> <td>26718              </td> <td>28430.2 </td> <td>0       </td> <td>763.07        </td> <td>29193.3     </td> <td>0         </td> <td>4223.14      </td> <td>5208.51       </td> <td>9431.65       </td> <td>38625             </td>
-        </tr>
-        <tr>
-            <td>Calendar </td> <td>2015</td> <td>2                      </td> <td>Public Works, Transportation & Commerce </td> <td>MTA            </td> <td>Municipal Transportation Agency       </td> <td>790       </td> <td>SEIU - Miscellaneous, Local 1021                  </td> <td>8200           </td> <td>Protection & Apprehension    </td> <td>8201    </td> <td>School Crossing Guard         </td> <td>45810              </td> <td>7948.75 </td> <td>0       </td> <td>0             </td> <td>7948.75     </td> <td>0         </td> <td>2873.17      </td> <td>616.24        </td> <td>3489.41       </td> <td>11438.2           </td>
-        </tr>
-        <tr>
-            <td>Calendar </td> <td>2015</td> <td>1                      </td> <td>Public Protection                       </td> <td>POL            </td> <td>Police                                </td> <td>911       </td> <td>Police Officers' Association                      </td> <td>Q000           </td> <td>Police Services              </td> <td>Q002    </td> <td>Police Officer                </td> <td>32906              </td> <td>2235    </td> <td>0       </td> <td>0             </td> <td>2235        </td> <td>490.36    </td> <td>286.72       </td> <td>176.57        </td> <td>953.65        </td> <td>3188.65           </td>
-        </tr>
-        <tr>
-            <td>Calendar </td> <td>2015</td> <td>4                      </td> <td>Community Health                        </td> <td>DPH            </td> <td>Public Health                         </td> <td>791       </td> <td>SEIU - Staff and Per Diem Nurses, Local 1021      </td> <td>2300           </td> <td>Nursing                      </td> <td>2328    </td> <td>Nurse Practitioner            </td> <td>7506               </td> <td>187247  </td> <td>0       </td> <td>11704.1       </td> <td>198951      </td> <td>37683.7   </td> <td>12424.5      </td> <td>11221.7       </td> <td>61329.9       </td> <td>260281            </td>
-        </tr>
-        <tr>
-            <td>Calendar </td> <td>2015</td> <td>2                      </td> <td>Public Works, Transportation & Commerce </td> <td>MTA            </td> <td>Municipal Transportation Agency       </td> <td>253       </td> <td>Transport Workers - Transit Operators, Local 250-A</td> <td>9100           </td> <td>Street Transit               </td> <td>9163    </td> <td>Transit Operator              </td> <td>36773              </td> <td>66988.5 </td> <td>3512.88 </td> <td>2770.39       </td> <td>73271.8     </td> <td>19127.2   </td> <td>13203        </td> <td>5455.1        </td> <td>37785.3       </td> <td>111057            </td>
-        </tr>
-        <tr>
-            <td>Calendar </td> <td>2015</td> <td>6                      </td> <td>General Administration & Finance        </td> <td>CAT            </td> <td>City Attorney                         </td> <td>311       </td> <td>Municipal Attorneys' Association                  </td> <td>8100           </td> <td>Legal & Court                </td> <td>8177    </td> <td>Attorney (Civil/Criminal)     </td> <td>12963              </td> <td>135190  </td> <td>0       </td> <td>1562.5        </td> <td>136752      </td> <td>27501.8   </td> <td>12424.5      </td> <td>10103         </td> <td>50029.3       </td> <td>186781            </td>
-        </tr>
-        <tr>
-            <td>Calendar </td> <td>2015</td> <td>3                      </td> <td>Human Welfare & Neighborhood Development</td> <td>DSS            </td> <td>Human Services                        </td> <td>535       </td> <td>SEIU - Human Services, Local 1021                 </td> <td>9700           </td> <td>Community Development        </td> <td>9703    </td> <td>Emp & Training Spec 2         </td> <td>35179              </td> <td>70474.8 </td> <td>147.28  </td> <td>1647.24       </td> <td>72269.3     </td> <td>14650.3   </td> <td>10696.9      </td> <td>5993.11       </td> <td>31340.3       </td> <td>103610            </td>
+            <td>Public Protection </td> <td>Adult Probation</td> <td>Information Systems</td> <td>IS Business Analyst-Senior</td> <td>115715</td> <td>0       </td> <td>46752   </td> <td>162468            </td>
         </tr>
     </tbody>
 </table>
-<p>... (42979 rows omitted)</p></div></div>
+<p>... (44522 rows omitted)</p></div></div>
 </div>
-<p>There is one row for each of 42,979 employees. There are numerous columns containing information about City departmental affiliation and details of the different parts of the employee’s compensation package. Here is the row correspoding to the late Edward Lee, the Mayor at that time.</p>
+<p>There is one row for each of over 44,500 employees. There are numerous columns containing information about City departmental affiliation and details of the different parts of the employee’s compensation package. Here is the row corresponding to London Breed, the Mayor of San Francisco in 2019.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf2015</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;Job&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">equal_to</span><span class="p">(</span><span class="s1">&#39;Mayor&#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf2019</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;Job&#39;</span><span class="p">,</span> <span class="s1">&#39;Mayor&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -962,21 +946,21 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>Year Type</th> <th>Year</th> <th>Organization Group Code</th> <th>Organization Group</th> <th>Department Code</th> <th>Department</th> <th>Union Code</th> <th>Union</th> <th>Job Family Code</th> <th>Job Family</th> <th>Job Code</th> <th>Job</th> <th>Employee Identifier</th> <th>Salaries</th> <th>Overtime</th> <th>Other Salaries</th> <th>Total Salary</th> <th>Retirement</th> <th>Health/Dental</th> <th>Other Benefits</th> <th>Total Benefits</th> <th>Total Compensation</th>
+            <th>Organization Group</th> <th>Department</th> <th>Job Family</th> <th>Job</th> <th>Salary</th> <th>Overtime</th> <th>Benefits</th> <th>Total Compensation</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>Calendar </td> <td>2015</td> <td>6                      </td> <td>General Administration & Finance</td> <td>MYR            </td> <td>Mayor     </td> <td>556       </td> <td>Elected Officials</td> <td>1100           </td> <td>Administrative & Mgmt (Unrep)</td> <td>1190    </td> <td>Mayor</td> <td>22433              </td> <td>288964  </td> <td>0       </td> <td>0             </td> <td>288964      </td> <td>58117     </td> <td>12424.5      </td> <td>20293         </td> <td>90834.5       </td> <td>379798            </td>
+            <td>General Administration & Finance</td> <td>Mayor     </td> <td>Administrative & Mgmt (Unrep)</td> <td>Mayor</td> <td>342974</td> <td>0       </td> <td>98012   </td> <td>440987            </td>
         </tr>
     </tbody>
 </table></div></div>
 </div>
-<p>We are going to study the final column, <code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">Compensation</span></code>. That’s the employee’s salary plus the City’s contribution towards his/her retirement and benefit plans.</p>
+<p>We are going to study the final column, <code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">Compensation</span></code>. That’s the employee’s salary plus the City’s contribution towards their retirement and benefit plans.</p>
 <p>Financial packages in a calendar year can sometimes be hard to understand as they depend on the date of hire, whether the employee is changing jobs within the City, and so on. For example, the lowest values in the <code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">Compensation</span></code> column look a little strange.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf2015</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;Total Compensation&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf2019</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;Total Compensation&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -984,60 +968,60 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>Year Type</th> <th>Year</th> <th>Organization Group Code</th> <th>Organization Group</th> <th>Department Code</th> <th>Department</th> <th>Union Code</th> <th>Union</th> <th>Job Family Code</th> <th>Job Family</th> <th>Job Code</th> <th>Job</th> <th>Employee Identifier</th> <th>Salaries</th> <th>Overtime</th> <th>Other Salaries</th> <th>Total Salary</th> <th>Retirement</th> <th>Health/Dental</th> <th>Other Benefits</th> <th>Total Benefits</th> <th>Total Compensation</th>
+            <th>Organization Group</th> <th>Department</th> <th>Job Family</th> <th>Job</th> <th>Salary</th> <th>Overtime</th> <th>Benefits</th> <th>Total Compensation</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>Calendar </td> <td>2015</td> <td>1                      </td> <td>Public Protection                      </td> <td>FIR            </td> <td>Fire Department                   </td> <td>798       </td> <td>Firefighters - Miscellaneous, Local 798        </td> <td>H000           </td> <td>Fire Services           </td> <td>H002    </td> <td>Firefighter                  </td> <td>43833              </td> <td>0       </td> <td>0       </td> <td>0             </td> <td>0           </td> <td>0         </td> <td>0            </td> <td>-423.76       </td> <td>-423.76       </td> <td>-423.76           </td>
+            <td>Public Protection                      </td> <td>Adult Probation   </td> <td>Probation & Parole           </td> <td>Deputy Probation Officer      </td> <td>0     </td> <td>0       </td> <td>0       </td> <td>0                 </td>
         </tr>
         <tr>
-            <td>Calendar </td> <td>2015</td> <td>4                      </td> <td>Community Health                       </td> <td>DPH            </td> <td>Public Health                     </td> <td>790       </td> <td>SEIU - Miscellaneous, Local 1021               </td> <td>9900           </td> <td>Public Service Aide     </td> <td>9924    </td> <td>PS Aide Health Services      </td> <td>27871              </td> <td>-292.4  </td> <td>0       </td> <td>0             </td> <td>-292.4      </td> <td>0         </td> <td>-95.58       </td> <td>-22.63        </td> <td>-118.21       </td> <td>-410.61           </td>
+            <td>Public Protection                      </td> <td>Fire Department   </td> <td>Clerical, Secretarial & Steno</td> <td>Senior Clerk Typist           </td> <td>0     </td> <td>0       </td> <td>0       </td> <td>0                 </td>
         </tr>
         <tr>
-            <td>Calendar </td> <td>2015</td> <td>1                      </td> <td>Public Protection                      </td> <td>JUV            </td> <td>Juvenile Probation                </td> <td>790       </td> <td>SEIU - Miscellaneous, Local 1021               </td> <td>8300           </td> <td>Correction & Detention  </td> <td>8320    </td> <td>Counselor, Juvenile Hall     </td> <td>10517              </td> <td>0       </td> <td>0       </td> <td>0             </td> <td>0           </td> <td>0         </td> <td>0            </td> <td>-159.12       </td> <td>-159.12       </td> <td>-159.12           </td>
+            <td>Public Protection                      </td> <td>Juvenile Court    </td> <td>Correction & Detention       </td> <td>Counselor, Juvenile Hall PERS </td> <td>0     </td> <td>0       </td> <td>0       </td> <td>0                 </td>
         </tr>
         <tr>
-            <td>Calendar </td> <td>2015</td> <td>6                      </td> <td>General Administration & Finance       </td> <td>CPC            </td> <td>City Planning                     </td> <td>21        </td> <td>Prof & Tech Engineers - Miscellaneous, Local 21</td> <td>1000           </td> <td>Information Systems     </td> <td>1053    </td> <td>IS Business Analyst-Senior   </td> <td>18961              </td> <td>0       </td> <td>0       </td> <td>0             </td> <td>0           </td> <td>0         </td> <td>0            </td> <td>-26.53        </td> <td>-26.53        </td> <td>-26.53            </td>
+            <td>Public Protection                      </td> <td>Police            </td> <td>Clerical, Secretarial & Steno</td> <td>Clerk Typist                  </td> <td>0     </td> <td>0       </td> <td>0       </td> <td>0                 </td>
         </tr>
         <tr>
-            <td>Calendar </td> <td>2015</td> <td>6                      </td> <td>General Administration & Finance       </td> <td>CPC            </td> <td>City Planning                     </td> <td>21        </td> <td>Prof & Tech Engineers - Miscellaneous, Local 21</td> <td>5200           </td> <td>Professional Engineering</td> <td>5277    </td> <td>Planner 1                    </td> <td>19387              </td> <td>0       </td> <td>0       </td> <td>0             </td> <td>0           </td> <td>0         </td> <td>0            </td> <td>-9.51         </td> <td>-9.51         </td> <td>-9.51             </td>
+            <td>Public Protection                      </td> <td>Sheriff           </td> <td>Correction & Detention       </td> <td>Deputy Sheriff                </td> <td>0     </td> <td>0       </td> <td>0       </td> <td>0                 </td>
         </tr>
         <tr>
-            <td>Calendar </td> <td>2015</td> <td>2                      </td> <td>Public Works, Transportation & Commerce</td> <td>PUC            </td> <td>PUC Public Utilities Commission   </td> <td>21        </td> <td>Prof & Tech Engineers - Miscellaneous, Local 21</td> <td>1000           </td> <td>Information Systems     </td> <td>1044    </td> <td>IS Engineer-Principal        </td> <td>28988              </td> <td>0       </td> <td>0       </td> <td>0             </td> <td>0           </td> <td>0         </td> <td>0            </td> <td>-3.1          </td> <td>-3.1          </td> <td>-3.1              </td>
+            <td>Public Works, Transportation & Commerce</td> <td>Airport Commission</td> <td>Sub-Professional Engineering </td> <td>StdntDsgn Train2/Arch/Eng/Plng</td> <td>0     </td> <td>0       </td> <td>0       </td> <td>0                 </td>
         </tr>
         <tr>
-            <td>Calendar </td> <td>2015</td> <td>1                      </td> <td>Public Protection                      </td> <td>JUV            </td> <td>Juvenile Probation                </td> <td>39        </td> <td>Stationary Engineers, Local 39                 </td> <td>7300           </td> <td>Journeyman Trade        </td> <td>7335    </td> <td>Senior Stationary Engineer   </td> <td>19125              </td> <td>0       </td> <td>0       </td> <td>0             </td> <td>0           </td> <td>0         </td> <td>0            </td> <td>-0.01         </td> <td>-0.01         </td> <td>-0.01             </td>
+            <td>Public Works, Transportation & Commerce</td> <td>Airport Commission</td> <td>Clerical, Secretarial & Steno</td> <td>Executive Secretary 1         </td> <td>0     </td> <td>0       </td> <td>0       </td> <td>0                 </td>
         </tr>
         <tr>
-            <td>Calendar </td> <td>2015</td> <td>1                      </td> <td>Public Protection                      </td> <td>ECD            </td> <td>Department of Emergency Management</td> <td>351       </td> <td>Municipal Executive Association - Miscellaneous</td> <td>0900           </td> <td>Management              </td> <td>0922    </td> <td>Manager I                    </td> <td>30025              </td> <td>0       </td> <td>0       </td> <td>0             </td> <td>0           </td> <td>0         </td> <td>0            </td> <td>0             </td> <td>0             </td> <td>0                 </td>
+            <td>Public Works, Transportation & Commerce</td> <td>Airport Commission</td> <td>Payroll, Billing & Accounting</td> <td>Senior Account Clerk          </td> <td>0     </td> <td>0       </td> <td>0       </td> <td>0                 </td>
         </tr>
         <tr>
-            <td>Calendar </td> <td>2015</td> <td>7                      </td> <td>General City Responsibilities          </td> <td>UNA            </td> <td>General Fund Unallocated          </td> <td>790       </td> <td>SEIU - Miscellaneous, Local 1021               </td> <td>3200           </td> <td>Recreation              </td> <td>3280    </td> <td>Assistant Recreation Director</td> <td>49784              </td> <td>0       </td> <td>0       </td> <td>0             </td> <td>0           </td> <td>0         </td> <td>0            </td> <td>1.27          </td> <td>1.27          </td> <td>1.27              </td>
+            <td>Public Works, Transportation & Commerce</td> <td>Airport Commission</td> <td>Housekeeping & Laundry       </td> <td>Custodian                     </td> <td>0     </td> <td>0       </td> <td>0       </td> <td>0                 </td>
         </tr>
         <tr>
-            <td>Calendar </td> <td>2015</td> <td>4                      </td> <td>Community Health                       </td> <td>DPH            </td> <td>Public Health                     </td> <td>250       </td> <td>SEIU - Health Workers, Local 1021              </td> <td>2600           </td> <td>Dietary & Food          </td> <td>2654    </td> <td>Cook                         </td> <td>26768              </td> <td>0       </td> <td>0       </td> <td>2.21          </td> <td>2.21        </td> <td>0         </td> <td>0            </td> <td>0.17          </td> <td>0.17          </td> <td>2.38              </td>
+            <td>Public Works, Transportation & Commerce</td> <td>Airport Commission</td> <td>Housekeeping & Laundry       </td> <td>Custodian                     </td> <td>0     </td> <td>0       </td> <td>0       </td> <td>0                 </td>
         </tr>
     </tbody>
 </table>
-<p>... (42979 rows omitted)</p></div></div>
+<p>... (44515 rows omitted)</p></div></div>
 </div>
-<p>For clarity of comparison, we will focus our attention on those who had at least the equivalent of a half-time job for the whole year. At a minimum wage of about $10 per hour, and 20 hours per week for 52 weeks, that’s a salary of about $10,000.</p>
+<p>For clarity of interpretation, we will focus our attention on those who had roughly the equivalent of a half-time job or more for the whole year. At a minimum wage of about 15 dollars per hour, and 20 hours per week for 52 weeks, that’s a salary of over 15,000 dollars.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf2015</span> <span class="o">=</span> <span class="n">sf2015</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;Salaries&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">above</span><span class="p">(</span><span class="mi">10000</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf2019</span> <span class="o">=</span> <span class="n">sf2019</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;Salary&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">above</span><span class="p">(</span><span class="mi">15000</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf2015</span><span class="o">.</span><span class="n">num_rows</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf2019</span><span class="o">.</span><span class="n">num_rows</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36569
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37103
 </pre></div>
 </div>
 </div>
@@ -1045,11 +1029,11 @@
 </div>
 <div class="section" id="population-and-parameter">
 <h2><span class="section-number">13.2.2. </span>Population and Parameter<a class="headerlink" href="#population-and-parameter" title="Permalink to this headline">¶</a></h2>
-<p>Let this table of just over 36,500 rows be our population. Here is a histogram of the total compensations.</p>
+<p>Let this table of just over 37,000 rows be our population. Here is a histogram of the total compensations for the employees in this table.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">700000</span><span class="p">,</span> <span class="mi">25000</span><span class="p">)</span>
-<span class="n">sf2015</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Total Compensation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="n">sf_bins</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">726000</span><span class="p">,</span> <span class="mi">25000</span><span class="p">)</span>
+<span class="n">sf2019</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Total Compensation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="n">sf_bins</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1057,10 +1041,10 @@
 <img alt="../../../_images/Bootstrap_14_0.png" src="../../../_images/Bootstrap_14_0.png" />
 </div>
 </div>
-<p>While most of the values are below $300,000, a few are quite a bit higher. For example, the total compensation of the Chief Investment Officer was almost $650,000. That is why the horizontal axis stretches to $700,000.</p>
+<p>While most of the values are below 300,000 dollars, a few are quite a bit higher. For example, the total compensation of the Chief Investment Officer was over 700,000 dollars. That is why the horizontal axis stretches quite far to the right of the visible bars.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf2015</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;Total Compensation&#39;</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf2019</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;Total Compensation&#39;</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1068,36 +1052,36 @@
 <div class="output text_html"><table border="1" class="dataframe">
     <thead>
         <tr>
-            <th>Year Type</th> <th>Year</th> <th>Organization Group Code</th> <th>Organization Group</th> <th>Department Code</th> <th>Department</th> <th>Union Code</th> <th>Union</th> <th>Job Family Code</th> <th>Job Family</th> <th>Job Code</th> <th>Job</th> <th>Employee Identifier</th> <th>Salaries</th> <th>Overtime</th> <th>Other Salaries</th> <th>Total Salary</th> <th>Retirement</th> <th>Health/Dental</th> <th>Other Benefits</th> <th>Total Benefits</th> <th>Total Compensation</th>
+            <th>Organization Group</th> <th>Department</th> <th>Job Family</th> <th>Job</th> <th>Salary</th> <th>Overtime</th> <th>Benefits</th> <th>Total Compensation</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>Calendar </td> <td>2015</td> <td>6                      </td> <td>General Administration & Finance</td> <td>RET            </td> <td>Retirement System                   </td> <td>351       </td> <td>Municipal Executive Association - Miscellaneous</td> <td>1100           </td> <td>Administrative & Mgmt (Unrep)</td> <td>1119    </td> <td>Chief Investment Officer</td> <td>46881              </td> <td>507832  </td> <td>0       </td> <td>0             </td> <td>507832      </td> <td>105053    </td> <td>12424.5      </td> <td>23566.2       </td> <td>141044        </td> <td>648875            </td>
+            <td>General Administration & Finance</td> <td>Retirement Services</td> <td>Administrative & Mgmt (Unrep)</td> <td>Chief Investment Officer</td> <td>577633</td> <td>0       </td> <td>146398  </td> <td>724031            </td>
         </tr>
         <tr>
-            <td>Calendar </td> <td>2015</td> <td>6                      </td> <td>General Administration & Finance</td> <td>ADM            </td> <td>General Services Agency - City Admin</td> <td>164       </td> <td>Physicians and Dentists - Miscellaneous        </td> <td>2500           </td> <td>Med Therapy & Auxiliary      </td> <td>2598    </td> <td>Asst Med Examiner       </td> <td>1016               </td> <td>279311  </td> <td>3829.36 </td> <td>114434        </td> <td>397574      </td> <td>56211.6   </td> <td>12424.5      </td> <td>14299.1       </td> <td>82935.2       </td> <td>480509            </td>
+            <td>General Administration & Finance</td> <td>Retirement Services</td> <td>Unassigned                   </td> <td>Managing Director       </td> <td>483072</td> <td>0       </td> <td>134879  </td> <td>617951            </td>
         </tr>
     </tbody>
 </table>
-<p>... (36567 rows omitted)</p></div></div>
+<p>... (37101 rows omitted)</p></div></div>
 </div>
-<p>Now let the parameter be the median of the total compensations.</p>
+<p>Suppose the parameter in which we are interested is the median of the total compensations.</p>
 <p>Since we have the luxury of having all of the data from the population, we can simply calculate the parameter:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_median</span> <span class="o">=</span> <span class="n">percentile</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">sf2015</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Total Compensation&#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_median</span> <span class="o">=</span> <span class="n">percentile</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">sf2019</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Total Compensation&#39;</span><span class="p">))</span>
 <span class="n">pop_median</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>110305.79
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>135747.0
 </pre></div>
 </div>
 </div>
 </div>
-<p>The median total compensation of all employees was just over $110,300.</p>
+<p>The median total compensation of all the employees was 135,747 dollars.</p>
 <p>From a practical perspective, there is no reason for us to draw a sample to estimate this parameter since we simply know its value. But in this section we are going to pretend we don’t know the value, and see how well we can estimate it based on a random sample.</p>
 <p>In later sections, we will come down to earth and work in situations where the parameter is unknown. For now, we are all-knowing.</p>
 </div>
@@ -1106,7 +1090,7 @@
 <p>Let us draw a sample of 500 employees at random without replacement, and let the median total compensation of the sampled employees serve as our estimate of the parameter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">our_sample</span> <span class="o">=</span> <span class="n">sf2015</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="n">with_replacement</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">our_sample</span> <span class="o">=</span> <span class="n">sf2019</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="n">with_replacement</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">our_sample</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Total Compensation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="n">sf_bins</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1123,15 +1107,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>112337.11
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>136835.0
 </pre></div>
 </div>
 </div>
 </div>
-<p>The sample size is large. By the law of averages, the distribution of the sample resembles that of the population, and consequently the sample median is not very far from the population median (though of course it is not exactly the same).</p>
+<p>The sample size is large. By the law of averages, the distribution of the sample resembles that of the population. Consequently the sample median is quite comparable to the population median, though of course it is not exactly the same.</p>
 <p>So now we have one estimate of the parameter. But had the sample come out differently, the estimate would have had a different value. We would like to be able to quantify the amount by which the estimate could vary across samples. That measure of variability will help us measure how accurately we can estimate the parameter.</p>
-<p>To see how different the estimate would be if the sample had come out differently, we could just draw another sample from the population, but that would be cheating. We are trying to mimic real life, in which we won’t have all the population data at hand.</p>
-<p>Somehow, we have to get another random sample without sampling from the population.</p>
+<p>To see how different the estimate would be if the sample had come out differently, we could just draw another sample from the population. But that would be cheating. We are trying to mimic real life, in which we won’t have all the population data at hand.</p>
+<p>Somehow, we have to get another random sample <em>without sampling again from the population</em>.</p>
 </div>
 <div class="section" id="the-bootstrap-resampling-from-the-sample">
 <h2><span class="section-number">13.2.4. </span>The Bootstrap: Resampling from the Sample<a class="headerlink" href="#the-bootstrap-resampling-from-the-sample" title="Permalink to this headline">¶</a></h2>
@@ -1139,20 +1123,23 @@
 <p>Here are the steps of <em>the bootstrap method</em> for generating another random sample that resembles the population:</p>
 <ul class="simple">
 <li><p><strong>Treat the original sample as if it were the population.</strong></p></li>
-<li><p><strong>Draw from the sample</strong>, at random <strong>with</strong> replacement, <strong>the same number of times as the original sample size</strong>.</p></li>
+<li><p><strong>Draw from the sample, at random with replacement, the same number of times as the original sample size</strong>.</p></li>
 </ul>
 <p>It is important to resample the same number of times as the original sample size. The reason is that the variability of an estimate depends on the size of the sample. Since our original sample consisted of 500 employees, our sample median was based on 500 values. To see how different the sample could have been, we have to compare it to the median of other samples of size 500.</p>
 <p>If we drew 500 times at random <em>without</em> replacement from our sample of size 500, we would just get the same sample back. By drawing <em>with</em> replacement, we create the possibility for the new samples to be different from the original, because some employees might be drawn more than once and others not at all.</p>
+</div>
+<div class="section" id="why-the-bootstrap-works">
+<h2><span class="section-number">13.2.5. </span>Why the Bootstrap Works<a class="headerlink" href="#why-the-bootstrap-works" title="Permalink to this headline">¶</a></h2>
 <p>Why is this a good idea? By the law of averages, the distribution of the original sample is likely to resemble the population, and the distributions of all the “resamples” are likely to resemble the original sample. So the distributions of all the resamples are likely to resemble the population as well.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../../_images/Bootstrap_25_0.png" src="../../../_images/Bootstrap_25_0.png" />
+<img alt="../../../_images/Bootstrap_26_0.png" src="../../../_images/Bootstrap_26_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="a-resampled-median">
-<h2><span class="section-number">13.2.5. </span>A Resampled Median<a class="headerlink" href="#a-resampled-median" title="Permalink to this headline">¶</a></h2>
-<p>Recall that when the <code class="docutils literal notranslate"><span class="pre">sample</span></code> method is used without specifying a sample size, by default the sample size equals the number of rows of the table from which the sample is drawn. That’s perfect for the bootstrap! Here is one new sample drawn from the original sample, and the corresponding sample median.</p>
+<h2><span class="section-number">13.2.6. </span>A Resampled Median<a class="headerlink" href="#a-resampled-median" title="Permalink to this headline">¶</a></h2>
+<p>Recall that the <code class="docutils literal notranslate"><span class="pre">sample</span></code> method draws rows from a table with replacement by default, and when it is used without specifying a sample size, by default the sample size equals the number of rows of the table. That’s perfect for the bootstrap! Here is one new sample drawn from the original sample, and the corresponding sample median.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resample_1</span> <span class="o">=</span> <span class="n">our_sample</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
@@ -1167,7 +1154,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/Bootstrap_28_0.png" src="../../../_images/Bootstrap_28_0.png" />
+<img alt="../../../_images/Bootstrap_29_0.png" src="../../../_images/Bootstrap_29_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1178,12 +1165,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>115281.15
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>141793.0
 </pre></div>
 </div>
 </div>
 </div>
-<p>By resampling, we have another estimate of the population median. By resampling again and again, we will get many such estimates, and hence an empirical distribution of the estimates.</p>
+<p>This value is an estimate of the population median.</p>
+<p>By resampling again and again, we can get many such estimates, and hence an empirical distribution of the estimates.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resample_2</span> <span class="o">=</span> <span class="n">our_sample</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
@@ -1193,67 +1181,74 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>113640.59
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>135880.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us collect this code and define a function <code class="docutils literal notranslate"><span class="pre">one_bootstrap_median</span></code> that returns one bootstrapped median of total compensation, based on bootstrapping the original random sample that we called <code class="docutils literal notranslate"><span class="pre">our_sample</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one_bootstrap_median</span><span class="p">():</span>
+    <span class="n">resampled_table</span> <span class="o">=</span> <span class="n">our_sample</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+    <span class="n">bootstrapped_median</span> <span class="o">=</span> <span class="n">percentile</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">resampled_table</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Total Compensation&#39;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">bootstrapped_median</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Run the cell below a few times to see how the bootstrapped medians vary. Remember that each of them is an estimate of the population median.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_bootstrap_median</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>132175.0
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="bootstrap-empirical-distribution-of-the-sample-median">
-<h2><span class="section-number">13.2.6. </span>Bootstrap Empirical Distribution of the Sample Median<a class="headerlink" href="#bootstrap-empirical-distribution-of-the-sample-median" title="Permalink to this headline">¶</a></h2>
-<p>Let us define a function <code class="docutils literal notranslate"><span class="pre">bootstrap_median</span></code> that takes our original sample, the label of the column containing the variable, and the number of bootstrap samples we want to take, and returns an array of the corresponding resampled medians.</p>
-<p>Each time we resample and find the median, we <em>replicate</em> the bootstrap process. So the number of bootstrap samples will be called the number of replications.</p>
+<h2><span class="section-number">13.2.7. </span>Bootstrap Empirical Distribution of the Sample Median<a class="headerlink" href="#bootstrap-empirical-distribution-of-the-sample-median" title="Permalink to this headline">¶</a></h2>
+<p>We can now repeat the bootstrap process multiple times by running a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop as usual. In each iteration, we will call the function <code class="docutils literal notranslate"><span class="pre">one_bootstrap_median</span></code> to generate one value of the bootstrapped median based on our original sample <code class="docutils literal notranslate"><span class="pre">our_sample</span></code>. Then we will append the boostrapped median to the collection array <code class="docutils literal notranslate"><span class="pre">bstrap_medians</span></code>.</p>
+<p>Since we are asking for 5000 repetitions, the code might take a while to run. It has a lot of resampling to do!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bootstrap_median</span><span class="p">(</span><span class="n">original_sample</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">replications</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Returns an array of bootstrapped sample medians:</span>
-<span class="sd">    original_sample: table containing the original sample</span>
-<span class="sd">    label: label of column containing the variable</span>
-<span class="sd">    replications: number of bootstrap samples</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">just_one_column</span> <span class="o">=</span> <span class="n">original_sample</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
-    <span class="n">medians</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">replications</span><span class="p">):</span>
-        <span class="n">bootstrap_sample</span> <span class="o">=</span> <span class="n">just_one_column</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
-        <span class="n">resampled_median</span> <span class="o">=</span> <span class="n">percentile</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">bootstrap_sample</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
-        <span class="n">medians</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">medians</span><span class="p">,</span> <span class="n">resampled_median</span><span class="p">)</span>
-        
-    <span class="k">return</span> <span class="n">medians</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_repetitions</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">bstrap_medians</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_repetitions</span><span class="p">):</span>
+    <span class="n">bstrap_medians</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">bstrap_medians</span><span class="p">,</span> <span class="n">one_bootstrap_median</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>We now replicate the bootstrap process 5,000 times. The array <code class="docutils literal notranslate"><span class="pre">bstrap_medians</span></code> contains the medians of all 5,000 bootstrap samples. Notice that the code takes longer to run than our previous code. It has a lot of resampling to do!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bstrap_medians</span> <span class="o">=</span> <span class="n">bootstrap_median</span><span class="p">(</span><span class="n">our_sample</span><span class="p">,</span> <span class="s1">&#39;Total Compensation&#39;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Here is the histogram of the 5000 medians. The red dot is the population parameter: it is the median of the entire population, which we happen to know but did not use in the bootstrap process.</p>
+<p>Here is an empirical histogram of the 5000 bootstrapped medians. The green dot is the population parameter: it is the median of the entire population, which is what we are trying to estimate. In this example we happen to know its value, but we did not use it in the bootstrap process.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resampled_medians</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span><span class="s1">&#39;Bootstrap Sample Median&#39;</span><span class="p">,</span> <span class="n">bstrap_medians</span><span class="p">)</span>
+<span class="n">median_bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">120000</span><span class="p">,</span> <span class="mi">160000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="n">resampled_medians</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span> <span class="o">=</span> <span class="n">median_bins</span><span class="p">)</span>
 
-<span class="c1">#median_bins=np.arange(100000, 130000, 2500)</span>
-<span class="c1">#resampled_medians.hist(bins = median_bins)</span>
-<span class="n">resampled_medians</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
-
-<span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pop_median</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">);</span>
+<span class="c1"># Plotting parameters; you can ignore this code</span>
+<span class="n">parameter_green</span> <span class="o">=</span> <span class="s1">&#39;#32CD32&#39;</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.000005</span><span class="p">,</span> <span class="mf">0.00014</span><span class="p">)</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pop_median</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">parameter_green</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/Bootstrap_37_0.png" src="../../../_images/Bootstrap_37_0.png" />
+<img alt="../../../_images/Bootstrap_40_0.png" src="../../../_images/Bootstrap_40_0.png" />
 </div>
 </div>
-<p>It is important to remember that the red dot is fixed: it is $110,305.79, the population median. The empirical histogram is the result of random draws, and will be situated randomly relative to the red dot.</p>
-<p>Remember also that the point of all these computations is to estimate the population median, which is the red dot. Our estimates are all the randomly generated sampled medians whose histogram you see above. We want those estimates to contain the parameter – it they don’t, then they are off.</p>
+<p>It is important to remember that the green dot is fixed: it is 135,747 dollars, the population median. The empirical histogram is the result of random draws, and will be situated randomly relative to the green dot.</p>
+<p>Remember also that the point of all these computations is to estimate the population median, which is the green dot. Our estimates are all the randomly generated sampled medians whose histogram you see above. We want the set of these estimates to contain the parameter. If it doesn’t, then the estimates are off.</p>
 </div>
 <div class="section" id="do-the-estimates-capture-the-parameter">
-<h2><span class="section-number">13.2.7. </span>Do the Estimates Capture the Parameter?<a class="headerlink" href="#do-the-estimates-capture-the-parameter" title="Permalink to this headline">¶</a></h2>
-<p>How often does the empirical histogram of the resampled medians sit firmly over the red dot, and not just brush the dot with its tails? To answer this, we must define “sit firmly”. Let’s take that to mean “the middle 95% of the resampled medians contains the red dot”.</p>
+<h2><span class="section-number">13.2.8. </span>Do the Estimates Capture the Parameter?<a class="headerlink" href="#do-the-estimates-capture-the-parameter" title="Permalink to this headline">¶</a></h2>
+<p>How often does the empirical histogram of the resampled medians sit firmly over the green dot, and not just brush the dot with its tails or not cover it at all? To answer this, we must define “sit firmly”. Let’s take that to mean “the middle 95% of the resampled medians contains the green dot”.</p>
 <p>Here are the two ends of the “middle 95%” interval of resampled medians:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1263,7 +1258,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>107282.39
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>129524.0
 </pre></div>
 </div>
 </div>
@@ -1276,49 +1271,63 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>118605.2
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>143446.0
 </pre></div>
 </div>
 </div>
 </div>
-<p>The population median of $110,305 is between these two numbers. The interval and the population median are shown on the histogram below.</p>
+<p>The population median of 135,747 dollars is between these two numbers. The interval and the population median are shown on the histogram below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#median_bins=np.arange(100000, 130000, 2500)</span>
-<span class="c1">#resampled_medians.hist(bins = median_bins)</span>
-<span class="n">resampled_medians</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resampled_medians</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span> <span class="o">=</span> <span class="n">median_bins</span><span class="p">)</span>
 
-<span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">make_array</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">),</span> <span class="n">make_array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pop_median</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+<span class="c1"># Plotting parameters; you can ignore this code</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.000005</span><span class="p">,</span> <span class="mf">0.00014</span><span class="p">)</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pop_median</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">parameter_green</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/Bootstrap_43_0.png" src="../../../_images/Bootstrap_43_0.png" />
+<img alt="../../../_images/Bootstrap_46_0.png" src="../../../_images/Bootstrap_46_0.png" />
 </div>
 </div>
 <p>The “middle 95%” interval of estimates captured the parameter in our example. But was that a fluke?</p>
-<p>To see how frequently the interval contains the parameter, we have to run the entire process over and over again. Specifically, we will repeat the following process 100 times:</p>
+<p>To see how frequently the interval contains the parameter, we have to run the entire process over and over again. Specifically, we will replicate the following process 100 times:</p>
 <ul class="simple">
-<li><p>Draw an original sample of size 500 from the population.</p></li>
-<li><p>Carry out 5,000 replications of the bootstrap process and generate the “middle 95%” interval of resampled medians.</p></li>
+<li><p>Draw an original random sample of size 500 from the population.</p></li>
+<li><p>Carry out 5000 replications of the bootstrap process and generate the “middle 95%” interval of resampled medians.</p></li>
 </ul>
 <p>We will end up with 100 intervals, and count how many of them contain the population median.</p>
-<p><strong>Spoiler alert:</strong> The statistical theory of the bootstrap says that the number should be around 95. It may be in the low 90s or high 90s, but not much farther off 95 than that.</p>
+<p><strong>Spoiler alert:</strong> The statistical theory of the bootstrap says that the number should be around 95. It may be in the low 90s or high 90s, but we don’t expect it to be much farther off 95 than that.</p>
+<p>We will start by writing a function <code class="docutils literal notranslate"><span class="pre">bootstrap_median</span></code> that takes two arguments: the name of the table containing the original random sample, and the number of bootstrap samples to draw. It returns an array of bootstrapped medians, one from each boostrap sample.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bootstrap_median</span><span class="p">(</span><span class="n">original_sample</span><span class="p">,</span> <span class="n">num_repetitions</span><span class="p">):</span>
+    <span class="n">medians</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_repetitions</span><span class="p">):</span>
+        <span class="n">new_bstrap_sample</span> <span class="o">=</span> <span class="n">original_sample</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+        <span class="n">new_bstrap_median</span> <span class="o">=</span> <span class="n">percentile</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">new_bstrap_sample</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;Total Compensation&#39;</span><span class="p">))</span>
+        <span class="n">medians</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">medians</span><span class="p">,</span> <span class="n">new_bstrap_median</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">medians</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we will write a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that calls this function 100 times and collects the “middle 95%” of the bootstrapped medians each time.</p>
+<p>The cell below will take several minutes to run since it has to perform 100 replications of sampling 500 times at random from the table and generating 5000 bootstrapped samples.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># THE BIG SIMULATION: This one takes several minutes.</span>
 
-<span class="c1"># Generate 100 intervals, in the table intervals</span>
+<span class="c1"># Generate 100 intervals and put the endpoints in the table intervals</span>
 
 <span class="n">left_ends</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
 <span class="n">right_ends</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
 
-<span class="n">total_comps</span> <span class="o">=</span> <span class="n">sf2015</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Total Compensation&#39;</span><span class="p">)</span>
-
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
-    <span class="n">first_sample</span> <span class="o">=</span> <span class="n">total_comps</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="n">with_replacement</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">medians</span> <span class="o">=</span> <span class="n">bootstrap_median</span><span class="p">(</span><span class="n">first_sample</span><span class="p">,</span> <span class="s1">&#39;Total Compensation&#39;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+    <span class="n">original_sample</span> <span class="o">=</span> <span class="n">sf2019</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="n">with_replacement</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">medians</span> <span class="o">=</span> <span class="n">bootstrap_median</span><span class="p">(</span><span class="n">original_sample</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
     <span class="n">left_ends</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">left_ends</span><span class="p">,</span> <span class="n">percentile</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">medians</span><span class="p">))</span>
     <span class="n">right_ends</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">right_ends</span><span class="p">,</span> <span class="n">percentile</span><span class="p">(</span><span class="mf">97.5</span><span class="p">,</span> <span class="n">medians</span><span class="p">))</span>
 
@@ -1330,7 +1339,7 @@
 </div>
 </div>
 </div>
-<p>For each of the 100 replications, we get one interval of estimates of the median.</p>
+<p>For each of the 100 replications of the entire process, we get one interval of estimates of the median.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">intervals</span>
@@ -1346,34 +1355,34 @@
     </thead>
     <tbody>
         <tr>
-            <td>103553 </td> <td>113680</td>
+            <td>125093</td> <td>139379</td>
         </tr>
         <tr>
-            <td>102804 </td> <td>114390</td>
+            <td>129925</td> <td>140757</td>
         </tr>
         <tr>
-            <td>101703 </td> <td>111654</td>
+            <td>133955</td> <td>146369</td>
         </tr>
         <tr>
-            <td>97450.9</td> <td>113324</td>
+            <td>129335</td> <td>140847</td>
         </tr>
         <tr>
-            <td>97659.6</td> <td>108916</td>
+            <td>132756</td> <td>145429</td>
         </tr>
         <tr>
-            <td>106925 </td> <td>116829</td>
+            <td>130167</td> <td>143200</td>
         </tr>
         <tr>
-            <td>103505 </td> <td>112294</td>
+            <td>125935</td> <td>138491</td>
         </tr>
         <tr>
-            <td>100758 </td> <td>117754</td>
+            <td>131092</td> <td>142472</td>
         </tr>
         <tr>
-            <td>99976.8</td> <td>113791</td>
+            <td>128509</td> <td>140462</td>
         </tr>
         <tr>
-            <td>100377 </td> <td>113879</td>
+            <td>131270</td> <td>145998</td>
         </tr>
     </tbody>
 </table>
@@ -1387,7 +1396,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>110305.79
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>135747.0
 </pre></div>
 </div>
 </div>
@@ -1395,36 +1404,39 @@
 <p>How many of the 100 intervals contain the population median? That’s the number of intervals where the left end is below the population median and the right end is above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">intervals</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;Left&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">below</span><span class="p">(</span><span class="n">pop_median</span><span class="p">))</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;Right&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">above</span><span class="p">(</span><span class="n">pop_median</span><span class="p">))</span><span class="o">.</span><span class="n">num_rows</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">intervals</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+    <span class="s1">&#39;Left&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">below</span><span class="p">(</span><span class="n">pop_median</span><span class="p">))</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+    <span class="s1">&#39;Right&#39;</span><span class="p">,</span> <span class="n">are</span><span class="o">.</span><span class="n">above</span><span class="p">(</span><span class="n">pop_median</span><span class="p">))</span><span class="o">.</span><span class="n">num_rows</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>94
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>93
 </pre></div>
 </div>
 </div>
 </div>
-<p>It takes a few minutes to construct all the intervals, but try it again if you have the patience. Most likely, about 95 of the 100 intervals will be good ones: they will contain the parameter.</p>
+<p>It takes many minutes to construct all the intervals, but try it again if you have the patience. Most likely, about 95 of the 100 intervals will be good ones: they will contain the parameter.</p>
 <p>It’s hard to show you all the intervals on the horizontal axis as they have large overlaps – after all, they are all trying to estimate the same parameter. The graphic below shows each interval on the same axes by stacking them vertically. The vertical axis is simply the number of the replication from which the interval was generated.</p>
-<p>The red line is where the parameter is. Good intervals cover the parameter; there are about 95 of these, typically.</p>
-<p>If an interval doesn’t cover the parameter, it’s a dud. The duds are the ones where you can see “daylight” around the red line. There are very few of them – about 5, typically – but they do happen.</p>
+<p>The green line is where the parameter is. It has a fixed position since the parameter is fixed.</p>
+<p>Good intervals cover the parameter. There are approximately 95 of these, typically.</p>
+<p>If an interval doesn’t cover the parameter, it’s a dud. The duds are the ones where you can see “daylight” around the green line. There are very few of them – about 5 out of 100, typically – but they do happen.</p>
 <p>Any method based on sampling has the possibility of being off. The beauty of methods based on random sampling is that we can quantify how often they are likely to be off.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../../_images/Bootstrap_53_0.png" src="../../../_images/Bootstrap_53_0.png" />
+<img alt="../../../_images/Bootstrap_59_0.png" src="../../../_images/Bootstrap_59_0.png" />
 </div>
 </div>
 <p>To summarize what the simulation shows, suppose you are estimating the population median by the following process:</p>
 <ul class="simple">
 <li><p>Draw a large random sample from the population.</p></li>
 <li><p>Bootstrap your random sample and get an estimate from the new random sample.</p></li>
-<li><p>Repeat the above step thousands of times, and get thousands of estimates.</p></li>
+<li><p>Repeat the above bootstrap step thousands of times, and get thousands of estimates.</p></li>
 <li><p>Pick off the “middle 95%” interval of all the estimates.</p></li>
 </ul>
-<p>That gives you one interval of estimates. Now if you repeat <strong>the entire process</strong> 100 times, ending up with 100 intervals, then about 95 of those 100 intervals will contain the population parameter.</p>
+<p>That gives you one interval of estimates. If 99 other people repeat <strong>the entire process</strong>, starting with a new random sample each time, then you will end up with 100 such intervals. About 95 of these 100 intervals will contain the population parameter.</p>
 <p>In other words, this process of estimation captures the parameter about 95% of the time.</p>
-<p>You can replace 95% by a different value, as long as it’s not 100. Suppose you replace 95% by 80% and keep the sample size fixed at 500. Then your intervals of estimates will be shorter than those we simulated here, because the “middle 80%” is a smaller range than the “middle 95%”. Only about 80% of your intervals will contain the parameter.</p>
+<p>You can replace 95% by a different value, as long as it’s not 100. Suppose you replace 95% by 80% and keep the sample size fixed at 500. Then your intervals of estimates will be shorter than those we simulated here, because the “middle 80%” is a smaller range than the “middle 95%”. If you keep repeating this process, only about 80% of your intervals will contain the parameter.</p>
 </div>
 </div>
 

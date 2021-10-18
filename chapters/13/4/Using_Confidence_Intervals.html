@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -34,17 +34,17 @@
     
   <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -842,8 +842,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparing-baseline-and-post-treatment-scores">
+   13.4.2. Comparing Baseline and Post-Treatment Scores
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#endnote">
-   13.4.2. Endnote
+   13.4.3. Endnote
   </a>
  </li>
 </ul>
@@ -859,92 +864,25 @@
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bootstrap_median</span><span class="p">(</span><span class="n">original_sample</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">replications</span><span class="p">):</span>
-    
-    <span class="sd">&quot;&quot;&quot;Returns an array of bootstrapped sample medians:</span>
-<span class="sd">    original_sample: table containing the original sample</span>
-<span class="sd">    label: label of column containing the variable</span>
-<span class="sd">    replications: number of bootstrap samples</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    
-    <span class="n">just_one_column</span> <span class="o">=</span> <span class="n">original_sample</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
-    <span class="n">medians</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">replications</span><span class="p">):</span>
-        <span class="n">bootstrap_sample</span> <span class="o">=</span> <span class="n">just_one_column</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
-        <span class="n">resampled_median</span> <span class="o">=</span> <span class="n">percentile</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">bootstrap_sample</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
-        <span class="n">medians</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">medians</span><span class="p">,</span> <span class="n">resampled_median</span><span class="p">)</span>
-        
-    <span class="k">return</span> <span class="n">medians</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bootstrap_mean</span><span class="p">(</span><span class="n">original_sample</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">replications</span><span class="p">):</span>
-    
-    <span class="sd">&quot;&quot;&quot;Returns an array of bootstrapped sample means:</span>
-<span class="sd">    original_sample: table containing the original sample</span>
-<span class="sd">    label: label of column containing the variable</span>
-<span class="sd">    replications: number of bootstrap samples</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    
-    <span class="n">just_one_column</span> <span class="o">=</span> <span class="n">original_sample</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
-    <span class="n">means</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">replications</span><span class="p">):</span>
-        <span class="n">bootstrap_sample</span> <span class="o">=</span> <span class="n">just_one_column</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
-        <span class="n">resampled_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">bootstrap_sample</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
-        <span class="n">means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">resampled_mean</span><span class="p">)</span>
-        
-    <span class="k">return</span> <span class="n">means</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bootstrap_proportion</span><span class="p">(</span><span class="n">original_sample</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">replications</span><span class="p">):</span>
-    
-    <span class="sd">&quot;&quot;&quot;Returns an array of bootstrapped sample proportions:</span>
-<span class="sd">    original_sample: table containing the original sample</span>
-<span class="sd">    label: label of column containing the Boolean variable</span>
-<span class="sd">    replications: number of bootstrap samples</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    
-    <span class="n">just_one_column</span> <span class="o">=</span> <span class="n">original_sample</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
-    <span class="n">proportions</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">replications</span><span class="p">):</span>
-        <span class="n">bootstrap_sample</span> <span class="o">=</span> <span class="n">just_one_column</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
-        <span class="n">resample_array</span> <span class="o">=</span> <span class="n">bootstrap_sample</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="n">resampled_proportion</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">resample_array</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">resample_array</span><span class="p">)</span>
-        <span class="n">proportions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">proportions</span><span class="p">,</span> <span class="n">resampled_proportion</span><span class="p">)</span>
-        
-    <span class="k">return</span> <span class="n">proportions</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="using-confidence-intervals">
+<div class="tex2jax_ignore mathjax_ignore section" id="using-confidence-intervals">
 <h1><span class="section-number">13.4. </span>Using Confidence Intervals<a class="headerlink" href="#using-confidence-intervals" title="Permalink to this headline">¶</a></h1>
 <p>A confidence interval has a single purpose – to estimate an unknown parameter based on data in a random sample. In the last section, we said that the interval (36%, 42%) was an approximate 95% confidence interval for the percent of smokers among mothers in the population. That was a formal way of saying that by our estimate, the percent of smokers among the mothers in the population was somewhere between 36% and 42%, and that our process of estimation is correct about 95% of the time.</p>
 <p>It is important to resist the impulse to use confidence intervals for other purposes. For example, recall that we calculated the interval (26.9 years, 27.6 years) as an approximate 95% confidence interval for the average age of mothers in the population. A dismayingly common misuse of the interval is to conclude that about 95% of the women were between 26.9 years and 27.6 years old. You don’t need to know much about confidence intervals to see that this can’t be right – you wouldn’t expect 95% of mothers to all be within a few months of each other in age. Indeed, the histogram of the sampled ages shows quite a bit of variation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baby</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;baby.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">births</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">path_data</span> <span class="o">+</span> <span class="s1">&#39;baby.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baby</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Maternal Age&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">births</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Maternal Age&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/Using_Confidence_Intervals_6_0.png" src="../../../_images/Using_Confidence_Intervals_6_0.png" />
+<img alt="../../../_images/Using_Confidence_Intervals_3_0.png" src="../../../_images/Using_Confidence_Intervals_3_0.png" />
 </div>
 </div>
 <p>A small percent of the sampled ages are in the (26.9, 27.6) interval, and you would expect a similar small percent in the population. The interval just estimates one number: the <em>average</em> of all the ages in the population.</p>
@@ -952,14 +890,17 @@
 <div class="section" id="using-a-confidence-interval-to-test-hypotheses">
 <h2><span class="section-number">13.4.1. </span>Using a Confidence Interval to Test Hypotheses<a class="headerlink" href="#using-a-confidence-interval-to-test-hypotheses" title="Permalink to this headline">¶</a></h2>
 <p>Our approximate 95% confidence interval for the average age in the population goes from 26.9 years to 27.6 years. Suppose someone wants to test the following hypotheses:</p>
-<p><strong>Null hypothesis.</strong> The average age in the population is 30 years.</p>
-<p><strong>Alternative hypothesis.</strong> The average age in the population is not 30 years.</p>
-<p>Then, if you were using the 5% cutoff for the P-value, you would reject the null hypothesis. This is because 30 is not in the 95% confidence interval for the population average. At the 5% level of significance, 30 is not a plausible value for the population average.</p>
-<p>This use of confidence intervals is the result of a <em>duality</em> between confidence intervals and tests: if you are testing whether or not the population mean is a particular value <em>x</em>, and you use the 5% cutoff for the P-value, then you will reject the null hypothesis if <em>x</em> is not in your 95% confidence interval for the mean.</p>
+<p><strong>Null hypothesis:</strong> The average age in the population is 30 years.</p>
+<p><strong>Alternative hypothesis:</strong> The average age in the population is not 30 years.</p>
+<p>Then, if you were using the 5% cutoff for the p-value, you would reject the null hypothesis. This is because 30 is not in the 95% confidence interval for the population average. At the 5% level of significance, 30 is not a plausible value for the population average.</p>
+<p>This use of confidence intervals is the result of a <em>duality</em> between confidence intervals and tests: if you are testing whether or not the population mean is a particular value <em>x</em>, and you use the 5% cutoff for the p-value, then you will reject the null hypothesis if <em>x</em> is not in your 95% confidence interval for the mean.</p>
 <p>This can be established by statistical theory. In practice, it just boils down to checking whether or not the value specified in the null hypothesis lies in the confidence interval.</p>
 <p>If you were using the 1% cutoff for the P-value, you would have to check if the value specified in the null hypothesis lies in a 99% confidence interval for the population mean.</p>
 <p>To a rough approximation, these statements are also true for population proportions, provided the sample is large.</p>
 <p>While we now have a way of using confidence intervals to test a particular kind of hypothesis, you might wonder about the value of testing whether or not the average age in a population is equal to 30. Indeed, the value isn’t clear. But there are some situations in which a test of this kind of hypothesis is both natural and useful.</p>
+</div>
+<div class="section" id="comparing-baseline-and-post-treatment-scores">
+<h2><span class="section-number">13.4.2. </span>Comparing Baseline and Post-Treatment Scores<a class="headerlink" href="#comparing-baseline-and-post-treatment-scores" title="Permalink to this headline">¶</a></h2>
 <p>We will study this in the context of data that are a subset of the information gathered in a randomized controlled trial about treatments for Hodgkin’s disease. Hodgkin’s disease is a cancer that typically affects young people. The disease is curable but the treatment can be very harsh. The purpose of the trial was to come up with dosage that would cure the cancer but minimize the adverse effects on the patients.</p>
 <p>This table <code class="docutils literal notranslate"><span class="pre">hodgkins</span></code> contains data on the effect that the treatment had on the lungs of 22 patients. The columns are:</p>
 <ul class="simple">
@@ -978,7 +919,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hodgkins</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hodgkins</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -999,36 +940,15 @@
         <tr>
             <td>173   </td> <td>388 </td> <td>239  </td> <td>129.04</td> <td>133.33 </td>
         </tr>
-        <tr>
-            <td>157   </td> <td>370 </td> <td>168  </td> <td>85.41 </td> <td>81.28  </td>
-        </tr>
-        <tr>
-            <td>160   </td> <td>468 </td> <td>151  </td> <td>67.94 </td> <td>79.26  </td>
-        </tr>
-        <tr>
-            <td>170   </td> <td>341 </td> <td>96   </td> <td>150.51</td> <td>80.97  </td>
-        </tr>
-        <tr>
-            <td>163   </td> <td>453 </td> <td>134  </td> <td>129.88</td> <td>69.24  </td>
-        </tr>
-        <tr>
-            <td>175   </td> <td>529 </td> <td>264  </td> <td>87.45 </td> <td>56.48  </td>
-        </tr>
-        <tr>
-            <td>185   </td> <td>392 </td> <td>240  </td> <td>149.84</td> <td>106.99 </td>
-        </tr>
-        <tr>
-            <td>178   </td> <td>479 </td> <td>216  </td> <td>92.24 </td> <td>73.43  </td>
-        </tr>
     </tbody>
 </table>
-<p>... (12 rows omitted)</p></div></div>
+<p>... (19 rows omitted)</p></div></div>
 </div>
 <p>We will compare the baseline and 15-month scores. As each row corresponds to one patient, we say that the sample of baseline scores and the sample of 15-month scores are <em>paired</em> - they are not just two sets of 22 values each, but 22 pairs of values, one for each patient.</p>
 <p>At a glance, you can see that the 15-month scores tend to be lower than the baseline scores – the sampled patients’ lungs seem to be doing worse 15 months after the treatment. This is confirmed by the mostly positive values in the column <code class="docutils literal notranslate"><span class="pre">drop</span></code>, the amount by which the score dropped from baseline to 15 months.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hodgkins</span> <span class="o">=</span> <span class="n">hodgkins</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hodgkins</span> <span class="o">=</span> <span class="n">hodgkins</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
     <span class="s1">&#39;drop&#39;</span><span class="p">,</span> <span class="n">hodgkins</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;base&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">hodgkins</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;month15&#39;</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
@@ -1090,12 +1010,12 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/Using_Confidence_Intervals_17_0.png" src="../../../_images/Using_Confidence_Intervals_17_0.png" />
+<img alt="../../../_images/Using_Confidence_Intervals_14_0.png" src="../../../_images/Using_Confidence_Intervals_14_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">hodgkins</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;drop&#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">hodgkins</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;drop&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1105,15 +1025,34 @@
 </div>
 </div>
 </div>
-<p>But could this be the result of chance variation? It really doesn’t seem so, but the data are from a random sample. Could it be that in the entire population of patients, the average drop is just 0?</p>
+<p>In the sample, the average drop is about 28.6. But could this be the result of chance variation? The data are from a random sample. Could it be that in the entire population of patients, the average drop is just 0?</p>
 <p>To answer this, we can set up two hypotheses:</p>
-<p><strong>Null hypothesis.</strong> In the population, the average drop is 0.</p>
-<p><strong>Alternative hypothesis.</strong> In the population, the average drop is not 0.</p>
-<p>To test this hypothesis with a 1% cutoff for the P-value, let’s construct an approximate 99% confidence interval for the average drop in the population.</p>
+<p><strong>Null hypothesis:</strong> In the population, the average drop is 0.</p>
+<p><strong>Alternative hypothesis:</strong> In the population, the average drop is not 0.</p>
+<p>To test this hypothesis with a 1% cutoff for the p-value, let’s construct an approximate 99% confidence interval for the average drop in the population.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bstrap_means</span> <span class="o">=</span> <span class="n">bootstrap_mean</span><span class="p">(</span><span class="n">hodgkins</span><span class="p">,</span> <span class="s1">&#39;drop&#39;</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one_bootstrap_mean</span><span class="p">():</span>
+    <span class="n">resample</span> <span class="o">=</span> <span class="n">hodgkins</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">resample</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;drop&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate 10,000 bootstrap means</span>
+<span class="n">num_repetitions</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">bstrap_means</span> <span class="o">=</span> <span class="n">make_array</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_repetitions</span><span class="p">):</span>
+    <span class="n">bstrap_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bstrap_means</span><span class="p">,</span> <span class="n">one_bootstrap_mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the endpoints of the 99% confidence interval</span>
 <span class="n">left</span> <span class="o">=</span> <span class="n">percentile</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">bstrap_means</span><span class="p">)</span>
 <span class="n">right</span> <span class="o">=</span> <span class="n">percentile</span><span class="p">(</span><span class="mf">99.5</span><span class="p">,</span> <span class="n">bstrap_means</span><span class="p">)</span>
 
@@ -1122,28 +1061,28 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([17.39909091, 40.29090909])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([17.46863636, 40.97681818])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resampled_means</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_column</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resampled_means</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
     <span class="s1">&#39;Bootstrap Sample Mean&#39;</span><span class="p">,</span> <span class="n">bstrap_means</span>
 <span class="p">)</span>
 <span class="n">resampled_means</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
-<span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">make_array</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">),</span> <span class="n">make_array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">8</span><span class="p">);</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">8</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/Using_Confidence_Intervals_21_0.png" src="../../../_images/Using_Confidence_Intervals_21_0.png" />
+<img alt="../../../_images/Using_Confidence_Intervals_20_0.png" src="../../../_images/Using_Confidence_Intervals_20_0.png" />
 </div>
 </div>
 <p>The 99% confidence interval for the average drop in the population goes from about 17 to about 40. The interval doesn’t contain 0. So we reject the null hypothesis.</p>
 <p>But notice that we have done better than simply concluding that the average drop in the population isn’t 0. We have estimated how big the average drop is. That’s a more useful result than just saying, “It’s not 0.”</p>
-<p><strong>A note on accuracy.</strong> Our confidence interval is quite wide, for two main reasons:</p>
+<p><strong>A note on accuracy:</strong> Our confidence interval is quite wide, for two main reasons:</p>
 <ul class="simple">
 <li><p>The confidence level is high (99%).</p></li>
 <li><p>The sample size is relatively small compared to those in our earlier examples.</p></li>
@@ -1151,7 +1090,7 @@
 <p>In the next chapter, we will examine how the sample size affects accuracy. We will also examine how the empirical distributions of sample means so often come out bell shaped even though the distributions of the underlying data are not bell shaped at all.</p>
 </div>
 <div class="section" id="endnote">
-<h2><span class="section-number">13.4.2. </span>Endnote<a class="headerlink" href="#endnote" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.4.3. </span>Endnote<a class="headerlink" href="#endnote" title="Permalink to this headline">¶</a></h2>
 <p>The terminology of a field usually comes from the leading researchers in that field. <a class="reference external" href="https://en.wikipedia.org/wiki/Bradley_Efron">Brad Efron</a>, who first proposed the bootstrap technique, used a term that has <a class="reference external" href="https://en.wikipedia.org/wiki/Bootstrapping">American origins</a>. Not to be outdone, Chinese statisticians have <a class="reference external" href="http://econpapers.repec.org/article/eeestapro/v_3a37_3ay_3a1998_3ai_3a4_3ap_3a321-329.htm">proposed their own method</a>.</p>
 </div>
 </div>
