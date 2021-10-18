@@ -862,19 +862,7 @@
         
               <div>
                 
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datascience</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">path_data</span> <span class="o">=</span> <span class="s1">&#39;../../../assets/data/&#39;</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;Agg&#39;</span><span class="p">)</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plots</span>
-<span class="n">plots</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</pre></div>
-</div>
-</div>
+  <div class="cell tag_remove-input docutils container">
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="random-sampling-in-python">
 <h1><span class="section-number">10.4. </span>Random Sampling in Python<a class="headerlink" href="#random-sampling-in-python" title="Permalink to this headline">¶</a></h1>
@@ -936,25 +924,25 @@
     </thead>
     <tbody>
         <tr>
-            <td>2   </td>
+            <td>5   </td>
         </tr>
         <tr>
-            <td>6   </td>
+            <td>3   </td>
+        </tr>
+        <tr>
+            <td>3   </td>
+        </tr>
+        <tr>
+            <td>5   </td>
+        </tr>
+        <tr>
+            <td>5   </td>
         </tr>
         <tr>
             <td>1   </td>
         </tr>
         <tr>
             <td>6   </td>
-        </tr>
-        <tr>
-            <td>6   </td>
-        </tr>
-        <tr>
-            <td>3   </td>
-        </tr>
-        <tr>
-            <td>3   </td>
         </tr>
     </tbody>
 </table></div></div>
@@ -1025,19 +1013,19 @@
     </thead>
     <tbody>
         <tr>
-            <td>Bruce Willis  </td> <td>3189.4     </td> <td>60              </td> <td>53.2             </td> <td>Sixth Sense                 </td> <td>293.5</td>
+            <td>Morgan Freeman   </td> <td>4468.3     </td> <td>61              </td> <td>73.3             </td> <td>The Dark Knight </td> <td>534.9</td>
         </tr>
         <tr>
-            <td>Cate Blanchett</td> <td>2802.6     </td> <td>39              </td> <td>71.9             </td> <td>Return of the King          </td> <td>377.8</td>
+            <td>Orlando Bloom    </td> <td>2815.8     </td> <td>17              </td> <td>165.6            </td> <td>Dead Man's Chest</td> <td>423.3</td>
         </tr>
         <tr>
-            <td>Andy Serkis   </td> <td>2890.6     </td> <td>23              </td> <td>125.7            </td> <td>Star Wars: The Force Awakens</td> <td>936.7</td>
+            <td>Cameron Diaz     </td> <td>3031.7     </td> <td>34              </td> <td>89.2             </td> <td>Shrek 2         </td> <td>441.2</td>
         </tr>
         <tr>
-            <td>Dustin Hoffman</td> <td>2522.1     </td> <td>43              </td> <td>58.7             </td> <td>Meet the Fockers            </td> <td>279.3</td>
+            <td>Michael Caine    </td> <td>3351.5     </td> <td>58              </td> <td>57.8             </td> <td>The Dark Knight </td> <td>534.9</td>
         </tr>
         <tr>
-            <td>Sandra Bullock</td> <td>2462.6     </td> <td>35              </td> <td>70.4             </td> <td>Minions                     </td> <td>336  </td>
+            <td>Leonardo DiCaprio</td> <td>2518.3     </td> <td>25              </td> <td>100.7            </td> <td>Titanic         </td> <td>658.7</td>
         </tr>
     </tbody>
 </table></div></div>
@@ -1069,7 +1057,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 5, 2, 4, 5, 4, 3])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 1, 6, 3, 5, 4, 6])
 </pre></div>
 </div>
 </div>
@@ -1091,8 +1079,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Michael Caine&#39;, &#39;Owen Wilson&#39;, &#39;Leonardo DiCaprio&#39;,
-       &#39;Anne Hathaway&#39;, &#39;Tom Hanks&#39;], dtype=&#39;&lt;U22&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Jonah Hill&#39;, &#39;Julia Roberts&#39;, &#39;Bruce Willis&#39;, &#39;Eddie Murphy&#39;,
+       &#39;Matt Damon&#39;], dtype=&#39;&lt;U22&#39;)
 </pre></div>
 </div>
 </div>
@@ -1125,7 +1113,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.26333333, 0.48666667, 0.25      ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.24333333, 0.50333333, 0.25333333])
 </pre></div>
 </div>
 </div>
@@ -1152,7 +1140,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4866666666666667
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5033333333333333
 </pre></div>
 </div>
 </div>
