@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>15.2. The Regression Line &#8212; Computational and Inferential Thinking</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,40 +20,39 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/book.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://inferentialthinking.org/chapters/15/2/Regression_Line.html" />
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -59,10 +60,37 @@
     <link rel="next" title="15.3. The Method of Least Squares" href="../3/Method_of_Least_Squares.html" />
     <link rel="prev" title="15.1. Correlation" href="../1/Correlation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
     
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-148221575-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +99,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -734,110 +763,195 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/chapters/15/2/Regression_Line.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/data-8/textbook"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/15/2/Regression_Line.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/data-8/textbook&urlpath=tree/textbook/chapters/15/2/Regression_Line.ipynb&branch=main"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="../../../_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/15/2/Regression_Line.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/data-8/textbook&urlpath=tree/textbook/chapters/15/2/Regression_Line.ipynb&branch=main"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/data-8/textbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/chapters/15/2/Regression_Line.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#measuring-in-standard-units">
    15.2.1. Measuring in Standard Units
@@ -890,19 +1004,87 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>The Regression Line</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#measuring-in-standard-units">
+   15.2.1. Measuring in Standard Units
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#identifying-the-line-in-standard-units">
+   15.2.2. Identifying the Line in Standard Units
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-regression-line-in-standard-units">
+   15.2.3. The Regression Line, in Standard Units
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-regression-effect">
+   15.2.4. The Regression Effect
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-equation-of-the-regression-line">
+   15.2.5. The Equation of the Regression Line
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-regression-line-in-the-units-of-the-data">
+   15.2.6. The Regression Line in the Units of the Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitted-values">
+   15.2.7. Fitted Values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#units-of-measurement-of-the-slope">
+   15.2.8. Units of Measurement of the Slope
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example">
+   15.2.9. Example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#endnote">
+   15.2.10. Endnote
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="the-regression-line">
-<h1><span class="section-number">15.2. </span>The Regression Line<a class="headerlink" href="#the-regression-line" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="the-regression-line">
+<h1><span class="section-number">15.2. </span>The Regression Line<a class="headerlink" href="#the-regression-line" title="Permalink to this headline">#</a></h1>
 <p>The correlation coefficient <span class="math notranslate nohighlight">\(r\)</span> doesn’t just measure how clustered the points in a scatter plot are about a straight line. It also helps identify the straight line about which the points are clustered. In this section we will retrace the path that Galton and Pearson took to discover that line.</p>
 <p>As we have seen, our dataset on the heights of parents and their adult children indicates a linear association between the two variables. The linearity was confirmed when our predictions of the children’s heights based on the midparent heights roughly followed a straight line.</p>
 <div class="cell docutils container">
@@ -952,8 +1134,8 @@
 <img alt="../../../_images/Regression_Line_5_0.png" src="../../../_images/Regression_Line_5_0.png" />
 </div>
 </div>
-<div class="section" id="measuring-in-standard-units">
-<h2><span class="section-number">15.2.1. </span>Measuring in Standard Units<a class="headerlink" href="#measuring-in-standard-units" title="Permalink to this headline">¶</a></h2>
+<section id="measuring-in-standard-units">
+<h2><span class="section-number">15.2.1. </span>Measuring in Standard Units<a class="headerlink" href="#measuring-in-standard-units" title="Permalink to this headline">#</a></h2>
 <p>Let’s see if we can find a way to identify this line. First, notice that linear association doesn’t depend on the units of measurement – we might as well measure both variables in standard units.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1077,9 +1259,9 @@
 </div>
 </div>
 <p>This plot looks exactly like the plot drawn on the original scale. Only the numbers on the axes have changed. This confirms that we can understand the prediction process by just working in standard units.</p>
-</div>
-<div class="section" id="identifying-the-line-in-standard-units">
-<h2><span class="section-number">15.2.2. </span>Identifying the Line in Standard Units<a class="headerlink" href="#identifying-the-line-in-standard-units" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="identifying-the-line-in-standard-units">
+<h2><span class="section-number">15.2.2. </span>Identifying the Line in Standard Units<a class="headerlink" href="#identifying-the-line-in-standard-units" title="Permalink to this headline">#</a></h2>
 <p>The scatter plot above has a <em>football</em> shape – that is, it is roughly oval like an American football. Not all scatter plots are football shaped, not even those that show linear association. But in this section we will work only with football shaped scatter plots. In the next section, we will generalize our analysis to other shapes of plots.</p>
 <p>Here is a football shaped scatter plot with both variables measured in standard units. The 45 degree line is shown in red.</p>
 <div class="cell tag_remove-input docutils container">
@@ -1102,9 +1284,9 @@
 <p>Both lines go through the origin (0, 0). The green line goes through the centers of the vertical strips (at least roughly), and is <em>flatter</em> than the red 45 degree line.</p>
 <p>The slope of the 45 degree line is 1. So the slope of the green “graph of averages” line is a value that is positive but less than 1.</p>
 <p>What value could that be? You’ve guessed it – it’s <span class="math notranslate nohighlight">\(r\)</span>.</p>
-</div>
-<div class="section" id="the-regression-line-in-standard-units">
-<h2><span class="section-number">15.2.3. </span>The Regression Line, in Standard Units<a class="headerlink" href="#the-regression-line-in-standard-units" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-regression-line-in-standard-units">
+<h2><span class="section-number">15.2.3. </span>The Regression Line, in Standard Units<a class="headerlink" href="#the-regression-line-in-standard-units" title="Permalink to this headline">#</a></h2>
 <p>The green “graph of averages” line is called the <em>regression line</em>, for a reason that we will explain shortly. But first, let’s simulate some football shaped scatter plots with different values of <span class="math notranslate nohighlight">\(r\)</span>, and see how the line changes. In each case, the red 45 degree line has been drawn for comparison.</p>
 <p>The function that performs the simulation is called <code class="docutils literal notranslate"><span class="pre">regression_line</span></code> and takes <span class="math notranslate nohighlight">\(r\)</span> as its argument.</p>
 <div class="cell tag_remove-input docutils container">
@@ -1130,17 +1312,17 @@
 </div>
 </div>
 <p>When <span class="math notranslate nohighlight">\(r\)</span> is close to 1, the scatter plot, the 45 degree line, and the regression line are all very close to each other. But for more moderate values of <span class="math notranslate nohighlight">\(r\)</span>, the regression line is noticeably flatter.</p>
-</div>
-<div class="section" id="the-regression-effect">
-<h2><span class="section-number">15.2.4. </span>The Regression Effect<a class="headerlink" href="#the-regression-effect" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-regression-effect">
+<h2><span class="section-number">15.2.4. </span>The Regression Effect<a class="headerlink" href="#the-regression-effect" title="Permalink to this headline">#</a></h2>
 <p>In terms of prediction, this means that for a parents whose midparent height is at 1.5 standard units, our prediction of the child’s height is somewhat <em>less</em> than 1.5 standard units. If the midparent height is 2 standard units, we predict that the child’s height will be somewhat less than 2 standard units.</p>
 <p>In other words, we predict that the child will be somewhat closer to average than the parents were. This is called “regression to the mean” and it is how the name <em>regression</em> arises.</p>
 <p>Regression to the mean also works when the midparent height is below average. Children whose midparent heights were below average turned out to be somewhat taller relative to their generation, on average.</p>
 <p>In general, individuals who are away from average on one variable are expected to be not quite as far away from average on the other. This is called the <em>regression effect</em>.</p>
 <p>Keep in mind that the regression effect is a statement about averages. For example, it says that if you take all children whose midparent height is 1.5 standard units, then the average height of these children is somewhat less than 1.5 standard units. It doesn’t say that all of these children will be somewhat less than 1.5 standard units in height. Some will be taller, and some will be shorter. The <em>average</em> of these heights will be less than 1.5 standard units.</p>
-</div>
-<div class="section" id="the-equation-of-the-regression-line">
-<h2><span class="section-number">15.2.5. </span>The Equation of the Regression Line<a class="headerlink" href="#the-equation-of-the-regression-line" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-equation-of-the-regression-line">
+<h2><span class="section-number">15.2.5. </span>The Equation of the Regression Line<a class="headerlink" href="#the-equation-of-the-regression-line" title="Permalink to this headline">#</a></h2>
 <p>In regression, we use the value of one variable (which we will call <span class="math notranslate nohighlight">\(x\)</span>) to predict the value of another (which we will call <span class="math notranslate nohighlight">\(y\)</span>). When the variables <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are measured in standard units, the regression line for predicting <span class="math notranslate nohighlight">\(y\)</span> based on <span class="math notranslate nohighlight">\(x\)</span> has slope <span class="math notranslate nohighlight">\(r\)</span> and passes through the origin. Thus the equation of the regression line can be written as:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1182,9 +1364,9 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="the-regression-line-in-the-units-of-the-data">
-<h2><span class="section-number">15.2.6. </span>The Regression Line in the Units of the Data<a class="headerlink" href="#the-regression-line-in-the-units-of-the-data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-regression-line-in-the-units-of-the-data">
+<h2><span class="section-number">15.2.6. </span>The Regression Line in the Units of the Data<a class="headerlink" href="#the-regression-line-in-the-units-of-the-data" title="Permalink to this headline">#</a></h2>
 <p>The correlation between midparent height and child’s height is 0.32:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1324,9 +1506,9 @@
 </div>
 </div>
 <p>The grey dots show the regression predictions, all on the regression line. Notice how the line is very close to the gold graph of averages. For these data, the regression line does a good job of approximating the centers of the vertical strips.</p>
-</div>
-<div class="section" id="fitted-values">
-<h2><span class="section-number">15.2.7. </span>Fitted Values<a class="headerlink" href="#fitted-values" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="fitted-values">
+<h2><span class="section-number">15.2.7. </span>Fitted Values<a class="headerlink" href="#fitted-values" title="Permalink to this headline">#</a></h2>
 <p>The predictions all lie on the line and are known as the “fitted values”. The function <code class="docutils literal notranslate"><span class="pre">fit</span></code> takes the name of the table and the labels of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, and returns an array of fitted values, one fitted value for each point in the scatter plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1361,9 +1543,9 @@
 <img alt="../../../_images/Regression_Line_50_0.png" src="../../../_images/Regression_Line_50_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="units-of-measurement-of-the-slope">
-<h2><span class="section-number">15.2.8. </span>Units of Measurement of the Slope<a class="headerlink" href="#units-of-measurement-of-the-slope" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="units-of-measurement-of-the-slope">
+<h2><span class="section-number">15.2.8. </span>Units of Measurement of the Slope<a class="headerlink" href="#units-of-measurement-of-the-slope" title="Permalink to this headline">#</a></h2>
 <p>The slope is a ratio, and it worth taking a moment to study the units in which it is measured. Our example comes from the familiar dataset about mothers who gave birth in a hospital system. The scatter plot of pregnancy weights versus heights looks like a football that has been used in one game too many, but it’s close enough to a football that we can justify putting our fitted line through it. In later sections we will see how to make such justifications more formal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1401,9 +1583,9 @@
 \]</div>
 <p>pounds more than our prediction for the shorter woman.</p>
 <p>Notice that the successive vertical strips in the scatter plot are one inch apart, because the heights have been rounded to the nearest inch. Another way to think about the slope is to take any two consecutive strips (which are necessarily 1 inch apart), corresponding to two groups of women who are separated by 1 inch in height. The slope of 3.57 pounds per inch means that the average pregnancy weight of the taller group is about 3.57 pounds more than that of the shorter group.</p>
-</div>
-<div class="section" id="example">
-<h2><span class="section-number">15.2.9. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="example">
+<h2><span class="section-number">15.2.9. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h2>
 <p>Suppose that our goal is to use regression to estimate the height of a basset hound based on its weight, using a sample that looks consistent with the regression model. Suppose the observed correlation <span class="math notranslate nohighlight">\(r\)</span> is 0.5, and that the summary statistics for the two variables are as in the table below:</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1443,12 +1625,12 @@ based on a given weight in pounds:</p>
 \]</div>
 <p>The slope of the line is measures the increase in the estimated height per unit increase in weight. The slope is positive, and it is important to note that this does not mean that we think basset hounds get taller if they put on weight. The slope reflects the difference in the average heights of two groups of dogs that are 1 pound apart in weight. Specifically, consider a group of dogs whose weight is <span class="math notranslate nohighlight">\(w\)</span> pounds, and the group whose weight is <span class="math notranslate nohighlight">\(w+1\)</span> pounds. The second group is estimated to be 0.2 inches taller, on average. This is true for all values of <span class="math notranslate nohighlight">\(w\)</span> in the sample.</p>
 <p>In general, the slope of the regression line can be interpreted as the average increase in <span class="math notranslate nohighlight">\(y\)</span> per unit increase in <span class="math notranslate nohighlight">\(x\)</span>. Note that if the slope is negative, then for every unit increase in <span class="math notranslate nohighlight">\(x\)</span>, the average of <span class="math notranslate nohighlight">\(y\)</span> decreases.</p>
-</div>
-<div class="section" id="endnote">
-<h2><span class="section-number">15.2.10. </span>Endnote<a class="headerlink" href="#endnote" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="endnote">
+<h2><span class="section-number">15.2.10. </span>Endnote<a class="headerlink" href="#endnote" title="Permalink to this headline">#</a></h2>
 <p>Even though we won’t establish the mathematical basis for the regression equation, we can see that it gives pretty good predictions when the scatter plot is football shaped. It is a surprising mathematical fact that no matter what the shape of the scatter plot, the same equation gives the “best” among all straight lines. That’s the topic of the next section.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1472,64 +1654,48 @@ based on a given weight in pounds:</p>
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="../1/Correlation.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">15.1. </span>Correlation</p>
-            </div>
-        </a>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../1/Correlation.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">15.1. </span>Correlation</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../3/Method_of_Least_Squares.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">15.3. </span>The Method of Least Squares</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="../3/Method_of_Least_Squares.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">15.3. </span>The Method of Least Squares</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Ani Adhikari and John DeNero and David Wagner<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ani Adhikari and John DeNero and David Wagner<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-148221575-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
 
   </body>
 </html>

@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>11.1. Assessing a Model &#8212; Computational and Inferential Thinking</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,37 +20,36 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/book.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://inferentialthinking.org/chapters/11/1/Assessing_a_Model.html" />
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
@@ -57,10 +58,37 @@
     <link rel="next" title="11.2. Multiple Categories" href="../2/Multiple_Categories.html" />
     <link rel="prev" title="11. Testing Hypotheses" href="../Testing_Hypotheses.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
     
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-148221575-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -69,9 +97,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -732,110 +761,195 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/chapters/11/1/Assessing_a_Model.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/data-8/textbook"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/11/1/Assessing_a_Model.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/data-8/textbook&urlpath=tree/textbook/chapters/11/1/Assessing_a_Model.ipynb&branch=main"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="../../../_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/11/1/Assessing_a_Model.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/data-8/textbook&urlpath=tree/textbook/chapters/11/1/Assessing_a_Model.ipynb&branch=main"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/data-8/textbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/chapters/11/1/Assessing_a_Model.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#jury-selection">
    11.1.1. Jury Selection
@@ -900,23 +1014,103 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Assessing a Model</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jury-selection">
+   11.1.1. Jury Selection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-model-of-random-selection">
+   11.1.2. A Model of Random Selection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-statistic">
+   11.1.3. The Statistic
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulating-the-statistic-under-the-model">
+   11.1.4. Simulating the Statistic Under the Model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulating-one-value-of-the-statistic">
+     11.1.4.1. Simulating One Value of the Statistic
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulating-multiple-values-of-the-statistic">
+     11.1.4.2. Simulating Multiple Values of the Statistic
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-prediction-under-the-model-of-random-selection">
+   11.1.5. The Prediction Under the Model of Random Selection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparing-the-prediction-and-the-data">
+   11.1.6. Comparing the Prediction and the Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion-of-the-data-analysis">
+   11.1.7. Conclusion of the Data Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistical-bias">
+   11.1.8. Statistical Bias
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#racial-bias">
+   11.1.9. Racial Bias
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading">
+   11.1.10. Further Reading
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="cell tag_remove_input docutils container">
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="assessing-a-model">
-<h1><span class="section-number">11.1. </span>Assessing a Model<a class="headerlink" href="#assessing-a-model" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="assessing-a-model">
+<h1><span class="section-number">11.1. </span>Assessing a Model<a class="headerlink" href="#assessing-a-model" title="Permalink to this headline">#</a></h1>
 <p>In data science, a <em>model</em> is a set of assumptions about data. Often, models include assumptions about chance processes used to generate data.</p>
 <p>Sometimes, data scientists have to decide whether or not a model is good. In this section we will discuss an example of making such a decision.</p>
-<div class="section" id="jury-selection">
-<h2><span class="section-number">11.1.1. </span>Jury Selection<a class="headerlink" href="#jury-selection" title="Permalink to this headline">¶</a></h2>
+<section id="jury-selection">
+<h2><span class="section-number">11.1.1. </span>Jury Selection<a class="headerlink" href="#jury-selection" title="Permalink to this headline">#</a></h2>
 <p>Data science can be a powerful tool for exposing racism and inequality in our society. This section is about a case where data provided evidence of racial bias in jury selection.</p>
 <p>Amendment VI of the United States Constitution states that, “In all criminal prosecutions, the accused shall enjoy the right to a speedy and public trial, by an impartial jury of the State and district wherein the crime shall have been committed.”</p>
 <p>One characteristic of an <em>impartial</em> jury is that it should be selected from a jury panel that is representative of the population of the relevant region. A jury panel is a group of people chosen to be prospective jurors. The final trial jury is selected from among them by deliberate inclusion or exclusion, and as a result can have any composition. But the larger panel from which the trial jurors are drawn must be representative of the population.</p>
@@ -927,9 +1121,9 @@
 <p>As part of his appeal, Robert Swain questioned this discrepancy. Moreover, he pointed out that all Talladega County jury panels for the past 10 years had contained only a small percent of Black panelists.</p>
 <p>The U.S. Supreme Court reviewed the appeal and concluded, “the overall percentage disparity has been small.” But was this assertion reasonable? If jury panelists were selected at random from the county’s eligible population, there would be some chance variation. We wouldn’t get exactly 26 Black panelists on every 100-person panel. But would we expect as few as eight?</p>
 <p>The answer is no. We will establish that and then discuss some of the many biases involved.</p>
-</div>
-<div class="section" id="a-model-of-random-selection">
-<h2><span class="section-number">11.1.2. </span>A Model of Random Selection<a class="headerlink" href="#a-model-of-random-selection" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="a-model-of-random-selection">
+<h2><span class="section-number">11.1.2. </span>A Model of Random Selection<a class="headerlink" href="#a-model-of-random-selection" title="Permalink to this headline">#</a></h2>
 <p>One view of the data – a model, in other words – is that the panel was selected at random and ended up with a small number of Black panelists just due to chance.</p>
 <p>Since the panel was supposed to resemble the population of all eligible jurors, the model of random selection is important to assess. Let’s see if it stands up to scrutiny.</p>
 <p>The model specifies the details of a chance process. It says the data are like a random sample from a population in which 26% of the people are Black. We are in a good position to assess this model for the following reasons.</p>
@@ -940,16 +1134,16 @@
 <li><p>If the results of our simulation are not consistent with the composition of the panel in the trial, that will be evidence against the model of random selection. Therefore, it will be evidence against the fairness of the trial.</p></li>
 </ul>
 <p>Let’s go through the process step by step.</p>
-</div>
-<div class="section" id="the-statistic">
-<h2><span class="section-number">11.1.3. </span>The Statistic<a class="headerlink" href="#the-statistic" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-statistic">
+<h2><span class="section-number">11.1.3. </span>The Statistic<a class="headerlink" href="#the-statistic" title="Permalink to this headline">#</a></h2>
 <p>First, we have to choose a statistic to simulate. The statistic has to be able to help us decide between the model and alternative views about the data. The model says the panel was drawn at random from the eligible population. The alternative viewpoint is the case for Robert Swain, which is that the panel contained too few Black panelists to have been drawn at random. A natural statistic, then, is the number or <em>count</em> of Black panelists in the sample. Small values of the statistic will favor Robert Swain’s viewpoint.</p>
-</div>
-<div class="section" id="simulating-the-statistic-under-the-model">
-<h2><span class="section-number">11.1.4. </span>Simulating the Statistic Under the Model<a class="headerlink" href="#simulating-the-statistic-under-the-model" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="simulating-the-statistic-under-the-model">
+<h2><span class="section-number">11.1.4. </span>Simulating the Statistic Under the Model<a class="headerlink" href="#simulating-the-statistic-under-the-model" title="Permalink to this headline">#</a></h2>
 <p>If the model were true, how big would the statistic typically be? To answer that, will simulate the statistic under the assumption of random selection and look at the distribution of the results.</p>
-<div class="section" id="simulating-one-value-of-the-statistic">
-<h3><span class="section-number">11.1.4.1. </span>Simulating One Value of the Statistic<a class="headerlink" href="#simulating-one-value-of-the-statistic" title="Permalink to this headline">¶</a></h3>
+<section id="simulating-one-value-of-the-statistic">
+<h3><span class="section-number">11.1.4.1. </span>Simulating One Value of the Statistic<a class="headerlink" href="#simulating-one-value-of-the-statistic" title="Permalink to this headline">#</a></h3>
 <p>We can use <code class="docutils literal notranslate"><span class="pre">sample_proportions</span></code> to simulate one value of the statistic. The sample size is 100, the size of the panel. The distribution from which we will sample is the distribution in the population of eligible jurors. Since 26% of them were Black, we will sample from the distribution specified by the proportions [0.26, 0.74].</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -982,9 +1176,9 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="simulating-multiple-values-of-the-statistic">
-<h3><span class="section-number">11.1.4.2. </span>Simulating Multiple Values of the Statistic<a class="headerlink" href="#simulating-multiple-values-of-the-statistic" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="simulating-multiple-values-of-the-statistic">
+<h3><span class="section-number">11.1.4.2. </span>Simulating Multiple Values of the Statistic<a class="headerlink" href="#simulating-multiple-values-of-the-statistic" title="Permalink to this headline">#</a></h3>
 <p>The focus of our analysis is the variability in the counts. Let’s generate 10,000 simulated values of the count and see how they vary. As usual, we will do this by using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and collecting all the simulated counts in an array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -996,10 +1190,10 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="the-prediction-under-the-model-of-random-selection">
-<h2><span class="section-number">11.1.5. </span>The Prediction Under the Model of Random Selection<a class="headerlink" href="#the-prediction-under-the-model-of-random-selection" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="the-prediction-under-the-model-of-random-selection">
+<h2><span class="section-number">11.1.5. </span>The Prediction Under the Model of Random Selection<a class="headerlink" href="#the-prediction-under-the-model-of-random-selection" title="Permalink to this headline">#</a></h2>
 <p>To interpret the results of our simulation, we can visualize the results in an empirical histogram of the simulated counts.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1015,9 +1209,9 @@
 </div>
 <p>The histogram shows us what the model of random selection predicts about our statistic, the number of Black panelists in the sample.</p>
 <p>To generate each simulated count, we drew 100 times at random from a population in which 26% were Black. So, as you would expect, most of the simulated counts are around 26. They are not exactly 26: there is some variation. The counts range from about 15 to about 40.</p>
-</div>
-<div class="section" id="comparing-the-prediction-and-the-data">
-<h2><span class="section-number">11.1.6. </span>Comparing the Prediction and the Data<a class="headerlink" href="#comparing-the-prediction-and-the-data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="comparing-the-prediction-and-the-data">
+<h2><span class="section-number">11.1.6. </span>Comparing the Prediction and the Data<a class="headerlink" href="#comparing-the-prediction-and-the-data" title="Permalink to this headline">#</a></h2>
 <p>In the panel selected for the trial, there were eight Black panelists. The histogram of simulated counts is redrawn below with value eight shown as a red dot on the horizontal axis. The dot is very far out in the left hand tail of the histogram. Very few of the 10,000 counts simulated by random selection came out to be eight or less.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1033,32 +1227,32 @@
 <img alt="../../../_images/Assessing_a_Model_15_0.png" src="../../../_images/Assessing_a_Model_15_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="conclusion-of-the-data-analysis">
-<h2><span class="section-number">11.1.7. </span>Conclusion of the Data Analysis<a class="headerlink" href="#conclusion-of-the-data-analysis" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="conclusion-of-the-data-analysis">
+<h2><span class="section-number">11.1.7. </span>Conclusion of the Data Analysis<a class="headerlink" href="#conclusion-of-the-data-analysis" title="Permalink to this headline">#</a></h2>
 <p>The graph above is a visual display of bias in the selection process. It shows that if we select a panel of size 100 at random from the eligible population, we are very unlikely to get counts of Black panelists that are as low as the eight that were observed on the panel in the trial.</p>
 <p>This is evidence that the model of random selection of the jurors in the panel is not consistent with the data from the panel. While it is <em>possible</em> that the panel could have been generated by chance, our simulation demonstrates that it is hugely unlikely.</p>
 <p>The reality of the trial panel is very much at odds with the model’s assumption of random selection from the eligible population. When the data and a model are inconsistent, the model is hard to justify. After all, the data are real. The model is just a set of assumptions. When assumptions are at odds with reality, we must question those assumptions.</p>
 <p>Therefore the most reasonable conclusion is that the assumption of random selection is unjustified for this jury panel. In other words, the most reasonable conclusion is that the jury panel was <em>not</em> selected by random sampling from the population of eligible jurors. Notwithstanding the opinion of the Supreme Court, the difference between 26% and 8% is not so small as to be explained well by chance alone.</p>
-</div>
-<div class="section" id="statistical-bias">
-<h2><span class="section-number">11.1.8. </span>Statistical Bias<a class="headerlink" href="#statistical-bias" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="statistical-bias">
+<h2><span class="section-number">11.1.8. </span>Statistical Bias<a class="headerlink" href="#statistical-bias" title="Permalink to this headline">#</a></h2>
 <p>The analysis above provides quantitative evidence of unfairness in Robert Swain’s trial. The data support his position that he was denied the impartial jury to which he was entitled by the U.S. Constitution.</p>
 <p>Additional data show that the exclusion of Black panelists was pervasive. The Supreme Court judgment, written in 1965, includes evidence provided by Robert Swain that “only 10 to 15% of … jury panels drawn from the jury box since 1953 have been [Black], there having been only one case in which the percentage was as high as 23%.” Look at where 10% and 15% lie on the horizontal axis of the histogram above. Values like that are also highly unlikely under random selection from the eligible population.</p>
 <p>When a process produces errors that are systematically in one direction – such as the percentage of Black panelists always being lower than expected – then data scientists say the process is <em>biased</em>. Quantification of such bias is an important responsibility of data science.</p>
 <p>Arguments such as the one in this section are now more frequently presented in courts of law. In the 1960s, the Supreme Court looked at the data but drew the wrong conclusion that “the overall percentage disparity has been small.” For the meaning of “small,” it was wrong to rely on what simply seemed reasonable to the majority of the Court. Views on what was reasonable were not only purely subjective, they were also vulnerable to the influence of pervasive racial prejudice. If arguments in the case had included the quantitative analysis of this section, the Court might not have concluded that the percentage disparity was small.</p>
-</div>
-<div class="section" id="racial-bias">
-<h2><span class="section-number">11.1.9. </span>Racial Bias<a class="headerlink" href="#racial-bias" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="racial-bias">
+<h2><span class="section-number">11.1.9. </span>Racial Bias<a class="headerlink" href="#racial-bias" title="Permalink to this headline">#</a></h2>
 <p>The statistical bias in the selection process was born out of deep-seated racial bias in the legal system of the time.</p>
 <p>For example, the Supreme Court judgment says that Talladega County jury panels were selected from a jury roll of names that the jury commissioners acquired from “city directories, registration lists, club and church lists, conversations with other persons in the community, both white and [not white], and personal and business acquaintances.” This process was clearly biased against Black people and in favor of people in the commissioners’ social and professional circles. Such systematic exclusion of Black people from the jury rolls meant that very few Black people were selected for the jury panels.</p>
 <p>Even when there were Black panelists, they typically did not make it into the final jury. Of the eight Black men on Robert Swain’s jury panel, two were excused and six were eliminated by the prosecution in a process called a <em>peremptory challenge</em>. In this process, lawyers for both sides could exclude or <em>strike</em> a certain number of panelists without giving a reason.</p>
 <p>Arguing against the unfairness of peremptory challenges was a significant part of Robert Swain’s appeal. He noted that “prosecutors have consistently and systematically exercised their strikes to prevent any and all [Black panelists] from serving on the [jury] itself.” The Court acknowledged that there had never been a Black juror in any civil or criminal case in Talladega County. But it still denied the appeal.</p>
 <p>Racial bias in the legal system derived from bias in society. Prejudice and injustice against Black people had been so prevalent for so long that in many parts of society it had become almost a normal way to think and act. As members of society, the Justices of the Supreme Court were not immune to this. The Court majority presented their decision as the most appropriate and logical interpretation of the law. But it was not. The Court’s decision on peremptory challenges was eventually reversed after legal battles that lasted 20 years.</p>
 <p>Robert Swain fought a criminal justice system that was stacked against him. Here, we have been able to expose just one aspect of the systemic bias and racism that he faced and that so many other Black people have fought against. For many, the fight continues to this day. We believe that data science can be a powerful ally.</p>
-</div>
-<div class="section" id="further-reading">
-<h2><span class="section-number">11.1.10. </span>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="further-reading">
+<h2><span class="section-number">11.1.10. </span>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
 <p>Robert Swain was represented in the U.S. Supreme Court by <a class="reference external" href="https://en.wikipedia.org/wiki/Constance_Baker_Motley">Constance Baker Motley</a>, the first African-American woman to argue a case in that Court. She argued 10 cases in the Supreme Court and lost only one – Robert Swain’s case in 1965.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Thurgood_Marshall">Thurgood Marshall</a>, who in 1967 became the first African-American Supreme Court Justice, had studied the Court’s decision in Robert Swain’s case and pressed for eliminating peremptory challenges that were based on race alone. This was achieved in the 1986 Supreme Court case <a class="reference external" href="https://supreme.justia.com/cases/federal/us/476/79/">Batson v. Kentucky</a>.</p>
 <p>But Marshall had concerns about the efficacy of the Batson decision. He anticipated that some legal teams would circumvent it by finding ostensibly race-neutral ways to exclude Black jurors. In his <a class="reference external" href="https://supreme.justia.com/cases/federal/us/476/79/#tab-opinion-1956655">opinion</a> concurring with the majority of the Court, he recommended going further and banning peremptory challenges altogether. His concluding words were, “I applaud the Court’s holding that the racially discriminatory use of peremptory challenges violates the Equal Protection Clause, and I join the Court’s opinion. However, only by banning peremptories entirely can such discrimination be ended.” Thurgood Marshall’s concerns were prescient, as you will see in some of the readings below.</p>
@@ -1069,8 +1263,8 @@
 <p>In their 2020 report <a class="reference external" href="http://www.clrc.ca.gov/CRPC/Pub/Panelist_Materials/PM-20210325-Semel.pdf">Whitewashing the Jury Box</a>: How California Perpetuates the Discriminatory Exclusion of Black and Latinx Jurors,
 <a class="reference external" href="https://www.law.berkeley.edu/our-faculty/faculty-profiles/elisabeth-semel/">Professor Elisabeth Semel</a> and co-authors in the Berkeley Law Death Penalty Clinic describe how Thurgood Marshall’s concerns about the effectiveness of the Batson ruling are justified by experience in Californian courts.</p>
 <p>The U.S. Supreme Court <a class="reference external" href="https://supreme.justia.com/cases/federal/us/380/202/">judgment</a> in the case Swain v. Alabama can be distressing to read. We have included it because some excerpts are quoted in the section.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1094,64 +1288,48 @@
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="../Testing_Hypotheses.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">11. </span>Testing Hypotheses</p>
-            </div>
-        </a>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../Testing_Hypotheses.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">11. </span>Testing Hypotheses</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../2/Multiple_Categories.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">11.2. </span>Multiple Categories</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="../2/Multiple_Categories.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">11.2. </span>Multiple Categories</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Ani Adhikari and John DeNero and David Wagner<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ani Adhikari and John DeNero and David Wagner<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-148221575-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
 
   </body>
 </html>

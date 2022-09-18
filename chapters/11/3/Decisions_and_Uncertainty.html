@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>11.3. Decisions and Uncertainty &#8212; Computational and Inferential Thinking</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,40 +20,39 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/book.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://inferentialthinking.org/chapters/11/3/Decisions_and_Uncertainty.html" />
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -59,10 +60,37 @@
     <link rel="next" title="11.4. Error Probabilities" href="../4/Error_Probabilities.html" />
     <link rel="prev" title="11.2. Multiple Categories" href="../2/Multiple_Categories.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
     
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-148221575-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +99,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -734,110 +763,195 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/chapters/11/3/Decisions_and_Uncertainty.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/data-8/textbook"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/11/3/Decisions_and_Uncertainty.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/data-8/textbook&urlpath=tree/textbook/chapters/11/3/Decisions_and_Uncertainty.ipynb&branch=main"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="../../../_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/11/3/Decisions_and_Uncertainty.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/data-8/textbook&urlpath=tree/textbook/chapters/11/3/Decisions_and_Uncertainty.ipynb&branch=main"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/data-8/textbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/chapters/11/3/Decisions_and_Uncertainty.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mendel-s-model">
    11.3.1. Mendel’s Model
@@ -894,33 +1008,105 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Decisions and Uncertainty</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mendel-s-model">
+   11.3.1. Mendel’s Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-1-the-hypotheses">
+   11.3.2. Step 1: The Hypotheses
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-2-the-test-statistic">
+   11.3.3. Step 2: The Test Statistic
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#observed-value-of-the-test-statistic">
+     11.3.3.1. Observed Value of the Test Statistic
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-3-the-distribution-of-the-test-statistic-under-the-null-hypothesis">
+   11.3.4. Step 3: The Distribution of the Test Statistic, Under the Null Hypothesis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-4-the-conclusion-of-the-test">
+   11.3.5. Step 4. The Conclusion of the Test
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-meaning-of-consistent">
+   11.3.6. The Meaning of “Consistent”
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conventional-cut-offs-and-the-p-value">
+   11.3.7. Conventional Cut-offs and the P-value
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-p-value">
+     11.3.7.1. The p-Value
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#historical-note-on-the-conventions">
+   11.3.8. Historical Note on the Conventions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="decisions-and-uncertainty">
-<h1><span class="section-number">11.3. </span>Decisions and Uncertainty<a class="headerlink" href="#decisions-and-uncertainty" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="decisions-and-uncertainty">
+<h1><span class="section-number">11.3. </span>Decisions and Uncertainty<a class="headerlink" href="#decisions-and-uncertainty" title="Permalink to this headline">#</a></h1>
 <p>The statistical and computational methodology that we developed for assessing models about jury selection fit into a general framework of decision making called <em>statistical tests of hypotheses</em>. Using statistical tests as a way of making decisions is standard in many fields and has a standard terminology.</p>
 <p>In this section we will describe the general sequence of the steps used in statistical tests, along with some terminology.</p>
 <p>Though our example is from the biological sciences, you will see that the statistical and computational steps in the process are consistent with the corresponding steps in our analyses of data from the legal system. However, the biological data are about plants, not human beings and injustice. So the context and interpretation of the calculations below are far more simple.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Gregor_Mendel">Gregor Mendel</a> (1822-1884) was an Austrian monk who is widely recognized as the founder of the modern field of genetics. Mendel performed careful and large-scale experiments on plants to come up with fundamental laws of genetics.</p>
 <p>Many of his experiments were on varieties of pea plants. He formulated sets of assumptions about each variety; these were his models. He then tested the validity of his models by growing the plants and gathering data.</p>
 <p>For pea plants of a particular variety, Mendel proposed the following model.</p>
-<div class="section" id="mendel-s-model">
-<h2><span class="section-number">11.3.1. </span>Mendel’s Model<a class="headerlink" href="#mendel-s-model" title="Permalink to this headline">¶</a></h2>
+<section id="mendel-s-model">
+<h2><span class="section-number">11.3.1. </span>Mendel’s Model<a class="headerlink" href="#mendel-s-model" title="Permalink to this headline">#</a></h2>
 <p>For every plant, there is a 75% chance that it will have purple flowers, and a 25% chance that the flowers will be white, regardless of the colors in all the other plants.</p>
 <p>To see whether his model was valid, Mendel grew 929 pea plants of this variety. Among these 929 plants, 705 had purple flowers.</p>
 <p>We will use these data to perform a test of hypotheses and see if Mendel’s model looks good.</p>
-</div>
-<div class="section" id="step-1-the-hypotheses">
-<h2><span class="section-number">11.3.2. </span>Step 1: The Hypotheses<a class="headerlink" href="#step-1-the-hypotheses" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="step-1-the-hypotheses">
+<h2><span class="section-number">11.3.2. </span>Step 1: The Hypotheses<a class="headerlink" href="#step-1-the-hypotheses" title="Permalink to this headline">#</a></h2>
 <p>All statistical tests attempt to choose between two views of the world. Specifically, the choice is between two views about how the data were generated. These two views are called <em>hypotheses</em>.</p>
 <p><strong>The null hypothesis.</strong> This is a clearly defined model about chances. It says that the data were generated at random under clearly specified assumptions about the randomness. The word “null” reinforces the idea that if the data look different from what the null hypothesis predicts, the difference is due to <em>nothing</em> but chance.</p>
 <p>From a practical perspective, <strong>the null hypothesis is a hypothesis under which you can simulate data.</strong></p>
@@ -929,9 +1115,9 @@
 <p><strong>The alternative hypothesis.</strong> This says that some reason other than chance made the data differ from the predictions of the model in the null hypothesis.</p>
 <p>In the example about Mendel’s plants, the alternative hypothesis is simply that his model isn’t good.</p>
 <p>Keep in mind that the alternative doesn’t say how or why the model isn’t good. It just says the model isn’t good.</p>
-</div>
-<div class="section" id="step-2-the-test-statistic">
-<h2><span class="section-number">11.3.3. </span>Step 2: The Test Statistic<a class="headerlink" href="#step-2-the-test-statistic" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="step-2-the-test-statistic">
+<h2><span class="section-number">11.3.3. </span>Step 2: The Test Statistic<a class="headerlink" href="#step-2-the-test-statistic" title="Permalink to this headline">#</a></h2>
 <p>In order to decide between the two hypothesis, we must choose a statistic that we can use to make the decision. This is called the <strong>test statistic</strong>.</p>
 <p>We will be comparing two categorical distributions: the one in Mendel’s model and the one we will get in our random sample. We want to see if these two distributions are close to each other or far apart. So a natural test statistic is the total variation distance (TVD) developed in the previous section.</p>
 <p>It turns out that with just two categories, the TVD is rather simple and easy to interpret. Let’s look at an example. Mendel’s model says that the “purple, white” distribution is [0.75, 0.25]. Suppose the distribution in our sample came out to be [0.7, 0.3].</p>
@@ -962,8 +1148,8 @@
 <li><p>So also if the answer is “small values.”</p></li>
 <li><p>But if the answer is “both big values and small values,” we recommend that you look again at your statistic. See if using a distance instead of a difference can change the answer to just “big values”.</p></li>
 </ul>
-<div class="section" id="observed-value-of-the-test-statistic">
-<h3><span class="section-number">11.3.3.1. </span>Observed Value of the Test Statistic<a class="headerlink" href="#observed-value-of-the-test-statistic" title="Permalink to this headline">¶</a></h3>
+<section id="observed-value-of-the-test-statistic">
+<h3><span class="section-number">11.3.3.1. </span>Observed Value of the Test Statistic<a class="headerlink" href="#observed-value-of-the-test-statistic" title="Permalink to this headline">#</a></h3>
 <p>The <em>observed value of the test statistic</em> is the value of the statistic you get from the data in the study, not a simulated value. Among Mendel’s 929 plants, 705 had purple flowers. The observed value of the test statistic was therefore</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -978,10 +1164,10 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="step-3-the-distribution-of-the-test-statistic-under-the-null-hypothesis">
-<h2><span class="section-number">11.3.4. </span>Step 3: The Distribution of the Test Statistic, Under the Null Hypothesis<a class="headerlink" href="#step-3-the-distribution-of-the-test-statistic-under-the-null-hypothesis" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="step-3-the-distribution-of-the-test-statistic-under-the-null-hypothesis">
+<h2><span class="section-number">11.3.4. </span>Step 3: The Distribution of the Test Statistic, Under the Null Hypothesis<a class="headerlink" href="#step-3-the-distribution-of-the-test-statistic-under-the-null-hypothesis" title="Permalink to this headline">#</a></h2>
 <p>The main computational aspect of a test of hypotheses is figuring out what the model in the null hypothesis predicts. Specifically, we have to figure out <em>what the values of the test statistic might be if the null hypothesis were true</em>.</p>
 <p>The test statistic is simulated based on the assumptions of the model in the null hypothesis. That model involves chance, so the statistic comes out differently when you simulate it multiple times.</p>
 <p>By simulating the statistic repeatedly, we get a good sense of its possible values and which ones are more likely than others. In other words, we get a good approximation to the probability distribution of the statistic, as predicted by the model in the null hypothesis.</p>
@@ -1032,9 +1218,9 @@
 </div>
 <p>Look on the horizontal axis to see the typical values of the distance, as predicted by the model. They are rather small. For example, a high proportion of the distances are in the range 0 to 1, meaning that for a high proportion of the samples, the percent of purple-flowering plants is in the range 75% <span class="math notranslate nohighlight">\(\pm\)</span> 1%. That is, the sample percent is in the range 74% to 76%.</p>
 <p>Also note that this prediction was made using Mendel’s model only, not the proportions observed by Mendel in the plants that he grew. It is time now to compare the predictions and Mendel’s observation.</p>
-</div>
-<div class="section" id="step-4-the-conclusion-of-the-test">
-<h2><span class="section-number">11.3.5. </span>Step 4. The Conclusion of the Test<a class="headerlink" href="#step-4-the-conclusion-of-the-test" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="step-4-the-conclusion-of-the-test">
+<h2><span class="section-number">11.3.5. </span>Step 4. The Conclusion of the Test<a class="headerlink" href="#step-4-the-conclusion-of-the-test" title="Permalink to this headline">#</a></h2>
 <p>The choice between the null and alternative hypotheses depends on the comparison between what you computed in Steps 2 and 3: the observed value of the test statistic and its distribution as predicted by the null hypothesis.</p>
 <p>If the two are not consistent with each other, then the data do not support the null hypothesis. In other words, the alternative hypothesis is better supported by the data. We say that the test <em>rejects</em> the null hypothesis.</p>
 <p>If the two are consistent with each other, then the observed test statistic is in line with what the null hypothesis predicts. In other words, the null hypothesis is better supported by the data. We say that the data are <em>consistent with</em> the null hypothesis.</p>
@@ -1057,9 +1243,9 @@
 </div>
 <p>The observed statistic is like a typical distance predicted by the null hypothesis. The null hypothesis is Mendel’s model. So our test concludes that the data are consistent with Mendel’s model.</p>
 <p>Based on our data, Mendel’s model looks good.</p>
-</div>
-<div class="section" id="the-meaning-of-consistent">
-<h2><span class="section-number">11.3.6. </span>The Meaning of “Consistent”<a class="headerlink" href="#the-meaning-of-consistent" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-meaning-of-consistent">
+<h2><span class="section-number">11.3.6. </span>The Meaning of “Consistent”<a class="headerlink" href="#the-meaning-of-consistent" title="Permalink to this headline">#</a></h2>
 <p>In all of our examples of assessing models there has been no doubt about whether the data were consistent with the model’s predictions. They were either very far from what the model predicted, as in the examples about jury panels, or similar to what the model predicted, as in the example about Mendel’s model.</p>
 <p>But outcomes are not always so clear cut. How far is “far”? Exactly what should “similar” mean? While these questions don’t have universal answers, there are some guidelines and conventions that you can follow.</p>
 <p>But first, it is important to understand that whether the observed test statistic is consistent with its predicted distribution under the null hypothesis is a matter of subjective opinion and judgment. We recommend that you provide your judgment along with the value of the test statistic and a graph of its predicted distribution under the null. That will allow your readers to make their own judgment about whether the two are consistent.</p>
@@ -1082,9 +1268,9 @@
 </div>
 <p>Is the observation based on the new variety of plants consistent with the predictions in the histogram, or not?</p>
 <p>Now the answer is not so clear. It depends on whether you think the red dot is too far from the bulk of the predicted values to be consistent with the prediction based on Mendel’s model.</p>
-</div>
-<div class="section" id="conventional-cut-offs-and-the-p-value">
-<h2><span class="section-number">11.3.7. </span>Conventional Cut-offs and the P-value<a class="headerlink" href="#conventional-cut-offs-and-the-p-value" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="conventional-cut-offs-and-the-p-value">
+<h2><span class="section-number">11.3.7. </span>Conventional Cut-offs and the P-value<a class="headerlink" href="#conventional-cut-offs-and-the-p-value" title="Permalink to this headline">#</a></h2>
 <p>If you don’t want to use your own judgment, there are conventions that you can follow. These conventions tell us how far out into the tails is conventionally considered “too far”.</p>
 <p>The conventions are based on the area in the tail, <strong>starting at the observed statistic (the red dot) and looking in the direction that makes us lean toward the alternative.</strong> In this example that’s the right side, because big distances favor the alternative which says that the model isn’t good.</p>
 <p>If the area of the tail is small, the observed statistic is far away from the values most commonly predicted by the null hypothesis.</p>
@@ -1103,8 +1289,8 @@
 </div>
 <p>About 2.4% of the distances simulated under Mendel’s model were 3.2 or greater. By the law of averages, we can conclude that if Mendel’s model were correct for these new plants, then there is about a 2.4% chance that the test statistic would be 3.2 or more.</p>
 <p>That doesn’t seem like a big chance. If Mendel’s model is true for these plants, something quite unlikely has happened. This idea gives rise to the conventions.</p>
-<div class="section" id="the-p-value">
-<h3><span class="section-number">11.3.7.1. </span>The p-Value<a class="headerlink" href="#the-p-value" title="Permalink to this headline">¶</a></h3>
+<section id="the-p-value">
+<h3><span class="section-number">11.3.7.1. </span>The p-Value<a class="headerlink" href="#the-p-value" title="Permalink to this headline">#</a></h3>
 <p>This chance has an impressive name. It is called the <em>observed significance level</em> of the test. That’s a mouthful, and so it is commonly called the <em>p-value</em> of the test.</p>
 <p><strong>Definition:</strong> The p-value of a test is the chance, based on the model in the null hypothesis, that the test statistic will be equal to the observed value in the sample or even further in the direction that supports the alternative.</p>
 <p>If a p-value is small, that means the tail beyond the observed statistic is small and so the observed statistic is far away from what the null predicts. This implies that the data support the alternative hypothesis more than they support the null.</p>
@@ -1115,10 +1301,10 @@
 </ul>
 <p>By this convention, our p-value of 2.4% is considered small. So the conventional conclusion would be to reject the null hypothesis and say that Mendel’s model does not look good for the new plants. Formally, the result of the test is statistically significant.</p>
 <p>When you make a conclusion in this way, we recommend that you don’t just say whether or not the result is statistically significant. Along with your conclusion, provide the observed statistic and the p-value as well, so that readers can use their own judgment.</p>
-</div>
-</div>
-<div class="section" id="historical-note-on-the-conventions">
-<h2><span class="section-number">11.3.8. </span>Historical Note on the Conventions<a class="headerlink" href="#historical-note-on-the-conventions" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="historical-note-on-the-conventions">
+<h2><span class="section-number">11.3.8. </span>Historical Note on the Conventions<a class="headerlink" href="#historical-note-on-the-conventions" title="Permalink to this headline">#</a></h2>
 <p>The determination of statistical significance, as defined above, has become standard in statistical analyses in all fields of application. When a convention is so universally followed, it is interesting to examine how it arose.</p>
 <p>The method of statistical testing – choosing between hypotheses based on data in random samples – was developed by Sir Ronald Fisher in the early 20th century. Sir Ronald might have set the convention for statistical significance somewhat unwittingly, in the following statement in his 1925 book <em>Statistical Methods for Research Workers</em>. About the 5% level, he wrote, “It is convenient to take this point as a limit in judging whether a deviation is to be considered significant or not.”</p>
 <p>What was “convenient” for Sir Ronald became a cutoff that has acquired the status of a universal constant. No matter that Sir Ronald himself made the point that the value was his personal choice from among many: in an article in 1926, he wrote, “If one in twenty does not seem high enough odds, we may, if we prefer it draw the line at one in fifty (the 2 percent point), or one in a hundred (the 1 percent point). Personally, the author prefers to set a low standard of significance at the 5 percent point …”</p>
@@ -1129,8 +1315,8 @@
 <li><p>Don’t look to defy convention only when the conventionally derived result is not to your liking.</p></li>
 <li><p>Even if a test concludes that the data don’t support the chance model in the null hypothesis, it typically doesn’t explain <em>why</em> the model doesn’t work. Don’t make causal conclusions without further analysis, unless you are running a randomized controlled trial. We will analyze those in a later section.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1154,64 +1340,48 @@
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="../2/Multiple_Categories.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">11.2. </span>Multiple Categories</p>
-            </div>
-        </a>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../2/Multiple_Categories.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">11.2. </span>Multiple Categories</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../4/Error_Probabilities.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">11.4. </span>Error Probabilities</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="../4/Error_Probabilities.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">11.4. </span>Error Probabilities</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Ani Adhikari and John DeNero and David Wagner<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ani Adhikari and John DeNero and David Wagner<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-148221575-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
 
   </body>
 </html>

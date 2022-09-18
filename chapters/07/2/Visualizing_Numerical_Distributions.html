@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>7.2. Visualizing Numerical Distributions &#8212; Computational and Inferential Thinking</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,40 +20,39 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/book.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://inferentialthinking.org/chapters/07/2/Visualizing_Numerical_Distributions.html" />
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -59,10 +60,37 @@
     <link rel="next" title="7.3. Overlaid Graphs" href="../3/Overlaid_Graphs.html" />
     <link rel="prev" title="7.1. Visualizing Categorical Distributions" href="../1/Visualizing_Categorical_Distributions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
     
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-148221575-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +99,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -734,110 +763,195 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/chapters/07/2/Visualizing_Numerical_Distributions.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/data-8/textbook"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/07/2/Visualizing_Numerical_Distributions.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https://github.com/data-8/textbook&urlpath=tree/textbook/chapters/07/2/Visualizing_Numerical_Distributions.ipynb&branch=main"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="../../../_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/07/2/Visualizing_Numerical_Distributions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/data-8/textbook&urlpath=tree/textbook/chapters/07/2/Visualizing_Numerical_Distributions.ipynb&branch=main"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/data-8/textbook"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/chapters/07/2/Visualizing_Numerical_Distributions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#binning-the-data">
    7.2.1. Binning the Data
@@ -890,19 +1004,87 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Visualizing Numerical Distributions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binning-the-data">
+   7.2.1. Binning the Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#histogram">
+   7.2.2. Histogram
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-horizontal-axis">
+   7.2.3. The Horizontal Axis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-area-principle">
+   7.2.4. The Area Principle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-histogram-general-principles-and-calculation">
+   7.2.5. The Histogram: General Principles and Calculation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-vertical-axis-density-scale">
+   7.2.6. The Vertical Axis: Density Scale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-not-simply-plot-the-counts">
+   7.2.7. Why Not Simply Plot the Counts?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flat-tops-and-the-level-of-detail">
+   7.2.8. Flat Tops and the Level of Detail
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#computing-all-heights">
+   7.2.9. Computing All Heights
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#differences-between-bar-charts-and-histograms">
+   7.2.10. Differences Between Bar Charts and Histograms
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="visualizing-numerical-distributions">
-<h1><span class="section-number">7.2. </span>Visualizing Numerical Distributions<a class="headerlink" href="#visualizing-numerical-distributions" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="visualizing-numerical-distributions">
+<h1><span class="section-number">7.2. </span>Visualizing Numerical Distributions<a class="headerlink" href="#visualizing-numerical-distributions" title="Permalink to this headline">#</a></h1>
 <p>Many of the variables that data scientists study are <em>quantitative</em> or <em>numerical</em>. Their values are numbers on which you can perform arithmetic. Examples that we have seen include the number of periods in chapters of a book, the amount of money made by movies, and the age of people in the United States.</p>
 <p>The values of a categorical variable can be given numerical codes, but that doesn’t make the variable quantitative. In the example in which we studied Census data broken down by age group, the categorial variable <code class="docutils literal notranslate"><span class="pre">SEX</span></code> had the numerical codes <code class="docutils literal notranslate"><span class="pre">1</span></code> for ‘Male,’ <code class="docutils literal notranslate"><span class="pre">2</span></code> for ‘Female,’ and <code class="docutils literal notranslate"><span class="pre">0</span></code> for the aggregate of both groups <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">2</span></code>. While 0, 1, and 2 are numbers, in this context it doesn’t make sense to subtract 1 from 2, or take the average of 0, 1, and 2, or perform other arithmetic on the three values. <code class="docutils literal notranslate"><span class="pre">SEX</span></code> is a categorical variable even though the values have been given a numerical code.</p>
 <p>For our main example, we will return to a dataset that we studied when we were visualizing categorical data. It is the table <code class="docutils literal notranslate"><span class="pre">top</span></code>, which consists of data from U.S.A.’s top grossing movies of all time (as of 2017). For convenience, here is the description of the table again.</p>
@@ -1009,8 +1191,8 @@
 </table>
 <p>... (190 rows omitted)</p></div></div>
 </div>
-<div class="section" id="binning-the-data">
-<h2><span class="section-number">7.2.1. </span>Binning the Data<a class="headerlink" href="#binning-the-data" title="Permalink to this headline">¶</a></h2>
+<section id="binning-the-data">
+<h2><span class="section-number">7.2.1. </span>Binning the Data<a class="headerlink" href="#binning-the-data" title="Permalink to this headline">#</a></h2>
 <p>Look at the values of the quantitative variable <code class="docutils literal notranslate"><span class="pre">Adjusted</span> <span class="pre">Gross</span></code>. There is likely to be only one movie at each individual value, since the values are being measured rather finely. It is more interesting to group the values into intervals, known as <em>bins</em>, and see how many movies are in each bin. This process is called <em>binning</em>.</p>
 <p>The counts of individuals (that is, rows) in the bins can be computed using the <code class="docutils literal notranslate"><span class="pre">bin</span></code> method, analogous to the <code class="docutils literal notranslate"><span class="pre">group</span></code> method used in the case of categorical data. The <code class="docutils literal notranslate"><span class="pre">bin</span></code> method takes as its argument a column label or index, and an optional argument in which you can specify the bins that you want.</p>
 <p>The result is a two-column table that contains the number of rows in each bin. The first column lists the left endpoints of the bins (but see the note about the last bin, below).</p>
@@ -1192,9 +1374,9 @@
 </table></div></div>
 </div>
 <p>But with quantitative data, the bins don’t have to be equally wide. We will see an example of unequal bins later.</p>
-</div>
-<div class="section" id="histogram">
-<h2><span class="section-number">7.2.2. </span>Histogram<a class="headerlink" href="#histogram" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="histogram">
+<h2><span class="section-number">7.2.2. </span>Histogram<a class="headerlink" href="#histogram" title="Permalink to this headline">#</a></h2>
 <p>A <em>histogram</em> is a visualization of the distribution of a quantitative variable. It looks very much like a bar chart but there are some important differences that we will examine in this section. First, let’s just draw a histogram of the adjusted receipts.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">hist</span></code> method generates a histogram of the values in a column. The optional <code class="docutils literal notranslate"><span class="pre">unit</span></code> argument is used in the labels on the two axes. The histogram below shows the distribution of the adjusted gross amounts, in millions of 2016 dollars. We have not specified the bins, so <code class="docutils literal notranslate"><span class="pre">hist</span></code> creates 10 equally wide bins between the minimum and maximum values of the data.</p>
 <div class="cell docutils container">
@@ -1208,9 +1390,9 @@
 </div>
 </div>
 <p>This figure has two numerical axes. We will take a quick look at the horizontal axis first, and then examine the vertical axis carefully. For now, just note that <strong>the vertical axis does not represent percents</strong>.</p>
-</div>
-<div class="section" id="the-horizontal-axis">
-<h2><span class="section-number">7.2.3. </span>The Horizontal Axis<a class="headerlink" href="#the-horizontal-axis" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-horizontal-axis">
+<h2><span class="section-number">7.2.3. </span>The Horizontal Axis<a class="headerlink" href="#the-horizontal-axis" title="Permalink to this headline">#</a></h2>
 <p>Although in this dataset no movie grossed an amount that is exactly on the edge between two bins, <code class="docutils literal notranslate"><span class="pre">hist</span></code> does have to account for situations where there might have been values at the edges. So <code class="docutils literal notranslate"><span class="pre">hist</span></code> uses the same <em>endpoint convention</em> as the <code class="docutils literal notranslate"><span class="pre">bin</span></code> method. Bins include the data at their left endpoint, but not the data at their right endpoint, except for the rightmost bin which includes both endpoints.</p>
 <p>We can see that there are 10 bins (some bars are so low that they are hard to see), and that they all have the same width. We can also see that none of the movies grossed fewer than 300 million dollars; that is because we are considering only the top grossing movies.</p>
 <p>It is a little harder to see exactly where the ends of the bins are situated. So it is hard to judge exactly where one bar ends and the next begins.</p>
@@ -1227,17 +1409,17 @@
 </div>
 <p>The horizontal axis of this figure is easier to read. For example, you can see exactly where 600 is, even though it is not labeled.</p>
 <p>A very small number of movies grossed a billion dollars (1000 million) or more. This results in the figure being <em>skewed to the right</em>, or, less formally, having <em>a long right hand tail</em>. Distributions of variables like income or rent in large populations also often have this kind of shape.</p>
-</div>
-<div class="section" id="the-area-principle">
-<h2><span class="section-number">7.2.4. </span>The Area Principle<a class="headerlink" href="#the-area-principle" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-area-principle">
+<h2><span class="section-number">7.2.4. </span>The Area Principle<a class="headerlink" href="#the-area-principle" title="Permalink to this headline">#</a></h2>
 <p>Both axes of a histogram are numerical, so you can do arithmetic on both of them. For example, you can multiply the values on either or both of the axes by a factor. To see how this could affect visual perception, let’s step back from histograms and look at a graphic provided for this purpose by the site <a class="reference external" href="https://flowingdata.com/2012/03/16/new-ipad-battery-size-is-huge/">Flowing Data</a>. It is a comparison between the battery sizes of two iPad models.</p>
 <p><img alt="iPad batteries" src="../../../_images/ipad_battery.png" /></p>
 <p>The larger of the batteries is supposed to be 70% bigger than the smaller. So it’s meant to be bigger but not quite twice as big. However, the larger battery in the picture looks almost four times the size of the smaller one.</p>
 <p>The reason for this problem is that the eye picks up <em>area</em> as the measure of size, not just height or just width. In the picture, both dimensions have been increased by 70%, leading to a multiplicative effect in the area.</p>
 <p>The area principle of visualization says that when we represent a magnitude by a figure that has two dimensions, such as a rectangle, then the <em>area</em> of the figure should represent the magnitude.</p>
-</div>
-<div class="section" id="the-histogram-general-principles-and-calculation">
-<h2><span class="section-number">7.2.5. </span>The Histogram: General Principles and Calculation<a class="headerlink" href="#the-histogram-general-principles-and-calculation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-histogram-general-principles-and-calculation">
+<h2><span class="section-number">7.2.5. </span>The Histogram: General Principles and Calculation<a class="headerlink" href="#the-histogram-general-principles-and-calculation" title="Permalink to this headline">#</a></h2>
 <p>Histograms follow the area principle and have two defining properties:</p>
 <ol class="simple">
 <li><p>The bins are drawn to scale and are contiguous (though some might be empty), because the values on the horizontal axis are numerical and therefore have fixed positions on the number line.</p></li>
@@ -1266,9 +1448,9 @@
 <li><p>The area of each bar is equal to the percent of data values that are in the corresponding bin.</p></li>
 <li><p>The total area of all the bars in the histogram is 100%. In terms of proportions, we can say that the areas of all the bars in a histogram “sum to 1”.</p></li>
 </ul>
-</div>
-<div class="section" id="the-vertical-axis-density-scale">
-<h2><span class="section-number">7.2.6. </span>The Vertical Axis: Density Scale<a class="headerlink" href="#the-vertical-axis-density-scale" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-vertical-axis-density-scale">
+<h2><span class="section-number">7.2.6. </span>The Vertical Axis: Density Scale<a class="headerlink" href="#the-vertical-axis-density-scale" title="Permalink to this headline">#</a></h2>
 <p>As we have just seen, the height of each bar is the percent of elements that fall into the corresponding bin, relative to the width of the bin. We will now see how <code class="docutils literal notranslate"><span class="pre">hist</span></code> calculated the heights of all the bars of the histogram above.</p>
 <p>Here is the histogram again for ease of reference.</p>
 <div class="cell docutils container">
@@ -1321,9 +1503,9 @@
 \]</div>
 <p><strong>Units:</strong> The height of the bar is 34% divided by 100 million dollars, and so the height is 0.34% per million dollars.</p>
 <p>The height of bar is <strong>not</strong> the percent of entries in the bin. It is the percent of entries in the bin relative to the amount of space in the bin. That is why the height measures crowdedness or density. The vertical axis is said to be on the density scale.</p>
-</div>
-<div class="section" id="why-not-simply-plot-the-counts">
-<h2><span class="section-number">7.2.7. </span>Why Not Simply Plot the Counts?<a class="headerlink" href="#why-not-simply-plot-the-counts" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="why-not-simply-plot-the-counts">
+<h2><span class="section-number">7.2.7. </span>Why Not Simply Plot the Counts?<a class="headerlink" href="#why-not-simply-plot-the-counts" title="Permalink to this headline">#</a></h2>
 <p>The main reason for plotting density on the vertical axis instead of counts or percents is to be able to compare histograms and approximate them with smooth curves where proportions are represented by areas under the curve.</p>
 <p>For example, later in the course you will see histograms that are approximately bell-shaped. The figure below shows such a shape. The gold shaded area happens to be 95% of the total area under the curve. Notice that this is quite believeable based on the areas you see in the figure, even though there are no numbers on the axes. That is why we draw histograms so that areas represent percents.</p>
 <p><img alt="shaded bell-shaped curve" src="../../../_images/normal_shaded.png" /></p>
@@ -1388,9 +1570,9 @@
 </div>
 </div>
 <p>Even though <code class="docutils literal notranslate"><span class="pre">hist</span></code> has been used, <strong>the figure above is NOT A HISTOGRAM.</strong> It misleadingly exaggerates the movies grossing at least 500 million dollars. The height of each bar is simply plotted at the number of movies in the bin, without accounting for the difference in the widths of the bins. In this count-based figure, the shape of the distribution of movies is lost entirely.</p>
-</div>
-<div class="section" id="flat-tops-and-the-level-of-detail">
-<h2><span class="section-number">7.2.8. </span>Flat Tops and the Level of Detail<a class="headerlink" href="#flat-tops-and-the-level-of-detail" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="flat-tops-and-the-level-of-detail">
+<h2><span class="section-number">7.2.8. </span>Flat Tops and the Level of Detail<a class="headerlink" href="#flat-tops-and-the-level-of-detail" title="Permalink to this headline">#</a></h2>
 <p>Even though the density scale correctly represents percents using area, some detail is lost by grouping values into bins.</p>
 <p>Take another look at the [400, 500) bin in the figure below. The flat top of the bar, at the level 0.3% per million dollars, hides the fact that the movies are somewhat unevenly distributed across that bin.</p>
 <div class="cell docutils container">
@@ -1422,9 +1604,9 @@ This observation gives us a different way of thinking about the height.
 Look again at the [400, 500) bin in the earlier histograms. As we have seen, the bin is 100 million dollars wide and contains 30% of the data. Therefore the height of the corresponding bar is 0.3% per million dollars.</p>
 <p>Now think of the bin as consisting of 100 narrow bins that are each 1 million dollars wide. The bar’s height of “0.3% per million dollars” means that as a rough approximation, 0.3% of the movies are in each of those 100 skinny bins of width 1 million dollars.</p>
 <p>We have the entire dataset that is being used to draw the histograms. So we can draw the histograms to as fine a level of detail as the data and our patience will allow. Smaller bins will lead to a more detailed picture. However, if you are looking at a histogram in a book or on a website, and you don’t have access to the underlying dataset, then it becomes important to have a clear understanding of the “rough approximation” created by the flat tops.</p>
-</div>
-<div class="section" id="computing-all-heights">
-<h2><span class="section-number">7.2.9. </span>Computing All Heights<a class="headerlink" href="#computing-all-heights" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="computing-all-heights">
+<h2><span class="section-number">7.2.9. </span>Computing All Heights<a class="headerlink" href="#computing-all-heights" title="Permalink to this headline">#</a></h2>
 <p>We know how to find the height of each histogram bar. Let’s use that to develop code that computes all the heights at once.</p>
 <p>We will use the histogram below as our example. The bins are specified in the array <code class="docutils literal notranslate"><span class="pre">uneven</span></code>.</p>
 <div class="cell docutils container">
@@ -1587,16 +1769,16 @@ Look again at the [400, 500) bin in the earlier histograms. As we have seen, the
 <img alt="../../../_images/Visualizing_Numerical_Distributions_51_0.png" src="../../../_images/Visualizing_Numerical_Distributions_51_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="differences-between-bar-charts-and-histograms">
-<h2><span class="section-number">7.2.10. </span>Differences Between Bar Charts and Histograms<a class="headerlink" href="#differences-between-bar-charts-and-histograms" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="differences-between-bar-charts-and-histograms">
+<h2><span class="section-number">7.2.10. </span>Differences Between Bar Charts and Histograms<a class="headerlink" href="#differences-between-bar-charts-and-histograms" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Bar charts display one numerical quantity per category. They are often used to display the distributions of categorical variables. Histograms display the distributions of quantitative variables.</p></li>
 <li><p>All the bars in a bar chart have the same width, and there is an equal amount of space between consecutive bars. The bars can be in any order because the distribution is categorical. The bars of a histogram are contiguous; the bins are drawn to scale on the number line.</p></li>
 <li><p>The lengths (or heights, if the bars are drawn vertically) of the bars in a bar chart are proportional to the count in each category. The heights of bars in a histogram measure densities; the <em>areas</em> of bars in a histogram are proportional to the counts in the bins.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1620,64 +1802,48 @@ Look again at the [400, 500) bin in the earlier histograms. As we have seen, the
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="../1/Visualizing_Categorical_Distributions.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">7.1. </span>Visualizing Categorical Distributions</p>
-            </div>
-        </a>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../1/Visualizing_Categorical_Distributions.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">7.1. </span>Visualizing Categorical Distributions</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../3/Overlaid_Graphs.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7.3. </span>Overlaid Graphs</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="../3/Overlaid_Graphs.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">7.3. </span>Overlaid Graphs</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Ani Adhikari and John DeNero and David Wagner<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ani Adhikari and John DeNero and David Wagner<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-148221575-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
 
   </body>
 </html>
