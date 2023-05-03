@@ -1,50 +1,68 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>14.3. The SD and the Normal Curve &#8212; Computational and Inferential Thinking</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/book.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-148221575-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-148221575-1');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -53,982 +71,470 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/14/3/SD_and_the_Normal_Curve';</script>
     <link rel="canonical" href="https://inferentialthinking.org/chapters/14/3/SD_and_the_Normal_Curve.html" />
     <link rel="shortcut icon" href="../../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="14.4. The Central Limit Theorem" href="../4/Central_Limit_Theorem.html" />
     <link rel="prev" title="14.2. Variability" href="../2/Variability.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-148221575-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../../_static/favicon.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Computational and Inferential Thinking</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../../_static/favicon.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/favicon.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../01/what-is-data-science.html">
-   1. Data Science
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../01/1/intro.html">
-     1.1. Introduction
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-    <label for="toctree-checkbox-2">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../01/1/1/computational-tools.html">
-       1.1.1. Computational Tools
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../01/1/2/statistical-techniques.html">
-       1.1.2. Statistical Techniques
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../01/2/why-data-science.html">
-     1.2. Why Data Science?
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../01/3/Plotting_the_Classics.html">
-     1.3. Plotting the Classics
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../01/3/1/Literary_Characters.html">
-       1.3.1. Literary Characters
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../01/3/2/Another_Kind_Of_Character.html">
-       1.3.2. Another Kind of Character
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../02/causality-and-experiments.html">
-   2. Causality and Experiments
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../02/1/observation-and-visualization-john-snow-and-the-broad-street-pump.html">
-     2.1. John Snow and the Broad Street Pump
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../02/2/snow-s-grand-experiment.html">
-     2.2. Snow’s “Grand Experiment”
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../02/3/establishing-causality.html">
-     2.3. Establishing Causality
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../02/4/randomization.html">
-     2.4. Randomization
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../02/5/endnote.html">
-     2.5. Endnote
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../03/programming-in-python.html">
-   3. Programming in Python
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../03/1/Expressions.html">
-     3.1. Expressions
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../03/2/Names.html">
-     3.2. Names
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-    <label for="toctree-checkbox-6">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../03/2/1/Growth.html">
-       3.2.1. Example: Growth Rates
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../03/3/Calls.html">
-     3.3. Call Expressions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../03/4/Introduction_to_Tables.html">
-     3.4. Introduction to Tables
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../04/Data_Types.html">
-   4. Data Types
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../04/1/Numbers.html">
-     4.1. Numbers
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../04/2/Strings.html">
-     4.2. Strings
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-    <label for="toctree-checkbox-8">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../04/2/1/String_Methods.html">
-       4.2.1. String Methods
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../04/3/Comparison.html">
-     4.3. Comparisons
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../05/Sequences.html">
-   5. Sequences
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../05/1/Arrays.html">
-     5.1. Arrays
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../05/2/Ranges.html">
-     5.2. Ranges
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../05/3/More_on_Arrays.html">
-     5.3. More on Arrays
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../06/Tables.html">
-   6. Tables
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../06/1/Sorting_Rows.html">
-     6.1. Sorting Rows
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../06/2/Selecting_Rows.html">
-     6.2. Selecting Rows
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../06/3/Example_Population_Trends.html">
-     6.3. Example: Population Trends
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../06/4/Example_Sex_Ratios.html">
-     6.4. Example: Sex Ratios
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../07/Visualization.html">
-   7. Visualization
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-  <label for="toctree-checkbox-11">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../07/1/Visualizing_Categorical_Distributions.html">
-     7.1. Categorical Distributions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../07/2/Visualizing_Numerical_Distributions.html">
-     7.2. Numerical Distributions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../07/3/Overlaid_Graphs.html">
-     7.3. Overlaid Graphs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../08/Functions_and_Tables.html">
-   8. Functions and Tables
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../08/1/Applying_a_Function_to_a_Column.html">
-     8.1. Applying Functions to Columns
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../08/2/Classifying_by_One_Variable.html">
-     8.2. Classifying by One Variable
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../08/3/Cross-Classifying_by_More_than_One_Variable.html">
-     8.3. Cross-Classifying
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../08/4/Joining_Tables_by_Columns.html">
-     8.4. Joining Tables by Columns
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../08/5/Bike_Sharing_in_the_Bay_Area.html">
-     8.5. Bike Sharing in the Bay Area
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../09/Randomness.html">
-   9. Randomness
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../09/1/Conditional_Statements.html">
-     9.1. Conditional Statements
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../09/2/Iteration.html">
-     9.2. Iteration
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../09/3/Simulation.html">
-     9.3. Simulation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../09/4/Monty_Hall_Problem.html">
-     9.4. The Monty Hall Problem
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../09/5/Finding_Probabilities.html">
-     9.5. Finding Probabilities
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../10/Sampling_and_Empirical_Distributions.html">
-   10. Sampling and Empirical Distributions
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-  <label for="toctree-checkbox-14">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../10/1/Empirical_Distributions.html">
-     10.1. Empirical Distributions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../10/2/Sampling_from_a_Population.html">
-     10.2. Sampling from a Population
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../10/3/Empirical_Distribution_of_a_Statistic.html">
-     10.3. Empirical Distibution of a Statistic
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../10/4/Random_Sampling_in_Python.html">
-     10.4. Random Sampling in Python
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../11/Testing_Hypotheses.html">
-   11. Testing Hypotheses
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-  <label for="toctree-checkbox-15">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../11/1/Assessing_a_Model.html">
-     11.1. Assessing a Model
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../11/2/Multiple_Categories.html">
-     11.2. Multiple Categories
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../11/3/Decisions_and_Uncertainty.html">
-     11.3. Decisions and Uncertainty
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../11/4/Error_Probabilities.html">
-     11.4. Error Probabilities
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../12/Comparing_Two_Samples.html">
-   12. Comparing Two Samples
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-  <label for="toctree-checkbox-16">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../12/1/AB_Testing.html">
-     12.1. A/B Testing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../12/2/Causality.html">
-     12.2. Causality
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../12/3/Deflategate.html">
-     12.3. Deflategate
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../13/Estimation.html">
-   13. Estimation
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
-  <label for="toctree-checkbox-17">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../13/1/Percentiles.html">
-     13.1. Percentiles
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../13/2/Bootstrap.html">
-     13.2. The Bootstrap
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../13/3/Confidence_Intervals.html">
-     13.3. Confidence Intervals
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../13/4/Using_Confidence_Intervals.html">
-     13.4. Using Confidence Intervals
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../Why_the_Mean_Matters.html">
-   14. Why the Mean Matters
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
-  <label for="toctree-checkbox-18">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../1/Properties_of_the_Mean.html">
-     14.1. Properties of the Mean
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../2/Variability.html">
-     14.2. Variability
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     14.3. The SD and the Normal Curve
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../4/Central_Limit_Theorem.html">
-     14.4. The Central Limit Theorem
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../5/Variability_of_the_Sample_Mean.html">
-     14.5. The Variability of the Sample Mean
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../6/Choosing_a_Sample_Size.html">
-     14.6. Choosing a Sample Size
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../15/Prediction.html">
-   15. Prediction
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
-  <label for="toctree-checkbox-19">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../15/1/Correlation.html">
-     15.1. Correlation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../15/2/Regression_Line.html">
-     15.2. The Regression Line
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../15/3/Method_of_Least_Squares.html">
-     15.3. The Method of Least Squares
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../15/4/Least_Squares_Regression.html">
-     15.4. Least Squares Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../15/5/Visual_Diagnostics.html">
-     15.5. Visual Diagnostics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../15/6/Numerical_Diagnostics.html">
-     15.6. Numerical Diagnostics
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../16/Inference_for_Regression.html">
-   16. Inference for Regression
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
-  <label for="toctree-checkbox-20">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../16/1/Regression_Model.html">
-     16.1. A Regression Model
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../16/2/Inference_for_the_True_Slope.html">
-     16.2. Inference for the True Slope
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../16/3/Prediction_Intervals.html">
-     16.3. Prediction Intervals
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../17/Classification.html">
-   17. Classification
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
-  <label for="toctree-checkbox-21">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../17/1/Nearest_Neighbors.html">
-     17.1. Nearest Neighbors
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../17/2/Training_and_Testing.html">
-     17.2. Training and Testing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../17/3/Rows_of_Tables.html">
-     17.3. Rows of Tables
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../17/4/Implementing_the_Classifier.html">
-     17.4. Implementing the Classifier
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../17/5/Accuracy_of_the_Classifier.html">
-     17.5. The Accuracy of the Classifier
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../17/6/Multiple_Regression.html">
-     17.6. Multiple Regression
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../18/Updating_Predictions.html">
-   18. Updating Predictions
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
-  <label for="toctree-checkbox-22">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../18/1/More_Likely_than_Not_Binary_Classifier.html">
-     18.1. A "More Likely Than Not" Binary Classifier
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../18/2/Making_Decisions.html">
-     18.2. Making Decisions
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../01/what-is-data-science.html">1. Data Science</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01/1/intro.html">1.1. Introduction</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01/1/1/computational-tools.html">1.1.1. Computational Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01/1/2/statistical-techniques.html">1.1.2. Statistical Techniques</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../01/2/why-data-science.html">1.2. Why Data Science?</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01/3/Plotting_the_Classics.html">1.3. Plotting the Classics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01/3/1/Literary_Characters.html">1.3.1. Literary Characters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01/3/2/Another_Kind_Of_Character.html">1.3.2. Another Kind of Character</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../02/causality-and-experiments.html">2. Causality and Experiments</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../02/1/observation-and-visualization-john-snow-and-the-broad-street-pump.html">2.1. John Snow and the Broad Street Pump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02/2/snow-s-grand-experiment.html">2.2. Snow’s “Grand Experiment”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02/3/establishing-causality.html">2.3. Establishing Causality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02/4/randomization.html">2.4. Randomization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02/5/endnote.html">2.5. Endnote</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../03/programming-in-python.html">3. Programming in Python</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../03/1/Expressions.html">3.1. Expressions</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../03/2/Names.html">3.2. Names</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../03/2/1/Growth.html">3.2.1. Example: Growth Rates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../03/3/Calls.html">3.3. Call Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03/4/Introduction_to_Tables.html">3.4. Introduction to Tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../04/Data_Types.html">4. Data Types</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../04/1/Numbers.html">4.1. Numbers</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../04/2/Strings.html">4.2. Strings</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../04/2/1/String_Methods.html">4.2.1. String Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../04/3/Comparison.html">4.3. Comparisons</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../05/Sequences.html">5. Sequences</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../05/1/Arrays.html">5.1. Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05/2/Ranges.html">5.2. Ranges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05/3/More_on_Arrays.html">5.3. More on Arrays</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../06/Tables.html">6. Tables</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../06/1/Sorting_Rows.html">6.1. Sorting Rows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06/2/Selecting_Rows.html">6.2. Selecting Rows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06/3/Example_Population_Trends.html">6.3. Example: Population Trends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06/4/Example_Sex_Ratios.html">6.4. Example: Sex Ratios</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../07/Visualization.html">7. Visualization</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../07/1/Visualizing_Categorical_Distributions.html">7.1. Categorical Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07/2/Visualizing_Numerical_Distributions.html">7.2. Numerical Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07/3/Overlaid_Graphs.html">7.3. Overlaid Graphs</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../08/Functions_and_Tables.html">8. Functions and Tables</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../08/1/Applying_a_Function_to_a_Column.html">8.1. Applying Functions to Columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08/2/Classifying_by_One_Variable.html">8.2. Classifying by One Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08/3/Cross-Classifying_by_More_than_One_Variable.html">8.3. Cross-Classifying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08/4/Joining_Tables_by_Columns.html">8.4. Joining Tables by Columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08/5/Bike_Sharing_in_the_Bay_Area.html">8.5. Bike Sharing in the Bay Area</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../09/Randomness.html">9. Randomness</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../09/1/Conditional_Statements.html">9.1. Conditional Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09/2/Iteration.html">9.2. Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09/3/Simulation.html">9.3. Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09/4/Monty_Hall_Problem.html">9.4. The Monty Hall Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09/5/Finding_Probabilities.html">9.5. Finding Probabilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../10/Sampling_and_Empirical_Distributions.html">10. Sampling and Empirical Distributions</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../10/1/Empirical_Distributions.html">10.1. Empirical Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10/2/Sampling_from_a_Population.html">10.2. Sampling from a Population</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10/3/Empirical_Distribution_of_a_Statistic.html">10.3. Empirical Distibution of a Statistic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10/4/Random_Sampling_in_Python.html">10.4. Random Sampling in Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../11/Testing_Hypotheses.html">11. Testing Hypotheses</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../11/1/Assessing_a_Model.html">11.1. Assessing a Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11/2/Multiple_Categories.html">11.2. Multiple Categories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11/3/Decisions_and_Uncertainty.html">11.3. Decisions and Uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11/4/Error_Probabilities.html">11.4. Error Probabilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../12/Comparing_Two_Samples.html">12. Comparing Two Samples</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../12/1/AB_Testing.html">12.1. A/B Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12/2/Causality.html">12.2. Causality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12/3/Deflategate.html">12.3. Deflategate</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../13/Estimation.html">13. Estimation</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../13/1/Percentiles.html">13.1. Percentiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13/2/Bootstrap.html">13.2. The Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13/3/Confidence_Intervals.html">13.3. Confidence Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../13/4/Using_Confidence_Intervals.html">13.4. Using Confidence Intervals</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Why_the_Mean_Matters.html">14. Why the Mean Matters</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../1/Properties_of_the_Mean.html">14.1. Properties of the Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2/Variability.html">14.2. Variability</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">14.3. The SD and the Normal Curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4/Central_Limit_Theorem.html">14.4. The Central Limit Theorem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5/Variability_of_the_Sample_Mean.html">14.5. The Variability of the Sample Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6/Choosing_a_Sample_Size.html">14.6. Choosing a Sample Size</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../15/Prediction.html">15. Prediction</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../15/1/Correlation.html">15.1. Correlation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../15/2/Regression_Line.html">15.2. The Regression Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../15/3/Method_of_Least_Squares.html">15.3. The Method of Least Squares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../15/4/Least_Squares_Regression.html">15.4. Least Squares Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../15/5/Visual_Diagnostics.html">15.5. Visual Diagnostics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../15/6/Numerical_Diagnostics.html">15.6. Numerical Diagnostics</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../16/Inference_for_Regression.html">16. Inference for Regression</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../16/1/Regression_Model.html">16.1. A Regression Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../16/2/Inference_for_the_True_Slope.html">16.2. Inference for the True Slope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../16/3/Prediction_Intervals.html">16.3. Prediction Intervals</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../17/Classification.html">17. Classification</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../17/1/Nearest_Neighbors.html">17.1. Nearest Neighbors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../17/2/Training_and_Testing.html">17.2. Training and Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../17/3/Rows_of_Tables.html">17.3. Rows of Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../17/4/Implementing_the_Classifier.html">17.4. Implementing the Classifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../17/5/Accuracy_of_the_Classifier.html">17.5. The Accuracy of the Classifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../17/6/Multiple_Regression.html">17.6. Multiple Regression</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../18/Updating_Predictions.html">18. Updating Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../18/1/More_Likely_than_Not_Binary_Classifier.html">18.1. A "More Likely Than Not" Binary Classifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../18/2/Making_Decisions.html">18.2. Making Decisions</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/14/3/SD_and_the_Normal_Curve.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/data-8/textbook/main?urlpath=tree/chapters/14/3/SD_and_the_Normal_Curve.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</li>
       
-      <li>
-        <a href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/data-8/textbook&urlpath=tree/textbook/chapters/14/3/SD_and_the_Normal_Curve.ipynb&branch=main"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on JupyterHub"
+      
+      
+      
+      <li><a href="https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/data-8/textbook&urlpath=tree/textbook/chapters/14/3/SD_and_the_Normal_Curve.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../../_static/images/logo_jupyterhub.svg">
   </span>
-<span class="headerbtn__text-container">JupyterHub</span>
+<span class="btn__text-container">JupyterHub</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+<a href="https://github.com/data-8/textbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/data-8/textbook"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../../_sources/chapters/14/3/SD_and_the_Normal_Curve.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/chapters/14/3/SD_and_the_Normal_Curve.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-roughly-bell-shaped-histogram-of-data">
-   14.3.1. A Roughly Bell-Shaped Histogram of Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-spot-the-sd-on-a-bell-shaped-curve">
-   14.3.2. How to Spot the SD on a Bell Shaped Curve
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-standard-normal-curve">
-   14.3.3. The standard normal curve
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-standard-normal-cdf">
-   14.3.4. The standard normal “cdf”
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>The SD and the Normal Curve</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-roughly-bell-shaped-histogram-of-data">
-   14.3.1. A Roughly Bell-Shaped Histogram of Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-spot-the-sd-on-a-bell-shaped-curve">
-   14.3.2. How to Spot the SD on a Bell Shaped Curve
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-standard-normal-curve">
-   14.3.3. The standard normal curve
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-standard-normal-cdf">
-   14.3.4. The standard normal “cdf”
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The SD and the Normal Curve</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-roughly-bell-shaped-histogram-of-data">14.3.1. A Roughly Bell-Shaped Histogram of Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-spot-the-sd-on-a-bell-shaped-curve">14.3.2. How to Spot the SD on a Bell Shaped Curve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-standard-normal-curve">14.3.3. The standard normal curve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-standard-normal-cdf">14.3.4. The standard normal “cdf”</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <div class="cell tag_remove-input docutils container">
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="the-sd-and-the-normal-curve">
-<h1><span class="section-number">14.3. </span>The SD and the Normal Curve<a class="headerlink" href="#the-sd-and-the-normal-curve" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">14.3. </span>The SD and the Normal Curve<a class="headerlink" href="#the-sd-and-the-normal-curve" title="Permalink to this heading">#</a></h1>
 <p>We know that the mean is the balance point of the histogram. Unlike the mean, the SD is usually not easy to identify by looking at the histogram.</p>
 <p>However, there is one shape of distribution for which the SD is almost as clearly identifiable as the mean. That is the bell-shaped disribution. This section examines that shape, as it appears frequently in probability histograms and also in some histograms of data.</p>
 <section id="a-roughly-bell-shaped-histogram-of-data">
-<h2><span class="section-number">14.3.1. </span>A Roughly Bell-Shaped Histogram of Data<a class="headerlink" href="#a-roughly-bell-shaped-histogram-of-data" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.3.1. </span>A Roughly Bell-Shaped Histogram of Data<a class="headerlink" href="#a-roughly-bell-shaped-histogram-of-data" title="Permalink to this heading">#</a></h2>
 <p>Let us look at the distribution of heights of mothers in our familiar sample of 1,174 mother-newborn pairs. The mothers’ heights have a mean of 64 inches and an SD of 2.5 inches. Unlike the heights of the basketball players, the mothers’ heights are distributed fairly symmetrically about the mean in a bell-shaped curve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1073,19 +579,19 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/SD_and_the_Normal_Curve_6_0.png" src="../../../_images/SD_and_the_Normal_Curve_6_0.png" />
+<img alt="../../../_images/5d5c8636ebf6fb2e7599ac82672f4a67d60a83db3995d45d55d9eb497cecf188.png" src="../../../_images/5d5c8636ebf6fb2e7599ac82672f4a67d60a83db3995d45d55d9eb497cecf188.png" />
 </div>
 </div>
 <p>The last two lines of code in the cell above change the labeling of the horizontal axis. Now, the labels correspond to “average <span class="math notranslate nohighlight">\(\pm\)</span> <span class="math notranslate nohighlight">\(z\)</span> SDs” for <span class="math notranslate nohighlight">\(z = 0, \pm 1, \pm 2\)</span>, and <span class="math notranslate nohighlight">\(\pm 3\)</span>. Because of the shape of the distribution, the “center” has an unambiguous meaning and is clearly visible at 64.</p>
 </section>
 <section id="how-to-spot-the-sd-on-a-bell-shaped-curve">
-<h2><span class="section-number">14.3.2. </span>How to Spot the SD on a Bell Shaped Curve<a class="headerlink" href="#how-to-spot-the-sd-on-a-bell-shaped-curve" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.3.2. </span>How to Spot the SD on a Bell Shaped Curve<a class="headerlink" href="#how-to-spot-the-sd-on-a-bell-shaped-curve" title="Permalink to this heading">#</a></h2>
 <p>To see how the SD is related to the curve, start at the top of the curve and look towards the right. Notice that there is a place where the curve changes from looking like an “upside-down cup” to a “right-way-up cup”; formally, the curve has a point of inflection. That point is one SD above average. It is the point <span class="math notranslate nohighlight">\(z=1\)</span>, which is “average plus 1 SD” = 66.5 inches.</p>
 <p>Symmetrically on the left-hand side of the mean, the point of inflection is at <span class="math notranslate nohighlight">\(z=-1\)</span>, that is, “average minus 1 SD” = 61.5 inches.</p>
 <p>In general, <strong>for bell-shaped distributions, the SD is the distance between the mean and the points of inflection on either side.</strong></p>
 </section>
 <section id="the-standard-normal-curve">
-<h2><span class="section-number">14.3.3. </span>The standard normal curve<a class="headerlink" href="#the-standard-normal-curve" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.3.3. </span>The standard normal curve<a class="headerlink" href="#the-standard-normal-curve" title="Permalink to this heading">#</a></h2>
 <p>All the bell-shaped histograms that we have seen look essentially the same apart from the labels on the axes. Indeed, there is really just one basic curve from which all of these curves can be drawn just by relabeling the axes appropriately.</p>
 <p>To draw that basic curve, we will use the units into which we can convert every list: standard units. The resulting curve is therefore called the <em>standard normal curve</em>.</p>
 <p>The standard normal curve has an impressive equation. But for now, it is best to think of it as a smoothed outline of a histogram of a variable that has been measured in standard units and has a bell-shaped distribution.</p>
@@ -1095,7 +601,7 @@ title="Print to PDF"
 \]</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../../_images/SD_and_the_Normal_Curve_11_0.png" src="../../../_images/SD_and_the_Normal_Curve_11_0.png" />
+<img alt="../../../_images/b53d6dd7af1fcc113a77b80dfebd10b8782d9cb3132cc943631c7ab1819f58a4.png" src="../../../_images/b53d6dd7af1fcc113a77b80dfebd10b8782d9cb3132cc943631c7ab1819f58a4.png" />
 </div>
 </div>
 <p>As always when you examine a new histogram, start by looking at the horizontal axis. On the horizontal axis of the standard normal curve, the values are standard units.</p>
@@ -1118,12 +624,12 @@ title="Print to PDF"
 </div>
 </section>
 <section id="the-standard-normal-cdf">
-<h2><span class="section-number">14.3.4. </span>The standard normal “cdf”<a class="headerlink" href="#the-standard-normal-cdf" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.3.4. </span>The standard normal “cdf”<a class="headerlink" href="#the-standard-normal-cdf" title="Permalink to this heading">#</a></h2>
 <p>The fundamental function for finding areas under the normal curve is <code class="docutils literal notranslate"><span class="pre">stats.norm.cdf</span></code>. It takes a numerical argument and returns all the area under the curve to the left of that number. Formally, it is called the “cumulative distribution function” of the standard normal curve. That rather unwieldy mouthful is abbreviated as cdf.</p>
 <p>Let us use this function to find the area to the left of <span class="math notranslate nohighlight">\(z=1\)</span> under the standard normal curve.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../../_images/SD_and_the_Normal_Curve_16_0.png" src="../../../_images/SD_and_the_Normal_Curve_16_0.png" />
+<img alt="../../../_images/ada1108ac2adaf48d7716b64439239960311a3403b9aca9583e5308ed08400d5.png" src="../../../_images/ada1108ac2adaf48d7716b64439239960311a3403b9aca9583e5308ed08400d5.png" />
 </div>
 </div>
 <p>The numerical value of the shaded area can be found by calling <code class="docutils literal notranslate"><span class="pre">stats.norm.cdf</span></code>.</p>
@@ -1143,7 +649,7 @@ title="Print to PDF"
 <p>The area to the right of <span class="math notranslate nohighlight">\(z=1\)</span> is about 100% - 84% = 16%.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../../_images/SD_and_the_Normal_Curve_20_0.png" src="../../../_images/SD_and_the_Normal_Curve_20_0.png" />
+<img alt="../../../_images/68502ce81a9df05057f746aec56db42c93b52215e745a1fc568cb30680877f66.png" src="../../../_images/68502ce81a9df05057f746aec56db42c93b52215e745a1fc568cb30680877f66.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1161,7 +667,7 @@ title="Print to PDF"
 <p>The area between <span class="math notranslate nohighlight">\(z=-1\)</span> and <span class="math notranslate nohighlight">\(z=1\)</span> can be computed in several different ways.  It is the gold area under the curve below.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../../_images/SD_and_the_Normal_Curve_23_0.png" src="../../../_images/SD_and_the_Normal_Curve_23_0.png" />
+<img alt="../../../_images/b557159ed10d5cf0e105c5b92dee0012f2faea5d330bf888844a0b5c1cbdc86a.png" src="../../../_images/b557159ed10d5cf0e105c5b92dee0012f2faea5d330bf888844a0b5c1cbdc86a.png" />
 </div>
 </div>
 <p>For example, we could calculate the area as “100% - two equal tails”, which works out to roughly 100% - 2x16% = 68%.</p>
@@ -1181,7 +687,7 @@ title="Print to PDF"
 <p>By a similar calculation, we see that the area between <span class="math notranslate nohighlight">\(-2\)</span> and 2 is about 95%.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../../_images/SD_and_the_Normal_Curve_27_0.png" src="../../../_images/SD_and_the_Normal_Curve_27_0.png" />
+<img alt="../../../_images/4354765a3a437bff4a9fa5d710e712033008d89eede680441492d7402ba8a8a4.png" src="../../../_images/4354765a3a437bff4a9fa5d710e712033008d89eede680441492d7402ba8a8a4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1199,25 +705,25 @@ title="Print to PDF"
 <p>In other words, if a histogram is roughly bell shaped, the proportion of data in the range “average <span class="math notranslate nohighlight">\(\pm\)</span> 2 SDs” is about 95%.</p>
 <p>That is quite a bit more than Chebychev’s lower bound of 75%. Chebychev’s bound is weaker because it has to work for all distributions. If we know that a distribution is normal, we have good approximations to the proportions, not just bounds.</p>
 <p>The table below compares what we know about all distributions and about normal distributions. Notice that when <span class="math notranslate nohighlight">\(z=1\)</span>, Chebychev’s bound is correct but not illuminating.</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:left head"><p>Percent in Range</p></th>
-<th class="text-align:left head"><p>All Distributions: Bound</p></th>
-<th class="text-align:left head"><p>Normal Distribution: Approximation</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Percent in Range</p></th>
+<th class="head text-left"><p>All Distributions: Bound</p></th>
+<th class="head text-left"><p>Normal Distribution: Approximation</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:left"><p>average <span class="math notranslate nohighlight">\(\pm\)</span> 1 SD</p></td>
-<td class="text-align:left"><p>at least 0%</p></td>
-<td class="text-align:left"><p>about 68%</p></td>
+<tr class="row-even"><td class="text-left"><p>average <span class="math notranslate nohighlight">\(\pm\)</span> 1 SD</p></td>
+<td class="text-left"><p>at least 0%</p></td>
+<td class="text-left"><p>about 68%</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>average <span class="math notranslate nohighlight">\(\pm\)</span> 2 SDs</p></td>
-<td class="text-align:left"><p>at least 75%</p></td>
-<td class="text-align:left"><p>about 95%</p></td>
+<tr class="row-odd"><td class="text-left"><p>average <span class="math notranslate nohighlight">\(\pm\)</span> 2 SDs</p></td>
+<td class="text-left"><p>at least 75%</p></td>
+<td class="text-left"><p>about 95%</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>average <span class="math notranslate nohighlight">\(\pm\)</span> 3 SDs</p></td>
-<td class="text-align:left"><p>at least 88.888…%</p></td>
-<td class="text-align:left"><p>about 99.73%</p></td>
+<tr class="row-even"><td class="text-left"><p>average <span class="math notranslate nohighlight">\(\pm\)</span> 3 SDs</p></td>
+<td class="text-left"><p>at least 88.888…%</p></td>
+<td class="text-left"><p>about 99.73%</p></td>
 </tr>
 </tbody>
 </table>
@@ -1236,7 +742,7 @@ title="Print to PDF"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters/14/3"
         },
         predefinedOutput: true
@@ -1244,50 +750,108 @@ title="Print to PDF"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../2/Variability.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">14.2. </span>Variability</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../2/Variability.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">14.2. </span>Variability</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../4/Central_Limit_Theorem.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../4/Central_Limit_Theorem.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">14.4. </span>The Central Limit Theorem</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Ani Adhikari and John DeNero and David Wagner<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-roughly-bell-shaped-histogram-of-data">14.3.1. A Roughly Bell-Shaped Histogram of Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-spot-the-sd-on-a-bell-shaped-curve">14.3.2. How to Spot the SD on a Bell Shaped Curve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-standard-normal-curve">14.3.3. The standard normal curve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-standard-normal-cdf">14.3.4. The standard normal “cdf”</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ani Adhikari and John DeNero and David Wagner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
