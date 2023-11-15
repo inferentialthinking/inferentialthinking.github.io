@@ -855,7 +855,7 @@ document.write(`
 </section>
 <section id="bootstrap-empirical-distribution-of-the-sample-median">
 <h2><span class="section-number">13.2.7. </span>Bootstrap Empirical Distribution of the Sample Median<a class="headerlink" href="#bootstrap-empirical-distribution-of-the-sample-median" title="Permalink to this heading">#</a></h2>
-<p>We can now repeat the bootstrap process multiple times by running a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop as usual. In each iteration, we will call the function <code class="docutils literal notranslate"><span class="pre">one_bootstrap_median</span></code> to generate one value of the bootstrapped median based on our original sample <code class="docutils literal notranslate"><span class="pre">our_sample</span></code>. Then we will append the boostrapped median to the collection array <code class="docutils literal notranslate"><span class="pre">bstrap_medians</span></code>.</p>
+<p>We can now repeat the bootstrap process multiple times by running a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop as usual. In each iteration, we will call the function <code class="docutils literal notranslate"><span class="pre">one_bootstrap_median</span></code> to generate one value of the bootstrapped median based on our original sample <code class="docutils literal notranslate"><span class="pre">our_sample</span></code>. Then we will append the bootstrapped median to the collection array <code class="docutils literal notranslate"><span class="pre">bstrap_medians</span></code>.</p>
 <p>Since we are asking for 5000 repetitions, the code might take a while to run. It has a lot of resampling to do!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -942,7 +942,7 @@ document.write(`
 </ul>
 <p>We will end up with 100 intervals, and count how many of them contain the population median.</p>
 <p><strong>Spoiler alert:</strong> The statistical theory of the bootstrap says that the number should be around 95. It may be in the low 90s or high 90s, but we don’t expect it to be much farther off 95 than that.</p>
-<p>We will start by writing a function <code class="docutils literal notranslate"><span class="pre">bootstrap_median</span></code> that takes two arguments: the name of the table containing the original random sample, and the number of bootstrap samples to draw. It returns an array of bootstrapped medians, one from each boostrap sample.</p>
+<p>We will start by writing a function <code class="docutils literal notranslate"><span class="pre">bootstrap_median</span></code> that takes two arguments: the name of the table containing the original random sample, and the number of bootstrap samples to draw. It returns an array of bootstrapped medians, one from each bootstrap sample.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bootstrap_median</span><span class="p">(</span><span class="n">original_sample</span><span class="p">,</span> <span class="n">num_repetitions</span><span class="p">):</span>
