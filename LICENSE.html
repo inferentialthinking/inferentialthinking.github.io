@@ -1,0 +1,718 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Attribution-NonCommercial-NoDerivatives 4.0 International &#8212; Computational and Inferential Thinking</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/book.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-148221575-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-148221575-1');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'LICENSE';</script>
+    <link rel="canonical" href="https://inferentialthinking.org/LICENSE.html" />
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="chapters/intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/favicon.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/favicon.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/01/what-is-data-science.html">1. Data Science</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="chapters/01/1/intro.html">1.1. Introduction</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/01/1/1/computational-tools.html">1.1.1. Computational Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/01/1/2/statistical-techniques.html">1.1.2. Statistical Techniques</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/01/2/why-data-science.html">1.2. Why Data Science?</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="chapters/01/3/Plotting_the_Classics.html">1.3. Plotting the Classics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/01/3/1/Literary_Characters.html">1.3.1. Literary Characters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/01/3/2/Another_Kind_Of_Character.html">1.3.2. Another Kind of Character</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/02/causality-and-experiments.html">2. Causality and Experiments</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/02/1/observation-and-visualization-john-snow-and-the-broad-street-pump.html">2.1. John Snow and the Broad Street Pump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/02/2/snow-s-grand-experiment.html">2.2. Snow’s “Grand Experiment”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/02/3/establishing-causality.html">2.3. Establishing Causality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/02/4/randomization.html">2.4. Randomization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/02/5/endnote.html">2.5. Endnote</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/03/programming-in-python.html">3. Programming in Python</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/03/1/Expressions.html">3.1. Expressions</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="chapters/03/2/Names.html">3.2. Names</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/03/2/1/Growth.html">3.2.1. Example: Growth Rates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/03/3/Calls.html">3.3. Call Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/03/4/Introduction_to_Tables.html">3.4. Introduction to Tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/04/Data_Types.html">4. Data Types</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/04/1/Numbers.html">4.1. Numbers</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="chapters/04/2/Strings.html">4.2. Strings</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/04/2/1/String_Methods.html">4.2.1. String Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/04/3/Comparison.html">4.3. Comparisons</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/05/Sequences.html">5. Sequences</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/05/1/Arrays.html">5.1. Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/05/2/Ranges.html">5.2. Ranges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/05/3/More_on_Arrays.html">5.3. More on Arrays</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/06/Tables.html">6. Tables</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/06/1/Sorting_Rows.html">6.1. Sorting Rows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/06/2/Selecting_Rows.html">6.2. Selecting Rows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/06/3/Example_Population_Trends.html">6.3. Example: Population Trends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/06/4/Example_Sex_Ratios.html">6.4. Example: Sex Ratios</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/07/Visualization.html">7. Visualization</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/07/1/Visualizing_Categorical_Distributions.html">7.1. Categorical Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/07/2/Visualizing_Numerical_Distributions.html">7.2. Numerical Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/07/3/Overlaid_Graphs.html">7.3. Overlaid Graphs</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/08/Functions_and_Tables.html">8. Functions and Tables</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/08/1/Applying_a_Function_to_a_Column.html">8.1. Applying Functions to Columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/08/2/Classifying_by_One_Variable.html">8.2. Classifying by One Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/08/3/Cross-Classifying_by_More_than_One_Variable.html">8.3. Cross-Classifying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/08/4/Joining_Tables_by_Columns.html">8.4. Joining Tables by Columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/08/5/Bike_Sharing_in_the_Bay_Area.html">8.5. Bike Sharing in the Bay Area</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/09/Randomness.html">9. Randomness</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/09/1/Conditional_Statements.html">9.1. Conditional Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/09/2/Iteration.html">9.2. Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/09/3/Simulation.html">9.3. Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/09/4/Monty_Hall_Problem.html">9.4. The Monty Hall Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/09/5/Finding_Probabilities.html">9.5. Finding Probabilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/10/Sampling_and_Empirical_Distributions.html">10. Sampling and Empirical Distributions</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/10/1/Empirical_Distributions.html">10.1. Empirical Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/10/2/Sampling_from_a_Population.html">10.2. Sampling from a Population</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/10/3/Empirical_Distribution_of_a_Statistic.html">10.3. Empirical Distibution of a Statistic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/10/4/Random_Sampling_in_Python.html">10.4. Random Sampling in Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/11/Testing_Hypotheses.html">11. Testing Hypotheses</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/11/1/Assessing_a_Model.html">11.1. Assessing a Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/11/2/Multiple_Categories.html">11.2. Multiple Categories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/11/3/Decisions_and_Uncertainty.html">11.3. Decisions and Uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/11/4/Error_Probabilities.html">11.4. Error Probabilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/12/Comparing_Two_Samples.html">12. Comparing Two Samples</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/12/1/AB_Testing.html">12.1. A/B Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/12/2/Causality.html">12.2. Causality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/12/3/Deflategate.html">12.3. Deflategate</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/13/Estimation.html">13. Estimation</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/13/1/Percentiles.html">13.1. Percentiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/13/2/Bootstrap.html">13.2. The Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/13/3/Confidence_Intervals.html">13.3. Confidence Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/13/4/Using_Confidence_Intervals.html">13.4. Using Confidence Intervals</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/14/Why_the_Mean_Matters.html">14. Why the Mean Matters</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/14/1/Properties_of_the_Mean.html">14.1. Properties of the Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/14/2/Variability.html">14.2. Variability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/14/3/SD_and_the_Normal_Curve.html">14.3. The SD and the Normal Curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/14/4/Central_Limit_Theorem.html">14.4. The Central Limit Theorem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/14/5/Variability_of_the_Sample_Mean.html">14.5. The Variability of the Sample Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/14/6/Choosing_a_Sample_Size.html">14.6. Choosing a Sample Size</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/15/Prediction.html">15. Prediction</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/15/1/Correlation.html">15.1. Correlation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/15/2/Regression_Line.html">15.2. The Regression Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/15/3/Method_of_Least_Squares.html">15.3. The Method of Least Squares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/15/4/Least_Squares_Regression.html">15.4. Least Squares Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/15/5/Visual_Diagnostics.html">15.5. Visual Diagnostics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/15/6/Numerical_Diagnostics.html">15.6. Numerical Diagnostics</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/16/Inference_for_Regression.html">16. Inference for Regression</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/16/1/Regression_Model.html">16.1. A Regression Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/16/2/Inference_for_the_True_Slope.html">16.2. Inference for the True Slope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/16/3/Prediction_Intervals.html">16.3. Prediction Intervals</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/17/Classification.html">17. Classification</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/17/1/Nearest_Neighbors.html">17.1. Nearest Neighbors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/17/2/Training_and_Testing.html">17.2. Training and Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/17/3/Rows_of_Tables.html">17.3. Rows of Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/17/4/Implementing_the_Classifier.html">17.4. Implementing the Classifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/17/5/Accuracy_of_the_Classifier.html">17.5. The Accuracy of the Classifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/17/6/Multiple_Regression.html">17.6. Multiple Regression</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/18/Updating_Predictions.html">18. Updating Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/18/1/More_Likely_than_Not_Binary_Classifier.html">18.1. A "More Likely Than Not" Binary Classifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/18/2/Making_Decisions.html">18.2. Making Decisions</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/data-8/textbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/LICENSE.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Attribution-NonCommercial-NoDerivatives 4.0 International</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-creative-commons-public-licenses">Using Creative Commons Public Licenses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creative-commons-attribution-noncommercial-noderivatives-4-0-international-public-license">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-definitions">Section 1 – Definitions.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-scope">Section 2 – Scope.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-license-conditions">Section 3 – License Conditions.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-sui-generis-database-rights">Section 4 – Sui Generis Database Rights.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-5-disclaimer-of-warranties-and-limitation-of-liability">Section 5 – Disclaimer of Warranties and Limitation of Liability.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-6-term-and-termination">Section 6 – Term and Termination.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-7-other-terms-and-conditions">Section 7 – Other Terms and Conditions.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-8-interpretation">Section 8 – Interpretation.</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="attribution-noncommercial-noderivatives-4-0-international">
+<h1>Attribution-NonCommercial-NoDerivatives 4.0 International<a class="headerlink" href="#attribution-noncommercial-noderivatives-4-0-international" title="Permalink to this heading">#</a></h1>
+<blockquote>
+<div><p><em>Creative Commons Corporation (“Creative Commons”) is not a law firm and does not provide legal services or legal advice. Distribution of Creative Commons public licenses does not create a lawyer-client or other relationship. Creative Commons makes its licenses and related information available on an “as-is” basis. Creative Commons gives no warranties regarding its licenses, any material licensed under their terms and conditions, or any related information. Creative Commons disclaims all liability for damages resulting from their use to the fullest extent possible.</em></p>
+</div></blockquote>
+<section id="using-creative-commons-public-licenses">
+<h2>Using Creative Commons Public Licenses<a class="headerlink" href="#using-creative-commons-public-licenses" title="Permalink to this heading">#</a></h2>
+<p>Creative Commons public licenses provide a standard set of terms and conditions that creators and other rights holders may use to share original works of authorship and other material subject to copyright and certain other rights specified in the public license below. The following considerations are for informational purposes only, are not exhaustive, and do not form part of our licenses.</p>
+<ul class="simple">
+<li><p><strong>Considerations for licensors:</strong> Our public licenses are intended for use by those authorized to give the public permission to use material in ways otherwise restricted by copyright and certain other rights. Our licenses are irrevocable. Licensors should read and understand the terms and conditions of the license they choose before applying it. Licensors should also secure all rights necessary before applying our licenses so that the public can reuse the material as expected. Licensors should clearly mark any material not subject to the license. This includes other CC-licensed material, or material used under an exception or limitation to copyright. <a class="reference external" href="http://wiki.creativecommons.org/Considerations_for_licensors_and_licensees#Considerations_for_licensors">More considerations for licensors</a>.</p></li>
+<li><p><strong>Considerations for the public:</strong> By using one of our public licenses, a licensor grants the public permission to use the licensed material under specified terms and conditions. If the licensor’s permission is not necessary for any reason–for example, because of any applicable exception or limitation to copyright–then that use is not regulated by the license. Our licenses grant only permissions under copyright and certain other rights that a licensor has authority to grant. Use of the licensed material may still be restricted for other reasons, including because others have copyright or other rights in the material. A licensor may make special requests, such as asking that all changes be marked or described. Although not required by our licenses, you are encouraged to respect those requests where reasonable. <a class="reference external" href="http://wiki.creativecommons.org/Considerations_for_licensors_and_licensees#Considerations_for_licensees">More considerations for the public</a>.</p></li>
+</ul>
+</section>
+<section id="creative-commons-attribution-noncommercial-noderivatives-4-0-international-public-license">
+<h2>Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License<a class="headerlink" href="#creative-commons-attribution-noncommercial-noderivatives-4-0-international-public-license" title="Permalink to this heading">#</a></h2>
+<p>By exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.</p>
+<section id="section-1-definitions">
+<h3>Section 1 – Definitions.<a class="headerlink" href="#section-1-definitions" title="Permalink to this heading">#</a></h3>
+<p>a. <strong>Adapted Material</strong> means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.</p>
+<p>b. <strong>Copyright and Similar Rights</strong> means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.</p>
+<p>e. <strong>Effective Technological Measures</strong> means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.</p>
+<p>f. <strong>Exceptions and Limitations</strong> means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.</p>
+<p>h. <strong>Licensed Material</strong> means the artistic or literary work, database, or other material to which the Licensor applied this Public License.</p>
+<p>i. <strong>Licensed Rights</strong> means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.</p>
+<p>h. <strong>Licensor</strong> means the individual(s) or entity(ies) granting rights under this Public License.</p>
+<p>i. <strong>NonCommercial</strong> means not primarily intended for or directed towards commercial advantage or monetary compensation. For purposes of this Public License, the exchange of the Licensed Material for other material subject to Copyright and Similar Rights by digital file-sharing or similar means is NonCommercial provided there is no payment of monetary compensation in connection with the exchange.</p>
+<p>j. <strong>Share</strong> means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.</p>
+<p>k. <strong>Sui Generis Database Rights</strong> means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.</p>
+<p>l. <strong>You</strong> means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.</p>
+</section>
+<section id="section-2-scope">
+<h3>Section 2 – Scope.<a class="headerlink" href="#section-2-scope" title="Permalink to this heading">#</a></h3>
+<p>a. <em><strong>License grant.</strong></em></p>
+<ol class="arabic">
+<li><p>Subject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:</p>
+<p>A. reproduce and Share the Licensed Material, in whole or in part, for NonCommercial purposes only; and</p>
+<p>B. produce and reproduce, but not Share, Adapted Material for NonCommercial purposes only.</p>
+</li>
+<li><p><strong>Exceptions and Limitations.</strong> For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.</p></li>
+<li><p><strong>Term.</strong> The term of this Public License is specified in Section 6(a).</p></li>
+<li><p><strong>Media and formats; technical modifications allowed.</strong> The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never produces Adapted Material.</p></li>
+<li><p><strong>Downstream recipients.</strong></p>
+<p>A. <strong>Offer from the Licensor – Licensed Material.</strong> Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.</p>
+<p>B. <strong>No downstream restrictions.</strong> You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.</p>
+</li>
+<li><p><strong>No endorsement.</strong> Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).</p></li>
+</ol>
+<p>b. <em><strong>Other rights.</strong></em></p>
+<ol class="arabic simple">
+<li><p>Moral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.</p></li>
+<li><p>Patent and trademark rights are not licensed under this Public License.</p></li>
+<li><p>To the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties, including when the Licensed Material is used other than for NonCommercial purposes.</p></li>
+</ol>
+</section>
+<section id="section-3-license-conditions">
+<h3>Section 3 – License Conditions.<a class="headerlink" href="#section-3-license-conditions" title="Permalink to this heading">#</a></h3>
+<p>Your exercise of the Licensed Rights is expressly made subject to the following conditions.</p>
+<p>a. <em><strong>Attribution.</strong></em></p>
+<ol class="arabic">
+<li><p>If You Share the Licensed Material, You must:</p>
+<p>A. retain the following if it is supplied by the Licensor with the Licensed Material:</p>
+<p>i. identification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);</p>
+<p>ii. a copyright notice;</p>
+<p>iii. a notice that refers to this Public License;</p>
+<p>iv. a notice that refers to the disclaimer of warranties;</p>
+<p>v. a URI or hyperlink to the Licensed Material to the extent reasonably practicable;</p>
+<p>B. indicate if You modified the Licensed Material and retain an indication of any previous modifications; and</p>
+<p>C. indicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.</p>
+<p>For the avoidance of doubt, You do not have permission under this Public License to Share Adapted Material.</p>
+</li>
+<li><p>You may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.</p></li>
+<li><p>If requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.</p></li>
+</ol>
+</section>
+<section id="section-4-sui-generis-database-rights">
+<h3>Section 4 – Sui Generis Database Rights.<a class="headerlink" href="#section-4-sui-generis-database-rights" title="Permalink to this heading">#</a></h3>
+<p>Where the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:</p>
+<p>a. for the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database for NonCommercial purposes only and provided You do not Share Adapted Material;</p>
+<p>b. if You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material; and</p>
+<p>c. You must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.</p>
+<p>For the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.</p>
+</section>
+<section id="section-5-disclaimer-of-warranties-and-limitation-of-liability">
+<h3>Section 5 – Disclaimer of Warranties and Limitation of Liability.<a class="headerlink" href="#section-5-disclaimer-of-warranties-and-limitation-of-liability" title="Permalink to this heading">#</a></h3>
+<p>a. <strong>Unless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation, warranties of title, merchantability, fitness for a particular purpose, non-infringement, absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not known or discoverable. Where disclaimers of warranties are not allowed in full or in part, this disclaimer may not apply to You.</strong></p>
+<p>b. <strong>To the extent possible, in no event will the Licensor be liable to You on any legal theory (including, without limitation, negligence) or otherwise for any direct, special, indirect, incidental, consequential, punitive, exemplary, or other losses, costs, expenses, or damages arising out of this Public License or use of the Licensed Material, even if the Licensor has been advised of the possibility of such losses, costs, expenses, or damages. Where a limitation of liability is not allowed in full or in part, this limitation may not apply to You.</strong></p>
+<p>c. The disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.</p>
+</section>
+<section id="section-6-term-and-termination">
+<h3>Section 6 – Term and Termination.<a class="headerlink" href="#section-6-term-and-termination" title="Permalink to this heading">#</a></h3>
+<p>a. This Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.</p>
+<p>b. Where Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:</p>
+<ol class="arabic simple">
+<li><p>automatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or</p></li>
+<li><p>upon express reinstatement by the Licensor.</p></li>
+</ol>
+<p>For the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.</p>
+<p>c. For the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.</p>
+<p>d. Sections 1, 5, 6, 7, and 8 survive termination of this Public License.</p>
+</section>
+<section id="section-7-other-terms-and-conditions">
+<h3>Section 7 – Other Terms and Conditions.<a class="headerlink" href="#section-7-other-terms-and-conditions" title="Permalink to this heading">#</a></h3>
+<p>a. The Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.</p>
+<p>b. Any arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.</p>
+</section>
+<section id="section-8-interpretation">
+<h3>Section 8 – Interpretation.<a class="headerlink" href="#section-8-interpretation" title="Permalink to this heading">#</a></h3>
+<p>a. For the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.</p>
+<p>b. To the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.</p>
+<p>c. No term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.</p>
+<p>d. Nothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.</p>
+<blockquote>
+<div><p>Creative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at <a class="reference external" href="http://creativecommons.org/policies">creativecommons.org/policies</a>, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.</p>
+<p>Creative Commons may be contacted at <a class="reference external" href="http://creativecommons.org">creativecommons.org</a>.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-creative-commons-public-licenses">Using Creative Commons Public Licenses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creative-commons-attribution-noncommercial-noderivatives-4-0-international-public-license">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-definitions">Section 1 – Definitions.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-scope">Section 2 – Scope.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-license-conditions">Section 3 – License Conditions.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-sui-generis-database-rights">Section 4 – Sui Generis Database Rights.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-5-disclaimer-of-warranties-and-limitation-of-liability">Section 5 – Disclaimer of Warranties and Limitation of Liability.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-6-term-and-termination">Section 6 – Term and Termination.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-7-other-terms-and-conditions">Section 7 – Other Terms and Conditions.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-8-interpretation">Section 8 – Interpretation.</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ani Adhikari and John DeNero and David Wagner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
